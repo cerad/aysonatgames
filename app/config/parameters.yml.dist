@@ -6,6 +6,11 @@ parameters:
     database_user:     root
     database_password: ~
 
+    database_name_games:       gamesx
+    database_name_accounts:    accountsx
+    database_name_persons:     personsx
+    database_name_legacy2012:  osso2012x
+
     mailer_transport:  smtp
     mailer_host:       127.0.0.1
     mailer_user:       ~
@@ -13,3 +18,6 @@ parameters:
 
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    cerad_account_master_password: something
+    cerad_janrain_rpx_api_key:     something
