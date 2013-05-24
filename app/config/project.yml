@@ -18,12 +18,13 @@ parameters:
          attending:
            type:    select
            label:   I will attend the games
-           default: no
+           default: na
            choices:
+             na:    Not yet answered
              no:    No
              yes:   Yes - For Sure
              yesx:  Yes - If my team is selected
-             maybe: Not sure yet
+             maybe: Maybe
            
          refereeing:
            type:    select
