@@ -1,4 +1,6 @@
 parameters:
+  
+    cerad_tourn_project_key: AYSONationalGames2014
 
     cerad_tourn_project:
 
@@ -11,7 +13,7 @@ parameters:
           domainSub: NatGames
              
           title:   "AYSO National Games 2014"
-          desc:    "AYSO National Games 2014 - Torrence, Califorina - July 4..10"
+          desc:    "AYSO National Games 2014 - Torrence, Califorina - June 29 to July 7"
                  
         plan:
          
