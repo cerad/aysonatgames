@@ -13,8 +13,34 @@ parameters:
           domainSub: NatGames
              
           title:   "AYSO National Games 2014"
-          desc:    "AYSO National Games 2014 - Torrence, Califorina - June 29 to July 7"
-                 
+          desc:    "AYSO National Games 2014 - Torrence, Califorina - June 29 to July 6"
+          
+        # ==============================================
+        # For the search form
+        dates:
+          '2014-07-02': Wen
+          '2014-07-03': Thu
+          '2014-07-04': Fri
+          '2014-07-05': Sat
+          '2014-07-06': Sun
+         
+        genders:
+         #All: All
+          B:   Boys
+          G:   Girls
+          
+        ages:
+         #All: All
+          U10: U10
+          U12: U12
+          U14: U14
+          U16: U16
+          U19: U19
+        
+        levels:
+          C: Core
+          E: Extra
+          
         plan:
          
          attending:
