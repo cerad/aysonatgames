@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <title>{% block title %}NatGames{% endblock %}</title>
     <meta name="description" content="Cerad Referee Scheduling"/>
-    <meta name="author" content="Art Hundiak"/>
+    <meta name="author"      content="Art Hundiak"/>
     
 {% block stylesheets %}
     {# stylesheets output='bundles/appcore/css/app.css' debug=false
@@ -24,16 +24,12 @@
 {% endblock %}
 
     <link rel="icon" type="image/x-icon" href="{{ asset('bundles/ceradapp/images/favicon.ico') }}" />
-    
-{% if cerad_tourn_is_iframe() %}
-    <script type="text/javascript" charset="utf8" src="http://2014nationalgames.org/js/zayso.js"></script>
-    <link type="text/css" rel="stylesheet" href="http://2014nationalgames.org/css/zayso.css" media="screen" />
-{%endif %}
-    
-{% if cerad_tourn_is_iframe() %}
-    <script src="http://2014nationalgames.org/wp-content/themes/2014NationalGames/js/zayso.js" type="text/javascript"></script>
-<link href="http://2014nationalgames.org/wp-content/themes/2014NationalGames/css/zayso.css" media="screen" rel="stylesheet" type="text/css" />
 
+{% set referer = cerad_tourn_get_referer() %}
+    
+{% if referer %}
+    <script src="{{ referer }}wp-content/themes/2014NationalGames/js/zayso.js"   type="text/javascript"></script>
+    <link  href="{{ referer }}wp-content/themes/2014NationalGames/css/zayso.css" type="text/css" rel="stylesheet" media="screen" />
 {%endif %}
 
 {# Need this at the top to remember which account was last used to sign in #}
@@ -47,9 +43,7 @@
 
 </head>
 <body>
-{% if cerad_tourn_show_header() %}
-{{ include('@CeradTourn/header.html.twig')  }}
-{% endif %}
+{{ include('@CeradTourn/header.html.twig') }}
 {{ include('@CeradTourn/topmenu.html.twig') }}
 <div id="layout-content">
   {% block content %}{% endblock %}
