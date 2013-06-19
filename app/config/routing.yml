@@ -35,6 +35,12 @@ cerad_janrain:
 cerad_account:
   resource: "@CeradAccountBundle/Resources/config/routing.yml"
   prefix: /account
+
+cerad_account_home:
+  path: /home
+  
+cerad_account_welcome:
+  path: /welcome
   
 # Redirect profile to home page
 fos_user_profile_show:
