@@ -69,6 +69,16 @@ parameters:
         label:   I will referee
         default: no
         choices: { no: No, yes: Yes, maybe: Not Sure }
+      
+      venue:
+        type:    select
+        label:   I will work at
+        default: na
+        choices: 
+          na:    Not yet answered
+          core:  The CORE  site
+          extra: The EXTRA site
+          other: Where needed
            
 #     refLevelCR:
 #       type:    select
