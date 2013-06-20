@@ -30,7 +30,8 @@ fos_user_change_password:
 cerad_janrain:
     resource: "@CeradJanrainBundle/Resources/config/routing.yml"
     prefix: /account
-    
+
+# ==================================================
 # My own account stuff
 cerad_account:
   resource: "@CeradAccountBundle/Resources/config/routing.yml"
@@ -40,6 +41,18 @@ cerad_account_home:
   path: /home
   
 cerad_account_welcome:
+  path: /welcome
+  
+# ==================================================
+# My own person stuff
+cerad_person:
+  resource: "@CeradPersonBundle/Resources/config/routing.yml"
+  prefix: /person
+
+cerad_person_home:
+  path: /home
+  
+cerad_person_welcome:
   path: /welcome
   
 # Redirect profile to home page

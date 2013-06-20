@@ -11,7 +11,7 @@
     <p style="text-align: center;">
       <span style="color: blue;">{{ cerad_tourn_get_project_description() }}</span>
     </p>
-    <p style="margin-top: 2px; color: black; ">
+    <p style="margin-top: 2px; color: black; display: none;">
       <span style="color: blue;">Zayso User: </span>
       <span style="color: green;">       
         {% if     is_granted('ROLE_USER') %}{{ app.user.name }} {{ app.user.person.phone }}{% endif %}
