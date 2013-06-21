@@ -1,11 +1,12 @@
 parameters:
   
-  cerad_tourn_project_key: AYSONationalGames2014
+  cerad_tourn_referee_signups_enabled: false
 
   cerad_tourn_project:
 
     info:     
       key:       AYSONationalGames2014
+      keySearch: AYSOS5Games2013       # Normally matches key but can be different for testing
       status:    Active
       season:    SU2014
       sport:     Soccer
@@ -17,37 +18,62 @@ parameters:
           
     # ==============================================
     # For the schedule search form
-    search:
+    searches:
+      
       dates:
-        '2014-07-02': Wen
-        '2014-07-03': Thu
-        '2014-07-04': Fri
-        '2014-07-05': Sat
-        '2014-07-06': Sun
-         
+        type:     checkbox
+        label:    Days
+        default: '2013-06-16'
+        choices:
+          '2014-07-02': Wen
+          '2014-07-03': Thu
+         #'2014-07-04': Fri
+         #'2014-07-05': Sat
+         #'2014-07-06': Sun
+          '2013-06-14': Fri
+          '2013-06-15': Sat
+          '2013-06-16': Sun
+          
       genders:
-        B: Boys
-        G: Girls
+        type:    checkbox
+        label:   Genders
+        default: ~
+        choices:
+          B:   Boys
+          G:   Girls
           
       ages:
-        U10: U10
-        U12: U12
-        U14: U14
-        U16: U16
-        U19: U19
+        type:    checkbox
+        label:   Ages
+        default: [U12,U16]
+        choices:
+          VIP: VIP
+          U10: U10
+          U12: U12
+          U14: U14
+          U16: U16
+          U19: U19
         
       programs:
-        C: Core
-        E: Extra
+        type:    checkbox
+        label:   Programs
+        default: [Core]
+        choices:
+          C: Core
+          E: Extra
     
-      times: # Want this to be a select
-        start: 0600
-        end:   2000
+    #times: # Want this to be a select
+    #  start: 0600
+    #  end:   2000
     
       venues:
-        BC:   Ball Camp
-        NB:   Nicholas Park
-        Pell: Pellissippi
+        type:    checkbox
+        label:   Venues
+        default: ~
+        choices:
+          BC:   Ball Camp
+          NB:   Nicholas Park
+          Pell: Pellissippi
     
     # ==================================================
     # Basic volunteer plan
