@@ -55,6 +55,18 @@ cerad_person_home:
 cerad_person_welcome:
   path: /welcome
   
+# ==================================================
+# My own game stuff
+cerad_game:
+  resource: "@CeradGameBundle/Resources/config/routing.yml"
+  prefix: /game
+
+cerad_game_home:
+  path: /home
+  
+cerad_game_welcome:
+  path: /welcome
+  
 # Redirect profile to home page
 fos_user_profile_show:
   path: /home
