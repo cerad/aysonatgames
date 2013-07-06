@@ -1,5 +1,10 @@
 parameters:
   
+  # Example of overriding a form type
+  # PersonBundle was changed to AppBundle
+  cerad_person.ayso_referee_badge.form_type.class:
+    Cerad\Bundle\AppBundle\Form\Type\AYSO\RefereeBadgeFormType
+  
   cerad_tourn_referee_signups_enabled: false
 
   cerad_tourn_project:
