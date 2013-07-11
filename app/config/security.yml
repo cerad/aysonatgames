@@ -1,7 +1,9 @@
 security:
+    hide_user_not_found: false
+    
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
-        Cerad\Bundle\AccountBundle\Entity\AccountUser: 
+        Cerad\Bundle\AccountBundle\Entity\User: 
             id: cerad_account.user_encoder
 
     role_hierarchy:
@@ -39,8 +41,8 @@ security:
              
             form_login:
                 provider:            cerad_account_user_provider
-                check_path:          fos_user_security_check
-                login_path:          cerad_tourn_account_signin
+                login_path:          cerad_account_login
+                check_path:          cerad_account_login_check
                 default_target_path: cerad_tourn_home
 
                 username_parameter:  cerad_account_signin[username]
@@ -50,7 +52,7 @@ security:
                 intention:           authenticate
                 
             logout:
-                path:   fos_user_security_logout
+                path:   cerad_account_logout
                 target: cerad_tourn_welcome
 
 

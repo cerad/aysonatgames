@@ -69,7 +69,7 @@ doctrine:
             accounts:
                connection: accounts
                mappings:
-                    FOSUserBundle: ~
+                   #FOSUserBundle: ~
                     CeradAccountBundle: ~
                     
             persons:

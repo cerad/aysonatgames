@@ -4,8 +4,11 @@
       <span style="color: green;">       
         {% if is_granted('ROLE_USER') %}
             {{ app.user.name }} 
+            {% set person = app.user.person %}
+            {% if person %}
             {{ app.user.person.leagueAYSOVolunteer.identifier }}
-            <a href="{{ path('fos_user_security_logout') }}">Sign Out</a>
+            {% endif %}
+            <a href="{{ path('cerad_account_logout') }}">Sign Out</a>
         {% else %}
             Guest <a href="{{ path('cerad_tourn_account_signin') }}">Sign In</a>
         {% endif %}          

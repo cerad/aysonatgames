@@ -35,7 +35,7 @@
     <li><a href="{{ path('cerad_tourn_contact') }}">Contact Us</a></li>
    
 {% if is_granted('ROLE_USER') %}
-   <li><a href="{{ path('fos_user_security_logout') }}">Sign Out</a></li>
+   <li><a href="{{ path('cerad_account_logout') }}">Sign Out</a></li>
 {% endif %}
    
 {% if not is_granted('ROLE_USER') %}
