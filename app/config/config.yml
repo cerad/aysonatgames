@@ -64,4 +64,6 @@ cerad_account:
     model_manager_name: accounts
     
     service:
-        user_manager: cerad_account.user_manager
+        user_manager:    cerad_account.user_manager
+        person_manager:  cerad_person.manager
+        
