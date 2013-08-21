@@ -7,6 +7,9 @@ parameters:
   
   cerad_tourn_referee_signups_enabled: false
 
+  # Needed by PersonPlanTest
+  cerad_tourn_project_key: AYSONationalGames2014
+  
   cerad_tourn_project:
 
     info:     
