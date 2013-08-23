@@ -45,9 +45,9 @@ security:
                 check_path:          cerad_account_login_check
                 default_target_path: cerad_tourn_home
 
-                username_parameter:  cerad_account_signin[username]
-                password_parameter:  cerad_account_signin[password]
-                csrf_parameter:      cerad_account_signin[_token]
+                username_parameter:  cerad_account_login[username]
+                password_parameter:  cerad_account_login[password]
+                csrf_parameter:      cerad_account_login[_token]
                 csrf_provider:       form.csrf_provider
                 intention:           authenticate
                 

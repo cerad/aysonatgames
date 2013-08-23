@@ -1,7 +1,7 @@
 <div>{{ cerad_tourn_get_project_title() }} plans for {{ person.name }}</div>
 <form 
-    id     = "zayso_volunteer_plan_form" 
-    class  = "zayso_volunteer_plan_form zayso_form2" 
+    id     = "cerad_tourn_person_plan_form" 
+    class  = "cerad_tourn_person_plan_form cerad_common_form2 zayso_form2" 
     action = "{{ path('cerad_tourn_person_plan',{ id: person.id }) }}" 
     method = "post" {{ form_enctype(form) }}
 >

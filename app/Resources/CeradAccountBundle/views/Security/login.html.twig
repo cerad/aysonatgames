@@ -1,0 +1,9 @@
+{% extends '@CeradAccount/layout.html.twig' %}
+
+{% block janrain %}{% include '@CeradJanrain/Janrain/janrain.js.twig' %}{% endblock %}
+
+{% block content %}
+<div id="janrainEngageEmbed"></div>
+{% include '@CeradAccount/Security/login_form.html.twig' %}
+{% include '@CeradAccount/Password/Reset/request_form.html.twig' %}
+{% endblock %}

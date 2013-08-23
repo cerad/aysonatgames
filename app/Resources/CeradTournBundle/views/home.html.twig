@@ -26,12 +26,12 @@
             <tr><td>Relation:</td><td>{{ personPerson.role }}</td></tr>
             {% if personPerson.isRolePrimary %}
             <tr><td>Account:</td><td>
-                <a href="{{ path('cerad_account_edit', { 'id': account.id }) }}">
+                <a href="{{ path('cerad_account_profile_edit', { 'id': account.id }) }}">
                     {{ account.username }}
                 </a>
             </td></tr>
             {% for identifier in account.identifiers %}
-                <tr><td>Sign In:</td><td>{{ identifier.providerName }}</td></tr>
+                <tr><td>Social:</td><td>{{ identifier.source }}</td></tr>
             {% endfor %}
             {% endif %}
         </table></td>
