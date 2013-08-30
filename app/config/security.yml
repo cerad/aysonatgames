@@ -30,12 +30,12 @@ security:
             
             anonymous: ~
             
-            cerad_janrain:
+            cerad_janrain:                
                 provider:            cerad_account_user_provider
-                add_path:            cerad_janrain_add
+                add_path:            cerad_account_identifier_add
                 check_path:          cerad_janrain_check
-                login_path:          cerad_janrain_login
-                create_path:         cerad_account_register
+                login_path:          cerad_janrain_login   # Not used
+                register_path:       cerad_account_register
                 default_target_path: cerad_tourn_home
                 rpx_api_key:        %cerad_janrain_rpx_api_key%
              

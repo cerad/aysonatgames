@@ -3,6 +3,7 @@
 /app/cache/*
 /app/logs/*
 /vendor/
+/vendor.zip
 /app/config/parameters.yml
 
 /nbproject/private
