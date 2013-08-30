@@ -26,14 +26,14 @@
 {% block body %}
 
 {% if cerad_tourn_show('layout_header') %}
-{{ include('@CeradTourn/header.html.twig')  }}
+{{ include('@CeradTourn/Layout/header.html.twig')  }}
 {% endif %}
 
 {% if cerad_tourn_show('layout_topmenu')    %}
-{{ include('@CeradTourn/topmenu.html.twig')  }}
+{{ include('@CeradTourn/Layout/topmenu.html.twig')  }}
 {% endif %}
         
-{{ include('@CeradTourn/userinfo.html.twig') }}
+{{ include('@CeradTourn/Layout/userinfo.html.twig') }}
        
 <div id="layout-content">{% block content %}{% endblock %}</div>
 

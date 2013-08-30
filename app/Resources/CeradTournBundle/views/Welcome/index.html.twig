@@ -1,7 +1,12 @@
 {% extends '@CeradTourn/layout.html.twig' %}
 
-{% block janrain %}{% include '@CeradJanrain/Janrain/janrain.js.twig' %}{% endblock %}
-   
+{% block janrain %}
+{% if cerad_tourn_show('janrain') %}
+{% include '@CeradJanrain/Janrain/janrain.js.twig' %}
+{% endif %}
+{% endblock %}
+
+
 {% block content %}
 <h3>Referee Registration</h3>
 <p>
@@ -12,9 +17,11 @@
     Returning referees who participated in the 2012 event will already have a account and 
     need only sign in below to update your information as necessary.
 </p>
+
 {% if cerad_tourn_show('janrain') %}
 <div id="janrainEngageEmbed"></div>
-{% endif %}
+{% endif %}{# endif show janrain #}
+
 {{ include('@CeradAccount/Security/login_form.html.twig') }}
 <br/>
 <p>Referees new to the National Games will need to register for the Games by create an account by <a href="{{ path('cerad_account_register') }}">clicking here</a>.
