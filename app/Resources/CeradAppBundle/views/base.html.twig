@@ -1,0 +1,40 @@
+{#
+    app/Resources/CeradApp/views/base.html.twig
+
+    This loads with CeradApp/base.html.twig
+    Intentianally leaving this file here because I cannot decide how much of this
+    Belongs under CeradApp and how much belongs under CeradTourn
+
+    I tried loading:
+        app/Resources/views/base.html.twig
+        src/Cerad/Bundle/AppBundle/Resources/views/base.html.twig
+        src/Cerad/Bundle/AppBundle/Resources/CeradApp/views/base.html.twig
+    
+    And they all failed
+#}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Cerad Referee Scheduling"/>
+        <meta name="author"      content="Art Hundiak"/>
+        
+        <title>{% block title %}NatGames2014{% endblock %}</title>
+       
+        <link rel="icon" type="image/x-icon" href="{{ asset('bundles/ceradapp/images/favicon.ico') }}" />
+        
+        {% block stylesheets %}{% endblock %}
+        {% block janrain %}    {% endblock %}
+        {% block jquery  %}    {% endblock %}
+        {% block angularjs %}  {% endblock %}
+        
+<!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+    </head>
+    <body>
+        {% block body %}       {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

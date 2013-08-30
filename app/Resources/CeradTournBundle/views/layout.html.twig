@@ -1,11 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <title>{% block title %}NatGames{% endblock %}</title>
-    <meta name="description" content="Cerad Referee Scheduling"/>
-    <meta name="author"      content="Art Hundiak"/>
-    
+{% extends '@CeradApp/base.html.twig' %}
+
 {% block stylesheets %}
     {# stylesheets output='bundles/appcore/css/app.css' debug=false
         '@CeradTournBundle/Resources/public/css/reset.css'
@@ -19,45 +13,28 @@
         
     <link rel="stylesheet" href="{{ asset('bundles/ceradtourn/css/forms.css')    }}" media="all" />
     <link rel="stylesheet" href="{{ asset('bundles/ceradtourn/css/schedule.css') }}" media="all" />
-    
-    {# endstylesheets #}
-{% endblock %}
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('bundles/ceradapp/images/favicon.ico') }}" />
 
-{% set referer = cerad_tourn_get_referer() %}
-    
-{#  {% if referer %} #}
+{% if cerad_tourn_show('wordpress') %}
+    {% set referer = cerad_tourn_get_referer() %}
     <script src="http://2014nationalgames/wp-content/themes/2014NationalGames/js/zayso.js"   type="text/javascript"></script>
     <link  href="http://2014nationalgames/wp-content/themes/2014NationalGames/css/zayso.css" type="text/css" rel="stylesheet" media="screen" />
-{# {% endif %} #}
+{% endif %}
 
-{# Need this at the top to remember which account was last used to sign in #}
-{# RR: hide header, navigation and user information for 2014 Nat games #}
-{#
-{% block janrain %}{% endblock %}
- #}    
-{% block jquery %}{% endblock %}
-       
-<!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+{% endblock %} {# end stylesheets #}
+    
+{% block body %}
 
-</head>
-<body>
-{# RR: hide header, navigation and user information for 2014 Nat games #}
-{#
-{{ include('@CeradTourn/header.html.twig')   }}
+{% if cerad_tourn_show('layout_header') %}
+{{ include('@CeradTourn/header.html.twig')  }}
+{% endif %}
+
+{% if cerad_tourn_show('layout_topmenu')    %}
 {{ include('@CeradTourn/topmenu.html.twig')  }}
-#}
+{% endif %}
+        
 {{ include('@CeradTourn/userinfo.html.twig') }}
        
-<div id="layout-content">
-  {% block content %}{% endblock %}
-</div>
+<div id="layout-content">{% block content %}{% endblock %}</div>
 
-{# Need more research on blocks #}
-{% block javascripts %}{% endblock %}
-</body>
-</html>
-
+{% endblock %} {# end body block #}

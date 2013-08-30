@@ -1,5 +1,7 @@
 <?php
 
+define('CERAD_TOURN_SHOW_CONFIG','rick');
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Debug\Debug;
 
