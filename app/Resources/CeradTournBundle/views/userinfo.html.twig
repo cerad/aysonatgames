@@ -1,16 +1,17 @@
 <div id="zayso_layout_userinfo" class="zayso_layout_userinfo">
-    <p style="margin-top: 2px; color: black; ">
-      <span style="color: blue;">Zayso User: </span>
+    <p style="color: black; ">
+      <!--<span style="color: blue;">User: </span>-->
       <span style="color: green;">       
         {% if is_granted('ROLE_USER') %}
             {{ app.user.name }} 
             {% set person = app.user.person %}
             {% if person %}
-            {{ app.user.person.leagueAYSOVolunteer.identifier }}
+            {{ "AYSO ID: %s  "|format(app.user.person.leagueAYSOVolunteer.identifier[5:14]) }}
             {% endif %}
             <a href="{{ path('cerad_account_logout') }}">Sign Out</a>
         {% else %}
-            Guest <a href="{{ path('cerad_account_login') }}">Sign In</a>
+            <!--Guest-->
+            <br/> <a href="{{ path('cerad_account_login') }}">Zayso Sign In</a>
         {% endif %}          
       </span>
     </p>
