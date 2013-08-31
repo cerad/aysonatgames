@@ -5,12 +5,14 @@ parameters:
         rick:
             layout_header:  false
             layout_topmenu: false
+            layout_userinfo: false
             janrain:        false  # Social network login
-            wordpress:      false  # Style sheets and javascripts
+            wordpress:      true  # Style sheets and javascripts
             
         default:
             layout_header:  false
             layout_topmenu: true
+            layout_userinfo: true
             janrain:        true
             wordpress:      false
             

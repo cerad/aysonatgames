@@ -1,9 +1,9 @@
 {% extends '@CeradTourn/layout.html.twig' %}
 
 {% block content %}
-<table class="account-person-list" border="1">
+<table class="account-person-list" border="0" cellpadding="15">
     <!--<tr><th colspan="4">People Associated With This Account</th></tr>-->
-    <tr>
+    <tr id=table-header>
         <th>Account Information</th>
         <th>AYSO Information</th>
         <th>Tournament Plans</th>
@@ -18,18 +18,23 @@
             <tr>
                 <td>Person:</td>
                 <td colspan="1">
-                    <a href="{{ path('cerad_tourn_person_person_edit', { 'id': personPerson.id }) }}">
+<!--Should this be conditional on role?-->                    
+<!--                    <a href="{{ path('cerad_tourn_person_person_edit', { 'id': personPerson.id }) }}">
                         {{ person.name }}
-                    </a>
-                </td>
+                    </a>             
+-->
+                {{ person.name }}</td>
             </tr>
             <tr><td>Relation:</td><td>{{ personPerson.role }}</td></tr>
             {% if personPerson.isRolePrimary %}
             <tr><td>Account:</td><td>
-                <a href="{{ path('cerad_account_profile_edit', { 'id': account.id }) }}">
+<!--Should this be conditional on role?-->                    
+<!--                <a href="{{ path('cerad_account_profile_edit', { 'id': account.id }) }}">
                     {{ account.username }}
                 </a>
-            </td></tr>
+-->
+                {{ account.username }}</td>
+            </tr>
             {% for identifier in account.identifiers %}
                 <tr><td>Social:</td><td>{{ identifier.source }}</td></tr>
             {% endfor %}
@@ -53,5 +58,5 @@
         </table></td>
     </tr>
    {% endfor %}
-</table
+</table>
 {% endblock %}

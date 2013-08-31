@@ -1,31 +1,24 @@
 {% extends '@CeradTourn/layout.html.twig' %}
 
-{% block janrain %}
-{% if cerad_tourn_show('janrain') %}
-{% include '@CeradJanrain/Janrain/janrain.js.twig' %}
-{% endif %}
-{% endblock %}
-
-
 {% block content %}
+
+{% set referer = cerad_tourn_get_referer() %}
+
+{#  {% if !referer %} #}
 <h3>Referee Registration</h3>
-<p>
-    Welcome to the Referee registration for the AYSO 2014 National Games.  This year we will be using the same zAYSO system that we used for the AYSO National Games 2012 event.
-</p>
-<br/>
-<p>
-    Returning referees who participated in the 2012 event will already have a account and 
-    need only sign in below to update your information as necessary.
-</p>
+{# {% endif %} #}
 
+<p>Welcome to the Referee registration for the AYSO 2014 National Games.  This year we will be using the same zAYSO system that we used for the AYSO National Games 2012 event.  Thank you for your interest in supporting the 2014 Games in Section One.</p>
+<br/>
+<h3>Participated in 2012 National Games?</h3>
 {% if cerad_tourn_show('janrain') %}
+<p>Welcome back to the National Games.  Returning referees will already have a account.  Just sign in below and register for the 2014 National Games.  If you wish, you may use one of your other online accounts to sign in.</p>
 <div id="janrainEngageEmbed"></div>
-{% endif %}{# endif show janrain #}
-
+{% else %}
+<p>Welcome back to the National Games.  Returning referees will already have a account.  Just sign in below and register for the 2014 National Games.</p>
+{% endif %}
 {{ include('@CeradAccount/Security/login_form.html.twig') }}
-<br/>
-<p>Referees new to the National Games will need to register for the Games by create an account by <a href="{{ path('cerad_account_register') }}">clicking here</a>.
-</p>
+<h3>New to the National Games?</h3>
+<p>Referees new to the National Games will need to register by creating an account (<a href="{{ path('cerad_account_register') }}">click here</a>).  After you create your account, you will be able to register for the games.</p>
 
- to create a new account and register for the games.
 {% endblock %}
