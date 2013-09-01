@@ -16,4 +16,5 @@
 /app/phpunit.xml
 
 /src/Acme/
-/app/accounts.yml
+/composer.lock
+
