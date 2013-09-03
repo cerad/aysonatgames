@@ -1,0 +1,202 @@
+/*
+* zAYSO CSS for 2014 National Games
+* By: Rick Roberts  web.ng2014@gmail.com
+* Version: 30 August 2013
+*
+*/
+
+.content p
+{
+  margin: 0;
+}
+
+#layout-top-menu
+{
+  display: none !important;
+}
+
+div.zayso_layout_header
+{
+  display: none;
+}
+
+.zayso_layout_userinfo
+{
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  text-align: right;
+}
+
+#layout-content
+,.fos_user_content
+{
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+
+#layout-content h2
+,#layout-content h3
+,#layout-content h4
+,.fos_user_content h2
+,.fos_user_content h3
+,.fos_user_content h4
+{
+  padding: 15px 0 10px 20px !important;
+  color: #034ea2;
+}
+
+#layout-content h2,
+.fos_user_content h2
+{
+  display: block;
+  font-size: 1.5em;
+  -webkit-margin-before: 0.83em;
+  -webkit-margin-after: 0.83em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  font-weight: bold;
+}
+
+#layout-content h3,
+.fos_user_content h3
+{
+  font-size: 18px;
+}
+
+#layout-content ul
+{
+  width:85%;
+  padding-left: 50px;
+
+}
+
+#layout-content li
+{
+  padding-bottom: 0.5em;
+}
+
+#layout-content p,
+.fos_user_content p,
+.zayso_layout_userinfo p
+{
+  padding-left: 40px !important;
+  width: 85% !important;
+  margin-left: 15px;
+}
+
+#janrainEngageEmbed
+{
+  width: 50%;
+  margin-left: 20%;
+}
+
+#zayso_signin_form
+,#zayso_password_reset_form
+,form
+,#cerad_tourn_person_plan_form
+{
+  border: none;
+  width:60%;
+  margin-left: 5%;
+  padding-bottom: 25px;
+}
+
+#zayso_password_reset_form
+{
+  border: none;
+}
+
+.fos_user_header
+{
+  display: none;
+}
+
+form
+,form fieldset
+,form fieldset div
+,form div
+{
+  border:none;
+}
+
+form{
+  width: 85% !important;
+  padding-left: 40px !important;
+  margin-left: 15px;
+}
+form fieldset
+,form fieldset div
+{
+  width:80%;
+}
+
+form fieldset div a
+{
+  text-align: right;
+}
+
+fieldset legend
+{
+  display: none;
+}
+
+fieldset div.zayso_form_controls
+{
+  background: none;
+  text-align: right;
+}
+
+fieldset div.controls
+{
+  text-align: right;  
+}
+
+#zayso_layout_userinfo
+ {
+	display: none;
+}
+
+form fieldset div select
+,form div div textarea
+,form fieldset div input
+,form fieldset div label
+,form div div label
+{
+  width: 45%;
+}
+
+form.zayso_form2
+{
+  form.zayso_form2
+}
+
+form.zayso_form2 fieldset div label
+{
+  padding-left: 10px;
+}
+
+input[type="submit"]
+,fieldset div.controls input[type="submit"]
+{
+  padding: 5px 20px;
+}
+
+table
+{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.account-person-list td {
+  vertical-align: top;
+}
+
+#table-header
+{
+  background-color: #004080; color: white
+}
+
+#col
+{
+  width: 200px;
+}
