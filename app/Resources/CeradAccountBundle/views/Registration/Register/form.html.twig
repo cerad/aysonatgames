@@ -6,11 +6,12 @@
     {{ form_enctype(form) }} novalidate
  >
     <fieldset><legend><span>Account Information</span></legend>
-        {{ form_row(form.name)                }}
-        {{ form_row(form.username)            }}
-        {{ form_row(form.email)               }}
-        {{ form_row(form.plainPassword.pass1) }}
-        {{ form_row(form.plainPassword.pass2,{ 'label': 'User Password (confirm)' }) }}
+        {{ form_row(form.fedId)                    }}
+        {{ form_row(form.user.name,               { 'label': 'Your Name' }) }}
+        {{ form_row(form.user.username)            }}
+        {{ form_row(form.user.email)               }}
+        {{ form_row(form.user.plainPassword.pass1) }}
+        {{ form_row(form.user.plainPassword.pass2,{ 'label': 'User Password (confirm)' }) }}
     </fieldset>
     <fieldset>
         <div class="cerad_common_form_controls controls">

@@ -6,7 +6,7 @@
             {{ app.user.name }} 
             {% set person = app.user.person %}
             {% if person %}
-            {{ "AYSO ID: %s  "|format(app.user.person.leagueAYSOVolunteer.identifier[5:14]) }}
+            {{ "AYSO ID: %s  "|format(app.user.person.fedAYSOV.id[5:14]) }}
             {% endif %}
             <a href="{{ path('cerad_account_logout') }}">Log Out</a>
         {% else %}
