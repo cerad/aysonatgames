@@ -1,51 +1,28 @@
-# ==================================================
-# Tournament Routes
-cerad_tourn:
-  resource: "@CeradTournBundle/Resources/config/routing.yml"
+# ====================
+# 04 Sep 2013
+#
+# In an effort to document things, all routes are define here, no included files
+# In addition, a RoutesTest will detect changes
 
-# ==================================================
-# JanrainBundle Stuff
-cerad_janrain:
-    resource: "@CeradJanrainBundle/Resources/config/routing.yml"
-    prefix: /account
+# ===============================
+# Top pages
+cerad_tourn_index:
+    path: /
+    defaults: { _controller: CeradTournBundle:Welcome:index }
+    
+cerad_tourn_welcome:
+    path: /welcome
+    defaults: { _controller: CeradTournBundle:Welcome:welcome }
+    
+cerad_tourn_home:
+    path: /home
+    defaults: { _controller: CeradTournBundle:Home:home }
+    
+cerad_tourn_help:
+    path: /help
+    defaults: { _controller: CeradTournBundle:Help:help }
+    
+cerad_tourn_contact:
+    path: /contact
+    defaults: { _controller: CeradTournBundle:Contact:contact }
 
-# ==================================================
-# My own account stuff
-cerad_account:
-  resource: "@CeradAccountBundle/Resources/config/routing.yml"
-  prefix: /account
-
-cerad_account_home:
-  path: /home
-  
-cerad_account_welcome:
-  path: /welcome
-  
-# ==================================================
-# My own person stuff
-cerad_person:
-  resource: "@CeradPersonBundle/Resources/config/routing.yml"
-  prefix: /person
-
-cerad_person_home:
-  path: /home
-  
-cerad_person_welcome:
-  path: /welcome
-  
-# ==================================================
-# My own game stuff
-cerad_game:
-  resource: "@CeradGameBundle/Resources/config/routing.yml"
-  prefix: /game
-
-cerad_game_home:
-  path: /home
-  
-cerad_game_welcome:
-  path: /welcome
-  
-# Redirect profile to home page
-fos_user_profile_show:
-  path: /home
-  defaults:  { _controller: CeradTournBundle:Home:home }

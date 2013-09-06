@@ -1,0 +1,51 @@
+# ==================================================
+# Tournament Routes
+cerad_tourn:
+  resource: "@CeradTournBundle/Resources/config/routing.yml"
+
+# ==================================================
+# JanrainBundle Stuff
+cerad_janrain:
+    resource: "@CeradJanrainBundle/Resources/config/routing.yml"
+    prefix: /account
+
+# ==================================================
+# My own account stuff
+cerad_account:
+  resource: "@CeradAccountBundle/Resources/config/routing.yml"
+  prefix: /account
+
+cerad_account_home:
+  path: /home
+  
+cerad_account_welcome:
+  path: /welcome
+  
+# ==================================================
+# My own person stuff
+cerad_person:
+  resource: "@CeradPersonBundle/Resources/config/routing.yml"
+  prefix: /person
+
+cerad_person_home:
+  path: /home
+  
+cerad_person_welcome:
+  path: /welcome
+  
+# ==================================================
+# My own game stuff
+cerad_game:
+  resource: "@CeradGameBundle/Resources/config/routing.yml"
+  prefix: /game
+
+cerad_game_home:
+  path: /home
+  
+cerad_game_welcome:
+  path: /welcome
+  
+# Redirect profile to home page
+fos_user_profile_show:
+  path: /home
+  defaults:  { _controller: CeradTournBundle:Home:home }
