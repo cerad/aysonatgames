@@ -1,9 +1,9 @@
 imports:
     - { resource: parameters.yml }
-    - { resource: security.yml }
-    - { resource: doctrine.yml }
-    - { resource: project.yml  }
-    - { resource: show.yml     }
+    - { resource: security.yml   }
+   #- { resource: doctrine.yml   }
+    - { resource: projects.yml   }
+    - { resource: show.yml       }
 
 framework:
     #esi:             ~
@@ -14,13 +14,15 @@ framework:
         strict_requirements: %kernel.debug%
     form:            ~
     csrf_protection: ~
-    validation:      { enable_annotations: true }
+    validation:      { enable_annotations: false }
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
     trusted_proxies: ~
-    session:         ~
+    session:         
+        name:        zayso_session
+        save_path: "%kernel.root_dir%/sessions"
     fragments:       ~
 
 # Twig Configuration
@@ -50,21 +52,23 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
-                
-# Account Bundle Configuration
-# These gat passed to extension.load
-# The name (cerad_account) is important.  Matches the alias in the extension class
-cerad_account:
-  
-    db_driver:     orm
-    firewall_name: main
     
-    user_class:            Cerad\Bundle\AccountBundle\Entity\User
-    user_identifier_class: Cerad\Bundle\AccountBundle\Entity\UserIdentifier
-      
-    model_manager_name: accounts
-    
-    service:
-        user_manager:    cerad_account.user_manager
-        person_manager:  cerad_person.manager
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   %database_driver%
+        host:     %database_host%
+        port:     %database_port%
+        dbname:   %database_name%
+        user:     %database_user%
+        password: %database_password%
+        charset:  UTF8
+        # if using pdo_sqlite as your database driver, add the path in parameters.yml
+        # e.g. database_path: %kernel.root_dir%/data/data.db3
+        # path:     %database_path%
+
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true
+               
         

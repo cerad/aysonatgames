@@ -2,7 +2,7 @@ parameters:
     database_driver:   pdo_mysql
     database_host:     127.0.0.1
     database_port:     ~
-    database_name:     symfony
+    database_name:     ng2012
     database_user:     root
     database_password: ~
 
@@ -19,5 +19,4 @@ parameters:
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
 
-    cerad_account.master_password: something
-    cerad_janrain_rpx_api_key:     something
+    cerad_user_master_password: zayso

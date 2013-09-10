@@ -15,7 +15,10 @@
 
     <testsuites>
         <testsuite name="Project Test Suite">
-            <directory>../../cerad/src/Cerad/Bundle/PersonBundle/Tests/PersonPlanTest.php</directory>
+            <directory>../src/Cerad/Library/Common/Library/Tests</directory>
+            <directory>../src/Cerad/Bundle/UserBundle/Tests</directory>
+            <directory>../src/Cerad/Bundle/ProjectBundle/Tests</directory>
+            <directory>../src/Cerad/Bundle/PersonBundle/Tests</directory>
         </testsuite>
     </testsuites>
 

@@ -1,29 +1,20 @@
-parameters:
   
-  # Example of overriding a form type
-  # PersonBundle was changed to AppBundle
-  cerad_person.ayso_referee_badge.form_type.class:
-    Cerad\Bundle\AppBundle\Form\Type\AYSO\RefereeBadgeFormType
-  
-  cerad_tourn_referee_signups_enabled: false
-
-  # Needed by PersonPlanTest
-  cerad_tourn_project_key: AYSONationalGames2014
-  
-  cerad_tourn_project:
-
-    info:     
-      key:       AYSONationalGames2014
-      keySearch: AYSOS5Games2013       # Normally matches key but can be different for testing
-      status:    Active
-      season:    SU2014
-      sport:     Soccer
-      domain:    AYSO
-      domainSub: NatGames
-             
-      title:   "AYSO National Games 2014"
-      desc:    "AYSO National Games 2014 - Torrence, Califorina - June 30 to July 6"
-          
+AYSONationalGames2014:  
+    info:
+        id: AYSONationalGames2014
+        slugs:
+            - natgames
+            - natgames2014
+            
+        status:   Active
+        verified: Yes
+                
+        fedId:     AYSO
+        fedRoleId: AYSOV
+                
+        title:   "AYSO National Games 2014"
+        desc:    "AYSO National Games 2014 - Torrence, Califorina - June 30 to July 6"
+                          
     # ==============================================
     # For the schedule search form
     searches:
@@ -85,8 +76,7 @@ parameters:
     
     # ==================================================
     # Basic volunteer plan
-    plan:
-         
+    basic:
       attending:
         type:    select
         label:   I will attend the games
@@ -97,13 +87,13 @@ parameters:
           yes:   Yes - For Sure
           yesx:  Yes - If my team is selected
           maybe: Maybe
-           
+                    
       refereeing:
         type:    select
         label:   I will referee
         default: no
         choices: { no: No, yes: Yes, maybe: Not Sure }
-      
+        
       venue:
         type:    select
         label:   I will work at
@@ -226,6 +216,13 @@ parameters:
         type:  text
         label: Hotel staying at
         size:  30
+        
+      notes:
+        type:  textarea
+        label: Notes
+        rows:  5
+        cols:  40
+        
     # Break out availability
     avail:
       

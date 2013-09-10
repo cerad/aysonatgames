@@ -1,0 +1,61 @@
+security:
+    hide_user_not_found: false
+    
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+        Cerad\Bundle\AccountBundle\Entity\User: 
+            id: cerad_account.user_encoder
+
+    role_hierarchy:
+        ROLE_SCORER:       ROLE_USER
+        ROLE_ADMIN:       [ROLE_USER, ROLE_SCORER]
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_SCORER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        in_memory:
+            memory:
+                users:
+                    user:  { password: userpass,  roles: [ 'ROLE_USER' ] }
+                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+        cerad_account_user_provider:
+            id: cerad_account.user_provider
+
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            pattern:   ^/
+            
+            anonymous: ~
+            
+            cerad_janrain:                
+                provider:            cerad_account_user_provider
+                add_path:            cerad_account_identifier_add
+                check_path:          cerad_janrain_check
+                login_path:          cerad_janrain_login   # Not used
+                register_path:       cerad_account_register
+                default_target_path: cerad_tourn_home
+                rpx_api_key:        %cerad_janrain_rpx_api_key%
+             
+            form_login:
+                provider:            cerad_account_user_provider
+                login_path:          cerad_account_login
+                check_path:          cerad_account_login_check
+                default_target_path: cerad_tourn_home
+
+                username_parameter:  cerad_account_login[username]
+                password_parameter:  cerad_account_login[password]
+                csrf_parameter:      cerad_account_login[_token]
+                csrf_provider:       form.csrf_provider
+                intention:           authenticate
+                
+            logout:
+                path:   cerad_account_logout
+                target: cerad_tourn_welcome
+
+
+    access_control:
+        #- { path: ^/demo/secured/hello/admin/, roles: ROLE_ADMIN }
+        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

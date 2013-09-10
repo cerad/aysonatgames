@@ -1,0 +1,7 @@
+{# @CeradTourn/Tourn/UserInfo/TournUserInfo.html.twig   #}
+
+<div>
+    User: {{ user.accountName }} {{ personFed.id | slice(5) }} {{ personFed.org.orgId | slice(4) }} {{ personFed.certReferee.badgex }}
+    <a href="{{ path('cerad_tourn_home') }}">Home</a>
+    <a href="{{ path('cerad_tourn_account_user_logout') }}">Logout</a>
+</div>
