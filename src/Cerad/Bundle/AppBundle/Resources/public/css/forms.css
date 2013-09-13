@@ -1,0 +1,119 @@
+/*
+ *  http://www.texotela.co.uk/code/css/fieldsetform/
+ *  Styling fields contained within a fieldset
+ *    (nothing fancy, just lined up labels (text right-aligned) and fields).
+*/
+
+fieldset.form
+{
+	padding: 0 6px 6px 6px;
+	border: 2px solid #B5C7DD;
+	margin-bottom: 6px;
+}
+
+fieldset.form legend
+{
+	font-size: 1.1em;
+	line-height: 1.2em;
+	font-weight: bold;
+	color: #fff;
+	padding: 1px;
+	margin-bottom: 12px;
+	padding-top: 4px;
+}
+
+div.field
+{
+	margin-bottom: 6px;
+}
+
+div.field label
+{
+	clear: none;
+	display: block;
+	float: left;
+	width: 125px;
+	text-align: right;
+	/*
+		increase or decrease line-height depending on font-size set in 'div.field .input'
+		trial and error needed to get it right
+	 */
+	line-height: 1.7em;
+	padding-right: 6px;
+}
+
+div.field label.error
+{
+	display: inline;
+	float: none;
+	text-align: left;
+	padding-right:0;
+}
+
+div.field label.textlabel
+{
+	line-height: normal;
+}
+
+div.field div.blocktext
+{
+	margin-left: 131px; /* 'div.field label' width + padding */
+	zoom: 1; /* trigger hasLayout in IE6 */
+}
+
+div.field .input,
+fieldset.form input.button
+{
+	font-size: 1.05em;
+	font-family: 'Trebuchet MS', Arial , Sans-Serif;
+}
+
+div.field .input
+{
+	border: solid #67874f 1px;
+	padding: 2px;
+}
+
+div.field input.textbox
+{
+	width: 9em;
+}
+
+div.field input.longtextbox,
+div.field textarea.textbox
+{
+	width: 420px;
+}
+
+div.field input.shorttextbox
+{
+	width: 4em;
+}
+
+div.field input.time
+{
+	width: 3em;
+}
+
+div.field input.date
+{
+	width: 5.5em;
+}
+
+div.field textarea.textbox
+{
+	height: 10em;
+	padding: 2px;
+	overflow: auto;
+}
+
+fieldset.form div.buttons
+{
+	margin-left: 131px; /* 'div.field label' width + padding */
+}
+
+fieldset.form div.buttons input.button,
+fieldset.form div.buttons button
+{
+	text-align: center; /* without this, button text is left-aligned in IE */
+}

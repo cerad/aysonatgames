@@ -1,10 +1,10 @@
   
 AYSONationalGames2014:  
     info:
-        id: AYSONationalGames2014
+        id: SectionOneUpperGames2013
         slugs:
-            - natgames
-            - natgames2014
+            - s1games
+            - s1Ugames2013
             
         status:   Active
         verified: Yes
@@ -12,10 +12,8 @@ AYSONationalGames2014:
         fedId:     AYSO
         fedRoleId: AYSOV
                 
-        title:   "AYSO National Games 2014"
-        desc:    "AYSO National Games 2014 - Section One, Califorina - June 30 to July 6"
-        
-        img: bundles/ceradapp/images/
+        title:   "AYSO Section One U16/U19 Games 2013"
+        desc:    "AYSO Section One U16/U19 Games -- Ayala Park, Chino -- 23-24 November 2013"
                           
     # ==============================================
     # For the schedule search form
@@ -24,13 +22,10 @@ AYSONationalGames2014:
       dates:
         type:     checkbox
         label:    Days
-        default: '2014-07-02'
+        default: '2013-11-23'
         choices:
-          '2014-07-02': Wed
-          '2014-07-03': Thu
-          '2014-07-04': Fri
-          '2014-07-05': Sat
-          '2014-07-06': Sun
+          '2013-11-23': Sat
+          '2013-11-24': Sun
           
       genders:
         type:    checkbox
@@ -46,21 +41,9 @@ AYSONationalGames2014:
         default: [U12,U16]
         choices:
           VIP: VIP
-          U10: U10
-          U12: U12
-          U14: U14
           U16: U16
           U19: U19
-          Adult: Adult
         
-      programs:
-        type:    checkbox
-        label:   Programs
-        default: [Core]
-        choices:
-          C: Core
-          E: Extra
-    
     #times: # Want this to be a select
     #  start: 0600
     #  end:   2000
@@ -68,24 +51,16 @@ AYSONationalGames2014:
       venues:
         type:    checkbox
         label:   Venues
-        default: ~
+        default: AB
         choices:
-          RAL-AB:   Ab Brown Soccer Complex, Riverside
-          RAL-RP:   Reid Park, Riverside
-          TOA-CP:   Columbia Park, Torrance
-          TOA-FoD:  Field of Dreams, San Pedro
-          TOA-LLP:  Ladera Linda Park, Rancho Palos Verdes
-          TOA-MSF:  Maple Street Fields, Torrance
-          TOA-PMS:  Parras Middle School, Redondo Beach
-          TOA-RBHS: Redondo Beach High School, Redondo Beach
-          TOA-WHS:  West High School, Torrance
+          AB: Ab Brown Soccer Complex, Riverside
     
     # ==================================================
     # Basic volunteer plan
     basic:
       attending:
         type:    select
-        label:   I will attend the games
+        label:   I will attend the Upper Division Playoffs
         default: na
         choices:
           na:    Not yet answered
@@ -100,15 +75,15 @@ AYSONationalGames2014:
         default: no
         choices: { no: No, yes: Yes, maybe: Not Sure }
         
-      venue:
-        type:    select
-        label:   I will work at
-        default: na
-        choices: 
-          na:    Not yet answered
-          core:  Torrance/Redondo Beach (CORE site)
-          extra: Riverside (EXTRA site)
-          other: Where needed (either site)
+      #venue:
+      #  type:    select
+      #  label:   I will work at
+      #  default: na
+      #  choices: 
+      #    na:    Not yet answered
+      #    core:  Torrance/Redondo Beach (CORE site)
+      #    extra: Riverside (EXTRA site)
+      #    other: Where needed (either site)
            
 #     refLevelCR:
 #       type:    select
@@ -122,18 +97,18 @@ AYSONationalGames2014:
 #       default: na
 #       choices: { na: na, U10: U10, U12: U12, U14: U14, U16: U16, U19: U19
              
-      willInstruct:
-        type:    select
-        label:   I am certified Instructor
-        default: no
-        choices: { no: No, ri: Referee Instructor, ari: Advanced Referee Instructor, nri: National Referee Instructor}
-           
-      willAssess:
-        type:    select
-        label:   I am certified Assessor
-        default: no
-        choices: { no: No, ra: Referee Assessor, nra: National Referee Assessor}
-           
+      #willInstruct:
+      #  type:    select
+      #  label:   I am certified Instructor
+      #  default: no
+      #  choices: { no: No, ri: Referee Instructor, ari: Advanced Referee Instructor, nri: National Referee Instructor}
+      #     
+      #willAssess:
+      #  type:    select
+      #  label:   I am certified Assessor
+      #  default: no
+      #  choices: { no: No, ra: Referee Assessor, nra: National Referee Assessor}
+      #     
       willMentor:
         type:    select
         label:   I will be available as a mentor
@@ -185,12 +160,12 @@ AYSONationalGames2014:
         default: no
         choices: { no: No, yes: Yes, player: Yes - I am a player }
            
-      opening:
-        type:    select
-        label:   I will attend the Tuesday Night Opening Ceremony?
-        default: no
-        choices: { no: No, yesRAL: Yes in Riverside, yesTOA: Yes in Torrance, maybe: Not Sure}
-        
+      #opening:
+      #  type:    select
+      #  label:   I will attend the Tuesday Night Opening Ceremony?
+      #  default: no
+      #  choices: { no: No, yesRAL: Yes in Riverside, yesTOA: Yes in Torrance, maybe: Not Sure}
+      #  
       tshirt:
         type:    select
         label:   T-Shirt Size
@@ -204,20 +179,19 @@ AYSONationalGames2014:
           adultl:    Adult Large
           adultlx:   Adult Large X
           adultlxx:  Adult Large XX
-          adultlxxx: Adult Large XXX
              
-      shuttle:
-        type:    select
-        label:   I need shuttle service during the games
-        default: no
-        choices: { no: No, yes: Yes, maybe: Not Sure}
-           
-      housing:
-        type:    select
-        label:   I would use low cost referee housing
-        default: no
-        choices: { no: No, yes: Yes, maybe: Not Sure}
-           
+      #shuttle:
+      #  type:    select
+      #  label:   I need shuttle service during the games
+      #  default: no
+      #  choices: { no: No, yes: Yes, maybe: Not Sure}
+      #     
+      #housing:
+      #  type:    select
+      #  label:   I would use low cost referee housing
+      #  default: no
+      #  choices: { no: No, yes: Yes, maybe: Not Sure}
+      #     
       #hotel:
       #  type:  text
       #  label: Hotel staying at
@@ -232,44 +206,56 @@ AYSONationalGames2014:
     # Break out availability
     avail:
       
-      AvailWen:
+      #AvailWen:
+      #  type:    select
+      #  label:   Available Wednesday (Jamborees)
+      #  default: no
+      #  choices: { no: No, yesAM: Yes in the Morning, yesPM: Yes in the afternoon, maybe: Not Sure}
+      #     
+      #AvailThu:
+      #  type:    select
+      #  label:   Available Thursday (Pool Play)
+      #  default: no
+      #  choices: { no: No, yesAM: Yes in the Morning, yesPM: Yes in the afternoon, maybe: Not Sure}
+      #
+      #AvailFri:
+      #  type:    select
+      #  label:   Available Friday (Pool Play)
+      #  default: no
+      #  choices: { no: No, yesAM: Yes in the Morning, yesPM: Yes in the afternoon, maybe: Not Sure}
+      #
+      AvailSat_08-11:
         type:    select
-        label:   Available Wednesday (Jamborees)
+        label:   Available Saturday Morning (8:00-11:00 Kickoff)
         default: no
-        choices: { no: No, yesAM: Yes in the Morning, yesPM: Yes in the afternoon, maybe: Not Sure}
+        choices: { no: No, yes: Yes, maybe: Not Sure}
            
-      AvailThu:
+      AvailSat_11-14:
         type:    select
-        label:   Available Thursday (Pool Play)
+        label:   Available Saturday Mid-day (11:01-14:00 Kickoff)
         default: no
-        choices: { no: No, yesAM: Yes in the Morning, yesPM: Yes in the afternoon, maybe: Not Sure}
+        choices: { no: No, yes: Yes, maybe: Not Sure}
 
-      AvailFri:
+      AvailSat_14-17:
         type:    select
-        label:   Available Friday (Pool Play)
+        label:   Available Saturday Afternoon (14:01-17:00 Kickoff)
         default: no
-        choices: { no: No, yesAM: Yes in the Morning, yesPM: Yes in the afternoon, maybe: Not Sure}
+        choices: { no: No, yes: Yes, maybe: Not Sure}
 
-      AvailSatMorn:
+      AvailSat_08-11:
         type:    select
-        label:   Available Saturday Morning (Pool Play)
+        label:   Available Sunday Morning (8:00-11:00 Kickoff)
         default: no
-        choices: { no: No, yesAM: Yes in the Morning, yesPM: Yes in the afternoon, maybe: Not Sure}
+        choices: { no: No, yes: Yes, maybe: Not Sure}
            
-      AvailSatAfter:
+      AvailSat_11-14:
         type:    select
-        label:   Available Saturday Afternoon (Quarter Finals)
+        label:   Available Sunday Mid-day (11:01-14:00 Kickoff)
         default: no
-        choices: { no: No, yesAM: Yes in the Morning, yesPM: Yes in the afternoon, maybe: Yes - If My Team Advances}
+        choices: { no: No, yes: Yes, maybe: Not Sure}
 
-      AvailSunMorn:
+      AvailSat_14-17:
         type:    select
-        label:   Available Sunday Morning (Semi-Finals)
+        label:   Available Sunday Afternoon (14:01-17:00 Kickoff)
         default: no
-        choices: { no: No, yesAM: Yes in the Morning, yesPM: Yes in the afternoon, maybe: Yes - If My Team Advances}
-
-      AvailSunAfter:
-        type:    select
-        label:   Available Sunday Afternoon (Finals)
-        default: no
-        choices: { no: No, yesAM: Yes in the Morning, yesPM: Yes in the afternoon, maybe: Yes - If My Team Advances}
+        choices: { no: No, yes: Yes, maybe: Not Sure}

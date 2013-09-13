@@ -3,9 +3,9 @@ parameters:
     cerad_tourn_show_configs:
       
         rick:
-            layout_header:  false
+            layout_header:  true
             layout_topmenu: false
-            layout_userinfo: false
+            layout_userinfo: true
             janrain:        false  # Social network login
             wordpress:      true  # Style sheets and javascripts
             

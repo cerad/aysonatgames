@@ -1,13 +1,304 @@
-/* 
+/*
     Document   : app
     Created on : Sep 10, 2013, 2:12:46 PM
     Author     : ahundiak
     Description:
         Purpose of the stylesheet follows.
-
 */
-
-root { 
-    display: block;
+root
+{
+  display: block;
 }
 
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 0.8em;
+	font: inherit;
+	vertical-align: baseline;
+
+  /*border: 1px solid;*/
+  /*border-color: #80d2ff;*/
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*
+    * zAYSO CSS for 2014 National Games
+    * By: Rick Roberts  web.ng2014@gmail.com
+    * Version: 11 Sept 2013
+*/
+
+.sf-toolbar, .sf-toolbar *
+{
+  border:none;
+}
+
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, dl, pre, code, address,
+variable, form, fieldset, blockquote, label, img
+{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, 'Trebuchet MS', sans-serif;
+  font-size: medium;
+}
+
+body
+{
+  min-width: 720px;
+}
+
+h3, h4
+{
+  color: red;
+  font-weight: bold;
+  font-size: 18px;
+ }
+
+#layout-header *
+,#layout-topmenu *
+{
+  padding: 10px;
+}
+
+#layout-content h3
+{
+  padding: 5px 20px;
+}
+
+#layout-userinfo
+,#layout-userinfo *
+{
+  font-size:  small;
+  padding: 5px 10px 5px 10px;
+}
+
+#layout-userinfo p#user_name
+{
+  float: right;
+  padding-top: 0;
+}
+
+table {
+  font-size: medium;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.data{
+  table-layout: auto;
+}
+
+table colgroup col
+{
+  width: 20%;
+}
+
+table th
+{
+  width: 30%;
+  background-color: #004080;
+  color: white;
+  font-weight: bold;
+  padding: 1.1em;
+  vertical-align: middle;
+}
+
+table td
+{
+  padding: 5px;
+  height: 1.1em;
+}
+
+table.app_table > tbody > tr > td
+{
+  border: 1px solid;
+}
+
+.app_form
+{
+  padding: 20px 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; /* labels need this on the their parent element */
+}
+
+
+/*
+ *  http://www.texotela.co.uk/code/css/fieldsetform/
+ *  Styling fields contained within a fieldset
+ *    (nothing fancy, just lined up labels (text right-aligned) and fields).
+*/
+
+form.app_form fieldset
+{
+	padding: 0 6px;
+	margin-bottom: 6px;
+}
+
+form.app_form fieldset legend
+{
+  /*display: none;*/
+
+	font-size: 1.1em;
+	line-height: 1.2em;
+	font-weight: bold;
+  color: red;
+	padding: 1px;
+	margin-bottom: 12px;
+	padding-top: 4px;
+}
+
+form.app_form fieldset div
+,form.app_form fieldset > label
+
+{
+  margin: 0 auto 6px auto;
+/*	border: solid #67874f 1px;
+*/	padding: 2px;
+}
+
+form.app_form fieldset > label
+{
+  margin-left: 51%;
+  font-size:small;
+}
+
+form.app_form fieldset div label
+{
+	clear: none;
+	display: block;
+	float: left;
+	width: auto;
+  min-width: 50%;
+  font-size: inherit;
+	text-align: right;
+	/*
+		increase or decrease line-height depending on font-size set in 'div.field .input'
+		trial and error needed to get it right
+	 */
+	line-height: 1.7em;
+	padding-right: 6px;
+}
+
+form.app_form fieldset div select
+{
+	clear: none;
+  text-align: left;
+  font-size: inherit;
+  height: 1.8em;
+}
+
+input[type="text"]
+,input[type="checkbox"]
+,input[type="email"]
+{
+	clear: none;
+  text-align: left;
+  font-size: inherit;
+  height: 1.1em;
+}
+
+label#checkbox_label
+{
+  display: block;
+  padding-left: 15px;
+  text-indent: -15px;
+}
+
+input#cerad_tourn_account_user_login_remember_me
+{
+  width: 13px;
+  height: 13px;
+  padding: 0;
+  margin:0;
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+  overflow: hidden;
+}
+form.app_form fieldset div textarea
+{
+	clear: none;
+	height: 10em;
+  width: 45%;
+	padding: 2px;
+	overflow: auto;
+}
+
+form.app_form fieldset div.controls
+{
+  height:3em;
+  font: inherit;
+  width: 80%;
+}
+
+/*form.app_form fieldset div.controls input[type="submit"]*/
+/*input[type="submit"]*/
+/*{*/
+/*  padding: 10px 20px; float: right;*/
+/*)*/
+
+fieldset.app_form input#input_button
+{
+	/*margin-left: 131px; /* 'div.field label' width + padding */*/
+	text-align: center; /* without this, button text is left-aligned in IE */
+}
+
+.app_help
+{
+  padding: 0 20px 20px 0;
+  line-height: 1.25em;
+}
+
+.app_help li
+{
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.app_help ul ul li
+{
+  list-style-type: disc;
+  padding-left: 0;
+  margin-left: 30px;
+}

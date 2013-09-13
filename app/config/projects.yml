@@ -6,4 +6,5 @@ parameters:
         - "%kernel.root_dir%/config/projects/Tests.yml"
         - "%kernel.root_dir%/config/projects/AYSONationalGames2014.yml"
         - "%kernel.root_dir%/config/projects/USSF_AL_HFC_Kicks2013.yml"
+        - "%kernel.root_dir%/config/projects/SectionOneUpperGames2013.yml"
           

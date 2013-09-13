@@ -1,0 +1,335 @@
+/*
+ *  AYSO National Games site
+ *  Default Style.css
+ *
+ */
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color:#f6cc66;
+	background-image: url('../images/beach_bg.jpg');
+	background-repeat: repeat-x;
+	background-position: 0px 80px;
+	font-family:Arial, sans-serif;
+	font-size: 13px;
+}
+.logo {
+	position: absolute;
+	top: 13px;
+	left: 45px;
+}
+.nav {
+	height: 80px;
+	background-color:#ffffff;
+	float: left;
+	display: block;
+	width: 100%;
+	padding-left: 230px;
+}
+.banner {
+	height: 328px;
+	display: block;
+	width: 1000px;
+}
+.container {
+	background-image: url('../images/palmtree.png');
+	background-repeat: no-repeat;
+	background-position: -20px 95px;
+	padding-top: 15px;
+	float: left;
+	width: 100%;
+	/*background-color:#f6cc66;	*/
+}
+
+.fadeThis {
+	position:relative;
+	float: left;
+	display:block;
+	height: 79px;
+	width: 82px;
+	background:url('../images/start_off.jpg') 0 0 no-repeat;
+}
+.fadeThis * {
+	display: none;
+}
+.fadeThis span.hover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	height: 79px;
+	width: 82px;
+	background:url('../images/start_on.jpg') 0 0 no-repeat;
+}
+
+.fadeThis2 {
+	position:relative;
+	float: left;
+	display:block;
+	height: 79px;
+	width: 89px;
+	background:url('../images/team_off.jpg') 0 0 no-repeat;
+}
+.fadeThis2 * {
+	display: none;
+}
+.fadeThis2 span.hover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	height: 79px;
+	width: 89px;
+	background:url('../images/team_on.jpg') 0 0 no-repeat;
+}
+
+.fadeThis3 {
+	position:relative;
+	float: left;
+	display:block;
+	height: 79px;
+	width: 91px;
+	background:url('../images/news_off.jpg') 0 0 no-repeat;
+}
+.fadeThis3 * {
+	display: none;
+}
+.fadeThis3 span.hover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	height: 79px;
+	width: 91px;
+	background:url('../images/news_on.jpg') 0 0 no-repeat;
+}
+
+.fadeThis4 {
+	position:relative;
+	float: left;
+	display:block;
+	height: 79px;
+	width: 89px;
+	background:url('../images/community_off.jpg') 0 0 no-repeat;
+}
+.fadeThis4 * {
+	display: none;
+}
+.fadeThis4 span.hover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	height: 79px;
+	width: 89px;
+	background:url('../images/community_on.jpg') 0 0 no-repeat;
+}
+
+.fadeThis5 {
+	position:relative;
+	float: left;
+	display:block;
+	height: 79px;
+	width: 79px;
+	background:url('../images/fun_off.jpg') 0 0 no-repeat;
+}
+.fadeThis5 * {
+	display: none;
+}
+.fadeThis5 span.hover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	height: 79px;
+	width: 79px;
+	background:url('../images/fun_on.jpg') 0 0 no-repeat;
+}
+
+.home-footer {
+	text-align: center;
+}
+
+.footer {
+	padding: 20px 0px;
+	text-align: center;
+	font-family: Arial, sans-serif;
+	font-size: 11px;
+	/*background-color:#68a2c6;*/
+	float: left;
+	width: 668px;
+	padding-left: 260px;
+}
+
+.footer-copyright {
+	text-align: center;
+}
+
+/*
+	Slideshow style
+*/
+
+#slides {
+	position:absolute;
+	top:205px;
+	left:15px;
+	z-index:100;
+}
+
+/*
+	Slides container
+	Important:
+	Set the width of your slides container
+	If height not specified height will be set by the slide content
+	Set to display none, prevents content flash
+*/
+
+.slides_container {
+	width:978px;
+	height:298px;
+	overflow:hidden;
+	position:relative;
+	display:none;
+}
+
+/*
+	Each slide
+	Important:
+	Set the width of your slides
+	Offeset for the 20px of padding
+	If height not specified height will be set by the slide content
+	Set to display block
+*/
+
+#slides .slide {
+	width:978px;
+	height:298px;
+	display:block;
+	font-family: Arial, sans-serif;
+	font-size: 13px;
+}
+
+#slides .slide h1 {
+	color: #000000;
+	font-size: 24px;
+	line-height: 21px;
+	text-transform: uppercase;
+	font-weight:normal;
+}
+
+/*
+	Next/prev buttons
+*/
+#slides .next,#slides .prev {
+	position:absolute;
+	top:107px;
+	left:-39px;
+	width:24px;
+	height:43px;
+	display:block;
+	z-index:101;
+}
+
+#slides .next {
+	left:585px;
+}
+
+/*
+	Pagination
+*/
+
+.pagination {
+	margin:26px auto 0;
+	width:100px;
+}
+
+.pagination li {
+	float:left;
+	margin:0 1px;
+	list-style:none;
+}
+
+.pagination li a {
+	display:block;
+	width:12px;
+	height:0;
+	padding-top:12px;
+	background-image:url(../img/pagination.png);
+	background-position:0 0;
+	float:left;
+	overflow:hidden;
+}
+
+.pagination li.current a {
+	background-position:0 -12px;
+}
+
+
+.bannerad {
+	width: 728px;
+	height: 90px;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+.content {
+	padding: 30px;
+	background-color: #ffffff;
+	font-family: Arial, sans-serif;
+	font-size: 13px;
+	width: 668px;
+	text-align: left;
+	min-height: 400px;
+}
+.details {
+	background-color: #ef3e33;
+	color: #ffffff;
+	padding: 5px 10px 5px 10px;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.detailsselected {
+	background-color: #034ea2;
+	color: #ffffff;
+	padding: 5px 10px 5px 10px;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: bold;
+}
+.title {
+	font-size: 40px;
+	color:#034ea2;
+	line-height: 35px;
+}
+.subtitle {
+	font-size: 16px;
+	color:#ef3e33;
+}
+.titlebg {
+	width: 650px;
+	height: 55px;
+	padding-top: 75px;
+	background-repeat: no-repeat;
+}
+h2 {
+	font-size: 22px;
+	font-weight: bold;
+	color:#ef3e33;
+	text-transform: uppercase;
+	padding: 0px;
+	margin: 0px;
+}
+.homebox {
+	position: relative;
+	width:207px;
+	border-right: 1px #cccccc solid;
+	vertical-align: top;
+	padding-top: 0px;
+}
+.homebox a:link, .homebox a:visited {
+	color:#ef3e33;
+	text-decoration: none;
+	text-transform: uppercase;
+}
