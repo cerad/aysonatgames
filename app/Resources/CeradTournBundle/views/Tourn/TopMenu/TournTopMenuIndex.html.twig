@@ -1,3 +1,17 @@
 {# @CeradTourn/Tourn/TopMenu/TournTopMenuIndex.html.twig   #}
 
-<h3>&lt;&lt; Top Menu &gt;&gt;</h3>
+<ul class="semiopaquemenu">
+  <li>
+    <a href="{{ path('cerad_tourn_home') }}">Login</a>
+  </li>
+  <li>
+    <a href="{{ path('cerad_tourn_person_person_update') }}">My Account</a>
+  </li>
+  <li>
+    <a href="{{ path('cerad_tourn_person_update') }}">My Plan</a>
+  </li>
+  <li>
+    <a href="{{ path('cerad_tourn_user_logout') }}">Logout</a>
+  </li>
+</ul>
+<div class="bottombar"></div>

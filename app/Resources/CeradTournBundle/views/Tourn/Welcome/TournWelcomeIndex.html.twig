@@ -3,6 +3,8 @@
 
 {% block content %}
 
+{% include '@CeradTourn/Tourn/Welcome/TournWelcomeNotes.html.twig' %}
+
 {% render(controller('CeradTournBundle:AccountUser/AccountUserLogin:loginForm')) %}
 
 {% endblock %}{# end content block #}
