@@ -1,0 +1,6 @@
+#!/bin/bash
+php console cache:clear --env=prod --no-debug
+php console assets:install ../../zayso/web/natgames2014
+php console assets:install ../../zayso/web/natgames2014x
+php console assetic:dump   ../../zayso/web/natgames2014
+php console assetic:dump   ../../zayso/web/natgames2014x
