@@ -14,10 +14,12 @@
     <div>
     <fieldset>
         <div class="controls">
-            <a href="{{ path('cerad_tourn_home') }}">Return to Home</a>
             <input style="padding: 5px 20px; float: right;font-size: inherit;" type="submit" name="personPlanUpdate" value="Update Plan" />
         </div>
-    </fieldset>
+        <div class="controls">
+            <a href="{{ path('cerad_tourn_home') }}">Return to Home</a>
+        </div>
+     </fieldset>
     </div>
 {{ form_rest(form) }}
 </form>
