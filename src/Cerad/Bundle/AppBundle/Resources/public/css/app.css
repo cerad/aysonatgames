@@ -134,7 +134,7 @@ em{
 }
 
 table {
-  font-size: medium;
+  font-size: inherit;
   margin-left: auto;
   margin-right: auto;
 }
@@ -171,7 +171,6 @@ table.app_table > tbody > tr > td
 
 .app_form
 {
-  padding: 20px 0;
   margin-left: auto;
   margin-right: auto;
   position: relative; /* labels need this on the their parent element */
@@ -195,11 +194,9 @@ form.app_form fieldset legend
   /*display: none;*/
 
 	font-size: 1.1em;
-	line-height: 1.2em;
 	font-weight: bold;
   color: red;
-	margin-bottom: 12px;
-	padding: 5px 20px;
+	padding-left: 20px;
 }
 
 form.app_form fieldset div
@@ -287,11 +284,12 @@ form.app_form fieldset div.controls
   text-align: right;
 }
 
-/*form.app_form fieldset div.controls input[type="submit"]*/
-/*input[type="submit"]*/
-/*{*/
-/*  padding: 10px 20px; float: right;*/
-/*)*/
+form.app_form fieldset div.controls input[type="submit"]
+{
+  padding: 5px 20px;
+  float: right;
+  font-size: inherit;
+}
 
 fieldset.app_form input#input_button
 {
@@ -301,7 +299,8 @@ fieldset.app_form input#input_button
 
 .app_help
 {
-  padding: 0 20px;
+  margin-top: -4em;
+  padding: 0 20px 30px 20px;
   line-height: 1.25em;
 }
 
@@ -337,10 +336,9 @@ background: #480000;
 ul.semiopaquemenu{ /* main menu UL */
 font-weight: bold;
 font-size: 13px;
-font-family: inherit;
-width: 100%;
-background: #ff0000;
-padding: 6px; /* padding of the 4 sides of the menu */
+background: #ed2116;
+/*width:100%;*/
+padding: 6px 0 6px 8px; /* padding of the 4 sides of the menu */
 margin: 0;
 text-align: left; /* set value to "left", "center", or "right" to align menu accordingly */
 }

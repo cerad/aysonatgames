@@ -14,7 +14,7 @@
         {{ form_row(form.personEmail)     }}
         {{ form_row(form.personPhone)     }}
     </fieldset>
-    <fieldset><legend><span>AYSO Information</span></legend>
+    <fieldset><legend><span>Your AYSO Information</span></legend>
        {{ form_row(form.fedId) }}
        {{ form_row(form.orgId) }}
        {{ form_row(form.badge) }}
@@ -22,7 +22,7 @@
      </fieldset>
     <fieldset>
         <div class="controls">
-            <input style="padding: 5px 20px; float: right;font-size: inherit;" type="submit" name="personUpdate" value="Update" />
+            <input type="submit" name="personUpdate" value="Update" />
         </div>
         <div class="controls">
             <span><a href="{{ path('cerad_tourn_home') }}">Return to Home</a></span>
