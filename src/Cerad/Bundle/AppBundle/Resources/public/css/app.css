@@ -370,3 +370,10 @@ box-shadow: 0 0 5px #595959;
 padding-top: 12px; /* large padding to get menu item to protrude upwards */
 padding-bottom: 12px; /* large padding to get menu item to protrude downwards */
 }
+
+#error
+{
+  margin-left: 50%;
+  color: red;
+  font-weight: bold;
+}

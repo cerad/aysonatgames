@@ -15,6 +15,9 @@
             Remember me
         </label>
     </fieldset>
+        {% if error %}
+            <div id="error">{{ error }}</div>
+        {% endif %}
     <fieldset>
         <div class="controls">
             <input type="submit" name="accountLogin" value="Login to Zayso Account" />
