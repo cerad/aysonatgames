@@ -15,6 +15,15 @@ AYSONationalGames2014:
         title:   "AYSO National Games 2014"
         desc:    "AYSO National Games 2014 - Section One, Califorina - June 30 to July 6"
         
+        submit:  "Emails your application to Art Hundiak and yourself."
+        prefix:   NatGames
+             
+        assignor:
+            name:  "Art Hundiak"
+            email: "ahundiak@gmail.com"
+            phone:  256.457.5943
+        
+        # Did I put this here?
         img: bundles/ceradapp/images/
                           
     # ==============================================

@@ -1,0 +1,28 @@
+{# @CeradTourn/PersonPlan/Update/PersonPlanUpdateEmailBody.html.twig   #}
+{% autoescape false %}
+{{ project.desc }}
+
+{{ person.name.full }} "{{ person.name.nick }}"
+
+{{ org.OrgId }} {{ fed.id | slice(5) }} {{ certReferee.badgex }}
+
+{{ person.email }} {{ person.phone | cerad_phone }}
+
+{% set basic = plan.basic %}
+Will Attend:  {{ basic.attending }} 
+Will Referee: {{ basic.refereeing }} 
+
+Notes:
+{{ basic.notes }}
+---
+
+Change Plans at: {{ url('cerad_tourn_welcome') }}
+
+Thanks
+
+{{ assignor.name }}
+{{ project.title }} Assignor
+{{ assignor.phone }}
+{{ assignor.email }}
+
+{% endautoescape %}
