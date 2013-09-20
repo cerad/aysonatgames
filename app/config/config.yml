@@ -18,6 +18,13 @@ framework:
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
+        # Wordpress paths        
+        packages:
+          NG2014:
+            base_urls: ["http://2014nationalgames.org/"]
+          refLogin:
+            base_urls: ["http://2014nationalgames.org/ref_register/"]    
+                
     default_locale:  "%locale%"
     trusted_proxies: ~
     session:         
@@ -29,7 +36,7 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
-
+    
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
@@ -71,4 +78,5 @@ doctrine:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
                
-        
+
+
