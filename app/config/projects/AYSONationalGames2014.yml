@@ -19,13 +19,15 @@ AYSONationalGames2014:
         prefix:   NatGames
              
         assignor:
+            name:  "Jody Kinsey"
+            email: "assignor.ng2014@gmail.com"
+            phone:  909.262.8806
+
+        system:
             name:  "AYSO National Games 2014"
             email: "no.response.ng2014@gmail.com"
             phone:  ""
-        
-        # Did I put this here?
-        img: bundles/ceradapp/images/
-                          
+
     # ==============================================
     # For the schedule search form
     searches:
