@@ -30,8 +30,6 @@
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
         
-        "cerad/cerad": "dev-natgames@dev",
-        
         "phpoffice/phpexcel": "1.7.9",
         "friendsofsymfony/user-bundle": "dev-master"
     },
