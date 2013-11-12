@@ -1,0 +1,156 @@
+# =================================================
+# Top pages
+cerad_tourn_index:
+    pattern:  /
+    defaults: { _controller: CeradTournBundle:Tourn/TournIndex:index }
+#   redirect: cerad_tourn_welcome
+
+cerad_tourn_welcome:
+    pattern:  /welcome
+    defaults: { _controller: CeradTournBundle:Tourn/TournWelcome:welcome }
+#                           @CeradTourn/Tourn/Welcome/TournWelcomeIndex.html.twig
+    
+cerad_tourn_home:
+    pattern:  /home
+    defaults: { _controller: CeradTournBundle:Tourn/TournHome:home }
+#                           @CeradTourn/Tourn/Home/TournHomeIndex.html.twig
+    
+cerad_tourn_contact:
+    pattern:  /contact
+    defaults: { _controller: CeradTournBundle:Tourn/TournContact:contact }
+#                           @CeradTourn/Tourn/Contact/TournContactIndex.html.twig
+
+cerad_tourn_help:
+    pattern:  /help
+    defaults: { _controller: CeradTournBundle:Tourn/TournHelp:help }
+#                           @CeradTourn/Tourn/Home/TournHomeIndex.html.twig
+
+cerad_tourn_test:
+    pattern:  /test
+    defaults: { _controller: CeradTournBundle:Tourn/TournTest:test }
+#                           @CeradTourn/Tourn/Test/TournTestIndex.html.twig
+
+# ========================================================================
+# Accounts
+
+cerad_tourn_account_create:
+    pattern:  /account/create
+    defaults: { _controller: CeradTournBundle:Account/AccountCreate:create }
+#               _template    CeradTourn/Account/Create/AccountCreateIndex.html.twig
+#                                                     /AccountCreateForm.html.twig
+#                                                     /AccountCreateHelp.html.twig
+#               _service     cerad_user.user_manager
+#               _service     cerad_person.person_repository
+
+cerad_tourn_account_update:
+    pattern:  /account/update
+    defaults: { _controller: CeradTournBundle:Account/AccountUpdate:update }
+#                           @CeradTourn/Account/Update/AccountUpdateIndex.html.twig
+#                                                     /AccountUpdateForm.html.twig
+#                                                     /AccountUpdateHelp.html.twig
+
+cerad_tourn_accounts_list:
+    pattern:  /accounts/list
+    defaults: { _controller: CeradTournBundle:Accounts/AccountsList:list }
+#                           @CeradTourn/Accounts/List/AccountsListIndex.html.twig
+    
+# =======================================
+# So should this be account password or user password?
+cerad_tourn_account_password_reset_request:
+    pattern:  /account-password/reset-request
+    defaults: { _controller: CeradTournBundle:AccountPassword/AccountPasswordResetRequest:request }
+#                           @CeradTourn/AccountPassword/ResetRequest/AccountPasswordResetRequestIndex.html.twig
+#                                                                   /AccountPasswordResetRequestForm.html.twig
+#                                                                   /AccountPasswordResetRequestUpdateHelp.html.twig
+    
+cerad_tourn_account_password_reset_requested:
+    pattern:  /account-password/reset-requested/{id}/{token}
+    defaults:
+        _controller: CeradTournBundle:AccountPassword/AccountPasswordResetRequested:requested
+        id:    null
+        token: null 
+#                    @CeradTourn/AccountPassword/ResetRequested/AccountPasswordResetRequestedIndex.html.twig
+#                                                              /AccountPasswordResetRequestedForm.html.twig
+#                                                              /AccountPasswordResetRequestedUpdateHelp.html.twig
+    
+# ==================================================================
+# login/logout stuff works on a resource called user
+# 
+cerad_tourn_account_user_login:
+    pattern:  /account-user/login
+    defaults: { _controller: CeradTournBundle:AccountUser/AccountUserLogin:login }
+#                           @CeradTourn/AccountUser/AccountUserLoginIndex.html.twig
+#                                                  /AccountUserLoginForm.html.twig
+#                                                  /AccountUserLoginHelp.html.twig
+cerad_tourn_account_user_login_check:
+    pattern:  /account-user/check
+    
+cerad_tourn_account_user_logout:
+    pattern:  /account-user/logout
+
+# Alias for: cerad_tourn_account_user_login
+cerad_tourn_user_login:
+    pattern:  /login
+    defaults: { _controller: CeradTournBundle:AccountUser/AccountUserLogin:login }
+    
+cerad_tourn_user_login_check:
+    pattern:  /account-user/check
+    
+cerad_tourn_user_logout:
+    pattern:  /account-user/logout
+
+# ==================================
+# Person Stuff
+
+cerad_tourn_person_create:
+    pattern:  /person/create
+    defaults: { _controller: CeradTournBundle:Person/PersonCreate:create }
+#                           @CeradTourn/Person/Create/PersonCreateIndex.html.twig
+#                                                    /PersonCreateForm.html.twig
+#                                                    /PersonCreateHelp.html.twig
+   
+cerad_tourn_person_update:
+    pattern:  /person/update/{id}
+    defaults: { _controller: CeradTournBundle:Person/PersonUpdate:update, id: 0 }
+#                           @CeradTourn/Person/Update/PersonUpdateIndex.html.twig
+#                                                    /PersonUpdateForm.html.twig
+#                                                    /PersonUpdateHelp.html.twig
+    
+cerad_tourn_persons_list:
+    pattern:  /persons/list
+    defaults: { _controller: CeradTournBundle:Persons/PersonsList:list }
+#                           @CeradTourn/Persons/List/PersonsListIndex.html.twig
+
+#
+cerad_tourn_person_person_create:
+    pattern:  /person-person/create
+    defaults: { _controller: CeradTournBundle:PersonPerson/PersonPersonCreate:create }
+#                           @CeradTourn/PersonPerson/Create/PersonPersonCreateIndex.html.twig
+#                                                          /PersonPersonCreateForm.html.twig
+#                                                          /PersonPersonCreateHelp.html.twig
+    
+cerad_tourn_person_person_update:
+    pattern:  /person-person/update/{id}
+    defaults: { _controller: CeradTournBundle:PersonPerson/PersonPersonUpdate:update, id : 0 }
+#                           @CeradTourn/PersonPerson/Update/PersonPersonUpdateIndex.html.twig
+#                                                          /PersonPersonUpdateForm.html.twig
+#                                                          /PersonPersonUpdateHelp.html.twig
+    
+cerad_tourn_person_persons_list:
+    pattern:  /person-persons/list
+    defaults: { _controller: CeradTournBundle:PersonPersons/PersonPersonsList:list }
+#                           @CeradTourn/PersonPersons/List/PersonPersonsListIndex.html.twig
+    
+# 
+cerad_tourn_person_plan_update:
+    pattern:  /person-plan/update/{id}
+    defaults: { _controller: CeradTournBundle:PersonPlan/PersonPlanUpdate:update, id : 0 }
+#                           @CeradTourn/PersonPlan/Update/PersonPlanUpdateIndex.html.twig
+#                                                        /PersonPlanUpdateForm.html.twig
+#                                                        /PersonPlanUpdateHelp.html.twig
+
+# ===============================================
+# Internal controllers
+# header:
+#   defaults: { _controller: CeradTournBundle:Tourn/Header/TournHeader:render }
+#                            CeradTourn/Tourn/Header/TournHeaderIndex.html.twig
