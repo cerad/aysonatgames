@@ -1,0 +1,30 @@
+{# @CeradTourn/Tourn/TopMenu/TournTopMenuIndex.html.twig   #}
+
+<ul class="semiopaquemenu">
+
+{% if is_granted('ROLE_USER') %}
+  <li>
+    <a href="{{ path('cerad_tourn_home') }}">My Info</a>
+  </li>
+  <li>
+    <a href="{{ path('cerad_tourn_person_update') }}">My Account</a>
+  </li>
+  <li>
+    <a href="{{ path('cerad_tourn_person_plan_update') }}">My Plan</a>
+  </li>
+  <li>
+    <a href="{{ path('cerad_tourn_user_logout') }}">Logout</a>
+  </li>
+
+{% else %}  {# Guest menu #}
+  <li>
+    <a href="{{ path('cerad_tourn_home') }}">Login</a>
+  </li>
+{% endif %}
+  
+{% if is_granted('ROLE_ADMIN') %}
+  <li>
+    <a href="{{ path('cerad_tourn_admin') }}">Admin</a>
+  </li>  
+{% endif %}
+</ul>
