@@ -3,8 +3,13 @@
 
 {% block content %}
 
-{% include '@CeradTourn/Tourn/Welcome/TournWelcomeNotes.html.twig' %}
+<div style="padding: 0 10px;float: right;">
+<a href="{{ path('cerad_tourn_account_create') }}">Create New Account</a>&nbsp;
+<a href="{{ path('cerad_tourn_account_user_login') }}">Login Help</a>
+</div>
 
+{% include '@CeradTourn/Tourn/Welcome/TournWelcomeNotes.html.twig' %}
+<hr />
 {% render(controller('CeradTournBundle:AccountUser/AccountUserLogin:loginForm')) %}
 
 {% endblock %}{# end content block #}
