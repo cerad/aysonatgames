@@ -85,7 +85,7 @@ variable, form, fieldset, blockquote, label, img
 
 body
 {
-  min-width: 720px;
+  min-width: 685px;
 }
 
 h3, h4, legend
@@ -118,7 +118,6 @@ em{
 ,#layout-userinfo *
 {
   font-size:  small;
-  padding: 5px 10px 5px 10px;
 }
 
 #layout-userinfo p#user_name
@@ -129,19 +128,14 @@ em{
 
 #notes
 {
-  padding: 5px 10px 5px 26px;
+  padding: 5px 10px 5px 10px;
   font-size: inherit;
-}
-
-#notes li
-{
-  padding-left: 10px;
-  line-height: 2em;
 }
 
 table {
   font-size: inherit;
-  margin-left: auto;
+  table-layout: fixed;
+  margin-left: 5px;
   margin-right: auto;
 }
 
@@ -170,6 +164,11 @@ table td
   height: 1.1em;
 }
 
+table td p
+{
+  margin: 0 5px;
+}
+
 table.app_table > tbody > tr > td
 {
   border: 1px solid;
@@ -191,7 +190,7 @@ table.app_table > tbody > tr > td
 
 form.app_form fieldset
 {
-	padding: 0 6px;
+	padding: 0 10px;
 	margin-bottom: 6px;
 }
 
@@ -201,8 +200,7 @@ form.app_form fieldset legend
 
 	font-size: 1.1em;
 	font-weight: bold;
-  color: red;
-	padding-left: 20px;
+    color: inherit;
 }
 
 form.app_form fieldset div
@@ -305,9 +303,9 @@ fieldset.app_form input#input_button
 
 .app_help
 {
-  margin-top: -4em;
-  padding: 0 20px 30px 20px;
+  padding: 0 20px 30px 10px;
   line-height: 1.25em;
+  display: inline-block;
 }
 
 .app_help h3
@@ -347,7 +345,6 @@ background: #ed2116;
 padding: 6px 0 6px 8px; /* padding of the 4 sides of the menu */
 margin: 0;
 text-align: left; /* set value to "left", "center", or "right" to align menu accordingly */
-border-bottom: 3px solid;
 }
 
 ul.semiopaquemenu li{
@@ -383,4 +380,395 @@ padding-bottom: 12px; /* large padding to get menu item to protrude downwards */
   margin-left: 50%;
   color: red;
   font-weight: bold;
+}
+
+/*
+ *  Development styling for S1Games
+ *  R Roberts
+ *  26 Sept 2013
+ */
+
+.sf-toolbar, .sf-toolbar *
+{
+  border:none;
+}
+
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, dl, pre, code, address,
+variable, form, fieldset, blockquote, label, img
+{
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Arial, 'Trebuchet MS', sans-serif;
+  font-size: small;
+  color: black;
+}
+
+body
+{
+  width: 100%;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+h2{
+  vertical-align: middle;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px 0 10px 0;
+}
+
+h3, legend
+{
+  font-weight: bold;
+  font-size: 16px !important;
+}
+
+h4
+{
+  color: inherit;
+  font-weight: bold;
+  font-size: 14px !important;
+}
+
+h5
+{
+  color: inherit;
+  font-weight: bold;
+  font-size: 12px !important;
+}
+
+strong
+{
+  font-weight: bold;
+}
+
+em{
+  font-style: italic;
+}
+
+hr
+{
+  margin: 15px auto 15px auto;
+  clear: both;
+}
+
+form
+{
+  padding: 20px 0 20px 0;
+}
+
+#layout-header td
+{
+  vertical-align: middle;
+}
+
+#layout-header
+,#layout-content
+{
+  padding: 10px 0;
+}
+
+#layout-topmenu
+{
+  clear: both;
+  width: 100%;
+}
+
+#layout-userinfo p#user_name
+{
+  float: right;
+  margin-top: -5px;
+  padding: 5px 10px 5px 10px;
+}
+
+#notes
+{
+  display: inline-block;
+  padding: 15px 10px 5px 10px;
+  font-size: inherit;
+}
+
+#notes ul li
+{
+  list-style-type: disc;
+  margin-left: 40px;
+  line-height: 1.5em;
+}
+
+#notes ol li
+{
+  list-style-type: decimal;
+  margin-left: 80px;
+  line-height: 1.5em;
+}
+
+table.data
+{
+  table-layout: auto;
+}
+
+table colgroup col
+{
+  width: 20%;
+}
+
+table th
+{
+  padding: 0;
+  overflow: hidden;
+  width: 100px;
+}
+
+#person-list th
+{
+  width: 20%;
+}
+
+table.schedule
+{
+  padding: 15px 0;
+}
+
+.schedule th
+,.standings th
+,.results th
+,.scoring th
+,.my_schedule th
+{
+  padding: 0 8px;
+  width: auto;
+}
+
+.app_table th
+,.assign th
+{
+  line-height: 2em;
+}
+
+.schedule tr
+,.standings tr
+,.results tr
+{
+  line-height: 2em;
+  height: 2em;
+}
+
+.schedule tr:nth-child(odd)
+,.standings tr:nth-child(odd)
+,.results tr:nth-child(odd)
+,#person-list tr:nth-child(odd)
+,.my_schedule tr:nth-child(odd)
+{
+  background: #cce6ff;
+}
+
+.schedule td
+,.standings td
+,.results td
+,.scoring td
+{
+  text-align: center;
+  height: 0.9em;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.tbl-title th
+{
+  background: #004080;
+  height: 2em;
+}
+
+.tbl-hdr th
+{
+  background: #0054a8;
+  height: 3em;
+}
+
+.schedule-search
+{
+  /*display: none;*/
+}
+
+.schedule table tr:nth-child(odd)
+,#person-list table tr:nth-child(odd)
+,.my_schedule table tr:nth-child(odd)
+{
+  background: inherit;
+}
+
+input[type="submit"]
+{
+  padding: 5px 20px;
+  font-size: inherit;
+}
+
+.account-person-list
+{
+  width: 99%;
+}
+
+form#cerad_tourn_schedule_official_search
+,form#cerad_tourn_schedule_search
+{
+  padding-top: 0;
+}
+
+form#cerad_tourn_schedule_official_search fieldset
+,form#cerad_tourn_schedule_search fieldset
+{
+  padding-left: 2%;
+  line-height: 2em;
+}
+
+form#cerad_tourn_schedule_official_search fieldset div label
+,form#cerad_tourn_schedule_search fieldset div label
+{
+  padding-right: 2em;
+  padding-left: 1%;
+}
+
+form#cerad_tourn_schedule_official_search fieldset div div
+,form#cerad_tourn_schedule_search fieldset div div
+{
+  padding-left: 1%;
+  padding-bottom: 10px;
+}
+
+form#cerad_tourn_schedule_official_search fieldset div input[type="text"]
+,form#cerad_tourn_schedule_search fieldset div input[type="text"]
+{
+  position: absolute;
+  left: 12em;
+}
+
+form#cerad_tourn_schedule_official_search input[type="submit"]
+,form#cerad_tourn_schedule_search input[type="submit"]
+{
+  float: right;
+  margin-right: 10%;
+}
+
+form#cerad_tourn_schedule_official_search #list_filters
+,form#cerad_tourn_schedule_search #list_filters
+{
+  display: none;
+}
+
+form#cerad_tourn_schedule_official_search .required
+,form#cerad_tourn_schedule_search .required
+{
+  font-weight: bold;
+  font-size: 1.1em;
+  text-decoration: underline;
+}
+
+.admin
+{
+  margin-left: 10%;
+}
+
+.admin h2
+{
+  text-align: left;
+}
+
+.admin li
+{
+  margin-left: 3em;
+  line-height: 2em;
+  list-style: disc;
+}
+
+.import_controls
+{
+  padding-left: 40px;
+  line-height: 3em;
+}
+
+.import_controls form
+{
+  padding: 0 0 20px 0;
+}
+
+table.import_results
+{
+  padding: 0 20px;
+  width:80%
+}
+
+table#person-list
+{
+  min-width: 900px;
+}
+
+table#person-list td
+{
+  padding: 0;
+  max-width: 350px;
+  min-width: 20%;
+  word-wrap: break-word;
+}
+
+table#person-list td table
+{
+  width: 95%;
+}
+
+table#person-list table tr
+{
+  max-width: 85%;
+}
+
+table#person-list table td
+{
+  max-width: 100%;
+  min-width: 45%;
+}
+
+#form_slots_1_role
+,#form_slots_2_role
+,#form_slots_3_role
+{
+  text-align: right;
+  border: 0;
+  background: inherit;
+}
+
+.my_schedule
+{
+  width:80%;
+}
+
+.my_schedule th
+{
+  width:20%;
+  line-height: 2em;
+}
+
+.my_schedule td
+{
+  text-align: left;
+}
+
+.my_schedule button[type="submit"]
+,.assign button[type="submit"]
+{
+  padding: 10px;
+}
+
+@media print
+{
+  .sf-toolbar
+  ,.sf-toolbar *
+  {
+    display:none;
+  }
+  .schedule-search
+  {
+    display:none;
+  }
 }
