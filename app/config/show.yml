@@ -9,6 +9,13 @@ parameters:
             janrain:        false  # Social network login
             wordpress:      true  # Style sheets and javascripts
             
+        rick:
+            layout_header:  false
+            layout_topmenu: true
+            layout_userinfo: false
+            janrain:        false  # Social network login
+            wordpress:      true  # Style sheets and javascripts
+            
         default:
             layout_header:  false
             layout_topmenu: true
