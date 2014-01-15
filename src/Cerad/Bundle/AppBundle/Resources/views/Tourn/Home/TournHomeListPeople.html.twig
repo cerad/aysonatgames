@@ -10,8 +10,7 @@
     {% for personPerson in userPerson.personPersons %}
     {% set person  = personPerson.child       %}
     {% set name    = person.name              %}
-    {% set fed     = person.fed(project.fedRoleId) %}
-    {% set org     = fed.org                  %}
+    {% set fed     = person.fed(project.fedRole) %}
     {% set certRef = fed.certReferee          %}
     {% set certSH  = fed.certSafeHaven        %}
     {% set plan    = person.plan(project.id)  %}
@@ -33,11 +32,11 @@
             {% endif %}
         </table></td>
         <td><table>
-            <tr><td>AYSO ID:</td>   <td>{{ fed.id | slice(5)    }}</td></tr>
-            <tr><td>Vol Year:</td>  <td>{{ org.memYear          }}</td></tr>
-            <tr><td>Safe Haven:</td><td>{{ certSH.badge         }}</td></tr>
-            <tr><td>Ref Badge:</td> <td>{{ certRef.badgex       }}</td></tr>
-            <tr><td>Region:</td>    <td>{{ org.orgId | slice(4) }}</td></tr>
+            <tr><td>AYSO ID:</td>   <td>{{ fed.fedKey | slice(5) }}</td></tr>
+            <tr><td>Vol Year:</td>  <td>{{ fed.memYear           }}</td></tr>
+            <tr><td>Safe Haven:</td><td>{{ certSH.badge          }}</td></tr>
+            <tr><td>Ref Badge:</td> <td>{{ certRef.badgeUser     }}</td></tr>
+            <tr><td>Region:</td>    <td>{{ fed.orgKey | cerad_org_sar }}</td></tr>
         </table></td>
         <td><table>
         {% if plan.id %}
