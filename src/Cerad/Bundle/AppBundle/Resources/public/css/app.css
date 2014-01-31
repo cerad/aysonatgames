@@ -708,7 +708,7 @@ table#person-list
 table#person-list td
 {
   padding: 0;
-  max-width: 350px;
+  max-width: 200px;
   min-width: 20%;
   word-wrap: break-word;
 }

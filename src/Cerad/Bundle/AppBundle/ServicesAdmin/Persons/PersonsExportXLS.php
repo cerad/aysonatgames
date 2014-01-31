@@ -7,12 +7,12 @@ class PersonsExportXLS
 {
     protected $excel;
     protected $orgRepo;
-    
+
     public function __construct($excel,$orgRepo)
     {
         $this->excel   = $excel;
         $this->orgRepo = $orgRepo;
-        
+
         $this->phoneTransformer = new PhoneTransformer();
     }
     protected function setColumnWidths($ws,$widths)
@@ -40,7 +40,7 @@ class PersonsExportXLS
 
             $ws->getColumnDimensionByColumn($col)->setWidth($info['width']);
             $ws->setCellValueByColumnAndRow($col,$row,      $info['value']);
-            
+
             $col++;
         }
     }
@@ -54,21 +54,22 @@ class PersonsExportXLS
         'planCreatedOn'   => array('width' => 16, 'value' => 'Applied On'),
         'planWillAttend'  => array('width' =>  8, 'value' => 'Attend'),
         'planWillReferee' => array('width' =>  8, 'value' => 'Referee'),
+        'planVenue'       => array('width' => 16, 'value' => 'Venue Choice'),
         'planWillMentor'  => array('width' =>  8, 'value' => 'Will Mentor'),
         'planWantMentor'  => array('width' =>  8, 'value' => 'Want Mentor'),
         'planWillAssess'  => array('width' =>  8, 'value' => 'Will Assess'),
         'planWantAssess'  => array('width' =>  8, 'value' => 'Want Assess'),
         'planNotes'       => array('width' => 72, 'value' => 'Person Plan Notes'),
-        
-        'personNameFull'  => array('width' => 24, 'value' => 'Name'), 
-        'personEmail'     => array('width' => 24, 'value' => 'Email'), 
+
+        'personNameFull'  => array('width' => 24, 'value' => 'Name'),
+        'personEmail'     => array('width' => 24, 'value' => 'Email'),
         'personPhone'     => array('width' => 14, 'value' => 'Cell Phone'),
         'personGage'      => array('width' =>  4, 'value' => 'Gage'),
-            
-        'fedKey'          => array('width' => 12, 'value' => 'AYSO ID'), 
-        'fedArea'         => array('width' =>  8, 'value' => 'Area'), 
+
+        'fedKey'          => array('width' => 12, 'value' => 'AYSO ID'),
+        'fedArea'         => array('width' =>  8, 'value' => 'Area'),
         'fedRegion'       => array('width' =>  8, 'value' => 'Region'),
-            
+
         'certSafeHavenBadge'       => array('width' =>  8, 'value' => 'Safe Haven'),
         'certRefereeBadge'         => array('width' => 12, 'value' => 'Badge'),
         'certRefereeBadgeVerified' => array('width' =>  4, 'value' => 'Verified'),
@@ -77,55 +78,56 @@ class PersonsExportXLS
     /* ================================================================
      * Process an official but transfering the relevant information to a flat array
      * This should probably go into it's own object for reuse
-     * 
+     *
      * The keys here match the header map keys
      */
     protected function processPerson($project,$person)
     {
         $item = array();
-        
+
         // Person Information
         $personName = $person->getName();
         $item['personName']     = $personName;
         $item['personNameFull'] = $personName->full;
-        
+
         $item['personEmail'] = $person->getEmail();
         $item['personPhone'] = $this->phoneTransformer->transform($person->getPhone());
 
         // Fed information
         $personFed   = $person->getFed($project->getFedRole());
-        
+
         $item['fedKey'] = substr($personFed->getFedKey(),4);
 
         $orgKey = $personFed->getOrgKey();
         $org    = $this->orgRepo->find($orgKey);
-        
+
         $item['fedArea']   = $org ? substr($org->getParent(),4) : null;
         $item['fedRegion'] = substr($orgKey,4);
-        
+
         // Certs
         $certReferee = $personFed->getCertReferee();
         $item['certRefereeBadge']         = $certReferee->getBadge();
         $item['certRefereeBadgeVerified'] = $certReferee->getBadgeVerified();
         $item['certRefereeUpgrading']     = $certReferee->getUpgrading();
-        
+
         $item['certSafeHavenBadge'] = $personFed->getCertSafeHaven()->getBadge();
-        
+
         // Plan Information
         $plan = $person->getPlan($project->getKey());
         $item['planId']      = $plan->getId();
         $item['planStatus']  = $plan->getStatus();
-        
+
         $planCreatedOn = $plan->getCreatedOn();
         $item['planCreatedOn'] = $planCreatedOn ? $planCreatedOn->format('Y-m-d H:i') : null;
-        
+
         $basic = $plan->getBasic();
+        $item['planVenue']      = $basic['venue'];
         $item['planNotes']       = $basic['notes'];
         $item['planWillAttend']  = $basic['attending'];
         $item['planWillReferee'] = $basic['refereeing'];
         $item['planWantMentor']  = $basic['wantMentor'];
         $item['planWillMentor']  = $basic['willMentor'];
-        
+
         return $item;
     }
     /* ================================================================
@@ -138,16 +140,16 @@ class PersonsExportXLS
         $keys = array
         (
             'planId', 'planStatus', 'planCreatedOn',
-            
+
             'personNameFull', 'personEmail', 'personPhone',
-            
+
             'fedKey', 'fedArea', 'fedRegion',
-            
-            'certSafeHavenBadge', 
-            'certRefereeBadge', 
+
+            'certSafeHavenBadge',
+            'certRefereeBadge',
             'certRefereeBadgeVerified',
             'certRefereeUpgrading',
-            
+
             'planWantMentor', 'planWillAttend', 'planWillReferee',
         );
         $this->writeHeaders($ws,1,$this->headerMap,$keys);
@@ -175,28 +177,28 @@ class PersonsExportXLS
         $keys = array
         (
             'planId', 'planStatus', 'planCreatedOn',
-            
             'personNameFull', 'personEmail', 'personPhone',
-            
+
             'fedKey', 'fedArea', 'fedRegion',
-            
-            'certSafeHavenBadge', 
-            'certRefereeBadge', 
+
+            'certSafeHavenBadge',
+            'certRefereeBadge',
             'certRefereeBadgeVerified',
             'certRefereeUpgrading',
-            
+            'planVenue',
+
             'planWantMentor', 'planWillAttend', 'planWillReferee',
         );
         $this->writeHeaders($ws,1,$this->headerMap,$keys);
-        
+
         $row = 2;
-        
+
         foreach($items as $item)
         {
             // Filter
             if ($item['planWillAttend' ] == 'no') continue;
             if ($item['planWillReferee'] == 'no') continue;
-             
+
             $values = array();
             foreach($keys as $key)
             {
@@ -215,29 +217,29 @@ class PersonsExportXLS
     protected function generateNotesSheet($ws,$items)
     {
         $ws->setTitle('Notes');
-        
+
         $keys = array
         (
             'planId',
-            
+
             'personNameFull', 'personEmail', 'personPhone',
-            
-            'fedKey', 'certRefereeBadge', 
-            
+
+            'fedKey', 'certRefereeBadge',
+
             'planNotes',
         );
         $this->writeHeaders($ws,1,$this->headerMap,$keys);
-        
+
         $row = 2;
-        
+
         foreach($items as $item)
         {
             // Filter
             if ($item['planWillAttend' ] == 'no') continue;
             if ($item['planWillReferee'] == 'no') continue;
-            
+
             if (!$item['planNotes']) continue;
-             
+
             $values = array();
             foreach($keys as $key)
             {
@@ -260,7 +262,7 @@ class PersonsExportXLS
         {
             $items[] = $this->processPerson($project,$official);
         }
-        
+
         // Build the spreadsheet, no need to inject excel
         $this->ss = $ss = $this->excel->newSpreadSheet();
 
