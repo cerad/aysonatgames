@@ -1,2 +1,6 @@
-## YAML Template.
----
+# ============================================
+# Override service classes
+parameters:
+    cerad_tourn.officials.export_xls.class: Cerad\Bundle\AppBundle\ServicesAdmin\Persons\PersonsExportXLS
+    
+    cerad_person.aysov_referee_badge.form_type.class: Cerad\Bundle\AppBundle\FormType\AYSO\RefereeBadgeFormType  
