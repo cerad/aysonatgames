@@ -233,6 +233,24 @@ AYSONationalGames2014:
       #  type:  text
       #  label: Hotel staying at
       #  size:  30
+      
+      availSatAfter:
+        type:    select
+        label:   Available Saturday Afternoon (Quarter Finals)
+        default: no
+        choices: { no: No, yes: Yes, maybe: Yes - If My Team Advances}
+        
+      availSunMorn:
+        type:    select
+        label:   Available Sunday Morning (Semi Finals)
+        default: no
+        choices: { no: No, yes: Yes, maybe: Yes - If My Team Advances}
+        
+      availSunAfter:
+        type:    select
+        label:   Available Sunday Afternoon (Finals)
+        default: no
+        choices: { no: No, yes: Yes, maybe: Yes - If My Team Advances}
         
       notes:
         type:  textarea
