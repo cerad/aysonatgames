@@ -48,37 +48,26 @@ doctrine:
     orm:
         default_entity_manager:       default
         auto_generate_proxy_classes: %kernel.debug%
-       #auto_mapping: true
                 
         entity_managers:
           
             default:
                 connection: default
                 mappings:
+                    CeradOrgBundle:    ~
+                    CeradUserBundle:   ~
+                    CeradPersonBundle: ~
 
             games:
                connection: games
                mappings:
-                    CeradGameBundle: ~
+                    CeradGameBundle: 
+                        dir:    Resources\config\doctrine2
+                        prefix: Cerad\Bundle\GameBundle\Doctrine\Entity
                dql:
                     datetime_functions:
-                        date:  Cerad\Bundle\GameBundle\Doctrine\DQL\Date
-                        time:  Cerad\Bundle\GameBundle\Doctrine\DQL\Time
-                        month: Cerad\Bundle\GameBundle\Doctrine\DQL\Month
+                        date:  Cerad\Bundle\CoreBundle\Doctrine\DQL\Date
+                        time:  Cerad\Bundle\CoreBundle\Doctrine\DQL\Time
+                        month: Cerad\Bundle\CoreBundle\Doctrine\DQL\Month
                         
-            accounts:
-               connection: accounts
-               mappings:
-                   #FOSUserBundle: ~
-                    CeradAccountBundle: ~
-                    
-            persons:
-               connection: persons
-               mappings:
-                    CeradPersonBundle: ~
-                    
-            legacy2012:
-               connection: legacy2012
-               mappings:
-                    CeradLegacy2012Bundle: ~
                        
