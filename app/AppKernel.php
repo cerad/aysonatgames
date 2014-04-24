@@ -16,13 +16,14 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
           
-            new Cerad\Bundle\ProjectBundle\CeradProjectBundle(),
-            new Cerad\Bundle\PersonBundle \CeradPersonBundle(),
+            new Cerad\Bundle\CoreBundle   \CeradCoreBundle(),
             new Cerad\Bundle\UserBundle   \CeradUserBundle(),
             new Cerad\Bundle\GameBundle   \CeradGameBundle(),
             new Cerad\Bundle\LevelBundle  \CeradLevelBundle(),
             new Cerad\Bundle\EaysoBundle  \CeradEaysoBundle(),
             new Cerad\Bundle\OrgBundle    \CeradOrgBundle(),
+            new Cerad\Bundle\PersonBundle \CeradPersonBundle(),
+            new Cerad\Bundle\ProjectBundle\CeradProjectBundle(),
             
             new Cerad\Bundle\TournBundle     \CeradTournBundle(),
             new Cerad\Bundle\TournAdminBundle\CeradTournAdminBundle(),
