@@ -35,8 +35,9 @@ AYSONationalGames2014:
       dates:
         type:     checkbox
         label:    Days
-        default: '2014-07-02'
+        default: ['2014-07-05']
         choices:
+          'All'       : All
           '2014-07-02': Wed
           '2014-07-03': Thu
           '2014-07-04': Fri
@@ -48,6 +49,7 @@ AYSONationalGames2014:
         label:   Genders
         default: ~
         choices:
+          All: All
           B:   Boys
           G:   Girls
           
@@ -56,6 +58,7 @@ AYSONationalGames2014:
         label:   Ages
         default: [U12,U16]
         choices:
+          All: All
           VIP: VIP
           U10: U10
           U12: U12
@@ -69,8 +72,9 @@ AYSONationalGames2014:
         label:   Programs
         default: [Core]
         choices:
-          C: Core
-          E: Extra
+          All: All
+          C:   Core
+          E:   Extra
     
     #times: # Want this to be a select
     #  start: 0600
@@ -233,6 +237,24 @@ AYSONationalGames2014:
       #  type:  text
       #  label: Hotel staying at
       #  size:  30
+      
+      availSatAfter:
+        type:    select
+        label:   Available Saturday Afternoon (Quarter Finals)
+        default: no
+        choices: { no: No, yes: Yes, maybe: Yes - If My Team Advances}
+        
+      availSunMorn:
+        type:    select
+        label:   Available Sunday Morning (Semi Finals)
+        default: no
+        choices: { no: No, yes: Yes, maybe: Yes - If My Team Advances}
+        
+      availSunAfter:
+        type:    select
+        label:   Available Sunday Afternoon (Finals)
+        default: no
+        choices: { no: No, yes: Yes, maybe: Yes - If My Team Advances}
         
       notes:
         type:  textarea
