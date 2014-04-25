@@ -35,7 +35,7 @@ AYSONationalGames2014:
       dates:
         type:     checkbox
         label:    Days
-        default: '2014-07-02'
+        default: ['2014-07-05']
         choices:
           '2014-07-02': Wed
           '2014-07-03': Thu
