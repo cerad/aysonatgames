@@ -62,7 +62,7 @@ doctrine:
                connection: games
                mappings:
                     CeradGameBundle: 
-                        dir:    Resources\config\doctrine2
+                        dir:    Resources/config/doctrine2
                         prefix: Cerad\Bundle\GameBundle\Doctrine\Entity
                dql:
                     datetime_functions:
