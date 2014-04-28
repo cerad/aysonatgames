@@ -73,8 +73,8 @@ AYSONationalGames2014:
         default: [Core]
         choices:
           All: All
-          C:   Core
-          E:   Extra
+          Core:  Core
+          Extra: Extra
     
     #times: # Want this to be a select
     #  start: 0600
