@@ -14,6 +14,7 @@ AYSONationalGames2014:
                 
         title:   "AYSO National Games 2014"
         desc:    "AYSO National Games 2014 - Section One, Califorina - June 30 to July 6"
+        results: natgames
         
         submit:  "Emails your application to Art Hundiak and yourself."
         prefix:   NatGames
