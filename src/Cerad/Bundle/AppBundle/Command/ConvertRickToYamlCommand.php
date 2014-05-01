@@ -34,7 +34,7 @@ class ConvertRickToYamlCommand extends ContainerAwareCommand
         
         $src = 'data/';
         $des = 'data/';
-        $file = 'ScheduleGamesCore20140418';
+        $file = 'ScheduleGamesCore20140501';
         
         $convert = $this->getService('cerad_game__convert__rick_to_yaml');
         $convert->setProjectKey($project->getKey());
