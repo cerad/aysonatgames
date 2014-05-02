@@ -24,6 +24,12 @@
   
 {% if is_granted('ROLE_ADMIN') %}
   <li>
+  <li>
+    <a href="{{ path('cerad_game__project__referee_schedule__show', { '_project': 'natgames' }) }}">Referee Schedule</a>
+  </li>
+  <li>
+    <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': 'natgames' }) }}">Pool Play Results</a>
+  </li>
     <a href="{{ path('cerad_tourn_admin') }}">Admin</a>
   </li>  
 {% endif %}

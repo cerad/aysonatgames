@@ -40,7 +40,9 @@ twig:
     paths:
         "%kernel.root_dir%/../src/Cerad/Bundle/AppBundle/Resources/views":      CeradTourn
         "%kernel.root_dir%/../src/Cerad/Bundle/AppBundle/Resources/viewsAdmin": CeradTournAdmin
-        "%kernel.root_dir%/../../cerad2/src/Cerad/Bundle/GameBundle/Action" : CeradGame
+        #
+        "%kernel.root_dir%/../src/Cerad/Bundle/AppBundle/Resources/views/CeradGame": CeradGame
+        "%kernel.root_dir%/../../cerad2/src/Cerad/Bundle/GameBundle/Action":         CeradGame
     
 # Assetic Configuration
 assetic:
