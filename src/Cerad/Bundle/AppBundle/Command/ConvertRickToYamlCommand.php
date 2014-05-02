@@ -3,7 +3,7 @@
 namespace Cerad\Bundle\AppBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-//  Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 //  Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -14,10 +14,9 @@ class ConvertRickToYamlCommand extends ContainerAwareCommand
 {
     protected function configure()
     {
-        $this
-            ->setName('cerad_app__convert__rick_to_yaml')
-            ->setDescription('Convert Rick Schedule to Yaml')
-        ;
+        $this->setName       ('cerad_app__convert__rick_to_yaml');
+        $this->setDescription('Convert Rick Schedule to Yaml');
+        $this->addArgument   ('file', InputArgument::REQUIRED, 'Schedule');
     }
     protected function getService($id)     { return $this->getContainer()->get($id); }
     protected function getParameter($name) { return $this->getContainer()->getParameter($name); }
@@ -26,29 +25,47 @@ class ConvertRickToYamlCommand extends ContainerAwareCommand
     {
         $project = $this->getService('cerad_project.project_current');
         
-      //$src = "C:\\Users\\ahundiak.IGSLAN\\Google Drive\\arbiter\\";
-      //$des = "C:\\Users\\ahundiak.IGSLAN\\Google Drive\\arbiter\\";
+        $file = $input->getArgument('file');
         
-      //$src = "C:\\Users\\ahundiak\\Google Drive\\arbiter\\";
-      //$des = "C:\\Users\\ahundiak\\Google Drive\\arbiter\\";
+        $this->processGames($project,$file); 
+        $this->processTeams($project,$file); 
         
-        $src = 'data/';
-        $des = 'data/';
-        $file = 'ScheduleGamesCore20140501';
+        return; if ($output);
+    }
+    protected function processGames($project,$file)
+    {
+        $convertGames = $this->getService('cerad_game__convert_games__rick_to_yaml');
+        $convertGames->setProjectKey($project->getKey());
         
-        $convert = $this->getService('cerad_game__convert__rick_to_yaml');
-        $convert->setProjectKey($project->getKey());
-        
-        $games = $convert->load($src . $file . '.xlsm');
+        $games = $convertGames->load($file);
         
         echo sprintf("Games: %d\n",count($games));
         
-        file_put_contents($des . $file . '.yml',Yaml::dump($games,10));
+        file_put_contents('data/Games.yml',Yaml::dump($games,10));
 
         $loader = $this->getService('cerad_game__load_games');
         $loader->process($games);
         
-        return; if($input); if($output);
+        return;        
+    }
+    protected function processTeams($project,$file)
+    {
+        $convert = $this->getService('cerad_game__convert_teams__rick_to_yaml');
+        $convert->setProjectKey($project->getKey());
+        
+        $teams = $convert->load($file,'Teams');
+        
+        echo sprintf("Teams: %d\n",count($teams));
+        
+        file_put_contents('data/Teams.yml',Yaml::dump($teams,10));
+        
+        $loader = $this->getService('cerad_game__load_teams');
+        $loader->process($teams);
+        
+        $linker = $this->getService('cerad_game__link_teams');
+        $linker->process($teams);
+        
+        return;
     }
 }
 ?>
