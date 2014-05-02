@@ -13,12 +13,6 @@
     <a href="{{ path('cerad_tourn_person_plan_update') }}">My Plan</a>
   </li>
   <li>
-    <a href="{{ path('cerad_game__project__referee_schedule__show', { '_project': 'natgames' }) }}">Referee Schedule</a>
-  </li>
-  <li>
-    <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': 'natgames' }) }}">Pool Play Results</a>
-  </li>
-  <li>
     <a href="{{ path('cerad_tourn_user_logout') }}">Logout</a>
   </li>
 
@@ -26,16 +20,16 @@
   <li>
     <a href="{{ path('cerad_tourn_home') }}">Login</a>
   </li>
+{% endif %}
+  
+{% if is_granted('ROLE_ADMIN') %}
+  <li>
   <li>
     <a href="{{ path('cerad_game__project__referee_schedule__show', { '_project': 'natgames' }) }}">Referee Schedule</a>
   </li>
   <li>
     <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': 'natgames' }) }}">Pool Play Results</a>
   </li>
-{% endif %}
-  
-{% if is_granted('ROLE_ADMIN') %}
-  <li>
     <a href="{{ path('cerad_tourn_admin') }}">Admin</a>
   </li>  
 {% endif %}
