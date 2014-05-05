@@ -29,6 +29,8 @@ AYSONationalGames2014:
             email: "no.response.ng2014@gmail.com"
             phone:  ""
 
+        programs: [Core,Extra]
+        
     # ==============================================
     # For the schedule search form
     searches:
