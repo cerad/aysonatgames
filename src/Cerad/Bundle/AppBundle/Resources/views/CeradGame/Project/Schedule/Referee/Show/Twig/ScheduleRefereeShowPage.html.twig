@@ -1,0 +1,15 @@
+{% extends '@CeradGame/Layout.html.twig' %}
+
+{% block content %}
+{% include '@CeradGame/Project/Schedule/Referee/Show/Twig/ScheduleRefereeShowForm.html.twig' %}
+{% include '@CeradGame/Project/Schedule/Referee/Show/Twig/ScheduleRefereeShowList.html.twig' %}
+{% endblock %}
+{% block javascripts %}
+  <script type="text/javascript">
+$(document).ready(function()
+{
+    // checkbox all functionality
+    $('.cerad-checkbox-all').change(Cerad.checkboxAll);
+});
+  </script>
+{% endblock %}

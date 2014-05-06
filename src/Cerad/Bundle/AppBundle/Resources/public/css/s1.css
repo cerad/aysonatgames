@@ -1,0 +1,452 @@
+/*
+ *  Development styling for S1Games
+ *  R Roberts
+ *  26 Sept 2013
+
+06 May 2014 - Copied to national games
+ */
+
+.sf-toolbar, .sf-toolbar *
+{
+  border:none;
+}
+
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, dl, pre, code, address,
+variable, form, fieldset, blockquote, label, img
+{
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Arial, 'Trebuchet MS', sans-serif;
+  font-size: small;
+  color: black;
+}
+
+body
+{
+  width: 100%;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+h2{
+  vertical-align: middle;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px 0 10px 0;
+}
+
+h3, legend
+{
+  font-weight: bold;
+  font-size: 16px !important;
+}
+
+h4
+{
+  color: inherit;
+  font-weight: bold;
+  font-size: 14px !important;
+}
+
+h5
+{
+  color: inherit;
+  font-weight: bold;
+  font-size: 12px !important;
+}
+
+strong
+{
+  font-weight: bold;
+}
+
+em{
+  font-style: italic;
+}
+
+hr
+{
+  margin: 15px auto 15px auto;
+  clear: both;
+}
+
+form
+{
+  padding: 20px 0 20px 0;
+}
+
+#layout-header td
+{
+  vertical-align: middle;
+}
+
+#layout-header
+,#layout-content
+{
+  padding-top: 10px;
+}
+
+#layout-topmenu
+{
+  clear: both;
+  width: 100%;
+}
+
+#layout-userinfo p#user_name
+{
+  float: right;
+  padding-right: 10px;
+/*
+  margin-top: -5px;
+  padding: 5px 10px 5px 10px;
+*/
+}
+
+#notes
+{
+  display: inline-block;
+  padding: 15px 10px 5px 10px;
+  font-size: inherit;
+}
+
+#notes ul li
+{
+  list-style-type: disc;
+  margin-left: 40px;
+  line-height: 1.5em;
+}
+
+#notes ol li
+{
+  list-style-type: decimal;
+  margin-left: 80px;
+  line-height: 1.5em;
+}
+
+table
+{
+  font-size: inherit;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.data
+{
+  table-layout: auto;
+}
+
+table colgroup col
+{
+  width: 20%;
+}
+
+table th
+{
+  padding: 0;
+}
+
+#person-list th
+{
+  width: 20%;
+}
+
+table td
+{
+  padding: 5px;
+  line-height: 2em;
+}
+
+table.schedule
+{
+  padding: 15px 0;
+}
+
+.schedule th
+,.standings th
+,.results th
+,.scoring th
+,.my_schedule th
+{
+  padding: 0 8px;
+  width: auto;
+}
+
+.app_table th
+,.assign th
+{
+  line-height: 2em;
+}
+
+.schedule tr
+,.standings tr
+,.results tr
+{
+  line-height: 2em;
+  height: 2em;
+}
+
+.schedule tr:nth-child(odd)
+,.standings tr:nth-child(odd)
+,.results tr:nth-child(odd)
+,#person-list tr:nth-child(odd)
+,.my_schedule tr:nth-child(odd)
+{
+  background: #cce6ff;
+}
+
+.schedule td
+,.standings td
+,.results td
+,.scoring td
+{
+  text-align: center;
+  height: 0.9em;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.tbl-title th
+{
+  background: #004080;
+  height: 2em;
+}
+
+.tbl-hdr th
+{
+  background: #0054a8;
+  height: 3em;
+}
+
+.schedule-search
+{
+  /*display: none;*/
+}
+
+.schedule table tr:nth-child(odd)
+,#person-list table tr:nth-child(odd)
+,.my_schedule table tr:nth-child(odd)
+{
+  background: inherit;
+}
+
+input[type="submit"]
+{
+  padding: 5px 20px;
+  font-size: inherit;
+}
+
+.account-person-list
+{
+  width: 99%;
+}
+
+form#cerad_tourn_schedule_official_search
+,form#cerad_tourn_schedule_search
+,form#cerad_tourn_unassigned_matches_search
+{
+  padding-top: 0;
+}
+
+form#cerad_tourn_schedule_official_search fieldset
+,form#cerad_tourn_schedule_search fieldset
+,form#cerad_tourn_unassigned_matches_search fieldset
+{
+/*  padding-left: 2%;
+  line-height: 2em;*/
+}
+
+form#cerad_tourn_schedule_official_search fieldset div label
+,form#cerad_tourn_schedule_search fieldset div label
+,form#cerad_tourn_unassigned_matches_search fieldset div label
+{
+  padding-right: 2em;
+  padding-left: 1%;
+}
+
+form#cerad_tourn_schedule_official_search fieldset div div
+,form#cerad_tourn_schedule_search fieldset div div
+,form#cerad_tourn_unassigned_matches_search fieldset div div
+{
+  padding-left: 1%;
+  padding-bottom: 10px;
+}
+
+form#cerad_tourn_schedule_official_search fieldset div input[type="text"]
+,form#cerad_tourn_schedule_search fieldset div input[type="text"]
+,form#cerad_tourn_unassigned_matches_search fieldset div input[type="text"]
+{
+  position: absolute;
+  left: 12em;
+}
+
+form#cerad_tourn_schedule_official_search input[type="submit"]
+,form#cerad_tourn_schedule_search input[type="submit"]
+,form#cerad_tourn_unassigned_matches_search input[type="submit"]
+{
+  float: right;
+  margin-right: 10%;
+}
+
+form#cerad_tourn_schedule_official_search #list_filters
+,form#cerad_tourn_schedule_search #list_filters
+,form#cerad_tourn_unassigned_matches_search #list_filters
+{
+  display: none;
+}
+
+form#cerad_tourn_schedule_official_search .required
+,form#cerad_tourn_schedule_search .required
+,form#cerad_tourn_unassigned_matches_search .required
+{
+  font-weight: bold;
+  font-size: 1.1em;
+  text-decoration: underline;
+}
+
+.admin h2
+{
+  text-align: left;
+}
+
+.admin ul
+{
+  margin-bottom: 15px;
+  margin-right: 30px;
+}
+
+.admin li
+{
+  margin-left: 3em;
+  line-height: 2.5em;
+  list-style: square;
+}
+
+.admin_container
+{
+   margin-left: 15%;
+   margin-right: auto;
+}
+
+.import_controls
+{
+  padding-left: 40px;
+  line-height: 3em;
+}
+
+.import_controls form
+{
+  padding: 0 0 20px 0;
+}
+
+table.import_results
+{
+  padding: 0 20px;
+  width:80%
+}
+
+table#person-list td
+{
+  padding: 0 5px 5px 5px;
+}
+
+#form_slots_1_role
+,#form_slots_2_role
+,#form_slots_3_role
+{
+  text-align: right;
+  border: 0;
+  background: inherit;
+}
+
+.my_schedule
+{
+  width:80%;
+}
+
+.my_schedule th
+{
+  width:20%;
+  line-height: 2em;
+}
+
+.my_schedule td
+{
+  text-align: left;
+}
+
+.my_schedule button[type="submit"]
+,.assign button[type="submit"]
+,.assign button[type="reset"]
+{
+  padding: 10px;
+}
+
+.my_schedule select
+{
+  width:80%;
+}
+
+@media print
+{
+  .sf-toolbar
+  ,.sf-toolbar *
+  {
+    display:none;
+  }
+  .schedule-search
+  {
+    display:none;
+  }
+}
+
+/* 2014-02-28: rr: Styling for update-by-scorer */
+
+#layout-content form
+{
+  padding-bottom: 20px;
+}
+
+#layout-content form > div
+{
+  padding: 8px 0 7px;
+  line-height: 2em;
+}
+
+#layout-content input
+,#layout-content select
+{
+  margin: 6px;
+}
+
+#form_dtBeg
+{
+  padding-top: 0;
+  display: inline-flex;
+}
+
+#form_dtBeg_date
+{
+  float: left;
+  padding-right: 20px;
+}
+
+button#form_update.submit
+,button#form_reset.submit
+{
+  margin: 20px 30px 0 0;
+  padding: 5px 20px;
+}
+
+#layout-content form > div label.required
+{
+  margin-right: 20px;
+}
+
+input#form_homeTeam_role
+,input#form_awayTeam_role
+{
+  width: 80px;
+}

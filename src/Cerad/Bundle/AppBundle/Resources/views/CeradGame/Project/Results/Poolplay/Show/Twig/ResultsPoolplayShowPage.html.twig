@@ -1,0 +1,19 @@
+{% extends '@CeradGame/Layout.html.twig' %}
+
+{% block content %}
+  {{ include('@CeradGame/Project/Results/Poolplay/Show/Twig/ResultsPoolplayShowSelect.html.twig') }}
+
+  <h2 style="text-align: left;">
+  GS=Goals Scored, SP=Sportsmanship, YC=Caution, RC=Sendoff, TE=Total Ejections, PE=Points Earned
+  <br/><br />
+  TPE=Points Earned, GP=Games Played, GW=Games Won, GA=Goals Against
+  </h2>
+
+{% for poolKey, pool in pools %}
+  <hr style="border: 4px  ridge" />
+  {{ include('@CeradGame/Project/Results/Poolplay/Show/Twig/ResultsPoolplayShowGames.html.twig') }}
+  <hr style="border: 4px  ridge" />
+  {{ include('@CeradGame/Project/Results/Poolplay/Show/Twig/ResultsPoolplayShowTeams.html.twig') }}
+{% endfor %}
+
+{% endblock %}

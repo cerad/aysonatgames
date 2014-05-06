@@ -1,0 +1,17 @@
+{# render one set of check boxes as a table #}
+{# Setting a class on the first item #}
+<table border="1">
+  <tr><th colspan="30">{{ items.vars.label }}</th></tr>
+  <tr>
+    {% set itemFirst = true %}
+    {% for item in items %}
+        <td align="center">{{ form_label(item) }}<br />
+        {% if itemFirst %}
+            {{ form_widget(item, { 'attr': {'class': 'cerad-checkbox-all' }}) }}</td>
+        {% else %}
+            {{ form_widget(item) }}</td>
+        {% endif %}
+        {% set itemFirst = false %}
+    {% endfor %}
+  <tr>
+</table>

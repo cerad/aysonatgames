@@ -1,0 +1,322 @@
+/*
+Theme Name: Section One Template
+Theme URI: http://localhost
+Description: Template for Section One Referee Content
+Version: 0.1
+Date: 15 Oct 2011
+Author: ayso1sra
+Author URI: http://localhost/
+*/
+
+body, h1, h2, h3, h4, h5, h6, blockquote, p, form{
+  margin: 0;
+  padding: 0;
+}
+
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+body {
+	background-color: #FFFFFF;
+	margin-top: 5px;
+	margin-bottom: 10px;
+  min-width: 820px;
+}
+a:link {
+	color: #0066CC;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #0099FF;
+}
+a:hover {
+	text-decoration: none;
+	color: #0000FF;
+	background-color: #FFFFCC;
+}
+a:active {
+	text-decoration: none;
+	color: #CC0000;
+	background-color: #FFFFCC;
+}
+h1 {
+	font-size:16px;
+}
+h2 {
+	font-size:14px;
+ margin-top:1em;
+}
+h3 {
+	font-size: 12px;
+}
+.style1 {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.style4 {
+	font-size: 9px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+table.banner {
+	padding-top: 2px;
+	padding-right: 4px;
+	padding-bottom: 1px;
+	padding-left: 1px;
+	background-color: #0066FF;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #000000;
+}
+.style4 a:link {
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+.style4 a:visited {
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+.style4 a:hover {
+	color: #0000FF;
+	text-decoration: none;
+	background-color: #66CCFF;
+}
+.style4 a:active {
+	color: #0000FF;
+	text-decoration: none;
+	background-color: #66CCFF;
+}
+.colhead {
+	font-size: small;
+	font-weight: bold;
+	color: #000000;
+	background-color: #66FFFF;
+	text-align: center;
+	border: thick solid #0066FF;
+}
+.colcontent{
+  font-weight:normal;
+}
+.colcontent ul li{
+  margin-top:-3px;
+  padding-bottom:6px;
+}
+.colhighlight {
+	font-weight: bold;
+}
+.colhighlight p {
+  margin-top:10px;
+}
+.maincontent {
+	padding: 10px;
+	margin-top: 10px;
+	border: 0px;
+}
+table {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	border: 0px;
+}
+.contentarea {
+	padding-right: 15px;
+	padding-left: 15px;
+	line-height: 1.4;
+	vertical-align: top;
+	text-align: left;
+}
+.flinks {
+	text-decoration: none;
+}
+.foottext {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+}
+.bannertext {
+    color: #CC0000;
+    font-size: large;
+    font-variant: small-caps;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+}
+.bannertext p {
+  padding:0;
+  margin:0;
+}
+.topspace {
+	padding-top: 5px;
+}
+.topline {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #000000;
+}
+.style5 {color: #FF0000}
+
+.indent {
+  margin-left:20px;
+  margin-bottom:5px;
+}
+
+#wrapper {
+  margin:0 auto 0 auto;
+  width:100%;
+  text-align:left;
+}
+
+.header {
+  clear:both;
+}
+
+.sidebarL, .sidebarR {
+  float:left;
+  display:inline;
+  width:22%;
+  padding-top:22px;
+}
+
+.sidebarL{
+  padding-left:12px;
+}
+.sidebarR {
+  float:right;
+  padding-right:0px;
+}
+
+.container {
+  display:inline;
+  width:53%;
+  float:left;
+  margin:0 auto;
+  padding:5px;
+  background:#f9fcff;
+  border:solid;
+  border-width:0 2px 2px 0;
+  border-color:#f5f5f5;
+}
+
+.footer {
+  clear:both;
+  padding:10px;
+}
+
+.footer p {
+  line-height:12px;
+  padding:0;
+}
+
+body p {
+  margin-top:5px;
+}
+.post{
+  padding-bottom:10px;
+}
+
+.post h2{
+  font-family: Georgia, Sans-serif;
+  font-size: 18px;
+}
+
+.entry{
+  margin:10px;
+  line-height: 18px;
+}
+
+p.postmetadata{
+  border-bottom: 1px solid #ccc;
+  margin: 0 0 10px 5px;
+  padding-bottom:10px;
+}
+
+.navigation{
+  padding: 10px 0 0 0;
+  font-size: 12px;
+  font-style:italic;
+  font-weight:bold;
+  line-height: 18px;
+}
+
+.sidebarL ul, .sidebarR ul {
+  padding:5px;
+  list-style-type: none;
+}
+
+.sidebarL ul li {
+  margin-bottom:2px;
+}
+
+table#wp-calendar {
+  padding:0;
+  margin-right:25px;
+  width:100%;
+}
+
+form {
+  float:right;
+  margin-top:20px;
+  width:100%;
+}
+
+.comments-template{
+  margin: 10px 0 0;
+  border-top: 1px solid #ccc;
+  padding: 10px 0 0;
+}
+
+.comments-template ol{
+  margin: 0;
+  padding: 0 0 15px;
+  list-style: none;
+}
+
+.comments-template ol li{
+  margin: 10px 0 0;
+  line-height: 18px;
+  padding: 0 0 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.comments-template h2, .comments-template h3{
+  font-family: Georgia, Sans-serif;
+  font-size: 16px;
+}
+
+.commentmetadata{
+  font-size: 12px;
+}
+
+.comments-template p.nocomments{
+  padding: 0;
+}
+
+.comments-template textarea{
+  font-family: Arial, Helvetica, Georgia, Sans-serif;
+  font-size: 12px;
+}
+hr {
+  margin:15px auto 0 auto;
+}
+
+body.proto div#header {
+	display: none !important;
+}
+
+#blog_media_link li {
+  line-height: 2em;
+}
+
+form.commentsblock * {
+	vertical-align: top;
+}
+
+form.commentsblock textarea {
+  width: 50%;
+}
+
+form.commentsblock span {
+  padding: 0 10px;
+}
