@@ -27,12 +27,14 @@
                         '_game': game.num,
                          'back': app.request.requestUri ~ '#ref-sched-'
                   })}}">Update</a><br /> #}
+                {% if is_granted('ROLE_SCORE_ENTRY') %}
                 <a href="{{ path('cerad_game__project__game_report__update',     
                    { 
                       '_project': _project, 
                          '_game': game.num,
                           'back': app.request.requestUri ~ '#ref-sched-'
                    }) }}">Report</a>
+                {% endif %}
             </td>
             <td class="schedule-dow" >{{ game.dtBeg.format('D'    ) }}</td>
             <td class="schedule-time">{{ game.dtBeg.format('g:i A') }}</td>    
