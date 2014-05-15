@@ -1,39 +1,42 @@
 {# @CeradTourn/Tourn/TopMenu/TournTopMenuIndex.html.twig   #}
-
 <ul class="semiopaquemenu">
-
 {% if is_granted('ROLE_USER') %}
-  <li>
-    <a href="{{ path('cerad_tourn_home') }}">My Info</a>
-  </li>
-  <li>
-    <a href="{{ path('cerad_tourn_person_update') }}">My Account</a>
-  </li>
-  <li>
-    <a href="{{ path('cerad_tourn_person_plan_update') }}">My Plan</a>
-  </li>
-  <li>
+  <li class="float-right">
     <a href="{{ path('cerad_tourn_user_logout') }}">Logout</a>
   </li>
-
-{% else %}  {# Guest menu #}
-  <li>
-    <a href="{{ path('cerad_tourn_home') }}">Login</a>
+{% if is_granted('ROLE_SCORE_ADMIN') or
+      is_granted('ROLE_ASSIGNOR') or
+      is_granted('ROLE_ADMIN') %}
+  <li class="float-right">
+    <a href="{{ path('cerad_tourn_admin') }}">Admin</a>
   </li>
 {% endif %}
+
+  <li class="float-right">
+    <a href="{{ path('cerad_tourn_person_plan_update') }}">My Plan</a>
+  </li>
+  <li class="float-right">
+    <a href="{{ path('cerad_tourn_person_update') }}">My Account</a>
+  </li>
+  <li class="float-right">
+    <a href="{{ path('cerad_tourn_home') }}">My Info</a>
+  </li>
   
 {% if is_granted('ROLE_ADMIN') %}
   <li>
-  <li>
-    <a href="{{ path('cerad_game__project__schedule_team__show', { '_project': _project }) }}">Team Schedule</a>
-  </li>
-  <li>
-    <a href="{{ path('cerad_game__project__schedule_referee__show', { '_project': 'natgames' }) }}">Referee Schedule</a>
+    <a href="{{ path('cerad_game__project__schedule_team__show', { '_project': 'natgames' }) }}">Team Schedule</a>
   </li>
   <li>
     <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': 'natgames' }) }}">Pool Play Results</a>
+  </li> 
+  <li>
+    <a href="{{ path('cerad_game__project__schedule_referee__show', { '_project': 'natgames' }) }}">Referee Schedule</a>
   </li>
-    <a href="{{ path('cerad_tourn_admin') }}">Admin</a>
-  </li>  
+{% endif %}
+
+{% else %}
+  <li class="float-right">
+    <a href="{{ path('cerad_tourn_home') }}">Login</a>
+  </li>
 {% endif %}
 </ul>

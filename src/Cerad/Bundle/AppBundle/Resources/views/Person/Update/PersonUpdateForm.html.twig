@@ -1,4 +1,4 @@
-{# @CeradTourn/Account/Create/AccountCreateForm.html.twig   #}
+{# @CeradTourn/Person/Update/PersonUpdateForm.html.twig   #}
 <form
     id     = "cerad_tourn_person_update"
     class  = "cerad_tourn_person_udpate cerad_common_form1 app_form"
@@ -12,22 +12,21 @@
         {{ form_row(form.personNameLast)  }}
         {{ form_row(form.personNameNick)  }}
         {{ form_row(form.personEmail)     }}
-        {{ form_row(form.personPhone)     }}
+        {{ form_row(form.personPhone,{ 'label': 'Best Phone Number'})  }}
     </fieldset>
     <fieldset><legend><span>Your AYSO Information</span></legend>
        {{ form_row(form.fedKey) }}
        {{ form_row(form.orgKey,{ 'label': 'AYSO Region Number'}) }}
-       {{ form_row(form.badge)     }}
+       {{ form_row(form.badge) }}
        {{ form_row(form.upgrading) }}
      </fieldset>
     <fieldset>
         <div class="controls">
-            <input type="submit" name="personUpdate" value="Update" />
+            <input type="submit" name="personUpdate" value="Update My Account" />
         </div>
         <div class="controls">
-            <span><a href="{{ path('cerad_tourn_home') }}">Return to Home</a></span>
+            <span><a href="{{ path('cerad_tourn_home') }}">Return to My Info</a></span>
         </div>
     </fieldset>
 {{ form_rest(form) }}
 </form>
-
