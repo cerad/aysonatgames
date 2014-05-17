@@ -60,6 +60,7 @@ class PersonsExportXLS
         'planWillAssess'  => array('width' =>  8, 'value' => 'Will Assess'),
         'planWantAssess'  => array('width' =>  8, 'value' => 'Want Assess'),
         'planNotes'       => array('width' => 72, 'value' => 'Person Plan Notes'),
+        'planTshirt'      => array('width' =>  8, 'value' => 'T Shirt'),
 
         'personNameFull'  => array('width' => 24, 'value' => 'Name'),
         'personEmail'     => array('width' => 24, 'value' => 'Email'),
@@ -121,12 +122,13 @@ class PersonsExportXLS
         $item['planCreatedOn'] = $planCreatedOn ? $planCreatedOn->format('Y-m-d H:i') : null;
 
         $basic = $plan->getBasic();
-        $item['planVenue']      = $basic['venue'];
+        $item['planVenue']       = $basic['venue'];
         $item['planNotes']       = $basic['notes'];
         $item['planWillAttend']  = $basic['attending'];
         $item['planWillReferee'] = $basic['refereeing'];
         $item['planWantMentor']  = $basic['wantMentor'];
         $item['planWillMentor']  = $basic['willMentor'];
+        $item['planTshirt']          = $basic['tshirt'];
 
         return $item;
     }
@@ -188,6 +190,7 @@ class PersonsExportXLS
             'planVenue',
 
             'planWantMentor', 'planWillAttend', 'planWillReferee',
+            'planTshirt'
         );
         $this->writeHeaders($ws,1,$this->headerMap,$keys);
 
