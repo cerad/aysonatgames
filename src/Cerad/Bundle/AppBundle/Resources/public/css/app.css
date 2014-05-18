@@ -160,6 +160,7 @@ table td
 {
   padding: 5px;
   height: 1.1em;
+	vertical-align: middle;
 }
 
 table td p
@@ -519,6 +520,7 @@ table th
   padding: 0;
   overflow: hidden;
   width: 100px;
+	height: 2.5em;
 }
 
 #person-list th
