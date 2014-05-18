@@ -115,6 +115,7 @@ em{
 ,#layout-userinfo *
 {
   font-size:  small;
+	float: right;
 }
 
 #layout-userinfo p#user_name
@@ -667,6 +668,7 @@ form#cerad_tourn_schedule_official_search .required
 .admin
 {
   margin-left: 10%;
+	padding-bottom: 20px;
 }
 
 .admin h2

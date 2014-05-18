@@ -5,7 +5,7 @@ parameters:
         s1:
             layout_header:  false
             layout_topmenu: true
-            layout_userinfo: false
+            layout_userinfo: true
             janrain:        false  # Social network login
             wordpress:      true  # Style sheets and javascripts
             
