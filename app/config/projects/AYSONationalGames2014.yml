@@ -68,7 +68,7 @@ AYSONationalGames2014:
           U14: U14
           U16: U16
           U19: U19
-          Adult: Adult
+          #Adult: Adult
         
       programs:
         type:    checkbox
