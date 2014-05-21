@@ -403,6 +403,11 @@ variable, form, fieldset, blockquote, label, img
   color: black;
 }
 
+html
+{
+	min-width: 720px;
+}
+
 body
 {
   width: 100%;
