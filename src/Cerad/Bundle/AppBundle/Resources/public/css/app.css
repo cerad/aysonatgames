@@ -115,6 +115,7 @@ em{
 ,#layout-userinfo *
 {
   font-size:  small;
+	float: right;
 }
 
 #layout-userinfo p#user_name
@@ -159,6 +160,7 @@ table td
 {
   padding: 5px;
   height: 1.1em;
+	vertical-align: middle;
 }
 
 table td p
@@ -401,6 +403,11 @@ variable, form, fieldset, blockquote, label, img
   color: black;
 }
 
+html
+{
+	min-width: 720px;
+}
+
 body
 {
   width: 100%;
@@ -518,6 +525,7 @@ table th
   padding: 0;
   overflow: hidden;
   width: 100px;
+	height: 2.5em;
 }
 
 #person-list th
@@ -667,6 +675,7 @@ form#cerad_tourn_schedule_official_search .required
 .admin
 {
   margin-left: 10%;
+	padding-bottom: 20px;
 }
 
 .admin h2

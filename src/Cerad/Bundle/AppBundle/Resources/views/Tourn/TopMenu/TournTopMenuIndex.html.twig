@@ -22,20 +22,20 @@
     <a href="{{ path('cerad_tourn_home') }}">My Info</a>
   </li>
   
-{% if is_granted('ROLE_ADMIN') %}
+{% if is_granted('ROLE_DEVELOPER') %}
   <li>
-    <a href="{{ path('cerad_game__project__schedule_team__show', { '_project': 'natgames' }) }}">Team Schedule</a>
+    <a href="{{ path('cerad_game__project__schedule_team__show', { '_project': 'natgames' }) }}">Schedule</a>
   </li>
   <li>
     <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': 'natgames' }) }}">Pool Play Results</a>
   </li> 
-  <li>
-    <a href="{{ path('cerad_game__project__schedule_referee__show', { '_project': 'natgames' }) }}">Referee Schedule</a>
-  </li>
 {% endif %}
 
 {% else %}
-  <li class="float-right">
+{#  <li>
+    <a href="{{ path('cerad_game__project__schedule_referee__show', { '_project': 'natgames' }) }}">Referee Schedule</a>
+  </li>
+#}  <li class="float-right">
     <a href="{{ path('cerad_tourn_home') }}">Login</a>
   </li>
 {% endif %}
