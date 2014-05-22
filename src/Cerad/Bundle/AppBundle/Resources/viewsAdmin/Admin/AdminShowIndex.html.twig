@@ -13,44 +13,37 @@
 </div>
 {% endif %}
 
-{% if is_granted('ROLE_ASSIGNOR') or
-  is_granted('ROLE_SCORE_ADMIN')  %}
+{% if is_granted('ROLE_SCORE_ADMIN')  %}
 <div class="admin">
   <ul><h2>Schedule Management</h2>
-    <li><a href="{{ path('cerad_tourn_admin_persons_list') }}">View Registered People</a></li>
     <li><a href="{{ path('cerad_tourn_admin_persons_list', { '_format' : 'xls' }) }}">Export Registered People (Excel)</a></li>
     <li><a href="{{ path('cerad_game__project__schedule_team__show', { '_project': 'natgames','_game':'1001' }) }}">View Game Schedule</a></li>
-{% if is_granted('ROLE_SCORE_ADMIN')  %}
     <li><a href="{{ path('cerad_tourn_admin_schedule_games_export') }}">Export Game Schedule (Excel)</a></li>
     <li><a href="{{ path('cerad_tourn_admin_schedule_games_import') }}">Import Game Schedule (Excel)</a></li>
-{% endif %}
   </ul>
 {% endif %}
 </div>
 
+{% if is_granted('ROLE_ASSIGNOR') %}
 <div class="admin">
   <ul><h2>Referee Assignments</h2>
     <li><a href="{{ path('cerad_game__project__schedule_referee__show', { '_project': 'natgames' }) }}">View Referee Assignments</a></li>
-{% if is_granted('ROLE_ASSIGNOR') %}
     <li>{#<a href="{{ path('cerad_tourn_unassigned_matches_list') }}">#}View Unassigned Matches</a></li>
     <li>{#<a href="{{ path('cerad_tourn_schedule_official_list', { '_format': 'xls'}) }}">#}Export Referee Assignments (Excel)</a></li>
     <li><a href="{{ path('cerad_tourn_admin_schedule_officials_import') }}">Import Referee Assignments (Excel)</a></li>
     <li>{#<a href="{{ path('cerad_tourn_unregistered_officials_list') }}">#}Export Unregistered Referee List (Excel)</a></li>
-{% endif %}
   </ul>
 </div>
+{% endif %}
 
 <div class="admin">
   <ul><h2>Account Management</h2>
     <li><a href="{{ path('cerad_tourn_admin_persons_list') }}">View Registered People</a></li>
-    <!--<li><a href="">Search People (empty)</a></li>-->
-    <!--<li><a href="">List of Teams (empty)</a></li>-->
-{% if is_granted('ROLE_ADMIN') or
-      is_granted('ROLE_ASSIGNOR') %}
+{% if is_granted('ROLE_ASSIGNOR') %}
     <li>{#<a href="{{ path('cerad_tourn_admin_unapproved_persons_list') }}">#}View Unverified Registered People</a></li>
     <li><a href="{{ path('cerad_tourn_admin_person_feds_sync') }}">Sync eAYSO Information</a></li>
     <li><a href="{{ path('cerad_tourn_admin_persons_list', { '_format' : 'xls' }) }}">Export Registered People (Excel)</a></li>
-    <li><a href="">Import AYSO Information (empty)</a></li>
+    <li><a href="#">Import AYSO Information</a></li>
 {% endif %}
   </ul>
 </div>

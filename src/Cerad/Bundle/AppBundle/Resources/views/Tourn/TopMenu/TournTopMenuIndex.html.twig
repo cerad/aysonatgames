@@ -4,7 +4,8 @@
   <li class="float-right">
     <a href="{{ path('cerad_tourn_user_logout') }}">Logout</a>
   </li>
-{% if is_granted('ROLE_SCORE_ADMIN') or
+{% if is_granted('ROLE_SCORE_ENTRY') or
+      is_granted('ROLE_SCORE_ADMIN') or
       is_granted('ROLE_ASSIGNOR') or
       is_granted('ROLE_ADMIN') %}
   <li class="float-right">
