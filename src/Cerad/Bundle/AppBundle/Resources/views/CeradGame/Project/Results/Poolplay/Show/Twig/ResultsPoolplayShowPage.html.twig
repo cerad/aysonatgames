@@ -1,6 +1,8 @@
 {% extends '@CeradGame/Layout.html.twig' %}
 
 {% block content %}
+<div id="layout-block">
+  
   {{ include('@CeradGame/Project/Results/Poolplay/Show/Twig/ResultsPoolplayShowSelect.html.twig') }}
 
   <h2 style="text-align: left;">
@@ -8,12 +10,20 @@
   <br/><br />
   TPE=Points Earned, GP=Games Played, GW=Games Won, GA=Goals Against
   </h2>
+</div>
 
 {% for poolKey, pool in pools %}
+
   <hr style="border: 4px  ridge" />
+<div id="layout-block">
   {{ include('@CeradGame/Project/Results/Poolplay/Show/Twig/ResultsPoolplayShowGames.html.twig') }}
+</div>
+
   <hr style="border: 4px  ridge" />
+<div id="layout-block">
   {{ include('@CeradGame/Project/Results/Poolplay/Show/Twig/ResultsPoolplayShowTeams.html.twig') }}
+</div>
+
 {% endfor %}
 
 {% endblock %}

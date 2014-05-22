@@ -19,7 +19,7 @@
 
 {% for game in pool.games %}
 
-  <tr id="results-poolplay-games-{{game.num}}" class="game-status-{{game.status}}">
+  <tr id="results-poolplay-games-{{game.num}}" class="game-status-{{game.status}} schedule_tr">
 
 {% if is_granted('ROLE_SCORE_ENTRY') or 1 %}
     <td>
