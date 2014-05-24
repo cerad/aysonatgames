@@ -8,7 +8,7 @@
 <div class="admin">
   <ul><h2>Match Reporting</h2>
     <li><a href="{{ path('cerad_game__project__game_report__update', { '_project': 'natgames','_game':'1001' }) }}">Enter Match Results</a></li>
-    <li><a href="{{ path('cerad_tourn_admin_results_export',{ '_format': 'xls' }) }}">Export Pool Score Board (Excel)</a></li>
+    <li>{#<a href="{{ path('cerad_tourn_admin_results_export',{ '_format': 'xls' }) }}">#}Export Pool Score Board (Excel)</a></li>
   </ul>
 </div>
 {% endif %}
@@ -18,8 +18,8 @@
   <ul><h2>Schedule Management</h2>
     <li><a href="{{ path('cerad_tourn_admin_persons_list', { '_format' : 'xls' }) }}">Export Registered People (Excel)</a></li>
     <li><a href="{{ path('cerad_game__project__schedule_team__show', { '_project': 'natgames','_game':'1001' }) }}">View Game Schedule</a></li>
-    <li><a href="{{ path('cerad_tourn_admin_schedule_games_export') }}">Export Game Schedule (Excel)</a></li>
-    <li><a href="{{ path('cerad_tourn_admin_schedule_games_import') }}">Import Game Schedule (Excel)</a></li>
+    <li>{#<a href="{{ path('cerad_tourn_admin_schedule_games_export') }}">#}Export Game Schedule (Excel)</a></li>
+    <li>{#<a href="{{ path('cerad_tourn_admin_schedule_games_import') }}">#}Import Game Schedule (Excel)</a></li>
   </ul>
 {% endif %}
 </div>
@@ -30,7 +30,7 @@
     <li><a href="{{ path('cerad_game__project__schedule_referee__show', { '_project': 'natgames' }) }}">View Referee Assignments</a></li>
     <li>{#<a href="{{ path('cerad_tourn_unassigned_matches_list') }}">#}View Unassigned Matches</a></li>
     <li>{#<a href="{{ path('cerad_tourn_schedule_official_list', { '_format': 'xls'}) }}">#}Export Referee Assignments (Excel)</a></li>
-    <li><a href="{{ path('cerad_tourn_admin_schedule_officials_import') }}">Import Referee Assignments (Excel)</a></li>
+    <li>{#<a href="{{ path('cerad_tourn_admin_schedule_officials_import') }}">#}Import Referee Assignments (Excel)</a></li>
     <li>{#<a href="{{ path('cerad_tourn_unregistered_officials_list') }}">#}Export Unregistered Referee List (Excel)</a></li>
   </ul>
 </div>
