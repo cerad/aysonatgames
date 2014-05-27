@@ -4,3 +4,12 @@ parameters:
     cerad_tourn.officials.export_xls.class: Cerad\Bundle\AppBundle\ServicesAdmin\Persons\PersonsExportXLS
     
     cerad_person.aysov_referee_badge.form_type.class: Cerad\Bundle\AppBundle\FormType\AYSO\RefereeBadgeFormType  
+    
+services:
+    cerad_app.twig_extension:
+        class:  Cerad\Bundle\AppBundle\TwigExtension\AppExtension
+        arguments:  
+            - '%cerad_project_venues%'
+        tags:
+            - { name: twig.extension }
+            

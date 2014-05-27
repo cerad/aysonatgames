@@ -1,0 +1,20 @@
+parameters:
+  
+  cerad_project_venues:
+    'Columbia Park': 
+      link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-columbia.jpg'
+    'Field of Dreams': 
+      link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-dreams-300x257.jpg'
+    'Ladera Linda': 
+      link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-ladera-linda.jpg'
+    'Maple Ave': 
+      link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-555maple3.jpg'
+    'Parras MS': 
+      link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-parrass.jpg'
+    'Redondo Union HS': 
+      link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-redondo-union.jpg'
+    'West Torrance HS': 
+      link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-westhigh.jpg'
+    'WP'               : 
+      link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-wilson.jpg'
+    
