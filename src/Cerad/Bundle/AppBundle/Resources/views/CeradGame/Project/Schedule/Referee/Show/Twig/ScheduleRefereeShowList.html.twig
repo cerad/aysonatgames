@@ -1,5 +1,6 @@
-<div class="schedule-games-list">
-    <table id="schedule" class="schedule-games-list" border="1">
+<div id="layout-block">
+    <div class="schedule-games-list">
+    <table id="schedule" class="schedule" border="1">
     <thead>
         <tr><th colspan="20">Referee Schedule - Count: {{ games | length }}</th></tr>
         <tr>
@@ -7,11 +8,11 @@
             <th class="schedule-dow"   >DOW</th>
             <th class="schedule-time"  >Time</th>
             <th class="schedule-field" >Field</th>
-            <th class="schedule-level" >Level</th>
+            <th class="schedule-level" >Division</th>
             <th class="schedule-group" >Type</th>
-            <th class="schedule-group" >Group</th>
+{#            <th class="schedule-group" >Group</th>#}
             <th class="schedule-teams" >Home / Away Group</th>
-            <th class="schedule-teams" >Home / Away Names</th>
+            <th class="schedule-teams" >Home / Away</th>
             <th class="schedule-referees">Referees</th>
         </tr>
     </thead>
@@ -38,10 +39,10 @@
             </td>
             <td class="schedule-dow" >{{ game.dtBeg.format('D'    ) }}</td>
             <td class="schedule-time">{{ game.dtBeg.format('g:i A') }}</td>    
-            <td>{{ game.fieldName }}</td>
-            <td>{{ game.levelKey  }}</td>
+            <td><a href="{{ cerad_tourn_venue_maplink(game.venueName) }}" target="_blank">{{ game.fieldName }}</a></td>
+            <td>{{ cerad_level(game.levelKey) }}</td>
             <td>{{ game.groupType }}</td>
-            <td>{{ game.groupKey  }}</td>
+{#            <td>{{ game.groupKey  }}</td>#}
            <td><table>
                 {% for gameTeam in game.teams %}
                     <tr><td>{{ gameTeam.groupSlot }}</td></tr>
@@ -81,4 +82,5 @@
         {% endfor %}{# games #}
     </tbody>
     </table>
+</div>
 </div>

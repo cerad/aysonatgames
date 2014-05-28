@@ -101,6 +101,13 @@ em{
   font-style: italic;
 }
 
+button
+{
+	/*margin-left: 131px; /* 'div.field label' width + padding */*/
+	text-align: center; /* without this, button text is left-aligned in IE */
+	padding: 5px 10px;
+}
+
 #layout-header *
 {
   padding: 10px;
@@ -133,7 +140,7 @@ em{
 table {
   font-size: inherit;
   table-layout: fixed;
-  margin-left: 5px;
+  margin-left: auto;
   margin-right: auto;
 }
 
@@ -279,25 +286,13 @@ form.app_form fieldset div textarea
 	overflow: auto;
 }
 
-form.app_form fieldset div.controls
+.controls
 {
-  height:3em;
   font: inherit;
-  width: 80%;
-  text-align: right;
-}
-
-form.app_form fieldset div.controls input[type="submit"]
-{
-  padding: 5px 20px;
-  float: right;
   font-size: inherit;
-}
-
-fieldset.app_form input#input_button
-{
-	/*margin-left: 131px; /* 'div.field label' width + padding */*/
-	text-align: center; /* without this, button text is left-aligned in IE */
+  text-align: right;
+	padding: 10px 25% 10px 0;
+	float: right;	
 }
 
 .app_help
@@ -348,7 +343,7 @@ variable, form, fieldset, blockquote, label, img
 
 html
 {
-	min-width: 720px;
+	min-width: 870px;
 }
 
 body
@@ -404,11 +399,6 @@ hr
   clear: both;
 }
 
-form
-{
-  padding: 20px 0 20px 0;
-}
-
 #layout-header td
 {
   vertical-align: middle;
@@ -435,9 +425,10 @@ form
 
 #layout-block
 {
-	width:80%;
+	width:90%;
+	min-width: 650px;
 	margin-left: auto;
-	margin-right: auto:
+	margin-right: auto;
 }
 
 #notes
@@ -484,11 +475,6 @@ table th
   width: 20%;
 }
 
-table.schedule
-{
-  padding: 15px 0;
-}
-
 .schedule th
 ,.standings th
 ,.results th
@@ -499,9 +485,18 @@ table.schedule
   width: auto;
 }
 
-.schedule_tr
+.standings tr
+,.schedule tr
+,.results tr
 {
 	outline: thin solid #cce6ff
+}
+
+.standings td tr
+,.schedule td tr
+,.results td tr
+{
+	outline: none;
 }
 
 .app_table th
@@ -628,6 +623,13 @@ form#cerad_tourn_schedule_official_search .required
   text-decoration: underline;
 }
 
+#form_CoreTeams
+,#form_ExtraTeams
+{
+	width: 325px;
+	height: 120px;
+}
+
 .admin
 {
   margin-left: 10%;
@@ -701,6 +703,13 @@ table#person-list table td
   background: inherit;
 }
 
+.results-legend
+,.schedule-legend
+{
+	text-align: center;
+	line-height: 1.5em;
+}
+
 .my_schedule
 {
   width:80%;
@@ -715,12 +724,6 @@ table#person-list table td
 .my_schedule td
 {
   text-align: left;
-}
-
-.my_schedule button[type="submit"]
-,.assign button[type="submit"]
-{
-  padding: 10px;
 }
 
 @media print

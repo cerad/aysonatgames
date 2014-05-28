@@ -5,11 +5,15 @@
   
   {{ include('@CeradGame/Project/Results/Poolplay/Show/Twig/ResultsPoolplayShowSelect.html.twig') }}
 
-  <h2 style="text-align: left;">
-  GS=Goals Scored, SP=Sportsmanship, YC=Caution, RC=Sendoff, TE=Total Ejections, PE=Points Earned
-  <br/><br />
-  TPE=Points Earned, GP=Games Played, GW=Games Won, GA=Goals Against
+  <div class="results-legend">
+  <h2>
+  GS=Goals Scored, SP=Sportsmanship, YC=Caution, RC=Sendoff,
+  <br/>
+  TE=Total Ejections, PE=Points Earned, TPE=Points Earned, 
+  <br/>
+  GT=Games Total, GP=Games Played, GW=Games Won, GS=Goals Scored, GA=Goals Against, SF=SoccerFest
   </h2>
+  </div>
 </div>
 
 {% for poolKey, pool in pools %}

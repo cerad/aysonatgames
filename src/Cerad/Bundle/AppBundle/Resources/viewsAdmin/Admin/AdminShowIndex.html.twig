@@ -1,4 +1,4 @@
-{# @CeradTourn/AppAdminBundle/Resources/views/Admin/AdminShowIndex.html.twig   #}
+{# @CeradTourn/AppAdminBundle/Resources/views/Admin/AdminShowIndex.html.twig  #} 
 {% extends '@CeradTourn/Layout.html.twig' %}
 
 {% block content %}
@@ -8,7 +8,7 @@
 <div class="admin">
   <ul><h2>Match Reporting</h2>
     <li><a href="{{ path('cerad_game__project__game_report__update', { '_project': 'natgames','_game':'1001' }) }}">Enter Match Results</a></li>
-    <li>{#<a href="{{ path('cerad_tourn_admin_results_export',{ '_format': 'xls' }) }}">#}Export Pool Score Board (Excel)</a></li>
+    <li><a href="{{ path('cerad_tourn_admin_results_export',{ '_format': 'xls' }) }}">Export Pool Score Board (Excel)</a></li>
   </ul>
 </div>
 {% endif %}
@@ -16,10 +16,10 @@
 {% if is_granted('ROLE_SCORE_ADMIN')  %}
 <div class="admin">
   <ul><h2>Schedule Management</h2>
-    <li><a href="{{ path('cerad_tourn_admin_persons_list', { '_format' : 'xls' }) }}">Export Registered People (Excel)</a></li>
     <li><a href="{{ path('cerad_game__project__schedule_team__show', { '_project': 'natgames','_game':'1001' }) }}">View Game Schedule</a></li>
-    <li>{#<a href="{{ path('cerad_tourn_admin_schedule_games_export') }}">#}Export Game Schedule (Excel)</a></li>
+    <li><a href="{{ path('cerad_game__project__schedule_team__show', { '_project': 'natgames','_format' : 'xls' }) }}">Export Game Schedule (Excel)</a></li>
     <li>{#<a href="{{ path('cerad_tourn_admin_schedule_games_import') }}">#}Import Game Schedule (Excel)</a></li>
+    <li><a href="{{ path('cerad_tourn_admin_persons_list', { '_format' : 'xls' }) }}">Export Registered People (Excel)</a></li>
   </ul>
 {% endif %}
 </div>
@@ -49,4 +49,4 @@
 </div>
 
 </div>  <!--end div.container-->
-{% endblock %}{# end content block #}
+{% endblock %} {# end content block #}

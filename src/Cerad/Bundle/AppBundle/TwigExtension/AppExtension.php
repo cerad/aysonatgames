@@ -17,11 +17,20 @@ class AppExtension extends \Twig_Extension
     {
         return array(            
             'cerad_tourn_venue_maplink' => new \Twig_Function_Method($this, 'venueMapLink'),        
+            'cerad_level' => new \Twig_Function_Method($this, 'aliasLevel'),        
         );
     }
     public function venueMapLink($venueKey)
     {
         return $this->venues[$venueKey]['link'];
     }
+    
+    public function aliasLevel($level)
+    {
+        $strLevel = str_replace('_',' ',substr($level,6));
+        return $strLevel;
+        ;
+    }
+
  }
 ?>
