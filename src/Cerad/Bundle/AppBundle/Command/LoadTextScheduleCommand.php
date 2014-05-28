@@ -25,13 +25,29 @@ class LoadTextScheduleCommand extends ContainerAwareCommand
     {
         $project = $this->getService('cerad_project.project_current');
         
-        $file = $input->getArgument('file');
+        $date = $input->getArgument('file');
         
-        $convert = new ConvertGamesTextToYaml();
-        $convert->setProjectKey($project->getKey());
-        $games = $convert->load($file);
+        $fileCore = sprintf('data/ScheduleGamesCore%s.txt',$date);
+        $this->processGames($project,$fileCore);
         
-        echo sprintf("Games: %d\n",count($games));
+        $fileExtra = sprintf('data/ScheduleGamesExtra%s.txt',$date);
+        $this->processGames($project,$fileExtra);
+                
+        $fileTeams = 'data/ScheduleGames20140520.xlsx';
+      //$this->processTeams($project,$fileTeams,'Teams Core 15 May');
+        $this->processTeams($project,$fileTeams,'Teams Extra 15 May');
+        
+        return; if ($output);
+    }
+    protected function processGames($project,$file)
+    {
+        return;
+        
+        $convertGames = new ConvertGamesTextToYaml();
+        $convertGames->setProjectKey($project->getKey());
+        $games = $convertGames->load($file);
+        
+        echo sprintf("%s: %d\n",$file,count($games));
         
         file_put_contents($file . '.yml',Yaml::dump($games,10));
         
@@ -41,32 +57,16 @@ class LoadTextScheduleCommand extends ContainerAwareCommand
         $loader = $this->getService('cerad_game__load_games');
         $loader->process($games);
         
-        return; if ($output);
-    }
-    protected function processGames($project,$file)
-    {
-        $convertGames = $this->getService('cerad_game__convert_games__rick_to_yaml');
-        $convertGames->setProjectKey($project->getKey());
-        
-        $games = $convertGames->load($file);
-        
-        echo sprintf("Games: %d\n",count($games));
-        
-        file_put_contents('data/Games.yml',Yaml::dump($games,10));
-
-        $loader = $this->getService('cerad_game__load_games');
-        $loader->process($games);
-        
         return;        
     }
-    protected function processTeams($project,$file)
+    protected function processTeams($project,$file,$sheet)
     {
         $convert = $this->getService('cerad_game__convert_teams__rick_to_yaml');
         $convert->setProjectKey($project->getKey());
         
-        $teams = $convert->load($file,'Teams');
+        $teams = $convert->load($file,$sheet);
         
-        echo sprintf("Teams: %d\n",count($teams));
+        echo sprintf("%s: %d\n",$sheet,count($teams));
         
         file_put_contents('data/Teams.yml',Yaml::dump($teams,10));
         

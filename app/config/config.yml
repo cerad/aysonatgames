@@ -5,6 +5,7 @@ imports:
     - { resource: projects.yml   }
     - { resource: levels.yml     }
     - { resource: venues.yml     }
+    - { resource: pools.yml      }
     - { resource: show.yml       }
 
 framework:

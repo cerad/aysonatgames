@@ -1,0 +1,32 @@
+# Pools, Venues etc all need to be linked to the project
+# But do this for now to avoid last mniute changes
+
+parameters:
+  cerad_project_pools:
+    Core:
+      Boys:
+        U10: [A,B,C,D, E,F,G,H, I,J,K,L]
+        U12: [A,B,C,D]
+        U14: [A,B,C,D]
+        U16: [A,B,C,D]
+        U19: [A,B,C,D]
+      Girls:
+        U10: [A,B,C,D, E,F,G,H, I,J,K,L]
+        U12: [A,B,C,D]
+        U14: [A,B,C,D]
+        U16: [A,B,C,D]
+        U19: [A,B,C,D]
+    Extra:
+      Boys:
+        U10: [A,B,C,D,E,F, G,H,I,J,K,L, M,N,O,P,Q,R]
+        U12: [A,B,C,D,E,F]
+        U14: [A,B,C,D]
+        U16: [A,B]
+        U19: [A]
+      Girls:
+        U10: [A,B,C,D,E,F, G,H,I,J,K,L, M,N,O,P,Q,R]
+        U12: [A,B,C,D,E,F]
+        U14: [A,B,C,D,E,F]
+        U16: [A,B]
+        U19: [A]
+        
