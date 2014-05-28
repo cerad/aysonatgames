@@ -19,7 +19,7 @@
 
 {% for game in pool.games %}
 
-  <tr id="results-poolplay-games-{{game.num}}" class="game-status-{{game.status}} schedule_tr">
+  <tr id="results-poolplay-games-{{game.num}}" class="game-status-{{game.status}}">
 
 {% if is_granted('ROLE_SCORE_ENTRY') or 1 %}
     <td>
@@ -48,7 +48,7 @@
         {{ homeTeam.groupSlot | slice(-2) }}<br/>
         {{ awayTeam.groupSlot | slice(-2) }}
     </td>
-    <td style="text-align:left">
+    <td>
         {{ homeTeam.name }}<br/>
         {{ awayTeam.name }}
     </td>

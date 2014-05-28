@@ -15,10 +15,10 @@
  <th align="center">RC</th>
  <th align="center">TE</th>
  <th align="center">SP</th>
- <th align="center">Sf</th>
+ <th align="center">SF</th>
 </tr>
 {% for report in pool.teams %}
-<tr class="schedule_tr">
+<tr>
     <td>{{ report.team.groupSlot |  slice(-2) }}</td>
     <td>{{ report.team.name  }}</td>
     <td align="center">{{ report.pointsEarned    }}</td>
