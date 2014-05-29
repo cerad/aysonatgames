@@ -1,11 +1,15 @@
 {# @CeradTourn/Tourn/UserInfo/TournUserInfo.html.twig   #}
 
-<div>
 {#
+<div>
+
     <a id="link_home" href="{{ path('cerad_tourn_home') }}">Home</a>
     <a id="link_logout" href="{{ path('cerad_tourn_account_user_logout') }}">Logout</a>
     <p>User: {{ user.accountName }} {{ personFed.id | slice(5) }} {{ personFed.org.orgId | slice(4) }} {{ personFed.certReferee.badgex }}</p>
-#}
-<p id="user_name">User: {{ user.accountName }}</p>
+<p style="display: inline;" id="user_name">User: {{ user.accountName }}</p>
 
 </div>
+#}
+<ul style="display: inline;">
+    <li>User: {{ user.accountName }}</li>
+</ul

@@ -24,68 +24,68 @@
 <table class="scoring" border="1" style="width: 70%;min-width: 800px">
   <tbody>
     <tr>
-        <td style="width:20%;min-width:160px;">&nbsp;</td>
-        <td style="width:10%">{{ homeTeam.role }} : {{ homeTeam.groupSlot }}</td>
-        <td style="width:20%;text-align: left; padding-left: 3%;">{{ awayTeam.role }} : {{ awayTeam.groupSlot }}</td>
+        <td style="width:25%;min-width:160px;">&nbsp;</td>
+        <td style="width:25%">{{ homeTeam.role }} : {{ homeTeam.groupSlot }}</td>
+        <td style="width:25%">{{ awayTeam.role }} : {{ awayTeam.groupSlot }}</td>
     </tr>
     <tr>
         <td style="text-align: right;">Goals Scored</td>
         <td>{{ form_widget(homeTeamForm.goalsScored) }}</td>
-        <td style="text-align: left;">{{ form_widget(awayTeamForm.goalsScored) }}</td>
+        <td>{{ form_widget(awayTeamForm.goalsScored) }}</td>
     </tr>
     <tr><td colspan="5">&nbsp;</td></tr>
     <tr>
         <td style="text-align: right;">Player Cautions</td>
         <td>{{ form_widget(homeTeamForm.playerWarnings) }}</td>
-        <td style="text-align: left;">{{ form_widget(awayTeamForm.playerWarnings) }}</td>
+        <td>{{ form_widget(awayTeamForm.playerWarnings) }}</td>
     </tr>
     <tr>
         <td style="text-align: right;">Player Sendoffs</td>
         <td>{{ form_widget(homeTeamForm.playerEjections) }}</td>
-        <td style="text-align: left;">{{ form_widget(awayTeamForm.playerEjections) }}</td>
+        <td>{{ form_widget(awayTeamForm.playerEjections) }}</td>
     </tr>
    <tr><td colspan="5">&nbsp;</td></tr>
     <tr>
         <td style="text-align: right;">Coach Ejections</td>
         <td>{{ form_widget(homeTeamForm.coachEjections) }}</td>
-        <td style="text-align: left;">{{ form_widget(awayTeamForm.coachEjections) }}</td>
+        <td>{{ form_widget(awayTeamForm.coachEjections) }}</td>
     </tr>
     <tr>
         <td style="text-align: right;">Substitute Ejections</td>
         <td>{{ form_widget(homeTeamForm.benchEjections) }}</td>
-        <td style="text-align: left;">{{ form_widget(awayTeamForm.benchEjections) }}</td>
+        <td>{{ form_widget(awayTeamForm.benchEjections) }}</td>
     </tr>
     <tr>
         <td style="text-align: right;">Spectator Ejections</td>
         <td>{{ form_widget(homeTeamForm.specEjections) }}</td>
-        <td style="text-align: left;">{{ form_widget(awayTeamForm.specEjections) }}</td>
+        <td>{{ form_widget(awayTeamForm.specEjections) }}</td>
     </tr>
    <tr><td colspan="5">&nbsp;</td></tr>
     <tr>
         <td style="text-align: right;">Sportsmanship</td>
         <td>{{ form_widget(homeTeamForm.sportsmanship) }}</td>
-        <td style="text-align: left;">{{ form_widget(awayTeamForm.sportsmanship) }}</td>
+        <td>{{ form_widget(awayTeamForm.sportsmanship) }}</td>
     </tr>
     <tr>
         <td style="text-align: right;">Serious Injuries</td>
         <td>{{ form_widget(homeTeamForm.injuries) }}</td>
-        <td style="text-align: left;">{{ form_widget(awayTeamForm.injuries) }}</td>
+        <td>{{ form_widget(awayTeamForm.injuries) }}</td>
     </tr>
    <tr><td colspan="5">&nbsp;</td></tr>
     <tr>
       <td style="text-align: right;vertical-align: text-top">Notes</td>
-      <td colspan="2" style="padding-left: 12px; text-align: left;">{{ form_widget(form.gameReport.text) }}</td>
+      <td colspan="2" style="padding-left: 20px; text-align: left;">{{ form_widget(form.gameReport.text) }}</td>
     </tr>
-    <tr><td colspan="5">&nbsp;</td></tr>
+    <tr><td colspan="4">&nbsp;</td></tr>
     <tr>
         <td style="text-align: right;">Points Earned</td>
         <td>{{ form_widget(homeTeamForm.pointsEarned) }}</td>
-        <td style="text-align: left;">{{ form_widget(awayTeamForm.pointsEarned) }}</td>
+        <td>{{ form_widget(awayTeamForm.pointsEarned) }}</td>
     </tr>
     <tr>
         <td style="text-align: right;">Points Minus</td>
         <td>{{ form_widget(homeTeamForm.pointsMinus) }}</td>
-        <td style="text-align: left;">{{ form_widget(awayTeamForm.pointsMinus) }}</td>
+        <td>{{ form_widget(awayTeamForm.pointsMinus) }}</td>
     </tr>
   </tbody>
 </table>
@@ -98,7 +98,7 @@
         {{ form_widget(form.save) }}
         {{ form_widget(form.next) }}
         {{ form_widget(form.nextGameNum) }}</td>
-    <td style="min-width:225px;"><a href="{{ back }}{{ game.num }}">Return to Schedule</a></td>
+    <td style="min-width:225px;vertical-align:top;"><a href="{{ back }}{{ game.num }}">Return to Schedule</a></td>
   </tr>
 </table>
 <hr>

@@ -125,12 +125,6 @@ button
 	float: right;
 }
 
-#layout-userinfo p#user_name
-{
-  float: right;
-  padding-top: 0;
-}
-
 #notes
 {
   padding: 5px 10px 5px 10px;
@@ -414,13 +408,6 @@ hr
 {
   clear: both;
   width: 100%;
-}
-
-#layout-userinfo p#user_name
-{
-  float: right;
-  margin-top: -5px;
-  padding: 5px 10px 5px 10px;
 }
 
 #layout-block
