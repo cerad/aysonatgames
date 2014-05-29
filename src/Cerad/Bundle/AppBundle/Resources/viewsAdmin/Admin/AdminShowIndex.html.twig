@@ -16,8 +16,13 @@
 {% if is_granted('ROLE_SCORE_ADMIN')  %}
 <div class="admin">
   <ul><h2>Schedule Management</h2>
-    <li><a href="{{ path('cerad_game__project__schedule_team__show', { '_project': 'natgames','_game':'1001' }) }}">View Game Schedule</a></li>
-    <li><a href="{{ path('cerad_game__project__schedule_team__show', { '_project': 'natgames','_format' : 'xls' }) }}">Export Game Schedule (Excel)</a></li>
+    <li><a href="{{ path('cerad_game__project__schedule_game__show', { '_project': 'natgames' }) }}">View Game Schedule</a></li>
+    <li><a href="{{ path('cerad_game__project__schedule_game__show', 
+        { '_project': 'natgames','_format' : 'xls','program' : 'Core' }) 
+        }}">Export Core Schedule (Excel)</a></li>
+    <li><a href="{{ path('cerad_game__project__schedule_game__show', 
+        { '_project': 'natgames','_format' : 'xls','program' : 'Extra' }) 
+        }}">Export Extra Schedule (Excel)</a></li>
     <li>{#<a href="{{ path('cerad_tourn_admin_schedule_games_import') }}">#}Import Game Schedule (Excel)</a></li>
   </ul>
 {% endif %}
