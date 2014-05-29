@@ -2,10 +2,10 @@
 <ul class="semiopaquemenu">
 {# if is_granted('ROLE_DEVELOPER') #}
   <li>
-    <a href="{{ path('cerad_game__project__schedule_team__show', { '_project': 'natgames' }) }}">Schedule</a>
+    <a href="{{ path('cerad_game__project__schedule_team__show', { '_project': _project }) }}">Schedule</a>
   </li>
   <li>
-    <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': 'natgames' }) }}">Results</a>
+    <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project }) }}">Results</a>
   </li>
 {# endif #}
 
@@ -28,8 +28,11 @@
   <li class="float-right">
     <a href="{{ path('cerad_tourn_home') }}">My Info</a>
   </li>
-  <li>
-    <a href="{{ path('cerad_game__project__schedule_referee__show', { '_project': 'natgames' }) }}">Referee Schedule</a>
+  <li class="float-right">
+    <a href="{{ path('cerad_game__project__schedule_user__show', { '_project': _project }) }}">My Schedule</a>
+  </li>
+ <li>
+    <a href="{{ path('cerad_game__project__schedule_referee__show', { '_project': _project }) }}">Referee Schedule</a>
   </li>
 {% else %}
   <li class="float-right">

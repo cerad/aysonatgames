@@ -1,0 +1,20 @@
+{% extends '@CeradGame/Layout.html.twig' %}
+
+{% block content %}
+<div style="padding: 5px 20px 10px 20px;" >
+  {% set excelUrl = path('cerad_game__project__schedule_user__show', { '_project' : _project, '_format': 'xls'}) %}
+  {% set   csvUrl = path('cerad_game__project__schedule_user__show', { '_project' : _project, '_format': 'csv'}) %}
+  <a href="{{ excelUrl }}">Export to Excel</a>
+  <a href="{{   csvUrl }}">Export to Text </a>
+</div>
+{% include '@CeradGame/Project/Schedule/User/Show/Twig/ScheduleUserShowGames.html.twig' %}
+{% endblock %}
+{% block javascripts %}
+  <script type="text/javascript">
+$(document).ready(function()
+{
+    // checkbox all functionality
+    $('.cerad-checkbox-all').change(Cerad.checkboxAll);
+});
+  </script>
+{% endblock %}
