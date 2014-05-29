@@ -7,7 +7,7 @@ parameters:
       link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-dreams-300x257.jpg'
     'Ladera Linda': 
       link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-ladera-linda.jpg'
-    'Maple Ave': 
+    'Toyota Sports Complex': 
       link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-555maple3.jpg'
     'Parras MS': 
       link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-parrass.jpg'
@@ -17,4 +17,8 @@ parameters:
       link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-westhigh.jpg'
     'WP'               : 
       link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-wilson.jpg'
+    'Ab Brown Sports Complex':
+      link: 'http://50.ayso.org/downloads/maps-abbrown.pdf'
+    'Reid Park':
+      link: 'http://50.ayso.org/downloads/maps-reid.pdf'
     

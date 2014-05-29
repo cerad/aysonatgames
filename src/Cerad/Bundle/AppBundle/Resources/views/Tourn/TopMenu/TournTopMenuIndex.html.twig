@@ -1,13 +1,19 @@
 {# @CeradTourn/Tourn/TopMenu/TournTopMenuIndex.html.twig   #}
 <ul class="semiopaquemenu">
+{# if is_granted('ROLE_DEVELOPER') #}
+  <li>
+    <a href="{{ path('cerad_game__project__schedule_team__show', { '_project': 'natgames' }) }}">Schedule</a>
+  </li>
+  <li>
+    <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': 'natgames' }) }}">Results</a>
+  </li>
+{# endif #}
+
 {% if is_granted('ROLE_USER') %}
   <li class="float-right">
     <a href="{{ path('cerad_tourn_user_logout') }}">Logout</a>
   </li>
-{% if is_granted('ROLE_SCORE_ENTRY') or
-      is_granted('ROLE_SCORE_ADMIN') or
-      is_granted('ROLE_ASSIGNOR') or
-      is_granted('ROLE_ADMIN') %}
+{% if  is_granted('ROLE_STAFF') %}
   <li class="float-right">
     <a href="{{ path('cerad_tourn_admin') }}">Admin</a>
   </li>
@@ -22,20 +28,9 @@
   <li class="float-right">
     <a href="{{ path('cerad_tourn_home') }}">My Info</a>
   </li>
-{% if is_granted('ROLE_DEVELOPER') %}
-  <li>
-    <a href="{{ path('cerad_game__project__schedule_team__show', { '_project': 'natgames' }) }}">Schedule</a>
-  </li>
-  <li>
-    <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': 'natgames' }) }}">Results</a>
-  </li> 
-{% endif %}
   <li>
     <a href="{{ path('cerad_game__project__schedule_referee__show', { '_project': 'natgames' }) }}">Referee Schedule</a>
   </li>
-  
-
-
 {% else %}
   <li class="float-right">
     <a href="{{ path('cerad_tourn_home') }}">Login</a>
