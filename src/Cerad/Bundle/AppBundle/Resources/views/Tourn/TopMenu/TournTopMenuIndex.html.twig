@@ -1,13 +1,13 @@
 {# @CeradTourn/Tourn/TopMenu/TournTopMenuIndex.html.twig   #}
 <ul class="semiopaquemenu">
-{# if is_granted('ROLE_DEVELOPER') #}
+{% if is_granted('ROLE_DEVELOPER') %}
   <li>
-    <a href="{{ path('cerad_game__project__schedule_team__show', { '_project': _project }) }}">Schedule</a>
+    <a href="{{ path('cerad_game__project__schedule_team__show', { '_project': 'natgames' }) }}">Schedule</a>
   </li>
   <li>
-    <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project }) }}">Results</a>
+    <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': 'natgames' }) }}">Results</a>
   </li>
-{# endif #}
+{% endif %}
 
 {% if is_granted('ROLE_USER') %}
   <li class="float-right">
@@ -29,11 +29,9 @@
     <a href="{{ path('cerad_tourn_home') }}">My Info</a>
   </li>
   <li class="float-right">
-    <a href="{{ path('cerad_game__project__schedule_user__show', { '_project': _project }) }}">My Schedule</a>
+    <a href="{{ path('cerad_game__project__schedule_user__show', { '_project': 'natgames' }) }}">My Schedule</a>
   </li>
- <li>
-    <a href="{{ path('cerad_game__project__schedule_referee__show', { '_project': _project }) }}">Referee Schedule</a>
-  </li>
+
 {% else %}
   <li class="float-right">
     <a href="{{ path('cerad_tourn_home') }}">Login</a>
