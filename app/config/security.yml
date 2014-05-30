@@ -19,6 +19,7 @@ security:
           - ROLE_DEVELOPER
           - ROLE_STAFF
           - ROLE_ADMIN
+          - ROLE_ALLOWED_TO_SWITCH
         ROLE_SUPER_ADMIN: 
           - ROLE_USER
           - ROLE_ASSIGNOR
@@ -46,6 +47,7 @@ security:
         main:
             pattern:   ^/         
             anonymous: ~
+            switch_user: true
             
             form_login:
                 provider:            cerad_tourn_account_user_provider
