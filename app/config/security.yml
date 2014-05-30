@@ -30,14 +30,14 @@ security:
           - ROLE_ALLOWED_TO_SWITCH
 
     providers:
+        cerad_tourn_account_user_provider:
+            id: cerad_user.user_provider
+            
         in_memory_user_provider:
             memory:
                 users:
                     user:  { password: userpass,  roles: [ 'ROLE_USER' ] }
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
-                    
-        cerad_tourn_account_user_provider:
-            id: cerad_user.user_provider
 
     firewalls:
         dev:
