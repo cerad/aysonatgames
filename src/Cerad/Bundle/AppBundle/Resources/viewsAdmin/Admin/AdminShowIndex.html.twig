@@ -2,12 +2,13 @@
 {% extends '@CeradTourn/Layout.html.twig' %}
 
 {% block content %}
+{% set _project = 'natgames' %}
 <div class="admin_container">
 
 {% if is_granted('ROLE_SCORE_ENTRY') %}
 <div class="admin">
   <ul><h2>Match Reporting</h2>
-    <li><a href="{{ path('cerad_game__project__game_report__update', { '_project': 'natgames','_game':'11001' }) }}">Enter Match Results</a></li>
+    <li><a href="{{ path('cerad_game__project__game_report__update', { '_project': _project,'_game':'11001' }) }}">Enter Match Results</a></li>
     <li>{#<a href="{{ path('cerad_tourn_admin_results_export',{ '_format': 'xls' }) }}">#}Export Pool Score Board (Excel)</a></li>
   </ul>
 </div>
