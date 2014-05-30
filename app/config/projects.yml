@@ -2,6 +2,8 @@ parameters:
 
     cerad_project_project_default: AYSONationalGames2014
     
+    cerad_project__project_slug_default: natgames
+    
     cerad_project_project_files:
         - "%kernel.root_dir%/config/projects/AYSONationalGames2014.yml"
 
