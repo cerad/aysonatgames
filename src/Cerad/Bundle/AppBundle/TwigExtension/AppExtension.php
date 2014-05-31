@@ -67,7 +67,7 @@ class AppExtension extends \Twig_Extension
     }
     public function aliasLevel($level)
     {   
-        $strLevel = str_replace('_',' ',substr($level,6));
+        $strLevel = 'U'.str_replace('_',' ',substr($level,6));
         return $strLevel;
     }
 
