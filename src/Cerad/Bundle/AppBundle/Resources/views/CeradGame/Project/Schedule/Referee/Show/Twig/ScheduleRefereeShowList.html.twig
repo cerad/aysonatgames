@@ -5,13 +5,12 @@
         <tr><th colspan="20">Referee Schedule - Count: {{ games | length }}</th></tr>
         <tr>
             <th class="schedule-game"  >Game</th>
-            <th class="schedule-dow"   >DOW</th>
+            <th class="schedule-dow"   >Day</th>
             <th class="schedule-time"  >Time</th>
             <th class="schedule-field" >Field</th>
             <th class="schedule-level" >Division</th>
             <th class="schedule-group" >Type</th>
-{#            <th class="schedule-group" >Group</th>#}
-            <th class="schedule-teams" >Home / Away Group</th>
+            <th class="schedule-group" >Group</th>
             <th class="schedule-teams" >Home / Away</th>
             <th class="schedule-referees">Referees</th>
         </tr>
@@ -21,14 +20,14 @@
         {% set level = game.levelKey %}
         <tr id="ref-sched-{{game.num}}" class="game-status-{{game.status}}">
             <td class="schedule-game">
-                {{ game.num }}<br />{# Need to finish transfering to natgames 
-                <a href="{{ path('cerad_game__project__game__update__by_scorer', 
+                {{ game.num }}{# Need to finish transfering to natgames #}
+{#                <br /><a href="{{ path('cerad_game__project__game__update__by_scorer', 
                   { 
                     '_project' : _project, 
                         '_game': game.num,
                          'back': app.request.requestUri ~ '#ref-sched-'
-                  })}}">Update</a><br /> #}
-                {% if is_granted('ROLE_SCORE_ENTRY') %}
+                  })}}">Update</a><br />
+               {% if is_granted('ROLE_SCORE_ENTRY') %}
                 <a href="{{ path('cerad_game__project__game_report__update',     
                    { 
                       '_project': _project, 
@@ -36,7 +35,7 @@
                           'back': app.request.requestUri ~ '#ref-sched-'
                    }) }}">Report</a>
                 {% endif %}
-            </td>
+#}            </td>
             <td class="schedule-dow" >{{ game.dtBeg.format('D'    ) }}</td>
             <td class="schedule-time">{{ game.dtBeg.format('g:i A') }}</td>    
             <td><a href="{{ cerad_tourn_venue_maplink(game.venueName) }}" target="_blank">{{ game.fieldName }}</a></td>
@@ -45,7 +44,7 @@
 {#            <td>{{ game.groupKey  }}</td>#}
            <td><table>
                 {% for gameTeam in game.teams %}
-                    <tr><td>{{ gameTeam.groupSlot }}</td></tr>
+                    <tr><td>{{ cerad_game_team_group(gameTeam) }}</td></tr>
                 {% endfor %}
             </table></td>
            <td><table>

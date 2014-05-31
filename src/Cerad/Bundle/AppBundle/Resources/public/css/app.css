@@ -80,11 +80,6 @@ variable, form, fieldset, blockquote, label, img
   font-size: small;
 }
 
-body
-{
-  min-width: 685px;
-}
-
 h3, h4, legend
 {
   color: red;
@@ -118,11 +113,11 @@ button
   padding: 5px 20px;
 }
 
-#layout-userinfo
-,#layout-userinfo *
+#layout-userinfo ul
 {
   font-size:  small;
 	float: right;
+	padding: 0.25em;
 }
 
 #notes
@@ -335,11 +330,6 @@ variable, form, fieldset, blockquote, label, img
   color: black;
 }
 
-html
-{
-	min-width: 870px;
-}
-
 body
 {
   width: 100%;
@@ -399,9 +389,13 @@ hr
 }
 
 #layout-header
-,#layout-content
 {
-  padding: 10px 0;
+	display:inline-block;
+}
+#layout-content{
+	display: inline-block;
+	padding-top:4px;
+	width: 100%
 }
 
 #layout-topmenu
@@ -712,7 +706,9 @@ table#person-list table td
 {
   text-align: left;
 }
-
+#export-link{
+	padding:10px;
+}
 @media print
 {
   .sf-toolbar
@@ -724,4 +720,13 @@ table#person-list table td
   {
     display:none;
   }
+}
+
+@media (max-width: 600px) {
+  td > table {
+		display: block;
+	}
+	td > table td{
+		display: inline-block;
+	}
 }
