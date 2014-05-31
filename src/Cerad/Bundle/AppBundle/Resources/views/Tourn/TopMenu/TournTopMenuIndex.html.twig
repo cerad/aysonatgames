@@ -1,24 +1,25 @@
 {# @CeradTourn/Tourn/TopMenu/TournTopMenuIndex.html.twig   #}
+{% set _project = 'natgames' %}
 <div id='cssmenu'>
 <ul>
 {% if is_granted('ROLE_DEVELOPER') %}
   <li class="has-sub">Schedules
     <ul>
       <li>
-        <a href="{{ path('cerad_game__project__schedule_game__show', { '_project': 'natgames' }) }}">Game Schedule</a>
+        <a href="{{ path('cerad_game__project__schedule_game__show', { '_project': _project }) }}">Game Schedule</a>
       </li>
       <li class="last">
-        <a href="{{ path('cerad_game__project__schedule_team__show', { '_project': 'natgames' }) }}">Team Schedules</a>
+        <a href="{{ path('cerad_game__project__schedule_team__show', { '_project': _project }) }}">Team Schedules</a>
       </li>
     </ul>
   </li>
   <li class="has-sub">Results
     <ul>
       <li>
-          <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': 'natgames' }) }}">Pool Play</a>
+          <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project }) }}">Pool Play</a>
       </li>
       <li class="last">
-          <a href="#{#{{ path('cerad_game__project__results_playoffs__show', { '_project': 'natgames' }) }}#}">Medal Round</a>
+          <a href="#{#{{ path('cerad_game__project__results_playoffs__show', { '_project': _project }) }}#}">Medal Round</a>
       </li>
     </ul>
   </li>
