@@ -1,3 +1,4 @@
+{% if is_granted('ROLE_USER') %}
 <div id="layout-block">
     <div class="schedule-games-list">
     <table id="schedule" class="schedule" border="1">
@@ -5,13 +6,12 @@
         <tr><th colspan="20">My Schedule - Count: {{ games | length }}</th></tr>
         <tr>
             <th class="schedule-game"  >Game</th>
-            <th class="schedule-dow"   >DOW</th>
+            <th class="schedule-dow"   >Day</th>
             <th class="schedule-time"  >Time</th>
             <th class="schedule-field" >Field</th>
             <th class="schedule-level" >Division</th>
-            <th class="schedule-group" >Type</th>
-{#            <th class="schedule-group" >Group</th>#}
-            <th class="schedule-teams" >Home / Away Group</th>
+            <th class="schedule-type" >Type</th>
+            <th class="schedule-group" >Group</th>
             <th class="schedule-teams" >Home / Away</th>
             <th class="schedule-referees">Referees</th>
         </tr>
@@ -57,24 +57,32 @@
 {% for referee in game.officials %}
 <tr>
   <td>
-  {% if is_granted('ROLE_ASSIGNOR') %}
-    <a href="{{ path('cerad_game__project__game_officials__assign_by_assignor',     
+    {% if cerad_referee_assigned(referee.personNameFull) %}
+    <a style="background-color: lightgreen;" href="{{ path('cerad_game__project__game_officials__assign_by_assignor',     
        { 
          '_project': _project, 
             '_game': game.num,
              'back': app.request.requestUri ~ '#ref-sched-'
-        }) }}">{{ referee.role }}</a>
-  {% elseif is_granted('ROLE_USER') %}
-    <a href="{{ path('cerad_game__project__game_official__assign_by_user', 
-       { 
-         '_project': _project, 
-            '_game': game.num, 
-    '_gameOfficial': referee.slot,
-             'back': app.request.requestUri ~ '#ref-sched-'
-       }) }}">{{ referee.role }}</a>
-  {% else %}{{ referee.role }}{% endif %}
+        }) }}">{{ referee.personNameFull }}</a>
+    {% else %}
+        {% if is_granted('ROLE_ASSIGNOR') %}
+          <a href="{{ path('cerad_game__project__game_officials__assign_by_assignor',     
+             { 
+               '_project': _project, 
+                  '_game': game.num,
+                   'back': app.request.requestUri ~ '#ref-sched-'
+              }) }}">{{ referee.role }}</a>
+        {% else %}
+          <a href="{{ path('cerad_game__project__game_official__assign_by_user', 
+             { 
+               '_project': _project, 
+                  '_game': game.num, 
+          '_gameOfficial': referee.slot,
+                   'back': app.request.requestUri ~ '#ref-sched-'
+             }) }}">{{ referee.role }}</a>
+        {% endif %}
+    {% endif %}
   </td>
-  <td>{{ referee.personNameFull }}</td>
 </tr>
   {% endfor %}
 </table></td>
@@ -84,3 +92,4 @@
     </table>
 </div>
 </div>
+{% endif %}

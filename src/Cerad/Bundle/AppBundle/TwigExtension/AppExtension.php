@@ -22,7 +22,8 @@ class AppExtension extends \Twig_Extension
             
             'cerad_tourn_venue_maplink' => new \Twig_Function_Method($this, 'venueMapLink'),
             
-            'cerad_level' => new \Twig_Function_Method($this, 'aliasLevel'),        
+            'cerad_level' => new \Twig_Function_Method($this, 'aliasLevel'),
+            'cerad_referee_assigned' => new \Twig_Function_Method($this, 'refereeAssigned'),
         );
     }
     public function gameTeamGroup($team)
@@ -69,6 +70,11 @@ class AppExtension extends \Twig_Extension
     {   
         $strLevel = 'U'.str_replace('_',' ',substr($level,6));
         return $strLevel;
+    }
+    
+    public function refereeAssigned($referee)
+    {
+        return !is_null($referee);
     }
 
  }
