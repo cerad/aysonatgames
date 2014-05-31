@@ -1,8 +1,9 @@
-{# @CeradTourn/AppAdminBundle/Resources/views/Admin/AdminShowIndex.html.twig  #} 
+{# @Cerad/AppBundle/Resources/viewsAdmin/Admin/AdminShowIndex.html.twig  #} 
 {% extends '@CeradTourn/Layout.html.twig' %}
+{% set _project = 'natgames' %}
 
 {% block content %}
-{% set _project = 'natgames' %}
+<h3>Admin Functions</h3>
 <div class="admin_container">
 
 {% if is_granted('ROLE_SCORE_ENTRY') %}
@@ -60,4 +61,6 @@
 </div>
 
 </div>  <!--end div.container-->
+
+{% include '@CeradTournAdmin/Admin/AdminShowHelp.html.twig' %}
 {% endblock %} {# end content block #}
