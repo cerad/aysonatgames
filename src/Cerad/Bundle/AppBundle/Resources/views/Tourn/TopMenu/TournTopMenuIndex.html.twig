@@ -1,40 +1,58 @@
 {# @CeradTourn/Tourn/TopMenu/TournTopMenuIndex.html.twig   #}
-<ul class="semiopaquemenu">
+<div id='cssmenu'>
+<ul>
 {% if is_granted('ROLE_DEVELOPER') %}
-  <li>
-    <a href="{{ path('cerad_game__project__schedule_team__show', { '_project': 'natgames' }) }}">Schedule</a>
+  <li class="has-sub">Schedules
+    <ul>
+      <li>
+        <a href="{{ path('cerad_game__project__schedule_game__show', { '_project': 'natgames' }) }}">Game Schedule</a>
+      </li>
+      <li class="last">
+        <a href="{{ path('cerad_game__project__schedule_team__show', { '_project': 'natgames' }) }}">Team Schedules</a>
+      </li>
+    </ul>
   </li>
-  <li>
-    <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': 'natgames' }) }}">Results</a>
+  <li class="has-sub">Results
+    <ul>
+      <li>
+          <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': 'natgames' }) }}">Pool Play</a>
+      </li>
+      <li class="last">
+          <a href="#{#{{ path('cerad_game__project__results_playoffs__show', { '_project': 'natgames' }) }}#}">Medal Round</a>
+      </li>
+    </ul>
   </li>
 {% endif %}
 
 {% if is_granted('ROLE_USER') %}
-  <li class="float-right">
-    <a href="{{ path('cerad_tourn_user_logout') }}">Logout</a>
+  <li class="right">
+    <a href="{{ path('cerad_tourn_user_logout') }}">  Logout</a>
   </li>
 {% if  is_granted('ROLE_STAFF') %}
-  <li class="float-right">
-    <a href="{{ path('cerad_tourn_admin') }}">Admin</a>
+  <li class="right">
+    <a href="{{ path('cerad_tourn_admin') }}">  Admin</a>
   </li>
 {% endif %}
-
-  <li class="float-right">
-    <a href="{{ path('cerad_tourn_person_plan_update') }}">My Plan</a>
-  </li>
-  <li class="float-right">
-    <a href="{{ path('cerad_tourn_person_update') }}">My Account</a>
-  </li>
-  <li class="float-right">
-    <a href="{{ path('cerad_tourn_home') }}">My Info</a>
-  </li>
-  <li class="float-right">
-    <a href="{{ path('cerad_game__project__schedule_user__show', { '_project': 'natgames' }) }}">My Schedule</a>
-  </li>
-
+  <li class="has-sub right">My Account
+  <ul>
+    <li>
+      <a href="{{ path('cerad_tourn_person_update') }}">My Account</a>
+    </li>
+    <li>
+      <a href="{{ path('cerad_tourn_person_plan_update') }}">My Plans</a>
+    </li>
+    <li>
+      <a href="{{ path('cerad_tourn_home') }}">My Info</a>
+    </li>
+    <li class="last">
+      <a href="{{ path('cerad_game__project__schedule_user__show', { '_project': 'natgames' }) }}">My Schedule</a>
+    </li>
+  </ul>
 {% else %}
-  <li class="float-right">
-    <a href="{{ path('cerad_tourn_home') }}">Login</a>
-  </li>
+    <li class="right">
+      <a href="{{ path('cerad_tourn_home') }}">Login</a>
+    </li>
 {% endif %}
+
 </ul>
+</div>
