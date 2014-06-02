@@ -24,6 +24,7 @@ class AppExtension extends \Twig_Extension
             
             'cerad_level' => new \Twig_Function_Method($this, 'aliasLevel'),
             'cerad_referee_assigned' => new \Twig_Function_Method($this, 'refereeAssigned'),
+            'cerad_referee_count' => new \Twig_Function_Method($this,'refereeCount'),
         );
     }
     public function gameTeamGroup($team)
@@ -77,5 +78,23 @@ class AppExtension extends \Twig_Extension
         return !is_null($referee);
     }
 
+    public function refereeCount($persons)
+    {
+        $refCountTOA = 0;
+        $refCountRAL = 0;
+
+        foreach($persons as $person) {
+            $plan = $person->getPlan()->getBasic();
+            if ($plan['attending']=='yes' AND $plan['refereeing']=='yes') {
+                if ($plan['venue'] == 'core') {
+                    $refCountTOA += 1;
+                } else {
+                    $refCountRAL += 1;
+                }
+            }
+        }
+ 
+        return "(Referee Count [TOA = {$refCountTOA} / RAL = {$refCountRAL}])";
+    }
  }
 ?>
