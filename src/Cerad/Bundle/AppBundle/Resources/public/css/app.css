@@ -646,11 +646,6 @@ table.import_results
   width:80%
 }
 
-table#person-list
-{
-  min-width: 900px;
-}
-
 table#person-list td
 {
   padding: 0;

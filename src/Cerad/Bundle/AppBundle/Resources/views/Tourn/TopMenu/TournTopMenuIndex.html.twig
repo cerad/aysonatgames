@@ -8,8 +8,11 @@
       <li>
         <a href="{{ path('cerad_game__project__schedule_game__show', { '_project': _project }) }}">Game Schedule</a>
       </li>
-      <li class="last">
+      <li>
         <a href="{{ path('cerad_game__project__schedule_team__show', { '_project': _project }) }}">Team Schedules</a>
+      </li>
+      <li class="last">
+        <a href="{{ path('cerad_game__project__schedule_user__show', { '_project': _project }) }}">My Schedule</a>
       </li>
     </ul>
   </li>
@@ -19,7 +22,7 @@
           <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project }) }}">Pool Play</a>
       </li>
       <li class="last">
-          <a href="#{#{{ path('cerad_game__project__results_playoffs__show', { '_project': _project }) }}#}">Medal Round</a>
+          <a href="{{ path('cerad_game__project__results_playoffs__show', { '_project': _project }) }}">Medal Round</a>
       </li>
     </ul>
   </li>
@@ -46,7 +49,7 @@
       <a href="{{ path('cerad_tourn_home') }}">My Info</a>
     </li>
     <li class="last">
-      <a href="{{ path('cerad_game__project__schedule_user__show', { '_project': 'natgames' }) }}">My Schedule</a>
+      <a href="{{ path('cerad_game__project__schedule_user__show', { '_project': _project }) }}">My Schedule</a>
     </li>
   </ul>
 {% else %}
