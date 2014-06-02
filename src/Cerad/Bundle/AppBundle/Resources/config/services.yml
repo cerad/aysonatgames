@@ -1,9 +1,12 @@
 # ============================================
 # Override service classes
 parameters:
-    cerad_tourn.officials.export_xls.class: Cerad\Bundle\AppBundle\ServicesAdmin\Persons\PersonsExportXLS
+  cerad_tourn.officials.export_xls.class: Cerad\Bundle\AppBundle\ServicesAdmin\Persons\PersonsExportXLS
     
-    cerad_person.aysov_referee_badge.form_type.class: Cerad\Bundle\AppBundle\FormType\AYSO\RefereeBadgeFormType  
+  cerad_person.aysov_referee_badge.form_type.class: Cerad\Bundle\AppBundle\FormType\AYSO\RefereeBadgeFormType  
+    
+  cerad_game__project__results__export_xls__class: 
+    Cerad\Bundle\AppBundle\Action\Project\Results\Export\ResultsExportXLS
     
 services:
     cerad_app.twig_extension:
