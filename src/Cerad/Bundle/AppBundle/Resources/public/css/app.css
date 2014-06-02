@@ -725,3 +725,16 @@ table#person-list table td
 		display: inline-block;
 	}
 }
+
+/* All Mobile Portrait size smaller than 768 (devices and browsers) */
+@media only screen and (max-width: 767px) {
+
+    table.schedule{
+        margin-left: auto;
+        margin-right: auto;
+}
+
+    .cerad_common_form1 table td {
+        padding: 0;
+    }
+}
