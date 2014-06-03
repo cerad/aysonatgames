@@ -23,7 +23,10 @@ class LoadTextScheduleCommand extends ContainerAwareCommand
     
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $project = $this->getService('cerad_project.project_current');
+        // The request listener is of course not requesting
+        $projectRepo = $this->getService('cerad_project.project_repository');
+        $projectKey  = $this->getParameter('cerad_project_project_default');
+        $project = $projectRepo->find($projectKey);
         
         $date = $input->getArgument('file');
         
@@ -34,15 +37,13 @@ class LoadTextScheduleCommand extends ContainerAwareCommand
         $this->processGames($project,$fileExtra);
                 
         $fileTeams = 'data/ScheduleGames20140520.xlsx';
-      //$this->processTeams($project,$fileTeams,'Teams Core 15 May');
+        $this->processTeams($project,$fileTeams,'Teams Core 15 May');
         $this->processTeams($project,$fileTeams,'Teams Extra 15 May');
         
         return; if ($output);
     }
     protected function processGames($project,$file)
-    {
-        return;
-        
+    {   
         $convertGames = new ConvertGamesTextToYaml();
         $convertGames->setProjectKey($project->getKey());
         $games = $convertGames->load($file);
