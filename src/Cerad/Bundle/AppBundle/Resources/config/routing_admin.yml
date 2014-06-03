@@ -1,3 +1,52 @@
 # =================================================
 # Look in TournAdminBundle for most of these routes
 
+cerad_tourn_admin_persons_list:
+    pattern:  /admin/persons/list.{_format}
+    defaults:
+        _controller: CeradAppBundle:Persons/PersonsList:list
+        _template: '@CeradTournAdmin/Persons/List/PersonsListIndex.html.twig'
+        _format: html
+    requirements:
+        _format:  html|csv|xls|pdf
+        
+
+cerad_tourn_admin_unverified_persons_list:
+    pattern:  /admin/persons/unlist.{_format}
+    defaults:
+        _controller: CeradAppBundle:Persons/UnverifiedPersonsList:list
+        _template: '@CeradTournAdmin/Persons/List/PersonsUnverifiedListIndex.html.twig'
+        _format: html
+    requirements:
+        _format:  html|csv|xls|pdf
+
+#cerad_tourn_unassigned_matches_list:
+#    pattern:  /officials/unassigned.{_format}
+#    defaults: 
+#        _controller: CeradAppBundle:Schedule/UnassignedMatchesList:list
+#        _template: '@CeradTournAdmin/Schedule/Official/List/UnassignedMatchesIndex.html.twig'
+#        _format: html
+#    requirements:
+#        _format:  html|csv|xls|pdf
+#
+#cerad_tourn_unregistered_officials_list:
+#    pattern:  /officials/list.{_format}
+#    defaults: 
+#        _controller: CeradAppBundle:Schedule/UnregisteredOfficialsList:list
+#        _template: '@CeradTournAdmin/Schedule/Official/List/UnregisteredOfficialsIndex.html.twig'
+#        _format: xls
+#    requirements:
+#        _format:  html|csv|xls|pdf
+#                                           
+# ==============================================================
+# Importing and exporting the game schedule
+
+# ==============================================================
+# Exporting and printing the results stuff
+#
+# This if for all the results including pool play, playoffs and the champions
+#
+# Only excel is currently supported
+
+# pdf would be good as well for mailing
+#
