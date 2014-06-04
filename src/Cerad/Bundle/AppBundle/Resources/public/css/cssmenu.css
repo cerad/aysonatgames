@@ -30,13 +30,13 @@
   line-height: 1em;
   margin: 0;
   padding: 10px;
-  border-left: 2px solid #ece6e8;
+  border-right: 2px solid #ece6e8;
   color: #777;
 }
 #cssmenu > ul li.right {
   float: right;
-  border-left: none;
-  border-right: 2px solid #ece6e8; 
+  border-right: none;
+  border-left: 2px solid #ece6e8; 
 }
 #cssmenu > ul li.has-sub {
   position: relative;
