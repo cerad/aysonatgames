@@ -68,8 +68,15 @@ class AppExtension extends \Twig_Extension
         return sprintf('%s %s %s',$levelParts[2],$levelParts[1],$groupName);
     }
     public function aliasLevel($level)
-    {   
-        $strLevel = 'U'.str_replace('_',' ',substr($level,6));
+    {
+        $levels = explode('_', $level);
+        
+        if ($levels[1] != 'VIP') {
+            $strLevel = 'U'.str_replace('_',' ',substr($level,6));
+        } else {
+            $strLevel = "{$levels[1]} {$levels[2]}";
+        }
+        
         return $strLevel;
     }
     
