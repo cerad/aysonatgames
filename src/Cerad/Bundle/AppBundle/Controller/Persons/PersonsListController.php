@@ -11,7 +11,7 @@ class PersonsListController extends MyBaseController
     public function listAction(Request $request, $_format)
     {
         // Security
-        if (!$this->hasRoleAdmin()) { return $this->redirect('cerad_tourn_welcome'); }
+        if (!$this->hasRoleStaff()) { return $this->redirect('cerad_tourn_welcome'); }
         
         $model = $this->createModel($request);
         if (isset($model['response'])) return $model['response'];
