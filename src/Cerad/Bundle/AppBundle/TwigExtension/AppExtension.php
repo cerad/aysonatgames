@@ -115,8 +115,10 @@ class AppExtension extends \Twig_Extension
                 }
             }
         }
+        
+        $totalReferees = $refCountRAL + $refCountTOA;
  
-        return "(Referee Count [TOA = {$refCountTOA} / RAL = {$refCountRAL}])";
+        return "[{$totalReferees} Referees ({$refCountTOA} @ TOA / {$refCountRAL} @ RAL)]";
     }
  }
 ?>
