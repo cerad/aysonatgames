@@ -8,10 +8,11 @@
             <th class="schedule-dow"   >Day</th>
             <th class="schedule-time"  >Time</th>
             <th class="schedule-field" >Field</th>
-            <th class="schedule-level" >Division</th>
+            <th class="schedule-level" >Group</th>
+            <th class="schedule-level" >&nbsp;</th>
           {#<th class="schedule-type"  >Type</th>
             <th class="schedule-group" >Group</th>#}
-            <th class="schedule-group" >Group</th>
+            <th class="schedule-group" >Slot</th>
             <th class="schedule-teams" >Home / Away</th>
         </tr>
     </thead>
@@ -40,12 +41,13 @@
             <td class="schedule-dow" >{{ game.dtBeg.format('D'    ) }}</td>
             <td class="schedule-time">{{ game.dtBeg.format('g:i A') }}</td>    
             <td><a href="{{ cerad_tourn_venue_maplink(game.venueName) }}" target="_blank">{{ game.fieldName }}</a></td>
-            <td>{{ cerad_level(game.levelKey) }}</td>
-          {#<td>{{ game.groupType }}</td>
-            <td>{{ game.groupKey  }}</td>#}
+            <td>{{ cerad_game_group(game) }}</td>
+            <td>&nbsp;</td>
+          {#<td>{{ game.groupKey }}</td>#}
+          {#<td>{{ game.groupSlot  }}</td>#}
            <td><table>
                 {% for gameTeam in game.teams %}
-                    <tr><td>{{ cerad_game_team_group(gameTeam) }}</td></tr>
+                    <tr><td>{{ gameTeam.groupSlot }}</td></tr>
                 {% endfor %}
             </table></td>
            <td><table>

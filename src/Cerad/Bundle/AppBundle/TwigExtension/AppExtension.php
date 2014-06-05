@@ -5,20 +5,23 @@ namespace Cerad\Bundle\AppBundle\TwigExtension;
 class AppExtension extends \Twig_Extension
 {
     protected $venues;
+    protected $gameTransformer;
     
     public function getName()
     {
         return 'cerad_app_extension';
     }
-    public function __construct($venues)
+    public function __construct($venues,$gameTransformer)
     {
         $this->venues = $venues;
+        $this->gameTransformer = $gameTransformer;
     }
     public function getFunctions()
     {
         return array(            
             'cerad_game_team_group' => new \Twig_Function_Method($this, 'gameTeamGroup'),
             'cerad_game_level'      => new \Twig_Function_Method($this, 'gameLevel'),
+            'cerad_game_group'      => new \Twig_Function_Method($this, 'gameGroup'),
             
             'cerad_tourn_venue_maplink' => new \Twig_Function_Method($this, 'venueMapLink'),
             
@@ -27,8 +30,18 @@ class AppExtension extends \Twig_Extension
             'cerad_referee_count' => new \Twig_Function_Method($this,'refereeCount'),
         );
     }
+    public function gameGroup($game)
+    {
+        $groupKey = $game->getGroupKey();
+        
+        $group = str_replace(array('_',':'),' ',$groupKey);
+        
+        return substr($group,5);
+    }
     public function gameTeamGroup($team)
     {
+        return $this->gameTransformer->gameTeamGroup($team);
+        
         $type  = $team->getGame()->getGroupType(); // PP, QF etc
         $group = $team->getGame()->getGroupKey();  // U12G Core B,  U12G Core QF1
         $slot  = $team->getGroupSlot();            // U12G Core B1, U12G Core A 1st
@@ -53,14 +66,16 @@ class AppExtension extends \Twig_Extension
     }
     public function gameLevel($game)
     {
+        return $this->gameTransformer->gameLevel($game);
         
         $type  = $game->getGroupType(); // PP, QF etc
         $group = $game->getGroupKey();  // U12G Core B,  U12G Core QF1
+        
         $groupParts = explode(' ',$group);
         
         $groupName = isset($groupParts[2]) ? $groupParts[2]: null; // A or QF1
         
-        if ($type == 'PP') $groupName = 'PP'; // 'PP ' . $groupName;
+        if ($type == 'PP') $groupName = 'PP'; // PP ' . $groupName;
         
         $level = $game->getLevelKey();
         $levelParts = explode('_',$level);

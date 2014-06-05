@@ -33,6 +33,7 @@ class LoadTextScheduleCommand extends ContainerAwareCommand
         $fileCore = sprintf('data/ScheduleGamesCore%s.txt',$date);
         $this->processGames($project,$fileCore);
         
+        
         $fileExtra = sprintf('data/ScheduleGamesExtra%s.txt',$date);
         $this->processGames($project,$fileExtra);
                 

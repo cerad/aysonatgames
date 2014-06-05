@@ -7,4 +7,10 @@ parameters:
     cerad_project_project_files:
         - "%kernel.root_dir%/config/projects/AYSONationalGames2014.yml"
 
-          
+    cerad_project__game_slot_durations:
+      VIP: 50
+      U10: 50 
+      U12: 60 
+      U14: 60 
+      U16: 70 
+      U19: 80

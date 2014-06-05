@@ -204,15 +204,14 @@ class ConvertGamesTextToYaml
             $info = $this->teamPlayoffs[$teamsx];
             $game = $this->createGame($age,$gender,$fieldName,$timeSlot);
             
-          //$game['groupKey']  = sprintf('%s%s %s %s',$age,$gender,$this->program,$info['key']);
-            $game['groupKey']  = sprintf('%s:%s:%s',$game['levelKey'],substr($info['key'],0,2),substr($info['key'],2));
+            $game['groupKey']  = sprintf('%s%s %s %s',$age,$gender,$this->program,$info['key']);
             $game['groupType'] = substr($info['key'],0,2);
             
-            $game['homeTeamName'] = $game['homeTeamGroupSlot'] = $info['home'];
-            $game['awayTeamName'] = $game['awayTeamGroupSlot'] = $info['away'];
+            $game['homeTeamName'] = $info['home'];
+            $game['awayTeamName'] = $info['away'];
             
-          //$game['homeTeamGroupSlot'] = sprintf('%s%s %s %s',$age,$gender,$this->program,$info['home']);
-          //$game['awayTeamGroupSlot'] = sprintf('%s%s %s %s',$age,$gender,$this->program,$info['away']);
+            $game['homeTeamGroupSlot'] = sprintf('%s%s %s %s',$age,$gender,$this->program,$info['home']);
+            $game['awayTeamGroupSlot'] = sprintf('%s%s %s %s',$age,$gender,$this->program,$info['away']);
             
             $this->games[] = $game;
             
@@ -232,15 +231,14 @@ class ConvertGamesTextToYaml
         
         $game = $this->createGame($age,$gender,$fieldName,$timeSlot);
 
-     // $game['groupKey']  = sprintf('%s%s %s %s',  $age,$gender,$this->program,$gamePool);
-        $game['groupKey']  = sprintf('%s:PP:%s',$game['levelKey'],$gamePool);
+        $game['groupKey']  = sprintf('%s%s %s %s',  $age,$gender,$this->program,$gamePool);
         $game['groupType'] = 'PP';
         
-        $game['homeTeamName'] = $game['homeTeamGroupSlot'] = $homeTeamPoolSlot;
-        $game['awayTeamName'] = $game['awayTeamGroupSlot'] = $awayTeamPoolSlot;
+        $game['homeTeamName'] = $homeTeamPoolSlot;
+        $game['awayTeamName'] = $awayTeamPoolSlot;
         
-      //$game['homeTeamGroupSlot'] = sprintf('%s%s %s %s',  $age,$gender,$this->program,$homeTeamPoolSlot);
-      //$game['awayTeamGroupSlot'] = sprintf('%s%s %s %s',  $age,$gender,$this->program,$awayTeamPoolSlot);
+        $game['homeTeamGroupSlot'] = sprintf('%s%s %s %s',  $age,$gender,$this->program,$homeTeamPoolSlot);
+        $game['awayTeamGroupSlot'] = sprintf('%s%s %s %s',  $age,$gender,$this->program,$awayTeamPoolSlot);
         
         $this->games[] = $game;
     }

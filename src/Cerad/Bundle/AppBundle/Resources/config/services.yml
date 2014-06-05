@@ -13,6 +13,7 @@ services:
         class:  Cerad\Bundle\AppBundle\TwigExtension\AppExtension
         arguments:  
             - '%cerad_project_venues%'
+            - '@cerad_game__transformer'
         tags:
             - { name: twig.extension }
             
