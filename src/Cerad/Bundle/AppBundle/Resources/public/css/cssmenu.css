@@ -32,6 +32,7 @@
   padding: 10px;
   border-right: 2px solid #ece6e8;
   color: #777;
+  text-align: center;
 }
 #cssmenu > ul li.right {
   float: right;
@@ -48,17 +49,26 @@
   display: none;
   width: 190px;
   position: absolute;
-  margin-top: 0.5em;
+  margin-top: 0;
   padding: 0;
   list-style-type: none;
   background-color: #fff;
   border: 1px solid #ece6e8;
   border-top: 4px solid #ef3e33;
-  top: 25px !important;
+  top: 2.125em !important;
+  text-transform: capitalize;
   z-index: 9999;
 }
 #cssmenu > ul li.has-sub ul li {
   display: block;
+  text-align: left;
+}
+#cssmenu > ul li.has-sub ul li {
+  display: block;
+}
+#cssmenu > ul li.has-sub ul li:hover {
+  display: block;
+  background-color: #f7f7f7;
 }
 #cssmenu > ul li.has-sub > a {
   background-image: url('images/caret.png');
@@ -81,9 +91,9 @@
 #cssmenu > ul li a.active,
 #cssmenu > ul li a:hover {
   /*background: #d80041;*/
-  background: #f4f4f4;
+/*  background: #f4f4f4; */
   color: #d80041;
-  text-shadow: 0px 1px 0px #000;
+  /*text-shadow: 0px 1px 0px #000;*/
 }
 @media (max-width: 600px) {
   #cssmenu > ul {
