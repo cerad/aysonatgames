@@ -62,6 +62,19 @@
   </ul>
 </div>
 {% endif %}
+    
+<div class="admin">
+  <ul><h2>Team Management</h2>
+    <li><a href="{{ path('cerad_game__project__teams__show',   { '_project': _project }) }}">View Teams (Not yet implemented)</a></li>
+    <li><a href="{{ path('cerad_game__project__teams__export', { '_project': _project }) }}">Export Teams (Excel)</a></li>
+{% if is_granted('ROLE_SCORE_ADMIN')  %}
+    <li><a href="{{ path('cerad_game__project__teams__import', 
+        { '_project': _project }) }}">
+        Import/Update/Link Teams (Excel)
+    </a></li>
+{% endif %}
+  </ul>
+</div>
 
 <div class="admin">
   <ul><h2>Account Management</h2>

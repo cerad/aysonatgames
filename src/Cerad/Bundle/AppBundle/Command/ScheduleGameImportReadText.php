@@ -2,7 +2,7 @@
 
 namespace Cerad\Bundle\AppBundle\Command;
 
-class ConvertGamesTextToYaml
+class ScheduleGameImportReadText
 {
     protected $date;
     protected $slots;
@@ -12,10 +12,6 @@ class ConvertGamesTextToYaml
     
     protected $games;
     
-    public function setProjectKey($projectKey)
-    {
-        $this->projectKey = $projectKey;
-    }
     protected $teamPlayoffs = array(
         
         '1A-2C' => array('key' => 'QF1', 'home' => 'A 1st', 'away' => 'C 2nd'),
@@ -124,20 +120,28 @@ class ConvertGamesTextToYaml
         $game['sportKey'] = 'Soccer';
         $game['levelKey'] = sprintf('AYSO_%s%s_%s',$age,$gender,$this->program);
         
-        $game['groupKey'] = null;
-        
         $game['groupType'] = null;
+        $game['groupName'] = null;
+        
         $game['venueName'] = $this->venues[substr($fieldName,0,2)];
         $game['fieldName'] = $fieldName;
         $game['homeTeamName']      = null;
         $game['awayTeamName']      = null;
         $game['homeTeamGroupSlot'] = null;
         $game['awayTeamGroupSlot'] = null;
-        $game['officials'] = array(
-            'Referee' => null,
-            'AR1'     => null,
-            'AR2'     => null,
-        );
+        
+        switch($age)
+        {
+            case 'VIP':
+                $game['officials'] = array('Referee' => null);
+                break;
+            
+            default:
+                $game['officials'] = array(
+                    'Referee' => null,
+                    'AR1'     => null,
+                    'AR2'     => null);
+        }
         return $game;
     }
     /* ===================================================
@@ -153,14 +157,17 @@ class ConvertGamesTextToYaml
         {
             $game = $this->createGame('VIP',null,$fieldName,$timeSlot);
             
-            $game['groupKey']  = sprintf('VIP %s',$this->program);
-            $game['groupType'] = 'VIP';
+            $game['homeTeamGroupSlot'] = 'VIP';
+            $game['awayTeamGroupSlot'] = 'VIP';
             
-            $game['homeTeamName'] = 'VIP';
-            $game['awayTeamName'] = 'VIP';
+          //$game['groupKey']  = sprintf('VIP %s',$this->program);
+          //$game['groupType'] = 'VIP';
             
-            $game['homeTeamGroupSlot'] = sprintf('VIP %s',$this->program);
-            $game['awayTeamGroupSlot'] = sprintf('VIP %s',$this->program);
+          //$game['homeTeamName'] = 'VIP';
+          //$game['awayTeamName'] = 'VIP';
+            
+          //$game['homeTeamGroupSlot'] = sprintf('VIP %s',$this->program);
+          //$game['awayTeamGroupSlot'] = sprintf('VIP %s',$this->program);
             
             $this->games[] = $game;
             
@@ -205,8 +212,8 @@ class ConvertGamesTextToYaml
             $game = $this->createGame($age,$gender,$fieldName,$timeSlot);
             
           //$game['groupKey']  = sprintf('%s%s %s %s',$age,$gender,$this->program,$info['key']);
-            $game['groupKey']  = sprintf('%s:%s:%s',$game['levelKey'],substr($info['key'],0,2),substr($info['key'],2));
             $game['groupType'] = substr($info['key'],0,2);
+            $game['groupName'] = substr($info['key'],2);
             
             $game['homeTeamName'] = $game['homeTeamGroupSlot'] = $info['home'];
             $game['awayTeamName'] = $game['awayTeamGroupSlot'] = $info['away'];
@@ -227,14 +234,13 @@ class ConvertGamesTextToYaml
         $homeTeamPoolSlot = $teamPoolSlots[0];
         $awayTeamPoolSlot = $teamPoolSlots[1];
         
-        $gamePool = $homeTeamPoolSlot[0];
-      //$awayTeamPool = $awayTeamPoolSlot[0];
-        
+        $groupName = $homeTeamPoolSlot[0];
+      
         $game = $this->createGame($age,$gender,$fieldName,$timeSlot);
 
      // $game['groupKey']  = sprintf('%s%s %s %s',  $age,$gender,$this->program,$gamePool);
-        $game['groupKey']  = sprintf('%s:PP:%s',$game['levelKey'],$gamePool);
         $game['groupType'] = 'PP';
+        $game['groupName']  = $groupName;
         
         $game['homeTeamName'] = $game['homeTeamGroupSlot'] = $homeTeamPoolSlot;
         $game['awayTeamName'] = $game['awayTeamGroupSlot'] = $awayTeamPoolSlot;
@@ -390,8 +396,10 @@ if (!isset($line[$p]))
     /* ===================================================
      * Entry point
      */
-    public function load($file)
+    public function read($file,$project)
     {
+        $this->projectKey = is_object($project) ? $project->getKey() : $project;
+        
         $fp = fopen($file,'rt');
         if (!$fp)
         {
@@ -399,7 +407,7 @@ if (!isset($line[$p]))
         }
         $this->games = array();
         
-        // First line has project and revision
+        // First line has project and revision, ignore for now
         $line1 = fgets($fp);
         
         // Second line has program

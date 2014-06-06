@@ -2,16 +2,17 @@
 namespace Cerad\Bundle\AppBundle\Command;
 
 // TODO: Add array interface to game object
-class ConvertGamesYamlToCSV
+class ScheduleGameImportSaveCSV
 {
-    public function convert($games)
+    public function save($games)
     {
         $fp = fopen('php://temp','r+');
 
         // Header
         $row = array(
-            "Game","Date","DOW","Time",'Venue',"Field",'Level',
-            "Type",'Group Key',"Home Team Slot",'Away Team Slot',"Home Team","Away Team",
+            "Game","Date","DOW","Time",'Venue',"Field",
+            'Group','HT Slot','AT Slot',
+            'Home Team Name','Away Team Name',
         );
         fputcsv($fp,$row);
 
@@ -24,6 +25,9 @@ class ConvertGamesYamlToCSV
             $date = $dt->format('M d');
             $time = $dt->format('g:i A');
             
+            // Group
+            $groupKey = sprintf('%s:%s:%s',$game['levelKey'],$row[] = $game['groupType'],$row[] = $game['groupName']);
+            
             // Build up row
             $row = array();
             $row[] = $game['num'];
@@ -33,11 +37,11 @@ class ConvertGamesYamlToCSV
             $row[] = $game['venueName'];
             $row[] = $game['fieldName'];
     
-            $row[] = $game['levelKey'];
-            $row[] = $game['groupType'];
-            $row[] = $game['groupKey'];
+            $row[] = $groupKey;
+            
             $row[] = $game['homeTeamGroupSlot'];
             $row[] = $game['awayTeamGroupSlot'];
+            
             $row[] = $game['homeTeamName'];
             $row[] = $game['awayTeamName'];
     
