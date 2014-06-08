@@ -62,6 +62,10 @@ class ResultsExportXLS extends ExcelExport
                 'type' => \PHPExcel_Style_Fill::FILL_SOLID,
                 'color' => array('rgb' => 'CCE6FF')
             ),
+            'alignment' => array(    
+                'horizontal' => \PHPExcel_Style_Alignment::HORIZONTAL_CENTER,     
+                'vertical' => \PHPExcel_Style_Alignment::VERTICAL_CENTER,
+            ),
         ),
         
         'evenRows'=>array(
@@ -69,12 +73,16 @@ class ResultsExportXLS extends ExcelExport
                 'type' => \PHPExcel_Style_Fill::FILL_SOLID,
                 'color' => array('rgb' => 'FFFFFF')
             ),
+            'alignment' => array(    
+                'horizontal' => \PHPExcel_Style_Alignment::HORIZONTAL_CENTER,     
+                'vertical' => \PHPExcel_Style_Alignment::VERTICAL_CENTER,
+            ),
         ),
         
         'table' => array(
             'borders' => array(
                 'allborders' => array(
-                    'style' => \PHPExcel_Style_Border::BORDER_THIN
+                    'style' => \PHPExcel_Style_Border::BORDER_THIN,
                 ),
             'alignment' => array(    
                 'horizontal' => \PHPExcel_Style_Alignment::HORIZONTAL_CENTER,     
@@ -179,7 +187,7 @@ class ResultsExportXLS extends ExcelExport
         $table["lastRow"] = $row;
         $table["lastCol"] = $colPts;
         
-        #$this->formatGamePoolTable($ws,$table);
+        $this->formatGamePoolTable($ws,$table);
 
         $poolCount = $row;
    }
@@ -304,41 +312,31 @@ class ResultsExportXLS extends ExcelExport
     }
     protected function formatTeamPoolTable($ws, $table)
     {
-        $r = null;
-        $rColor = 0;
-
         $topRowIndex = ($table['firstRow']);
-        
+
         ##For Each r In Selection.Rows
         foreach ($ws->getRowIterator($table['firstRow']) as $row) {
             $addr = $this->rowRange($ws, $row);
             $colIterator = $row->getCellIterator();
             foreach($colIterator as $cell) {
                 $rowIndex = $cell->getRow();
+                $colLetter = $cell->getColumn();
+                $colIndex = \PHPExcel_Cell::columnIndexFromString($colLetter);
                 break;
             }
             switch ($rowIndex - $topRowIndex){
                 case 0:
                     $ws->getStyle($addr)->applyFromArray($this->tableStyles['header']);
                     $ws->mergeCells($addr);
-#print_r('header');
-#var_dump($addr);
                     break;
                 case 1:
                     $ws->getStyle($addr)->applyFromArray($this->tableStyles['colheader']);
-#print_r('colheader');
-#var_dump($addr);
                     break;
                 default:
-#print_r('datarow');
                     if (($rowIndex - $topRowIndex) % 2 == 0){
                         $ws->getStyle($addr)->applyFromArray($this->tableStyles['oddRows']);
-#var_dump('oddRows');                        
-#var_dump($addr);
                     } else {
                         $ws->getStyle($addr)->applyFromArray($this->tableStyles['evenRows']);
-#var_dump('evenRows');                        
-#var_dump($addr);
                     }
             }
         }
@@ -346,190 +344,114 @@ class ResultsExportXLS extends ExcelExport
         ##Apply table cell styles
         $addr = $this->tableRange($ws, $table);
         $ws->getStyle($addr)->applyFromArray($this->tableStyles['table']);
-#need to figure out application of outer borders later        
-#        ''Apply outer border
-#        Selection.Borders(xlDiagonalDown).LineStyle = xlNone
-#        Selection.Borders(xlDiagonalUp).LineStyle = xlNone
-#        With Selection.Borders(xlEdgeLeft)
-#            .LineStyle = xlContinuous
-#            .ColorIndex = 0
-#            .TintAndShade = 0
-#            .Weight = xlMedium
-#        End With
-#        With Selection.Borders(xlEdgeTop)
-#            .LineStyle = xlContinuous
-#            .ColorIndex = 0
-#            .TintAndShade = 0
-#            .Weight = xlMedium
-#        End With
-#        With Selection.Borders(xlEdgeBottom)
-#            .LineStyle = xlContinuous
-#            .ColorIndex = 0
-#            .TintAndShade = 0
-#            .Weight = xlMedium
-#        End With
-#        With Selection.Borders(xlEdgeRight)
-#            .LineStyle = xlContinuous
-#            .ColorIndex = 0
-#            .TintAndShade = 0
-#            .Weight = xlMedium
-#        End With
-#        Selection.Borders(xlInsideVertical).LineStyle = xlNone
-#        Selection.Borders(xlInsideHorizontal).LineStyle = xlNone
-    }
 
+        if ($topRowIndex > 1) {
+            if (($topRowIndex % 40) < 6) {
+                $ws->setBreak($colLetter.(string)($topRowIndex-1), \PHPExcel_Worksheet::BREAK_ROW);
+            }
+        }
+        
+        $pageSetup = $ws->getPageSetup();
+        $pageSetup->setFitToHeight(true);
+
+    }
     
     protected function formatGamePoolTable($ws,$table)
     {
-#        $r = null;
-#        $rColor = 0;
-#
-#        $topRowIndex = ($table['firstRow']);
-#        
-#        ##For Each r In Selection.Rows
-#        foreach ($ws->getRowIterator($table['firstRow']) as $row) {
-#            $addr = $this->rowRange($ws, $row);
-#            $colIterator = $row->getCellIterator();
-#            foreach($colIterator as $cell) {
-#                $rowIndex = $cell->getRow();
-#                break;
-#            }
-#            switch ($rowIndex - $topRowIndex){
-#                case 0:
-#                    $ws->getStyle($addr)->applyFromArray($this->tableStyles['header']);
-#                    $ws->mergeCells($addr);
-#print_r('header');
-#var_dump($addr);
-#                    break;
-#                case 1:
-#                    $ws->getStyle($addr)->applyFromArray($this->tableStyles['colheader']);
-#print_r('colheader');
-#var_dump($addr);
-#                    break;
-#                default:
-#print_r('datarow');
-#var_dump(($rowIndex - $topRowIndex) % 2);
-#                    if (($rowIndex - $topRowIndex) % 2 == 0){
-#                        $addr = $this->rowRange($ws, $row);
-#var_dump($addr);                        
-#                        if ((($rowIndex - 1) / 2) % 2 == 1){
-#                            $ws->getStyle($addr)->applyFromArray($this->tableStyles['oddRows']);
-#                        } else {
-#                            $ws->getStyle($addr)->applyFromArray($this->tableStyles['evenRows']);
-#                            $addr_ = \PHPExcel_Cell::splitRange($addr);                           
-#                            for ($c=0; $c<3; $c++){
-#                                $ws->mergeCells($addr);                            
-#                            }
-#                        }
-#                    }
-#            }
-#        }
-#       
-#        ##Apply table cell styles
-#        $addr = $this->tableRange($ws, $table);
-#        $ws->getStyle($addr)->applyFromArray($this->tableStyles['table']);
-#    }
-#    For Each r In Selection.Rows
-#        Select Case (r.Row - Selection.Rows(1).Row)
-#            Case Is = 0
-#            '' set header
-#                With r.Interior
-#                    .Pattern = xlSolid
-#                    .PatternColorIndex = xlAutomatic
-#                    .Color = 11031552
-#                    .TintAndShade = 0
-#                    .PatternTintAndShade = 0
-#                End With
-#                
-#                r.MergeCells = True
-#                
-#            Case Is = 1
-#            '' set column headers
-#                With r.Interior
-#                    .Pattern = xlSolid
-#                    .PatternColorIndex = xlAutomatic
-#                    .Color = 11031552
-#                    .TintAndShade = 0
-#                    .PatternTintAndShade = 0
-#                End With
-#                
-#            Case Is > 1
-#                If (r.Row Mod 2) = 0 Then
-#                    'set row to white
-#                    rColor = 16777215
-#                Else
-#                    ''Set row to light blue
-#                    rColor = 16770764
-#                End If
-#                With r.Interior
-#                    .Pattern = xlSolid
-#                    .PatternColorIndex = xlAutomatic
-#                    .Color = rColor
-#                    .TintAndShade = 0
-#                    .PatternTintAndShade = 0
-#                End With
-#        End Select
-#    Next
-#    
-#    ''set centering
-#        With Selection
-#            .Font.Size = 18
-#            .HorizontalAlignment = xlCenter
-#            .VerticalAlignment = xlCenter
-#            .Orientation = 0
-#            .AddIndent = False
-#            .IndentLevel = 0
-#            .ShrinkToFit = False
-#            .ReadingOrder = xlContext
-#        End With
-#    
-#        ''Apply outer border
-#        Selection.Borders(xlDiagonalDown).LineStyle = xlNone
-#        Selection.Borders(xlDiagonalUp).LineStyle = xlNone
-#        With Selection.Borders(xlEdgeLeft)
-#            .LineStyle = xlContinuous
-#            .ColorIndex = 0
-#            .TintAndShade = 0
-#            .Weight = xlMedium
-#        End With
-#        With Selection.Borders(xlEdgeTop)
-#            .LineStyle = xlContinuous
-#            .ColorIndex = 0
-#            .TintAndShade = 0
-#            .Weight = xlMedium
-#        End With
-#        With Selection.Borders(xlEdgeBottom)
-#            .LineStyle = xlContinuous
-#            .ColorIndex = 0
-#            .TintAndShade = 0
-#            .Weight = xlMedium
-#        End With
-#        With Selection.Borders(xlEdgeRight)
-#            .LineStyle = xlContinuous
-#            .ColorIndex = 0
-#            .TintAndShade = 0
-#            .Weight = xlMedium
-#        End With
-#        Selection.Borders(xlInsideVertical).LineStyle = xlNone
-#        Selection.Borders(xlInsideHorizontal).LineStyle = xlNone
-#        
-#        Selection.Cells(1).Offset(Selection.Rows.Count + 1).Select
-#
-#End Sub
+        $topRowIndex = ($table['firstRow']);
+        
+        $styleChoice = 'odd';
+
+        ##For Each r In Selection.Rows
+        foreach ($ws->getRowIterator($table['firstRow']) as $row) {
+            $addr = $this->rowRange($ws, $row);
+            $colIterator = $row->getCellIterator();
+            foreach($colIterator as $cell) {
+                $rowIndex = $cell->getRow();
+                $colLetter = $cell->getColumn();
+                $colIndex = \PHPExcel_Cell::columnIndexFromString($colLetter);
+                break;
+            }
+            switch ($rowIndex - $topRowIndex){
+                case 0:
+                    $ws->getStyle($addr)->applyFromArray($this->tableStyles['header']);
+                    $ws->mergeCells($addr);
+                    break;
+                case 1:
+                    $ws->getStyle($addr)->applyFromArray($this->tableStyles['colheader']);
+                    break;
+                default:
+                    if (($rowIndex - $topRowIndex) % 2 == 0){
+                        if ($styleChoice == 'odd'){
+                            $rowStyle = $this->tableStyles['oddRows'];    
+                        } else {
+                            $rowStyle = $this->tableStyles['evenRows'];
+                        }
+                        $ws->getStyle($addr)->applyFromArray($rowStyle);
+                    } else {
+                        $ws->getStyle($addr)->applyFromArray($rowStyle);
+                        if ($styleChoice == 'odd'){
+                            $styleChoice = 'even';    
+                        } else {
+                            $styleChoice = 'odd';    
+                        }   
+
+                        for ($c=$colIndex; $c<$colIndex+3; $c++){
+                            $colLetter = \PHPExcel_Cell::stringFromColumnIndex($c-1);
+                            $mergeRange = $colLetter.(string)($rowIndex-1).':'.$colLetter.(string)$rowIndex;
+                            $ws->mergeCells($mergeRange);
+                        }
+                    }
+            }
+        }
+       
+        ##Apply table cell styles
+        $addr = $this->tableRange($ws, $table);
+        $ws->getStyle($addr)->applyFromArray($this->tableStyles['table']);
+
+        foreach(range('B','E') as $columnID) {
+           $ws->getColumnDimension($columnID)->setAutoSize(true); 
+        }
+
+        if ($topRowIndex > 1) {
+            $ws->setBreak($colLetter.(string)($topRowIndex-1), \PHPExcel_Worksheet::BREAK_ROW);
+        }
     }
+
     protected function addWorksheet($wb, &$sheetNum, $sheetName)
     {
         $ws = $wb->createSheet($sheetNum++);
             
         $pageSetup = $ws->getPageSetup();
         
+        $headerCenter = '&C&14&"-,Bold Italic"AYSO2014 National Games -- Pool Scoreboard';
+        $headerRight = '&R&8&"-,Italic"Printed: Page &P of &N';
+        $ws->getHeaderFooter()->setOddHeader($headerCenter.$headerRight);
+        $ws->getHeaderFooter()->setEvenHeader($headerCenter.$headerRight);
+        
+        #$ws->getHeaderFooter()->setOddFooter($footerText);
+        #$ws->getHeaderFooter()->setEvenFooter($footerText);
+        
         $pageSetup->setOrientation(\PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
-        $pageSetup->setPaperSize  (\PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
-        $pageSetup->setFitToPage(true);
+        #$pageSetup->setPaperSize  (\PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
+        $pageSetup->setPaperSize  (\PHPExcel_Worksheet_PageSetup::PAPERSIZE_LETTER);
         $pageSetup->setFitToWidth(1);
+        $pageSetup->setFitToPage(true);
         $pageSetup->setFitToHeight(0);
         
-        $ws->setPrintGridLines(true);
+        $pageMargins = $ws->getPageMargins();
+
+        // margin is set in inches
+        $margin = 0.25;
+        
+        $pageMargins->setTop(2.5*$margin);
+        $pageMargins->setBottom($margin);
+        $pageMargins->setLeft($margin);
+        $pageMargins->setRight($margin);
+        
+        $pageSetup->setHorizontalCentered(true);
+        
+        $ws->setPrintGridLines(false);
         
         $ws->setTitle($sheetName);
         
@@ -564,12 +486,12 @@ class ResultsExportXLS extends ExcelExport
             //Process Game Pool
             $newPool = true;
             $this->processResultsByGame($wsGame,$level,$poolCount,$newPool,$gamesPP);
-            $poolCount += 2;
+            $poolCount += 1;
 
             //Process Team Pool
             $newPool = true;
             $this->processResultsByTeam($wsTeam,$level,$teamCount,$newPool,$teamsPP);
-            $teamCount += 2;                
+            $teamCount += 1;                
         }
         
         // Medal rounds
