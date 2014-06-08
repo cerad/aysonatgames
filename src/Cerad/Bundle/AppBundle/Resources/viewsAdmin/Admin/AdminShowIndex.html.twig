@@ -17,6 +17,10 @@
             Export Extra Pool Score Board (Excel)</a></li>
     <li><a href="{{ path('cerad_game__project__results__export',{ '_project': _project, 'programs': 'core', 'ages' : 'U12', 'genders': 'B' }) }}">
             Export Core U12B Pool Score Board (Excel)</a></li>
+    <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+            'level': 'AYSO_U12B_Core', 'show' : 'standings' }) }}">
+            Show U12B Pool Play Results, Standings Only
+    </a></li>
   </ul>
 </div>
 {% endif %}
