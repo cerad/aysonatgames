@@ -45,6 +45,9 @@ twig:
         #
         "%kernel.root_dir%/../src/Cerad/Bundle/AppBundle/Resources/views/CeradGame": CeradGame
         "%kernel.root_dir%/../../cerad2/src/Cerad/Bundle/GameBundle/Action":         CeradGame
+        #
+        "%kernel.root_dir%/../src/Cerad/Bundle/AppBundle/Resources/views/CeradPerson": CeradPerson
+        "%kernel.root_dir%/../../cerad2/src/Cerad/Bundle/PersonBundle/Action":         CeradPerson
     
 # Assetic Configuration
 assetic:
