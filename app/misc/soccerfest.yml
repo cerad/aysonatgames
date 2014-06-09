@@ -1,0 +1,280 @@
+
+# ==================================
+# Girls 8 and 10, 12 and 2
+# Boys  8 and 11,  1 and 3
+projectKey: AYSONationalGames2014
+
+date: '2014-07-02'
+
+groupType: SOF
+
+duration: 50
+
+groupMatches:
+ #AB1: ['A1vB1','A2vB2','A3vB3','A4vB4','A5vB5','A6vB6']
+ #AB2: ['B1vA2','B2vA1','B3vA4','B4vA3','B5vA6','B6vA5']
+ #CD1: ['C1vD1','C2vD2','C3vD3','C4vD4','C5vD5','C6vD6']
+ #CD2: ['D1vC2','D2vC1','D3vC4','D4vC3','D5vC6','D6vC5']
+  #Core
+  AB1: ['X1vY1','X2vY2','X3vY3','X4vY4','X5vY5','X6vY6']
+  AB2: ['Y1vX2','Y2vX1','Y3vX4','Y4vX3','Y5vX6','Y6vX9']
+  CD1: ['X1vY1','X2vY2','X3vY3','X4vY4','X5vY5','X6vY6']
+  CD2: ['Y1vX2','Y2vX1','Y3vX4','Y4vX3','Y5vX6','Y6vX9']
+  # Extra
+  ABC1: ['X1vY1','X2vY2','X3vY3','X4vY4','X5vY5','X6vY6','X7vY7','X8vY8','X9vY9']
+  ABC2: ['Y1vX2','Y2vX1','Y3vX4','Y4vX3','Y5vX6','Y6vX9','Y7vX8','Y8vX7','Y9vX6']
+  DEF1: ['X1vY1','X2vY2','X3vY3','X4vY4','X5vY5','X6vY6','X7vY7','X8vY8','X9vY9']
+  DEF2: ['Y1vX2','Y2vX1','Y3vX4','Y4vX3','Y5vX6','Y6vX9','Y7vX8','Y8vX7','Y9vX6']
+  
+ #ABC1: ['X1vY1','X2vY2','A3vB3','A4vB4','A5vB5','A6vB6','A7vB7','A8vB8','A9vB9']
+ #ABC2: ['Y1vX2','Y2vX1','B3vA4','B4vA3','B5vA6','B6vA9','B7vA8','B8vA7','B9vA6']
+ #DEF1: ['X1vY1','X2vY2','C3vD3','C4vD4','C5vD5','C6vD6','C7vD7','C8vD8','C9vD9']
+ #DEF2: ['Y1vX2','Y2vX1','D3vC4','D4vC3','D5vC6','D6vC9','D7vC8','D8vC7','D9vC6']
+    
+divisions:
+  
+    # ===============================================
+    # VIP Core
+  -
+    levelKey:  AYSO_VIP_Core
+    num:       17001
+    fieldNames: ['WP1','WP2','WP3','WP4']
+    slots:
+      - { time: 08:00, name: AB, group: AB1}
+      - { time: 09:00, name: CD, group: CD1}
+      - { time: 10:00, name: AB, group: AB2}
+      - { time: 11:00, name: CD, group: CD2}
+  
+    # ===============================================
+    # U10 Core
+  -
+    levelKey:  AYSO_U10B_Core
+    num:       15001
+    fieldNames: ['MA1','MA2','MA3','MA4','MA5','MA6']
+    slots:
+      - { time: 09:00, name: AB, group: AB1}
+      - { time: 11:00, name: CD, group: CD1}
+      - { time: 13:00, name: AB, group: AB2}
+      - { time: 15:00, name: CD, group: CD2}
+  - 
+    levelKey:  AYSO_U10G_Core
+    num:       16001
+    fieldNames: ['MA1','MA2','MA3','MA4','MA5','MA6']
+    slots:
+      - { time: 08:00, name: AB, group: AB1}
+      - { time: 10:00, name: CD, group: CD1}
+      - { time: 12:00, name: AB, group: AB2}
+      - { time: 14:00, name: CD, group: CD2}
+      
+    # ===============================================
+    # U12 Core
+  -
+    levelKey:  AYSO_U12B_Core
+    num:       15201
+    fieldNames: ['LL1','LL2','LL3','LL4','LL5','LL6']
+    slots:
+      - { time: 09:00, name: AB, group: AB1}
+      - { time: 11:00, name: CD, group: CD1}
+      - { time: 13:00, name: AB, group: AB2}
+      - { time: 15:00, name: CD, group: CD2}
+  - 
+    levelKey:  AYSO_U12G_Core
+    num:       16201
+    fieldNames: ['LL1','LL2','LL3','LL4','LL5','LL6']
+    slots:
+      - { time: 08:00, name: AB, group: AB1}
+      - { time: 10:00, name: CD, group: CD1}
+      - { time: 12:00, name: AB, group: AB2}
+      - { time: 14:00, name: CD, group: CD2}
+      
+    # ===============================================
+    # U14 Core
+  -
+    levelKey:  AYSO_U14B_Core
+    num:       15401
+    fieldNames: ['FD1','FD2','FD3','FD4','FD5','FD6']
+    slots:
+      - { time: 09:00, name: AB, group: AB1}
+      - { time: 11:00, name: CD, group: CD1}
+      - { time: 13:00, name: AB, group: AB2}
+      - { time: 15:00, name: CD, group: CD2}
+  - 
+    levelKey:  AYSO_U14G_Core
+    num:       16401
+    fieldNames: ['FD1','FD2','FD3','FD4','FD5','FD6']
+    slots:
+      - { time: 08:00, name: AB, group: AB1}
+      - { time: 10:00, name: CD, group: CD1}
+      - { time: 12:00, name: AB, group: AB2}
+      - { time: 14:00, name: CD, group: CD2}
+      
+    # ===============================================
+    # U16 Core
+  -
+    levelKey:  AYSO_U16B_Core
+    num:       15601
+    fieldNames: ['PA6','RU4','RU5','WE1','WE2','WE3']
+    slots:
+      - { time: 09:00, name: AB, group: AB1}
+      - { time: 11:00, name: CD, group: CD1}
+      - { time: 13:00, name: AB, group: AB2}
+      - { time: 15:00, name: CD, group: CD2}
+  - 
+    levelKey:  AYSO_U16G_Core
+    num:       16601
+    fieldNames: ['PA6','RU4','RU5','WE1','WE2','WE3']
+    slots:
+      - { time: 08:00, name: AB, group: AB1}
+      - { time: 10:00, name: CD, group: CD1}
+      - { time: 12:00, name: AB, group: AB2}
+      - { time: 14:00, name: CD, group: CD2}
+      
+    # ===============================================
+    # U19 Core
+  -
+    levelKey:  AYSO_U19B_Core
+    num:       15901
+    fieldNames: ['CP1','CP2','CP3','CP4','CP5','CP6']
+    slots:
+      - { time: 09:00, name: AB, group: AB1}
+      - { time: 11:00, name: CD, group: CD1}
+      - { time: 13:00, name: AB, group: AB2}
+      - { time: 15:00, name: CD, group: CD2}
+  - 
+    levelKey:  AYSO_U19G_Core
+    num:       16901
+    fieldNames: ['CP1','CP2','CP3','CP4','CP5','CP6']
+    slots:
+      - { time: 08:00, name: AB, group: AB1}
+      - { time: 10:00, name: CD, group: CD1}
+      - { time: 12:00, name: AB, group: AB2}
+      - { time: 14:00, name: CD, group: CD2}
+      
+    # ===============================================
+    # VIP Core
+  -
+    levelKey:  AYSO_VIP_Extra
+    num:       27001
+    fieldNames: ['RP5']
+    slots:
+      - { time: 08:00, name: AB, group: AB1}
+      - { time: 09:15, name: CD, group: CD1}
+      - { time: 10:30, name: AB, group: AB2}
+      - { time: 11:45, name: CD, group: CD2}
+      
+    # ===============================================
+    # U10 Extra - 36 Teams - 9 Fields
+    # GR 1,2,3 At One Site
+    # RP at another site
+    #
+    # Reid Park - 6 Games - 12 teams
+    # Brown     - 3 Games -  6 teams
+    #
+    # A1-A4 go to Reid Park
+    # A5-A6 go to Brown
+  -
+    levelKey:  AYSO_U10B_Extra
+    num:       25001
+    fieldNames: ['GR1','GR2','GR3','RP1','RP2','RP3','RP4','RP6','RP7']
+    slots:
+      - { time: 09:00, name: ABC, group: ABC1}
+      - { time: 11:00, name: DEF, group: DEF1}
+      - { time: 13:00, name: ABC, group: ABC2}
+      - { time: 15:00, name: DEF, group: DEF2}
+  - 
+    levelKey:  AYSO_U10G_Extra
+    num:       26001
+    fieldNames: ['GR1','GR2','GR3','RP1','RP2','RP3','RP4','RP6','RP7']
+    slots:
+      - { time: 08:00, name: ABC, group: ABC1}
+      - { time: 10:00, name: DEF, group: DEF1}
+      - { time: 12:00, name: ABC, group: ABC2}
+      - { time: 14:00, name: DEF, group: DEF2}
+      
+    # ===============================================
+    # U12 Extra - 36 Teams - 7 Fields - One Site
+  -
+    levelKey:  AYSO_U12B_Extra
+    num:       25201
+    fieldNames: ['BL1','BL2','BL3','BL4','BL5','BL6','RE3']
+    slots:
+      - { time: 09:00, name: ABC, group: ABC1}
+      - { time: 11:00, name: DEF, group: DEF1}
+      - { time: 13:00, name: ABC, group: ABC2}
+      - { time: 15:00, name: DEF, group: DEF2}
+  - 
+    levelKey:  AYSO_U12G_Extra
+    num:       26201
+    fieldNames: ['BL1','BL2','BL3','BL4','BL5','BL6','RE3']
+    slots:
+      - { time: 08:00, name: ABC, group: ABC1}
+      - { time: 10:00, name: DEF, group: DEF1}
+      - { time: 12:00, name: ABC, group: ABC2}
+      - { time: 14:00, name: DEF, group: DEF2}
+      
+    # ===============================================
+    # U14B Extra - 24 Teams - 6 Fields - One Site
+  -
+    levelKey:  AYSO_U14B_Extra
+    num:       25401
+    fieldNames: ['RE1','RE2','RE4','RE5','WH1','WH2']
+    slots:
+      - { time: 09:00, name: AB, group: AB1}
+      - { time: 11:00, name: CD, group: CD1}
+      - { time: 13:00, name: AB, group: AB2}
+      - { time: 15:00, name: CD, group: CD2}
+      
+    # ===============================================
+    # U14G Extra - 36 Teams - 6 Fields - One Site
+  -
+    levelKey:  AYSO_U14G_Extra
+    num:       26401
+    fieldNames: ['RE1','RE2','RE4','RE5','WH1','WH2']
+    slots:
+      - { time: 08:00, name: ABC, group: AB1}
+      - { time: 10:00, name: DEF, group: CD1}
+      - { time: 12:00, name: ABC, group: AB2}
+      - { time: 14:00, name: DEF, group: CD2}
+
+    # ===============================================
+    # U16 Extra - 12 Teams - 2 Pools - 4 Fields - One Site
+    # Share fields with U19
+    # WH4 is currently not used
+  -
+    levelKey:  AYSO_U16B_Extra
+    num:       25601
+    fieldNames: ['MU1','MU2','WH3']
+    slots:
+      - { time: 09:00, name: AB1, group: AB1}
+      - { time: 11:00, name: AB2, group: AB1}
+      - { time: 13:00, name: AB1, group: AB2}
+      - { time: 15:00, name: AB2, group: AB2}
+  -
+    levelKey:  AYSO_U16G_Extra
+    num:       26601
+    fieldNames: ['MU1','MU2','WH3']
+    slots:
+      - { time: 08:00, name: AB1, group: AB1}
+      - { time: 10:00, name: AB2, group: AB1}
+      - { time: 12:00, name: AB1, group: AB2}
+      - { time: 14:00, name: AB2, group: AB2}
+
+    # ===============================================
+    # U19 Extra - 6 Teams - 1 Pool - 4 Fields - One Site
+    # Share fields with U16
+  -
+    levelKey:  AYSO_U19B_Extra
+    num:       25901
+    fieldNames: ['MU1','MU2','WH3']
+    slots:
+      - { time: 16:00, name: A, group: AB1}
+      - { time: 18:00, name: A, group: AB2}
+  -
+    levelKey:  AYSO_U19G_Extra
+    num:       26901
+    fieldNames: ['MU1','MU2','WH3']
+    slots:
+      - { time: 16:00, name: A, group: AB1}
+      - { time: 18:00, name: A, group: AB2}
+   
+
