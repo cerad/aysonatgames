@@ -13,3 +13,7 @@ cerad_app_admin:
 cerad_game__routes:
     resource: "@CeradGameBundle/Resources/config/routing.yml"
     prefix:   /
+    
+cerad_person__routes:
+    resource: "@CeradPersonBundle/Resources/config/routing.yml"
+    prefix:   /

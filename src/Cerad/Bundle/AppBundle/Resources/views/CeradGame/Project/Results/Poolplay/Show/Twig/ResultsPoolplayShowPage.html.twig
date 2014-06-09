@@ -2,10 +2,13 @@
 
 {% block content %}
 <div id="layout-block">
-  
-  {{ include('@CeradGame/Project/Results/Poolplay/Show/Twig/ResultsPoolplayShowSelect.html.twig') }}
-
-  <div class="results-legend">
+    
+{% if shows['select'] %}
+{{ include('@CeradGame/Project/Results/Poolplay/Show/Twig/ResultsPoolplayShowSelect.html.twig') }}
+{% endif %}
+    
+{% if shows['help'] %}
+<div class="results-legend">
   <h2>
   GS=Goals Scored, SP=Sportsmanship, YC=Caution, RC=Sendoff,
   <br/>
@@ -15,19 +18,22 @@
   </h2>
   </div>
 </div>
+{% endif %}
 
 {% for poolKey, pool in pools %}
+  {% if shows['games'] %}
+    <hr style="border: 4px  ridge" />
+    <div id="layout-block">
+      {{ include('@CeradGame/Project/Results/Poolplay/Show/Twig/ResultsPoolplayShowGames.html.twig') }}
+    </div>
+  {% endif %}
 
-  <hr style="border: 4px  ridge" />
-<div id="layout-block">
-  {{ include('@CeradGame/Project/Results/Poolplay/Show/Twig/ResultsPoolplayShowGames.html.twig') }}
-</div>
-
-  <hr style="border: 4px  ridge" />
-<div id="layout-block">
-  {{ include('@CeradGame/Project/Results/Poolplay/Show/Twig/ResultsPoolplayShowTeams.html.twig') }}
-</div>
-
-{% endfor %}
-
+  {% if shows['teams'] %}
+    <hr style="border: 4px  ridge" />
+    <div id="layout-block">
+      {{ include('@CeradGame/Project/Results/Poolplay/Show/Twig/ResultsPoolplayShowTeams.html.twig') }}
+    </div>
+  {% endif %}
+{% endfor %} {# pools #}
+    
 {% endblock %}

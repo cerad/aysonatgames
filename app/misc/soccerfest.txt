@@ -1,0 +1,51 @@
+Soccer Fest Notes
+
+============================
+U16 Core - 24 teams - 4 pools - 6 fields - 3 sites
+
+'PA6',
+'RU4','RU5',
+'WE1','WE2','WE3'
+
+Need to figure out how to send 2 teams to PA, 4 to RU and 6 to WE
+making sure that different teams play at PA.
+
+Or, maybe not use PA at all and just send 6 teams each to RU and WE.
+
+============================
+VIP Extra - 1 Field
+Scheduled 4 games, can add more if they want
+
+============================
+U10 Extra - 36 teams - 6 pools - 9 fields - 2 sites
+
+'GR1','GR2','GR3',
+'RP1','RP2','RP3','RP4','RP6','RP7'
+
+Need to specify which teams go to which site.  Pools will need to be split.
+
+============================
+U12 Extra - 36 Teams - 6 pools - 7 Fields - One Site
+
+With only 7 fields available, teams will be oversized.  Maybe allow 10v10?
+
+============================
+U14G Extra - 36 Teams - 6 pools - 6 Fields - One Site
+
+Again, have oversized teams due to lack of fields.
+
+=============================
+U16 Extra - 12 Teams - 2 pools - 4 Fields - One Site
+U19 Extra -  6 Teams - 1 pool
+
+Split the 12 U16 teams into two groups of six and play three games during each time slot.
+
+Need instructions for which teams are in which time slot.
+
+This leaves one field open per time slot for a total of 4 open slots.
+
+U19 is scheduled at 4pm and 6pm using three fields.
+
+In theory, we could use some of the early open slots for some (but not all) of these games.
+Gets complicated.
+Someone else can figure it out if they want it changed.
