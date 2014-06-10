@@ -1,26 +1,44 @@
 parameters:
   
   cerad_project_venues:
+    
     'Columbia Park': 
+      key: CP
       link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-columbia.jpg'
+      
     'Field of Dreams': 
+      key: FD
       link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-dreams-300x257.jpg'
+      
     'Ladera Linda': 
+      key: LL
       link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-ladera-linda.jpg'
+      
     'Toyota Sports Complex': 
+      key: MA
       link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-555maple3.jpg'
+      
     'Parras MS': 
+      key: PA
       link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-parrass.jpg'
+      
     'Redondo Union HS': 
+      key: RU
       link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-redondo-union.jpg'
+      
     'West Torrance HS': 
+      key: WE
       link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-westhigh.jpg'
-    'Wilson Park'               : 
+      
+    'Wilson Park': 
+      key: WP
       link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-wilson.jpg'
-    'WP'               : 
-      link: 'http://50.ayso.org/wp-content/uploads/2014/05/maps-wilson.jpg'
+
     'Ab Brown Sports Complex':
+      key: ['AB','GR','RE','BL','WH','MU']
       link: 'http://50.ayso.org/downloads/maps-abbrown.pdf'
+      
     'Reid Park':
+      key: RP
       link: 'http://50.ayso.org/downloads/maps-reid.pdf'
     
