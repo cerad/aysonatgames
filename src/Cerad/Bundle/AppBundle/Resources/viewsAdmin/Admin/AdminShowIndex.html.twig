@@ -3,7 +3,7 @@
 {% set _project = 'natgames' %}
 
 {% block content %}
-<h3>Admin Functions</h3>
+<h3>Administrative Functions</h3>
 <div class="admin_container">
 
 {% if is_granted('ROLE_SCORE_ENTRY') %}
@@ -17,13 +17,67 @@
             Export Extra Pool Score Board (Excel)</a></li>
     <li><a href="{{ path('cerad_game__project__results__export',{ '_project': _project, 'programs': 'core', 'ages' : 'U12', 'genders': 'B' }) }}">
             Export Core U12B Pool Score Board (Excel)</a></li>
-    <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
-            'level': 'AYSO_U12B_Core', 'show' : 'standings' }) }}">
-            Show U12B Pool Play Results, Standings Only
-    </a></li>
+  </ul>
+</div>
+<div class="admin">
+  <ul><h2>Standings</h2>
+    <ul>Core Girls
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U10G_Core', 'show' : 'standings' }) }}">U10G Pool Play Standings</a></li>
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U12G_Core', 'show' : 'standings' }) }}">U12G Pool Play Standings</a></li>
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U14G_Core', 'show' : 'standings' }) }}">U14G Pool Play Standings</a></li>
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U16G_Core', 'show' : 'standings' }) }}">U16G Pool Play Standings</a></li>
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U19G_Core', 'show' : 'standings' }) }}">U19G Pool Play Standings</a></li>
+    </ul>
+
+    <ul>Core Boys
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U10B_Core', 'show' : 'standings' }) }}">U10B Pool Play Standings</a></li>
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U12B_Core', 'show' : 'standings' }) }}">U12B Pool Play Standings</a></li>
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U14B_Core', 'show' : 'standings' }) }}">U14B Pool Play Standings</a></li>
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U16B_Core', 'show' : 'standings' }) }}">U16B Pool Play Standings</a></li>
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U19B_Core', 'show' : 'standings' }) }}">U19B Pool Play Standings</a></li>
+    </ul>  
+    <ul>Extra Girls
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U10G_Extra', 'show' : 'standings' }) }}">U10G Pool Play Standings</a></li>
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U12G_Extra', 'show' : 'standings' }) }}">U12G Pool Play Standings</a></li>
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U14G_Extra', 'show' : 'standings' }) }}">U14G Pool Play Standings</a></li>
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U16G_Extra', 'show' : 'standings' }) }}">U16G Pool Play Standings</a></li>
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U19G_Extra', 'show' : 'standings' }) }}">U19G Pool Play Standings</a></li>
+    </ul>
+
+    <ul>Extra Boys
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U10B_Extra', 'show' : 'standings' }) }}">U10B Pool Play Standings</a></li>
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U12B_Extra', 'show' : 'standings' }) }}">U12B Pool Play Standings</a></li>
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U14B_Extra', 'show' : 'standings' }) }}">U14B Pool Play Standings</a></li>
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U16B_Extra', 'show' : 'standings' }) }}">U16B Pool Play Standings</a></li>
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U19B_Extra', 'show' : 'standings' }) }}">U19B Pool Play Standings</a></li>
+    </ul>  
   </ul>
 </div>
 {% endif %}
+
+</div>
+
+<div class="admin_container">
 
 <div class="admin">
   <ul><h2>Schedule Management</h2>
@@ -40,6 +94,19 @@
     <li><a href="{{ path('cerad_game__project__schedule_game__import', 
         { '_project': _project }) }}">
         Import Game Schedule (Excel)
+    </a></li>
+{% endif %}
+  </ul>
+</div>
+
+<div class="admin">
+  <ul><h2>Team Management</h2>
+    <li><a href="{{ path('cerad_game__project__teams__show',   { '_project': _project }) }}">View Teams (Not yet implemented)</a></li>
+    <li><a href="{{ path('cerad_game__project__teams__export', { '_project': _project }) }}">Export Teams (Excel)</a></li>
+{% if is_granted('ROLE_SCORE_ADMIN')  %}
+    <li><a href="{{ path('cerad_game__project__teams__import', 
+        { '_project': _project }) }}">
+        Import/Update/Link Teams (Excel)
     </a></li>
 {% endif %}
   </ul>
@@ -66,19 +133,6 @@
   </ul>
 </div>
 {% endif %}
-    
-<div class="admin">
-  <ul><h2>Team Management</h2>
-    <li><a href="{{ path('cerad_game__project__teams__show',   { '_project': _project }) }}">View Teams (Not yet implemented)</a></li>
-    <li><a href="{{ path('cerad_game__project__teams__export', { '_project': _project }) }}">Export Teams (Excel)</a></li>
-{% if is_granted('ROLE_SCORE_ADMIN')  %}
-    <li><a href="{{ path('cerad_game__project__teams__import', 
-        { '_project': _project }) }}">
-        Import/Update/Link Teams (Excel)
-    </a></li>
-{% endif %}
-  </ul>
-</div>
 
 <div class="admin">
   <ul><h2>Account Management</h2>

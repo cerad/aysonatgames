@@ -289,6 +289,8 @@ form.app_form fieldset div textarea
   padding: 0 20px 30px 10px;
   line-height: 1.25em;
   display: inline-block;
+	width:100%;
+	clear: both;
 }
 
 .app_help h3
@@ -613,8 +615,11 @@ form#cerad_tourn_schedule_official_search .required
 
 .admin
 {
-  margin-left: 10%;
-	padding-bottom: 20px;
+  margin-left: 20px;
+	width:100%;
+	float:left;
+  min-width: 300px;
+
 }
 
 .admin h2
@@ -624,9 +629,22 @@ form#cerad_tourn_schedule_official_search .required
 
 .admin li
 {
-  margin-left: 3em;
+  margin-left: 2em;
   line-height: 2em;
   list-style: disc;
+}
+.admin ul
+{
+  margin-bottom: 15px;
+  margin-right: 30px;
+}
+
+.admin_container
+{
+   margin-left: 10px;
+   width: 45%;
+	 min-width: 350px;
+   float:left;
 }
 
 .import_controls
@@ -701,6 +719,7 @@ table#person-list table td
 {
   text-align: left;
 }
+
 #export-link{
 	padding:10px;
 }
