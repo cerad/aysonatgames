@@ -1,0 +1,26 @@
+11-001 U10B Core
+12-001 U10G Core
+13-001 VIP  Core
+
+15-001 U10B Core Soccerfest
+16-001 U10G Core Soccerfest
+17-001 VIP  Core Soccerfest
+
+21-001 U10B Extra - Overruns into 21-1xx
+22-001 U10G Extra
+23-001 VIP  Extra
+
+25-001 U10B Extra Soccerfest
+26-001 U10G Extra Soccerfest
+27-001 VIP  Extra Soccerfest
+
+===============================
+Might change to:
+
+PGA-xxx
+
+P Program 1=Core, 2=Extra,3=Core Soccerfest,4=Extra Soccerfest
+
+G Gender  1=Boys, 2=Girls, 3=VIP
+
+A Age 0=U10/VIP,2=U12,4-U14,6-U16,9-U19
