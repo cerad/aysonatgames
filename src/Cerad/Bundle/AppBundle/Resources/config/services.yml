@@ -8,6 +8,15 @@ parameters:
   cerad_game__project__results__export_xls__class: 
     Cerad\Bundle\AppBundle\Action\Project\Results\Export\ResultsExportXLS
     
+  cerad_game__project__results_poolplay__export_xls__class: 
+    Cerad\Bundle\AppBundle\Action\Project\Results\Export\ResultsPoolplayExportXLS
+    
+  cerad_game__project__results_playoffs__export_xls__class: 
+    Cerad\Bundle\AppBundle\Action\Project\Results\Export\ResultsPlayoffsExportXLS
+    
+  cerad_game__project__results_sportsmanship__export_xls__class: 
+    Cerad\Bundle\AppBundle\Action\Project\Results\Export\ResultsSportsmanshipExportXLS
+    
 services:
     cerad_app.twig_extension:
         class:  Cerad\Bundle\AppBundle\TwigExtension\AppExtension
