@@ -494,10 +494,10 @@ class ResultsExportXLS extends ExcelExport
             $teamCount += 1;                
         }
         
-        // Medal rounds
-        $gamesQF = $model->loadGames($levelKey,'QF');
-        $gamesSF = $model->loadGames($levelKey,'SF');
-        $gamesFM = $model->loadGames($levelKey,'FM');
+        // Medal rounds (swapped loadGames arguments)
+        $gamesQF = $model->loadGames('QF',$levelKey);
+        $gamesSF = $model->loadGames('SF',$levelKey);
+        $gamesFM = $model->loadGames('FM',$levelKey);
         
     }
     /* =======================================================================

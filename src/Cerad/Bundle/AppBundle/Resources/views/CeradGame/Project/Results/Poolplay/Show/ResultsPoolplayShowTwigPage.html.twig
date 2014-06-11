@@ -1,0 +1,39 @@
+{% extends '@CeradGame/Layout.html.twig' %}
+
+{% block content %}
+<div id="layout-block">
+    
+{% if shows['select'] %}
+{{ include('@CeradGame/Project/Results/Poolplay/Show/ResultsPoolplayShowTwigSelect.html.twig') }}
+{% endif %}
+    
+{% if shows['help'] %}
+<div class="results-legend">
+  <h2>
+  GS=Goals Scored, SP=Sportsmanship, YC=Caution, RC=Sendoff,
+  <br/>
+  TE=Total Ejections, PE=Points Earned, TPE=Points Earned, 
+  <br/>
+  GT=Games Total, GP=Games Played, GW=Games Won, GS=Goals Scored, GA=Goals Against, SF=SoccerFest
+  </h2>
+  </div>
+</div>
+{% endif %}
+
+{% for poolKey, pool in pools %}
+  {% if shows['games'] %}
+    <hr style="border: 4px  ridge" />
+    <div id="layout-block">
+      {{ include('@CeradGame/Project/Results/Poolplay/Show/ResultsPoolplayShowTwigGames.html.twig') }}
+    </div>
+  {% endif %}
+
+  {% if shows['teams'] %}
+    <hr style="border: 4px  ridge" />
+    <div id="layout-block">
+      {{ include('@CeradGame/Project/Results/Poolplay/Show/ResultsPoolplayShowTwigTeams.html.twig') }}
+    </div>
+  {% endif %}
+{% endfor %} {# pools #}
+    
+{% endblock %}
