@@ -11,21 +11,12 @@ imports:
 #        result_cache_driver: apc
 #        query_cache_driver: apc
 
-# =======================================================
-# 12 June 2014 - Revamped the error logger for 2.3
 monolog:
     handlers:
-        main:
+        mail:
             type:         fingers_crossed
             action_level: error
-            handler:      grouped
-        grouped:
-            type:    group
-            members: [streamed, buffered]
-        streamed:
-            type:  stream
-            path:  "%kernel.logs_dir%/%kernel.environment%.log"
-            level: debug
+            handler:      buffered
         buffered:
             type:    buffer
             handler: swift
@@ -33,5 +24,13 @@ monolog:
             type:       swift_mailer
             from_email: admin@zayso.org
             to_email:   ahundiak@gmail.com
-            subject:   '[NatGames Error]'
-            level:      debbug
+            subject:   "[ZaysoError] NatGames"
+            level:      debug
+        main:
+            type:         fingers_crossed
+            action_level: error
+            handler:      nested
+        nested:
+            type:  stream
+            path:  %kernel.logs_dir%/%kernel.environment%.log
+            level: debug
