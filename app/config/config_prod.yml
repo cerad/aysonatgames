@@ -33,5 +33,5 @@ monolog:
             type:       swift_mailer
             from_email: admin@zayso.org
             to_email:   ahundiak@gmail.com
-            subject:    [NatGames Error]
+            subject:   '[NatGames Error]'
             level:      debbug
