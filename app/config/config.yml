@@ -71,4 +71,5 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     disable_delivery: %mailer_disable_delivery%
-    spool:     { type: memory }
+# Needed to comment this out to get the monolog email working
+#   spool:     { type: memory }
