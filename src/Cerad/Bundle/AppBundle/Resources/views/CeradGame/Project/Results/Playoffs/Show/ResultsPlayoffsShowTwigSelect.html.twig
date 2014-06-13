@@ -5,7 +5,7 @@
     <td style="border: 1px solid black;">
     {% for age, url in genderUrls %}      
       {% if age != "U10" %}
-      <a href="{{ url }}">{{ age ~ gender  }}</a>
+      <a href="{{ url }}">{{ age ~ cerad_cap_gender(gender)  }}</a>
       {% endif %} 
     {% endfor %} {# ages #}
    </td>

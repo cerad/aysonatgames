@@ -4,7 +4,7 @@
   {% for gender, genderUrls in programRoutes %}
     <td style="border: 1px solid black;">
     {% for age, url in genderUrls %}
-      <a href="{{ url }}">{{ age ~ gender }}</a>
+      <a href="{{ url }}">{{ age ~ cerad_cap_gender(gender) }}</a>
     {% endfor %} {# ages #}
    </td>
   {% endfor %} {# genders #}

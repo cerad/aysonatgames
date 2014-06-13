@@ -30,6 +30,7 @@ class AppExtension extends \Twig_Extension
             'cerad_referee_count' => new \Twig_Function_Method($this,'refereeCount'),
             
             'cerad_pool_label' => new \Twig_Function_Method($this,'poolLabel'),
+            'cerad_cap_gender' => new \Twig_Function_Method($this,'capGender'),
         );
     }
     public function gameGroup($game)
@@ -132,6 +133,13 @@ class AppExtension extends \Twig_Extension
             return $labelParts[2].' '.$labelParts[1].' Pool '.$poolParts[2];
         } else {
             return $poolKey;
+        }
+    }
+    
+    public function capGender($gender)
+    {
+        if (!empty($gender)){
+            return strtoupper(substr($gender,0,1));
         }
     }
  }
