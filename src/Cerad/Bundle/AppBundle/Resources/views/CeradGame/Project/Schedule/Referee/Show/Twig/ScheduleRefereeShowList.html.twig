@@ -14,6 +14,7 @@
             <th class="schedule-slot" >Slot</th>
             <th class="schedule-teams">Home / Away</th>
             <th class="schedule-referees">Referees</th>
+            <th class="schedule-referees">Certification</th>
         </tr>
     </thead>
     <tbody>
@@ -85,6 +86,17 @@
 </tr>
   {% endfor %}
 </table></td>
+<td><table>
+{% for referee in game.officials %}
+    <tr>
+    {% if cerad_referee_assigned(referee.personNameFull) %}
+    {{ referee.personBadge }}
+    {% else %}
+     {{ '' }}
+    {% endif %}
+    </tr>
+  {% endfor %}    
+</table></td>            
        </tr>
         {% endfor %}{# games #}
     </tbody>
