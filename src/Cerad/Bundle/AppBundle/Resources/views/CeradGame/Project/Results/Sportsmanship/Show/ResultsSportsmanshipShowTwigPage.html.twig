@@ -1,0 +1,36 @@
+{% extends '@CeradGame/Layout.html.twig' %}
+
+{% block content %}
+<div id="layout-block">
+    
+{% if shows['select'] %}
+{{ include('@CeradGame/Project/Results/Sportsmanship/Show/ResultsSportsmanshipShowTwigSelect.html.twig') }}
+{% endif %}
+    
+{% if shows['help'] %}
+<div class="results-legend">
+  <h2>
+  Sportsmanship=Total Sportsmanship Points, Avg Per Game=Total Points/Games Played
+  <br/>
+  <br/>
+  <em>NOTE:</em> Forfeiting teams receive 0 for sportsmanship and the game is included in the average;
+<br/>a forfeited game is not counted in the average for the team that did not forfeit 
+  </h2>
+  </div>
+</div>
+{% endif %}
+
+{% if shows['teams'] %}
+<hr style="border: 4px  ridge" />
+<div id="layout-block">
+  {% set teams = teamsPoolplay %}
+  {% set title = 'Pool Play' %}
+  {{ include('@CeradGame/Project/Results/Sportsmanship/Show/ResultsSportsmanshipShowTwigTeams.html.twig') }}
+  <br />
+  {% set teams = teamsPlayoffs %}
+  {% set title = 'Medal Round' %}
+  {{ include('@CeradGame/Project/Results/Sportsmanship/Show/ResultsSportsmanshipShowTwigTeams.html.twig') }}
+</div>
+{% endif %}
+    
+{% endblock %}

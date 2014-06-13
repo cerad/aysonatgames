@@ -1,0 +1,19 @@
+<table class="standings" border = "1">
+<tr class="tbl-title"><th colspan="16">{{ title }} Sportsmanship Standings</th></tr>
+<tr class="tbl-hdr">
+  <th>Group</th>
+  <th>&nbsp;</th>
+  <th>Team</th>
+  <th>&nbsp;</th>
+  <th align="center">Sportsmanship</th>
+</tr>
+{% for team in teams %}
+<tr>
+  <td>{{ team.game.levelKey }}</td>
+  <td>&nbsp;</td>
+  <td>{{ team.team.name      }}</td>
+  <td>&nbsp;</td>
+  <td align="center">{{ team.sp }}</td>
+</tr>
+{% endfor %}
+</table>

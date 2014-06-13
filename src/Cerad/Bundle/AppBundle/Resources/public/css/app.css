@@ -143,6 +143,7 @@ table colgroup col
 }
 
 table th
+,.row-hdr
 {
   width: 30%;
   background-color: #004080;
@@ -446,6 +447,7 @@ table colgroup col
 }
 
 table th
+,.row-hdr
 {
   padding: 0;
   overflow: hidden;
@@ -463,6 +465,8 @@ table th
 ,.results th
 ,.scoring th
 ,.my_schedule th
+,.row-hdr
+
 {
   padding: 0 8px;
   width: auto;
@@ -517,6 +521,7 @@ table th
 }
 
 .tbl-title th
+.row-hdr
 {
   background: #004080;
   height: 2em;

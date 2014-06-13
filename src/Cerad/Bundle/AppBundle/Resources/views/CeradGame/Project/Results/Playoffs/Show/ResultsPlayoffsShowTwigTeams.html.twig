@@ -1,0 +1,39 @@
+<table class="standings" border = "1">
+<tr class="tbl-title"><th colspan="16">Team Pool Standings - {{ poolKey }}</th></tr>
+<tr class="tbl-hdr">
+  <th>Pool Slot</th>
+  <th>Team</th>
+  <th align="center">TPE</th>
+  <th align="center">WPF</th>
+ <th>&nbsp;</th>
+ <th align="center">GT</th>
+ <th align="center">GP</th>
+ <th align="center">GW</th>
+ <th align="center">GS</th>
+ <th align="center">GA</th>
+ <th align="center">YC</th>
+ <th align="center">RC</th>
+ <th align="center">TE</th>
+ <th align="center">SP</th>
+ <th align="center">SF</th>
+</tr>
+{% for report in pool.teams %}
+<tr>
+    <td>{{ report.team.groupSlot |  slice(-2) }}</td>
+    <td>{{ report.team.name  }}</td>
+    <td align="center">{{ report.pointsEarned    }}</td>
+    <td align="center">{{ report.winPercent      }}</td>
+    <td>&nbsp;</td>
+    <td align="center">{{ report.gamesTotal      }}</td>
+    <td align="center">{{ report.gamesPlayed     }}</td>
+    <td align="center">{{ report.gamesWon        }}</td>
+    <td align="center">{{ report.goalsScored     }}</td>
+    <td align="center">{{ report.goalsAllowed    }}</td>
+    <td align="center">{{ report.playerWarnings  }}</td>
+    <td align="center">{{ report.playerEjections }}</td>
+    <td align="center">{{ report.totalEjections  }}</td>
+    <td align="center">{{ report.sportsmanship   }}</td>
+    <td align="center">{{ report.team.team.points     }}</td>
+</tr>
+{% endfor %}
+</table>

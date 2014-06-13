@@ -1,0 +1,71 @@
+<table class="results" border = "1">
+  <thead>
+<tr class="tbl-title"><th colspan="16">Playoff Results</th></tr>
+<tr class="tbl-hdr">
+    <th>Game</th>
+    <th>Report</th>
+    <th>Day & Time</th>
+    <th>Field</th>
+    <th>Group</th>
+    <th>&nbsp;</th>
+    <th>Slot</th>
+    <th>Home vs Away</th>
+    <th>GS</th>
+    <th>SP</th>
+    <th>YC</th>
+    <th>RC</th>
+    <th>TE</th>
+</tr>
+</thead>
+
+{% for game in games %}
+  <tr id="results-playoffs-game-{{game.num}}" class="game-status-{{game.status}}">
+  <td>{{ game.num }}
+{% if is_granted('ROLE_SCORE_ENTRY') or 1 %}
+    <br />
+    <a href="{{ path('cerad_game__project__game_report__update', 
+    { '_project': _project, 
+         '_game':  game.num, 
+          'back':  app.request.requestUri ~ '#results-playoffs-game-' ~ game.num
+     }) }}"
+    >Scores</a>
+{%endif %}
+{% if is_granted('ROLE_SCORE_ENTRY') or 1 %}
+    <br />
+    <a href="{{ path('cerad_game__project__game__update__by_scorer', 
+    { '_project': _project, 
+         '_game':  game.num, 
+          'back':  app.request.requestUri ~ '#results-playoffs-game-' ~ game.num
+     }) }}"
+    >Teams</a>
+{%endif %}
+  </td>
+  {#<td>{{ game.status            }}</td> #}
+    <td>{{ game.report.status     }}</td>
+    <td>{{ game.dtBeg.format('D') }} {{ game.dtBeg.format('g:i A') }}</td>
+    <td>{{ game.fieldName         }}</td>
+    <td>{{ cerad_game_group(game) }}</td>
+    <td>&nbsp;</td>
+
+    <td>{% for team in game.teams %}{{ team.groupSlot }}<br />{% endfor %}</td>
+    <td>{% for team in game.teams %}{{ team.name      }}<br />{% endfor %}</td>
+    
+    {% if game.report.status is not empty %}
+    <td>{% for team in game.teams %}{{ team.reportx.goalsScored     | default(0) }}<br />{% endfor %}</td>
+    <td>{% for team in game.teams %}{{ team.reportx.sportsmanship   | default(0) }}<br />{% endfor %}</td>
+    <td>{% for team in game.teams %}{{ team.reportx.playerWarnings  | default(0) }}<br />{% endfor %}</td>
+    <td>{% for team in game.teams %}{{ team.reportx.playerEjections | default(0) }}<br />{% endfor %}</td>
+    <td>{% for team in game.teams %}{{ team.reportx.totalEjections  | default(0) }}<br />{% endfor %}</td>
+    
+  {#<td>{{ homeTeamReport.goalsScored    | default(0) }}<br/>{{ awayTeamReport.goalsScored|     default(0) }}</td>
+    <td>{{ homeTeamReport.sportsmanship  | default(0) }}<br/>{{ awayTeamReport.sportsmanship|   default(0) }}</td>
+    <td>{{ homeTeamReport.playerWarnings | default(0) }}<br/>{{ awayTeamReport.playerWarnings|  default(0) }}</td>
+    <td>{{ homeTeamReport.playerEjections| default(0) }}<br/>{{ awayTeamReport.playerEjections| default(0) }}</td>
+    <td>{{ homeTeamReport.totalEjections | default(0) }}<br/>{{ awayTeamReport.totalEjections|  default(0) }}</td>#}
+    {% else %}
+    <td colspan="8"></td>
+    {% endif %}
+  </tr>
+
+{% endfor %}
+</table>

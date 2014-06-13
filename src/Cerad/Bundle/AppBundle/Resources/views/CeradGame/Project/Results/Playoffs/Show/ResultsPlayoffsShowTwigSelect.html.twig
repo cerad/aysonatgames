@@ -1,0 +1,17 @@
+<table>
+{% for programName, programRoutes in routes %} 
+  <tr><td class="row-hdr" style="border: 1px solid black;">{{ programName }}</td>
+  {% for gender, genderUrls in programRoutes %}
+    <td style="border: 1px solid black;">
+    {% for age, url in genderUrls %}      
+      {% if age != "U10" %}
+      <a href="{{ url }}">{{ age ~ gender  }}</a>
+      {% endif %} 
+    {% endfor %} {# ages #}
+   </td>
+  {% endfor %} {# genders #}
+  </tr>
+{% endfor %}{# programs #}
+</table>
+
+

@@ -28,6 +28,8 @@ class AppExtension extends \Twig_Extension
             'cerad_level' => new \Twig_Function_Method($this, 'aliasLevel'),
             'cerad_referee_assigned' => new \Twig_Function_Method($this, 'refereeAssigned'),
             'cerad_referee_count' => new \Twig_Function_Method($this,'refereeCount'),
+            
+            'cerad_pool_label' => new \Twig_Function_Method($this,'poolLabel'),
         );
     }
     public function gameGroup($game)
@@ -119,6 +121,18 @@ class AppExtension extends \Twig_Extension
         $totalReferees = $refCountRAL + $refCountTOA;
  
         return "[{$totalReferees} Referees ({$refCountTOA} @ TOA / {$refCountRAL} @ RAL)]";
+    }
+    
+    public function poolLabel($poolKey)
+    {
+        if (!empty($poolKey) and !is_null($poolKey)) {
+            $poolParts = explode(':',$poolKey);
+            $labelParts = explode('_',$poolParts[0]);
+            
+            return $labelParts[2].' '.$labelParts[1].' Pool '.$poolParts[2];
+        } else {
+            return $poolKey;
+        }
     }
  }
 ?>

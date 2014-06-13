@@ -1,0 +1,30 @@
+{% extends '@CeradGame/Layout.html.twig' %}
+
+{% block content %}
+<div id="layout-block">
+    
+{% if shows['select'] %}
+{{ include('@CeradGame/Project/Results/Playoffs/Show/ResultsPlayoffsShowTwigSelect.html.twig') }}
+{% endif %}
+    
+{% if shows['help'] %}
+<br />
+<div class="results-legend">
+  <h2>
+  GS=Goals Scored, SP=Sportsmanship, YC=Caution, RC=Sendoff, TE=Total Ejections
+  </h2>
+{#
+<br/>
+<h3>TODO: Show final team standings?</h3> #}
+  </div>
+</div>
+{% endif %}
+
+{% if shows['games'] %}
+<hr style="border: 4px  ridge" />
+<div id="layout-block">
+  {{ include('@CeradGame/Project/Results/Playoffs/Show/ResultsPlayoffsShowTwigGames.html.twig') }}
+</div>
+{% endif %}
+    
+{% endblock %}
