@@ -1,9 +1,8 @@
 # ============================================
 # Override service classes
 parameters:
-  cerad_tourn.officials.export_xls.class: Cerad\Bundle\AppBundle\ServicesAdmin\Persons\PersonsExportXLS
-    
-  cerad_person.aysov_referee_badge.form_type.class: Cerad\Bundle\AppBundle\FormType\AYSO\RefereeBadgeFormType  
+  cerad_tourn.officials.export_xls.class: 
+    Cerad\Bundle\AppBundle\ServicesAdmin\Persons\PersonsExportXLS
     
   cerad_game__project__results__export_xls__class: 
     Cerad\Bundle\AppBundle\Action\Project\Results\Export\ResultsExportXLS
@@ -16,6 +15,12 @@ parameters:
     
   cerad_game__project__results_sportsmanship__export_xls__class: 
     Cerad\Bundle\AppBundle\Action\Project\Results\Export\ResultsSportsmanshipExportXLS
+    
+  cerad_game__game_official__person_name__choice_tpl__class:
+    Cerad\Bundle\AppBundle\Action\GameOfficial\Tpl\GameOfficialPersonNameChoiceTpl
+    
+  cerad_person.aysov_referee_badge.form_type.class: 
+    Cerad\Bundle\AppBundle\FormType\AYSO\RefereeBadgeFormType  
     
 services:
     cerad_app.twig_extension:
