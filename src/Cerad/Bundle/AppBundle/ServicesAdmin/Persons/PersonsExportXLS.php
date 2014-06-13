@@ -54,13 +54,17 @@ class PersonsExportXLS
         'planCreatedOn'   => array('width' => 16, 'value' => 'Applied On'),
         'planWillAttend'  => array('width' =>  8, 'value' => 'Attend'),
         'planWillReferee' => array('width' =>  8, 'value' => 'Referee'),
-        'planVenue'       => array('width' => 16, 'value' => 'Venue Choice'),
+        'planVenue'       => array('width' => 16, 'value' => 'Program'),
         'planWillMentor'  => array('width' =>  8, 'value' => 'Will Mentor'),
         'planWantMentor'  => array('width' =>  8, 'value' => 'Want Mentor'),
         'planWillAssess'  => array('width' =>  8, 'value' => 'Will Assess'),
         'planWantAssess'  => array('width' =>  8, 'value' => 'Want Assess'),
         'planNotes'       => array('width' => 72, 'value' => 'Person Plan Notes'),
         'planTshirt'      => array('width' =>  8, 'value' => 'T Shirt'),
+        
+        'planAvailQFs' => array('width' => 16, 'value' => 'Avail QFs'),
+        'planAvailSFs' => array('width' => 16, 'value' => 'Avail SFs'),
+        'planAvailFMs' => array('width' => 16, 'value' => 'Avail FMs'),
 
         'personNameFull'  => array('width' => 24, 'value' => 'Name'),
         'personEmail'     => array('width' => 24, 'value' => 'Email'),
@@ -128,7 +132,11 @@ class PersonsExportXLS
         $item['planWillReferee'] = $basic['refereeing'];
         $item['planWantMentor']  = $basic['wantMentor'];
         $item['planWillMentor']  = $basic['willMentor'];
-        $item['planTshirt']          = $basic['tshirt'];
+        $item['planTshirt']      = $basic['tshirt'];
+        
+        $item['planAvailQFs']  = $plan->getAvailSatAfternoon();
+        $item['planAvailSFs']  = $plan->getAvailSunMorning();
+        $item['planAvailFMs']  = $plan->getAvailSunAfternoon();
 
         return $item;
     }
@@ -153,6 +161,8 @@ class PersonsExportXLS
             'certRefereeUpgrading',
 
             'planWantMentor', 'planWillAttend', 'planWillReferee',
+            'planTshirt',  'planVenue',
+            'planAvailQFs','planAvailSFs','planAvailFMs',
         );
         $this->writeHeaders($ws,1,$this->headerMap,$keys);
         $row = 2;
@@ -187,10 +197,12 @@ class PersonsExportXLS
             'certRefereeBadge',
             'certRefereeBadgeVerified',
             'certRefereeUpgrading',
-            'planVenue',
 
-            'planWantMentor', 'planWillAttend', 'planWillReferee',
-            'planTshirt'
+            'planWantMentor','planWillAttend','planWillReferee',
+            
+            'planTshirt','planVenue',
+            
+            'planAvailQFs','planAvailSFs','planAvailFMs',
         );
         $this->writeHeaders($ws,1,$this->headerMap,$keys);
 
