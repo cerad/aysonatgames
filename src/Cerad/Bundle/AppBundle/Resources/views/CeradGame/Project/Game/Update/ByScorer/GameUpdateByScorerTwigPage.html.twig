@@ -1,0 +1,30 @@
+{% extends '@CeradGame/Layout.html.twig' %}
+
+{% block content %}
+<table>
+{% set game = form.vars.value %}        
+{{ form_start(form) }}
+<tr><td style="text-align:right">Game Number   </td><td>{{ game.num                    }}</td></tr>
+<tr><td style="text-align:right;vertical-align:top;">Date<br/><br/>Time</td><td>{{ form_widget(form.dtBeg)     }}</td></tr>
+<tr><td style="text-align:right">Venue Name    </td><td>{{ form_widget(form.venueName) }}</td></tr>
+<tr><td style="text-align:right">Field Name    </td><td>{{ form_widget(form.fieldName) }}</td></tr>
+<tr><td style="text-align:right">Group         </td><td>{{ cerad_game_group(game)      }}</td></tr>
+
+{% for gameTeamForm in form.teams %}
+{% set gameTeam = gameTeamForm.vars.value %}
+<tr>
+    <td style="text-align:right">{{ gameTeam.role }} - {{ gameTeam.groupSlot }}</td>
+    <td>{{ form_widget(gameTeamForm.team) }}</td>
+</tr>
+{% endfor %}
+<tr>
+    <td>{{ form_widget(form.reset)  }}</td>
+    <td>{{ form_widget(form.update) }}</td>
+    <td><a href="{{ back }}{{ game.num }}">Return to Schedule</a></td>
+</tr>
+</table>
+<div style="display: none;">{{ form_rest(form) }}</div>
+{{ form_end(form) }}
+<br />
+{% include '@CeradGame/Project/Game/Update/ByScorer/GameUpdateByScorerTwigHelp.html.twig' %}
+{% endblock %}{# end content block #}
