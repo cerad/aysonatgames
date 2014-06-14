@@ -27,7 +27,7 @@
          '_game':  game.num, 
           'back':  app.request.requestUri ~ '#results-playoffs-game-' ~ game.num
      }) }}"
-    >Score</a>
+    >Scores</a>
 {% else %}{{ game.num }}
 {%endif %}
 {% if is_granted('ROLE_SCORE_ENTRY') or 1 %}
