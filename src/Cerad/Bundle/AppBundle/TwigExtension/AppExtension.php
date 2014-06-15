@@ -31,6 +31,8 @@ class AppExtension extends \Twig_Extension
             
             'cerad_pool_label' => new \Twig_Function_Method($this,'poolLabel'),
             'cerad_cap_gender' => new \Twig_Function_Method($this,'capGender'),
+            'cerad_games_group' => new \Twig_Function_Method($this,'gamesGroup'),
+            'cerad_is_empty' => new \Twig_Function_Method($this,'IsEmpty')
         );
     }
     public function gameGroup($game)
@@ -141,6 +143,25 @@ class AppExtension extends \Twig_Extension
         if (!empty($gender)){
             return strtoupper(substr($gender,0,1));
         }
+    }
+    
+    public function gamesGroup($games)
+    {
+        if(!empty($games)) {
+            $groupKey = $games[0]->getGroupKey();
+    
+            $key = explode(":",$groupKey);
+            $group = explode('_',$key[0]);
+            
+            return $group[1].' '.$group[2];
+        } else {
+            return $games;
+        }
+    }
+    
+    public function IsEmpty($object)
+    {
+        return empty($object);
     }
  }
 ?>

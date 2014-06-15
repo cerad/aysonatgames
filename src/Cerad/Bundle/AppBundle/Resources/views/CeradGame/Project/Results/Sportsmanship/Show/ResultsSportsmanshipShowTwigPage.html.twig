@@ -10,26 +10,35 @@
 {% if shows['help'] %}
 <div class="results-legend">
   <h2>
-  Sportsmanship=Total Sportsmanship Points, Avg Per Game=Total Points/Games Played
+  TSP=Total Sportsmanship Points, AvgSP=Total Points/Games Played
   <br/>
   <br/>
   <em>NOTE:</em> Forfeiting teams receive 0 for sportsmanship and the game is included in the average;
 <br/>a forfeited game is not counted in the average for the team that did not forfeit 
+  <br/>
+  <br/>
+In each age division, the team that earns the highest average points per game over their pool play games will be honored for outstanding sportsmanship and all team members and
+coaches of those teams will receive medals.&nbsp;&nbsp;In the event of a tie, all team members and coaches will receive medals.
   </h2>
   </div>
 </div>
 {% endif %}
 
 {% if shows['teams'] %}
+{% if not cerad_is_empty(teamsPoolplay) %}
 <hr style="border: 4px  ridge" />
 <div id="layout-block">
   {% set teams = teamsPoolplay %}
   {% set title = 'Pool Play' %}
   {{ include('@CeradGame/Project/Results/Sportsmanship/Show/ResultsSportsmanshipShowTwigTeams.html.twig') }}
+{% endif %}
+
+{% if not cerad_is_empty(teamsPlayoffs) %}
   <br />
   {% set teams = teamsPlayoffs %}
   {% set title = 'Medal Round' %}
   {{ include('@CeradGame/Project/Results/Sportsmanship/Show/ResultsSportsmanshipShowTwigTeams.html.twig') }}
+{% endif %}
 </div>
 {% endif %}
     

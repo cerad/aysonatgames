@@ -1,5 +1,5 @@
 <?php
-namespace Cerad\Bundle\GameBundle\Action\Project\Results\Playoffs\Show;
+namespace CeradGame\Project\Results\Playoffs\Show;
 
 use Cerad\Bundle\CoreBundle\Action\ActionView;
 
@@ -49,12 +49,13 @@ class ResultsPlayoffsShowView extends ActionView
             $shows = array('select' => true,  'help' => true,  'games' => true);
         }
         $games = $model->loadGames('QF,SF,FM');
-
+var_dump($games); die();
         // And render
         $tplData = array();
         $tplData['shows']  = $shows;
         $tplData['games']  = $games;
         $tplData['routes'] = $routes;
+var_dump($routes);die();
         return $this->regularResponse($request->attributes->get('_template'),$tplData);
     }
 }

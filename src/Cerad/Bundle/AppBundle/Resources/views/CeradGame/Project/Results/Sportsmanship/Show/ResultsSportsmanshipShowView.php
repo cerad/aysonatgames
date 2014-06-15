@@ -57,6 +57,8 @@ class ResultsSportsmanshipShowView extends ActionView
         $tplData['teamsPoolplay']  = $teamsPoolplay;
         $tplData['teamsPlayoffs']  = $teamsPlayoffs;
         $tplData['routes'] = $routes;
+        $tplData['levelKey'] = $levelKey;
+
         return $this->regularResponse($request->attributes->get('_template'),$tplData);
     }
 }

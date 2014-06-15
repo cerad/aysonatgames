@@ -1,11 +1,12 @@
 <table class="standings" border = "1">
-<tr class="tbl-title"><th colspan="16">{{ title }} Sportsmanship Standings</th></tr>
+<tr class="tbl-title"><th colspan="16">{{ title }} Sportsmanship Standings{# : {{ cerad_pool_label(levelKey) }}#}</th></tr>
 <tr class="tbl-hdr">
   <th>Group</th>
   <th>&nbsp;</th>
   <th>Team</th>
   <th>&nbsp;</th>
   <th align="center">Sportsmanship</th>
+  <th align="center">Avg SP</th>
 </tr>
 {% for team in teams %}
 <tr>
@@ -14,6 +15,7 @@
   <td>{{ team.team.name      }}</td>
   <td>&nbsp;</td>
   <td align="center">{{ team.sp }}</td>
+  <td align="center">{{ '' }}</td>
 </tr>
 {% endfor %}
 </table>

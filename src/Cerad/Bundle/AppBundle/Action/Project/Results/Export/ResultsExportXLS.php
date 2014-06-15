@@ -505,6 +505,9 @@ class ResultsExportXLS extends ExcelExport
      */
     public function generate($model)
     {
+        #retired on class refactoring 14 June 2014
+        throw new Exception('This class has been retired.  Derive export classes from ResultsExportXLSBase.php instead.');
+
         // Workbook
         $wb = $this->createSpreadsheet(); 
         $sheetNum = 0;

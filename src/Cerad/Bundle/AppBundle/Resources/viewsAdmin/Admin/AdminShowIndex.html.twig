@@ -9,14 +9,27 @@
 {% if is_granted('ROLE_SCORE_ENTRY') %}
 <div class="admin">
   <ul><h2>Match Reporting</h2>
-    <li><a href="{{ path('cerad_game__project__game_report__update', { '_project': _project,'_game':'11001' }) }}">Enter Match Results</a></li>
-
-    <li><a href="{{ path('cerad_game__project__results__export',{ '_project': _project, 'programs': 'core' }) }}">
-            Export Core Pool Score Board (Excel)</a></li>
-    <li><a href="{{ path('cerad_game__project__results__export',{ '_project': _project, 'programs': 'extra' }) }}">
-            Export Extra Pool Score Board (Excel)</a></li>
-    <li><a href="{{ path('cerad_game__project__results__export',{ '_project': _project, 'programs': 'core', 'ages' : 'U12', 'genders': 'B' }) }}">
-            Export Core U12B Pool Score Board (Excel)</a></li>
+    <li><a href="{{ path('cerad_game__project__game_report__update',
+      { '_project': _project,'_game':'11001' })
+      }}">Enter Match Results</a></li>
+     <li><a href="{{ path('cerad_game__project__results_poolplay__show',
+        { '_project': _project, '_format': 'xls', 'programs': 'core',})
+        }}">Export Core Pool Play Standings</a></li>
+      <li><a href="{{ path('cerad_game__project__results_playoffs__show',
+        { '_project': _project, '_format':'xls', 'programs':'core' })
+        }}">Export Core Medal Round Results</a></li>
+      <li><a href="{{ path('cerad_game__project__results_sportsmanship__show',
+        { '_project': _project, '_format':'xls', 'programs':'core' })
+        }}">Export Core Sportsmanship Standings</a></li>
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show',
+        { '_project': _project, '_format':'xls', 'programs':'extra' })
+        }}">Export Extra Pool Play Results</a></li>    
+      <li><a href="{{ path('cerad_game__project__results_playoffs__show',
+        { '_project': _project, '_format':'xls', 'programs':'extra' })
+        }}">Export Extra Medal Round Results</a></li>
+      <li><a href="{{ path('cerad_game__project__results_sportsmanship__show',
+        { '_project': _project, '_format':'xls', 'programs':'extra'})
+        }}">Export Extra Sportsmanship Standings</a></li>
   </ul>
 </div>
 <div class="admin">
@@ -36,20 +49,9 @@
 
     <ul>Core Boys
       <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
-              'level': 'AYSO_U10B_Core', 'show' : 'standings' }) }}">U10B Pool Play Standings</a></li>
-          
-      <li>
-          <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
-              'level': 'AYSO_U12B_Core', 'show' : 'standings' }) }}">U12B Pool Play Standings</a>
-          {#
-          <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
-              'level': 'AYSO_U12B_Core' })                       }}">U12B Pool Play Results</a>
-          <a href="{{ path('cerad_game__project__results_playoffs__show', { '_project': _project, 
-              'level': 'AYSO_U12B_Core' })                       }}">U12B Medal Round Results</a>
-          <a href="{{ path('cerad_game__project__results_sportsmanship__show', { '_project': _project, 
-              'level': 'AYSO_U12B_Core' })                       }}">U12B Sportsmanship Standings</a> #}
-      </li>
-          
+              'level': 'AYSO_U10B_Core', 'show' : 'standings' }) }}">U10B Pool Play Standings</a></li>      
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+              'level': 'AYSO_U12B_Core', 'show' : 'standings' }) }}">U12B Pool Play Standings</a></li>
       <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
               'level': 'AYSO_U14B_Core', 'show' : 'standings' }) }}">U14B Pool Play Standings</a></li>
       <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 

@@ -21,10 +21,12 @@
 {% endif %}
 
 {% if shows['games'] %}
+{% if not cerad_is_empty (games)%}
 <hr style="border: 4px  ridge" />
 <div id="layout-block">
   {{ include('@CeradGame/Project/Results/Playoffs/Show/ResultsPlayoffsShowTwigGames.html.twig') }}
 </div>
+{% endif %}
 {% endif %}
     
 {% endblock %}
