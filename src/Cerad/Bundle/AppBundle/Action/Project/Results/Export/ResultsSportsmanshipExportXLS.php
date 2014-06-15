@@ -7,8 +7,8 @@ use Cerad\Bundle\AppBundle\Action\Project\Results\Export\ResultsExportXLSBase as
 class ResultsSportsmanshipExportXLS extends ResultsExport
 {   
     protected $headerLabels = array(
-        'Standings' => array(
-            'Group','Tema','Total Sportsmanship','Avg Sportsmanship',
+        'Sportsmanship' => array(
+            'Group','Team','Total Sportsmanship','Avg Sportsmanship',
         )
     );
      /* =======================================================================
@@ -55,7 +55,9 @@ class ResultsSportsmanshipExportXLS extends ResultsExport
             }
         }
         
+        ##Sportsmanship page & print setup
         $pageSetup = $ws->getPageSetup();
+        $pageSetup->setOrientation(\PHPExcel_Worksheet_PageSetup::ORIENTATION_PORTRAIT);
         $pageSetup->setFitToHeight(true);
 
        
@@ -66,28 +68,48 @@ class ResultsSportsmanshipExportXLS extends ResultsExport
         if ($topRowIndex > 1) {
             $ws->setBreak($colLetter.(string)($topRowIndex-1), \PHPExcel_Worksheet::BREAK_ROW);
         }
+
+        $pageMargins = $ws->getPageMargins();
+        $pageMargins->setTop(1);
+        $header = 'Sportsmanship Standings';
+        $headerLeft = '&L&10&"-,Italic"Printed: &D &T';
+        $headerCenter = '&C&18&"-,Bold Italic"AYSO 2014 National Games'."\n".'&16&"-,Italic"'.$header;
+        $headerRight = '&R&10&"-,Italic"Page &P of &N';
+        $ws->getHeaderFooter()->setOddHeader($headerLeft.$headerCenter.$headerRight);
+        $ws->getHeaderFooter()->setEvenHeader($headerLeft.$headerCenter.$headerRight);
+
     }
      /* =======================================================================
      * Process a Medal Round game
      */
-    protected function processResultsByLevel($ws,$level,&$teamsCount,$teams,$header='Medal Round Results', $headerLabels)
+    protected function processResultsByLevel($ws,$level,&$poolTable,&$teamsCount,$teams,$header='Sportsmanship Standings', $headerLabels)
     {
         $table['firstRow'] = $teamsCount;
         $table['firstCol'] = 0;        
         
+        if ($poolTable) {  
+            $row = $this->setWSHeader($ws,$header, $headerLabels, $teamsCount);
+            $poolTable = false;
+        } else {
+            $row = $teamsCount;
+        }
         $row = $this->setWSHeader($ws,$header, $headerLabels, $teamsCount);
         
-        foreach($teams as $team){
+        foreach($teams as $teamx){
             $col = 0;
-            $homeTeam = $game->getHomeTeam();                                
-            $awayTeam = $game->getAwayTeam();                                
-            $groupKey = $game->getGroupKey();        
+            $team = $teamx['team'];
 
+            $ws->setCellValueByColumnAndRow($col++,$row,$team->getLevelKey());
             $ws->setCellValueByColumnAndRow($col++,$row,$team->getName());
 
-            $sp = $report->getSportsmanship();
+            $sp = $teamx['sp'];
             $sp = empty($sp) ? 0 : $sp;
             $ws->setCellValueByColumnAndRow($col++,$row,$sp);
+
+            ##need to add average sp / game here
+            $spAvg = 0;
+            $spAvg = empty($spAvg) ? 0 : $spAvg;
+            $ws->setCellValueByColumnAndRow($col++,$row,$spAvg);
 
             $row++;
         }        
@@ -117,13 +139,24 @@ class ResultsSportsmanshipExportXLS extends ResultsExport
        
         // Pools (each pool has has games and teams)
         $teams['Poolplay'] = $model->loadSportsmanshipTeams('PP',$levelKey);
-        $teams['Playoffs'] = $model->loadSportsmanshipTeams('QF,SF,FM',$levelKey);
-    
-        $gameCount = 1;
+
+        $teamsCount = 1;
+        $poolTable = true;
         
         //Process Medal Round
         $header = 'Pool Play Sportsmanship Standings - '.str_replace('_',' ',$level->getKey());
-        $this->processResultsByLevel($wsLevel,$level,$teamCount,$teams,$header,$this->headerLabels['Match']);
-        $teamCount += 1;
+        $this->processResultsByLevel($wsLevel,$level,$poolTable,$teamsCount,$teams['Poolplay'],$header,$this->headerLabels['Sportsmanship']);
+        $teamsCount += 1;
+
+        #No U10 Medal Round
+        if (strpos($levelKey,'U10')) return;
+
+        //Process Medal Round
+        $poolTable = false;
+
+        $header = 'Medal Round Sportsmanship Standings - '.str_replace('_',' ',$level->getKey());
+        $teams['Playoffs'] = $model->loadSportsmanshipTeams('QF,SF,FM',$levelKey);
+        $this->processResultsByLevel($wsLevel,$level,$poolTable,$teamsCount,$teams['Playoffs'],$header,$this->headerLabels['Sportsmanship']);
+
      }
 }

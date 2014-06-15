@@ -435,9 +435,9 @@ class ResultsExportXLS extends ExcelExport
         $pageSetup->setOrientation(\PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
         #$pageSetup->setPaperSize  (\PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
         $pageSetup->setPaperSize  (\PHPExcel_Worksheet_PageSetup::PAPERSIZE_LETTER);
-        $pageSetup->setFitToWidth(1);
-        $pageSetup->setFitToPage(true);
-        $pageSetup->setFitToHeight(0);
+        $pageSetup->setFitToWidth(true);
+        $pageSetup->setFitToPage(false);
+        $pageSetup->setFitToHeight(true);
         
         $pageMargins = $ws->getPageMargins();
 

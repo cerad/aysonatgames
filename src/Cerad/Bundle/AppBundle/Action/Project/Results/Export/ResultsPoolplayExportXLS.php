@@ -81,6 +81,11 @@ class ResultsPoolplayExportXLS extends ResultsExport
            $ws->getColumnDimension($columnID)->setAutoSize(true); 
         }
 
+        ##Poolplay page & print setup
+        $pageSetup = $ws->getPageSetup();
+        $pageSetup->setOrientation(\PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
+        $pageSetup->setFitToPage(false);
+
         $poolCount = $row;
    }
     /* =======================================================================

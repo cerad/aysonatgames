@@ -35,6 +35,7 @@ coaches of those teams will receive medals.&nbsp;&nbsp;In the event of a tie, al
 
 {% if not cerad_is_empty(teamsPlayoffs) %}
   <br />
+  <br />
   {% set teams = teamsPlayoffs %}
   {% set title = 'Medal Round' %}
   {{ include('@CeradGame/Project/Results/Sportsmanship/Show/ResultsSportsmanshipShowTwigTeams.html.twig') }}

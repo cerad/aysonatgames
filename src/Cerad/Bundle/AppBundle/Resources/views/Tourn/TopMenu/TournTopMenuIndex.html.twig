@@ -24,7 +24,7 @@
       <li>
           <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project }) }}">Pool Play</a>
       </li>
-      <li class="last">
+      <li>
           <a href="{{ path('cerad_game__project__results_playoffs__show', { '_project': _project }) }}">Medal Round</a>
       </li>
       <li class="last">
@@ -32,6 +32,71 @@
       </li>
     </ul>
   </li>
+{#  
+  <li class="has-sub">Standings
+    <ul>
+      <li class="has-sub">Core Girls
+        <ul>
+          <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U10G_Core', 'show' : 'standings' }) }}">U10G Pool Play</a></li>
+          <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U12G_Core', 'show' : 'standings' }) }}">U12G Pool Play</a></li>
+          <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U14G_Core', 'show' : 'standings' }) }}">U14G Pool Play</a></li>
+          <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U16G_Core', 'show' : 'standings' }) }}">U16G Pool Play</a></li>
+          <li class="last"><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U19G_Core', 'show' : 'standings' }) }}">U19G Pool Play</a></li>
+        </ul>
+      </li>
+    
+      <li class="has-sub">Core Boys
+        <ul>
+          <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U10B_Core', 'show' : 'standings' }) }}">U10B Pool Play</a></li>      
+          <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U12B_Core', 'show' : 'standings' }) }}">U12B Pool Play</a></li>
+          <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U14B_Core', 'show' : 'standings' }) }}">U14B Pool Play</a></li>
+          <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U16B_Core', 'show' : 'standings' }) }}">U16B Pool Play</a></li>
+          <li class="last"><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U19B_Core', 'show' : 'standings' }) }}">U19B Pool Play</a></li>
+        </ul>
+      </li>
+      
+      <li class="has-sub">Extra Girls
+        <ul>
+          <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U10G_Extra', 'show' : 'standings' }) }}">U10G Pool Play</a></li>
+          <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U12G_Extra', 'show' : 'standings' }) }}">U12G Pool Play</a></li>
+          <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U14G_Extra', 'show' : 'standings' }) }}">U14G Pool Play</a></li>
+          <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U16G_Extra', 'show' : 'standings' }) }}">U16G Pool Play</a></li>
+          <li class="last"><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U19G_Extra', 'show' : 'standings' }) }}">U19G Pool Play</a></li>
+        </ul>
+      </li>
+      
+      <li class="has-sub">Extra Boys
+        <ul>
+          <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U10B_Extra', 'show' : 'standings' }) }}">U10B Pool Play</a></li>
+          <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U12B_Extra', 'show' : 'standings' }) }}">U12B Pool Play</a></li>
+          <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U14B_Extra', 'show' : 'standings' }) }}">U14B Pool Play</a></li>
+          <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U16B_Extra', 'show' : 'standings' }) }}">U16B Pool Play</a></li>
+          <li class="last"><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project, 
+                  'level': 'AYSO_U19B_Extra', 'show' : 'standings' }) }}">U19B Pool Play</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+#}
 {% endif %}
 
 {% if is_granted('ROLE_USER') %}
