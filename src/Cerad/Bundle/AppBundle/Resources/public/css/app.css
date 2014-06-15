@@ -73,8 +73,6 @@ table td { padding: 5px; height: 1.1em; vertical-align: middle; }
 
     table td p { margin: 0 5px; }
 
-table.home-away td { text-align: left; }
-
 table.app_table > tbody > tr > td { border: 1px solid; }
 
 .app_form { margin-left: auto; nowhitespace: afterproperty; margin-right: auto; position: relative; /* labels need this on the their parent element */ }
@@ -253,6 +251,8 @@ table#person-list table td { max-width: 100%; min-width: 45%; }
     .my_schedule td { text-align: left; }
 
 #export-link { padding: 10px; }
+
+.text-left { text-align: left !important; }
 
 @media print { 
 	.sf-toolbar, .sf-toolbar * { display: none }

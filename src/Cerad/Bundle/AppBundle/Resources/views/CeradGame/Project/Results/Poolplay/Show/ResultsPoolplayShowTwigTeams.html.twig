@@ -20,7 +20,7 @@
 {% for report in pool.teams %}
 <tr>
     <td>{{ report.team.groupSlot |  slice(-2) }}</td>
-    <td>{{ report.team.name  }}</td>
+    <td class="text-left">{{ report.team.name  }}</td>
     <td align="center">{{ report.pointsEarned    }}</td>
     <td align="center">{{ report.winPercent      }}</td>
     <td>&nbsp;</td>

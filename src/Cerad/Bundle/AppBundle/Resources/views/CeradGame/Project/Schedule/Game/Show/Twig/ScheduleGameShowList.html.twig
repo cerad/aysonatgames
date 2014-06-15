@@ -46,9 +46,9 @@
                     <tr><td>{{ gameTeam.groupSlot }}</td></tr>
                 {% endfor %}
             </table></td>
-           <td><table class="home-away">
+           <td><table>
                 {% for gameTeam in game.teams %}
-                    <tr><td>{{ gameTeam.name }}</td></tr>
+                    <tr><td class="text-left">{{ gameTeam.name }}</td></tr>
                 {% endfor %}
             </table></td>
         </tr>
