@@ -63,6 +63,7 @@ button { /*margin-left: 131px; /*/;
 
 table { font-size: inherit; table-layout: fixed; margin-left: auto; margin-right: auto; }
 
+table table { margin-left:0; margin-right: 0;}
 table.data { table-layout: auto; }
 
 table colgroup col { width: 20%; }
