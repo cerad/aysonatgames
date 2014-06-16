@@ -188,7 +188,7 @@ table th, .row-hdr { padding: 0; overflow: hidden; width: 100px; height: 2.5em; 
 .tbl-title th
 .row-hdr { background: #004080; height: 2em; }
 
-.tbl-hdr th { background: #0054a8; height: 3em; }
+.tbl-hdr th { background: #0054a8; height: 3em; border: 1px solid #0054a8;}
 
 .schedule-search { /*display: none;*/ }
 
@@ -254,13 +254,13 @@ table#person-list table td { max-width: 100%; min-width: 45%; }
 
 .text-left { text-align: left !important; }
 
-@media print { 
+@media print {
 	.sf-toolbar, .sf-toolbar * { display: none }
 
 	.schedule-search { display: none }
 }
 
-@media (max-width: 600px) { 
+@media (max-width: 600px) {
 	td > table { display: block }
 
 	    td > table td { display: inline-block }
@@ -270,7 +270,7 @@ some_nowhitespace { nowhitespace: afterproperty; }
 
 /* All Mobile Portrait size smaller than 768 (devices and browsers) */
 
-@media only screen and (max-width: 767px) { 
+@media only screen and (max-width: 767px) {
 	table.schedule {
 	    margin-left: auto;
 	    margin-right: auto;
