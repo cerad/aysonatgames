@@ -167,7 +167,7 @@ table.data { table-layout: auto; }
 
 table colgroup col { width: 20%; }
 
-table th, .row-hdr { padding: 0; overflow: hidden; width: 100px; height: 2.5em; }
+table th, .row-hdr { padding: 0; overflow: hidden; width: 100px; height: 2.5em; border: 1px solid #0054a8;}
 
 #person-list th { width: 20%; }
 
