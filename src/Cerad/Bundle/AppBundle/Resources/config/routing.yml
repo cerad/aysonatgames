@@ -14,6 +14,13 @@ cerad_tourn_home:
     pattern:  /home
     defaults: { _controller: CeradTournBundle:Tourn/TournHome:home }
 #                           @CeradTourn/Tourn/Home/TournHomeIndex.html.twig
+cerad_tourn_iframe:
+    pattern:  /iframe
+    defaults: { _controller: CeradTournBundle:Tourn/TournIFrame:iframe }
+    
+cerad_tourn_iframe_project:
+    pattern:  /project/{_project}/iframe
+    defaults: { _controller: CeradTournBundle:Tourn/TournIFrame:iframe, _project: fake }
     
 cerad_tourn_contact:
     pattern:  /contact
