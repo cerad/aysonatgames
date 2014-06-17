@@ -1,117 +1,14 @@
 {% extends '@CeradGame/Layout.html.twig' %}
 
 {% block content %}
-{{ form_start(form) }}
-{% set homeTeam     = game.homeTeam %}
-{% set awayTeam     = game.awayTeam %}
-{% set homeTeamForm = form.homeTeamReport %}
-{% set awayTeamForm = form.awayTeamReport %}
-
-<h2>Game #{{ game.num }} Report:
-{{ game.dtBeg.format('D') }}, {{ game.dtBeg.format('g:i A') }},
-{{ game.homeTeam.name }} vs {{ game.awayTeam.name }} on {{ game.fieldName }}
-</h2>
-
-{% if formErrors %}
-<h2 style="color: red;">Form has errors, probably a negative number.</h2>
+{% if game %}
+{% include '@CeradGame/Project/GameReport/Update/GameReportUpdateTwigForm.html.twig' %}
+{% else %}
+<table><tr>
+  <td>Game number does not exist: <strong>{{ _game }}</strong></td>
+  <td><a href="{{ back }}">Return to Schedule</a></td>
+</tr></table>
 {% endif %}
-
-{% set homeTeam     = game.homeTeam %}
-{% set awayTeam     = game.awayTeam %}
-{% set homeTeamForm = form.homeTeamReport %}
-{% set awayTeamForm = form.awayTeamReport %}
-
-<table class="scoring" border="1" style="width: 70%;min-width: 660px">
-  <tbody>
-    <tr>
-        <td style="width:25%;min-width:160px;">&nbsp;</td>
-        <td style="width:25%">{{ homeTeam.role }} : {{ homeTeam.groupSlot }}</td>
-        <td style="width:25%">{{ awayTeam.role }} : {{ awayTeam.groupSlot }}</td>
-    </tr>
-    <tr>
-        <td style="text-align: right;">Goals Scored</td>
-        <td>{{ form_widget(homeTeamForm.goalsScored) }}</td>
-        <td>{{ form_widget(awayTeamForm.goalsScored) }}</td>
-    </tr>
-   <tr>
-        <td style="text-align: right;">Sportsmanship</td>
-        <td>{{ form_widget(homeTeamForm.sportsmanship) }}</td>
-        <td>{{ form_widget(awayTeamForm.sportsmanship) }}</td>
-    </tr>
-    <tr><td colspan="5">&nbsp;</td></tr>
-    <tr>
-        <td style="text-align: right;">Player Cautions</td>
-        <td>{{ form_widget(homeTeamForm.playerWarnings) }}</td>
-        <td>{{ form_widget(awayTeamForm.playerWarnings) }}</td>
-    </tr>
-    <tr>
-        <td style="text-align: right;">Player Sendoffs</td>
-        <td>{{ form_widget(homeTeamForm.playerEjections) }}</td>
-        <td>{{ form_widget(awayTeamForm.playerEjections) }}</td>
-    </tr>
-   <tr><td colspan="5">&nbsp;</td></tr>
-    <tr>
-        <td style="text-align: right;">Coach Ejections</td>
-        <td>{{ form_widget(homeTeamForm.coachEjections) }}</td>
-        <td>{{ form_widget(awayTeamForm.coachEjections) }}</td>
-    </tr>
-    <tr>
-        <td style="text-align: right;">Substitute Ejections</td>
-        <td>{{ form_widget(homeTeamForm.benchEjections) }}</td>
-        <td>{{ form_widget(awayTeamForm.benchEjections) }}</td>
-    </tr>
-    <tr>
-        <td style="text-align: right;">Spectator Ejections</td>
-        <td>{{ form_widget(homeTeamForm.specEjections) }}</td>
-        <td>{{ form_widget(awayTeamForm.specEjections) }}</td>
-    </tr>
-   <tr><td colspan="5">&nbsp;</td></tr>
-    <tr>
-        <td style="text-align: right;">Serious Injuries</td>
-        <td>{{ form_widget(homeTeamForm.injuries) }}</td>
-        <td>{{ form_widget(awayTeamForm.injuries) }}</td>
-    </tr>
-   <tr><td colspan="5">&nbsp;</td></tr>
-    <tr>
-      <td style="text-align: right;vertical-align: text-top">Notes</td>
-      <td colspan="2" style="padding-left: 5px; text-align: left;">{{ form_widget(form.gameReport.text, { 'attr' : {'cols' : 42 }}) }}</td>
-    </tr>
-    <tr><td colspan="4">&nbsp;</td></tr>
-    <tr>
-        <td style="text-align: right;">Points Earned</td>
-        <td>{{ form_widget(homeTeamForm.pointsEarned) }}</td>
-        <td>{{ form_widget(awayTeamForm.pointsEarned) }}</td>
-    </tr>
-    <tr>
-        <td style="text-align: right;">Points Minus</td>
-        <td>{{ form_widget(homeTeamForm.pointsMinus) }}</td>
-        <td>{{ form_widget(awayTeamForm.pointsMinus) }}</td>
-    </tr>
-  </tbody>
-</table>
-<br />
-<table style="width:80%">
-  <tr>
-    <td style="min-width:275px;">&nbsp;</td>
-    <td style="min-width:275px;">&nbsp;</td>
-    <td style="min-width:100px;">
-        {{ form_widget(form.save) }}
-        {{ form_widget(form.next) }}
-        {{ form_widget(form.nextGameNum) }}</td>
-    <td style="min-width:225px;vertical-align:top;"><a href="{{ back }}{{ game.num }}">Return to Schedule</a></td>
-  </tr>
-</table>
-<hr>
-<table style="width:80%">
-  <tr>
-    <td style="min-width:275px;">&nbsp;</td>
-    <td style="min-width:275px;">{{ form_row(form.game.status) }}      <td>
-    <td style="min-width:210px;">{{ form_row(form.gameReport.status) }}</td>
-    <td style="min-width:275px;">&nbsp;</td>
-  </tr>
-</table>
-<div style="display: none;">{{ form_rest(form) }}</div>
-{{ form_end(form) }}
 <br>
 {% include '@CeradGame/Project/GameReport/Update/GameReportUpdateTwigHelp.html.twig' %}
 {% endblock %}{# end content block #}
