@@ -7,15 +7,17 @@
   <th>&nbsp;</th>
   <th align="center">Sportsmanship</th>
   <th align="center">Avg SP</th>
+  <th align="center">Played Games</th>
 </tr>
 {% for team in teams %}
 <tr>
   <td>{{ team.game.levelKey }}</td>
   <td>&nbsp;</td>
-  <td class="text-left">{{ team.team.name      }}</td>
+  <td class="text-left">{{ team.team.teamName      }}</td>
   <td>&nbsp;</td>
-  <td align="center">{{ team.sp }}</td>
-  <td align="center">{{ '' }}</td>
+  <td align="center">{{ team.spTotal       }}</td>
+  <td align="center">{{ team.spAverage     }}</td>
+  <td align="center">{{ team.gameCntPlayed }}</td>
 </tr>
 {% endfor %}
 </table>

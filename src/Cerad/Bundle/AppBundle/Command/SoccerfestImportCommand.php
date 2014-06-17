@@ -44,7 +44,7 @@ class SoccerfestImportCommand extends ContainerAwareCommand
         
         file_put_contents('data/soccerfest.yml',Yaml::dump($games,10));
         
-        $saveORM = $this->getService('cerad_game__games__util_save_orm');
+        $saveORM = $this->getService('cerad_game__games__saver_zayso');
         $results = $saveORM->save($games,true);
         print_r($results);
 

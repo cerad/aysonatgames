@@ -94,28 +94,27 @@ class ResultsSportsmanshipExportXLS extends ResultsExport
             $row = $teamsCount;
         }
         $row = $this->setWSHeader($ws,$header, $headerLabels, $teamsCount);
-        
+        $colx = 0;
         foreach($teams as $teamx){
             $col = 0;
             $team = $teamx['team'];
 
             $ws->setCellValueByColumnAndRow($col++,$row,$team->getLevelKey());
-            $ws->setCellValueByColumnAndRow($col++,$row,$team->getName());
+            $ws->setCellValueByColumnAndRow($col++,$row,$team->getTeamName());
 
-            $sp = $teamx['sp'];
-            $sp = empty($sp) ? 0 : $sp;
-            $ws->setCellValueByColumnAndRow($col++,$row,$sp);
-
-            ##need to add average sp / game here
-            $spAvg = 0;
-            $spAvg = empty($spAvg) ? 0 : $spAvg;
+            $spTot = isset($teamx['spTotal']) ? $teamx['spTotal'] : 0;
+            $ws->setCellValueByColumnAndRow($col++,$row,$spTot);
+            
+            $spAvg = isset($teamx['spAverage']) ? $teamx['spAverage'] : 00.00;
+ 
             $ws->setCellValueByColumnAndRow($col++,$row,$spAvg);
 
             $row++;
+            $colx = $col;
         }        
 
         $table["lastRow"] = $row;
-        $table["lastCol"] = $col;
+        $table["lastCol"] = $colx; // Art - was $col which is undefined
 
         $this->formatSportmanshipTable($ws,$table);
 

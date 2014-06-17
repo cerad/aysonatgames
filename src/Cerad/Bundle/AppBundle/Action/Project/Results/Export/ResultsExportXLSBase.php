@@ -2,8 +2,8 @@
 
 namespace Cerad\Bundle\AppBundle\Action\Project\Results\Export;
 
+// TODO: Switch to ExcelDump
 use Cerad\Bundle\CoreBundle\Excel\Export as ExcelExport;
-use Cerad\Bundle\CoreBundle\Excel;
 
 class ResultsExportXLSBase extends ExcelExport
 {   
@@ -386,7 +386,5 @@ class ResultsExportXLSBase extends ExcelExport
         $objWriter->save('php://output'); // Instead of file name
         return ob_get_clean();
     }
-    public function getFileExtension() { return 'xlsx'; }
-    public function getContentType()   { return 'application/vnd.ms-excel'; }
 }
 ?>

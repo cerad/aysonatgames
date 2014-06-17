@@ -105,9 +105,9 @@ class ResultsPoolplayExportXLS extends ResultsExport
 
         foreach($teams as $team){
             $col = 0;
-            
+        
             $ws->setCellValueByColumnAndRow($col++,$row,$team->getTeam()->getGroupSlot());
-            $ws->setCellValueByColumnAndRow($col++,$row,$team->getTeam()->getName());
+            $ws->setCellValueByColumnAndRow($col++,$row,$team->getTeam()->getTeamName());
         
             $tpe = $team->getPointsEarned();
             $tpe = empty($tpe) ? 0 : $tpe;
@@ -153,7 +153,7 @@ class ResultsPoolplayExportXLS extends ResultsExport
             $sp = empty($sp) ? 0 : $sp;
             $ws->setCellValueByColumnAndRow($col++,$row,$sp);
 
-            $sf = $team->getTeam()->getTeam()->getPoints();
+            $sf = $team->getTeam()->getTeamPoints();
             $sf = empty($sf) ? 0 : $sf;
             $ws->setCellValueByColumnAndRow($col++,$row,$sf);
 
