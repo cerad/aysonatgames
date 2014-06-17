@@ -75,6 +75,8 @@ table td { padding: 5px; height: 1.1em; vertical-align: middle; }
 
 table.app_table > tbody > tr > td { border: 1px solid; }
 
+	table table {margin-left: 0; margin-right: 0}
+
 .app_form { margin-left: auto; nowhitespace: afterproperty; margin-right: auto; position: relative; /* labels need this on the their parent element */ }
 
 some_nowhitespace { nowhitespace: afterproperty; }
@@ -183,7 +185,7 @@ table th, .row-hdr { padding: 0; overflow: hidden; width: 100px; height: 2.5em; 
 
 .schedule tr:nth-child(odd), .standings tr:nth-child(odd), .results tr:nth-child(odd), #person-list tr:nth-child(odd), .my_schedule tr:nth-child(odd) { background: #cce6ff; }
 
-.schedule td, .standings td, .results td, .scoring td { text-align: center; height: 0.9em; padding: 0; vertical-align: middle; }
+.schedule td, .standings td, .results td, .scoring td { text-align: center; height: 0.9em; padding: 0 5px; vertical-align: middle; }
 
 .tbl-title th
 .row-hdr { background: #004080; height: 2em; }
