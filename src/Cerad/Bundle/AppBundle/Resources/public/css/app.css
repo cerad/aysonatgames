@@ -111,7 +111,7 @@ form.app_form fieldset div textarea { clear: none; height: 10em; width: 45%; pad
 
 .controls { font: inherit; font-size: inherit; text-align: right; padding: 10px 25% 10px 0; float: right; }
 
-.app_help { padding: 0 20px 30px 10px; line-height: 1.25em; display: inline-block; width:100%; clear: both; }
+.app_help { padding: 0 20px 30px 10px; line-height: 1.25em; display: inline-block; width:96%; clear: both; }
 
     .app_help h3 { margin-left: -20px; }
 
