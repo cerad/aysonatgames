@@ -1,0 +1,33 @@
+<table>
+{% for referee in game.officials %}
+<tr>
+  <td>
+    {% if cerad_referee_assigned(referee.personNameFull) %}
+    <a style="background-color: lightgreen;" href="{{ path('cerad_game__project__game_officials__assign_by_assignor',     
+       { 
+         '_project': _project, 
+            '_game': game.num,
+             'back': app.request.requestUri ~ '#ref-sched-'
+        }) }}">{{ referee.personNameFull }}</a>
+    {% else %}
+        {% if is_granted('ROLE_ASSIGNOR') %}
+          <a href="{{ path('cerad_game__project__game_officials__assign_by_assignor',     
+             { 
+               '_project': _project, 
+                  '_game': game.num,
+                   'back': app.request.requestUri ~ '#ref-sched-'
+              }) }}">{{ referee.role }}</a>
+        {% else %}
+          <a href="{{ path('cerad_game__project__game_official__assign_by_user', 
+             { 
+               '_project': _project, 
+                  '_game': game.num, 
+          '_gameOfficial': referee.slot,
+                   'back': app.request.requestUri ~ '#ref-sched-'
+             }) }}">{{ referee.role }}</a>
+        {% endif %}
+    {% endif %}
+  </td>
+</tr>
+{% endfor %}
+</table>

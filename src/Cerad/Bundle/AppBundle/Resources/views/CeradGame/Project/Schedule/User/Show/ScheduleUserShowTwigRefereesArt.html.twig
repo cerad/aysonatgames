@@ -1,0 +1,14 @@
+<table>
+{% for referee in game.officials %}
+{% if personKeys[referee.personGuid] is not defined %}
+  {% set refereeClass = 'text-left' %}
+{% else %}
+  {% set refereeClass = 'text-left my-slot' %}
+{% endif %}
+<tr>
+  <td class="text-left"         >{{ referee.assignState | slice(0,3) }}</td>
+  <td class="text-left"         >{{ referee.role        | slice(0,3) }}</td>
+  <td class="{{ refereeClass }}">{{ referee.personNameFull }}
+</tr>
+{% endfor %}
+</table>

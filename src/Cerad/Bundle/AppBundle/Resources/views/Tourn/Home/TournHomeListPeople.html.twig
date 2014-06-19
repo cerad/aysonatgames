@@ -5,6 +5,7 @@
         <th>Account Information</th>
         <th>AYSO Information</th>
         <th>Tournament Plans</th>
+        <th>My Teams</th>
     </tr>
     {% for personPerson in userPerson.personPersons %}
     {% set person  = personPerson.child       %}
@@ -50,6 +51,18 @@
            <tr><td colspan="2"><a href="{{ path('cerad_tourn_person_plan_update',{ id: person.id }) }}">Please set your plans</td></tr>
         {% endif %}
         </table></td>
+        <td>
+          {% if not is_granted('ROLE_DEVELOPER') %}&nbsp;{% else %}
+            {% for personTeam in person.personTeams %}
+              {{ personTeam.teamDesc }}<br />
+            {% endfor %}
+            <a href="{{ path('cerad_person__project__person_teams__show', 
+              { '_project' : _project, 
+                 '_person' : person.id,
+                   '_back' : app.request.requestUri
+              })}}">Add/Remove Teams</a>
+          {%endif %}
+        </td>
     </tr>
     {% endfor %}
 </table>
