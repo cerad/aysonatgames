@@ -1,6 +1,33 @@
 {% extends '@CeradGame/Layout.html.twig' %}
 
 {% block content %}
+
 {% include '@CeradGame/Project/Schedule/Team/Show/Twig/ScheduleTeamShowForm.html.twig' %}
-{% include '@CeradGame/Project/Schedule/Team/Show/Twig/ScheduleTeamShowList.html.twig' %}
+
+{% set gamesNotShown = true %}
+
+{% if gamesNotShown and is_granted('ROLE_GUEST:viewGames',project) %}
+  {% include '@CeradGame/Project/Schedule/Team/Show/Twig/ScheduleTeamShowList.html.twig' %}
+  {% set gamesNotShown = false %}
+{% endif %}
+
+{% if gamesNotShown and is_granted('ROLE_USER:viewGames',project) %}
+  {% include '@CeradGame/Project/Schedule/Team/Show/Twig/ScheduleTeamShowList.html.twig' %}
+  {% set gamesNotShown = false %}
+{% endif %}
+
+{% if gamesNotShown and is_granted('ROLE_STAFF:viewGames',project) %}
+  {% include '@CeradGame/Project/Schedule/Team/Show/Twig/ScheduleTeamShowList.html.twig' %}
+  {% set gamesNotShown = false %}
+{% endif %}
+
+{% if gamesNotShown and is_granted('ROLE_DEVELOPER:viewGames',project) %}
+  {% include '@CeradGame/Project/Schedule/Team/Show/Twig/ScheduleTeamShowList.html.twig' %}
+  {% set gamesNotShown = false %}
+{% endif %}
+
+{% if gamesNotShown %}
+  <h3>Schedule is not available.</h3>
+{% endif %}
+
 {% endblock %}

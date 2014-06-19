@@ -1,0 +1,39 @@
+parameters:
+
+  cerad_project__project_acl:
+      
+    ROLE_GUEST:
+      viewMenu:    false
+      viewTeams:   true
+      viewGames:   false
+      viewResults: false
+        
+    ROLE_USER:
+      viewTeams:   true
+      viewGames:   false
+      viewResults: false
+      allowSignup:           false
+      allowSignupMedalRound: false
+        
+    ROLE_ASSIGNOR:
+      allowAssigning: true
+        
+    ROLE_SCORER:
+      allowScoring: true
+        
+    ROLE_STAFF:
+      viewTeams:   true
+      viewGames:   false
+      viewResults: false
+        
+    ROLE_DEVELOPER:
+      viewTeams:   true
+      viewGames:   true
+      viewResults: true
+        
+    ROLE_ADMIN:
+      viewTeams:   true
+      viewGames:   true
+      viewResults: true
+        
+      

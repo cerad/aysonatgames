@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml   }
     - { resource: doctrine.yml   }
     - { resource: projects.yml   }
+    - { resource: projectACL.yml }
     - { resource: levels.yml     }
     - { resource: venues.yml     }
     - { resource: pools.yml      }

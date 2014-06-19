@@ -13,7 +13,7 @@
 {% include '@CeradTourn/Tourn/TopMenu/TournTopMenuStaff.html.twig' %}
 {% endif %}
         
-{% if not is_granted('ROLE_USER') %}
+{% if is_granted('ROLE_GUEST',project) %}
 {% include '@CeradTourn/Tourn/TopMenu/TournTopMenuGuest.html.twig' %}
 {% endif %}
 
