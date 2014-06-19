@@ -14,3 +14,25 @@ parameters:
       U14: 60 
       U16: 70 
       U19: 80
+
+    cerad_project__project_acl:
+      
+      # Guest - People not logged in
+      allowGuestViewLinks:    true  # Menu bar links
+      allowGuestViewTeams:    true  # Teams
+      allowGuestViewSchedule: false # Schedule
+      allowGuestViewResults:  false # Results
+      
+      # Users - Probably won't need most of these
+      allowUsersViewSchedule:     false # 
+      allowUsersViewResults:      false # 
+      
+      # Referees
+      allowRefereeSignups:           false # Referees can signup for poolplay
+      allowRefereeSignupsMedalRound: false # Allow referees to sign up for any open game
+      
+      # Staff Access
+      allowStaffAssigning: true # Disable all assigning
+      allowStaffScoring:   true # Disable all scoring
+      
+      

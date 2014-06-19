@@ -1,0 +1,20 @@
+{# Only get loaded for ROLE_USER #}
+
+  <li class="right">
+    <a href="{{ path('cerad_tourn_user_logout') }}">  Logout</a>
+  </li>
+  <li class="has-sub right">My Account
+  <ul>
+    <li>
+      <a href="{{ path('cerad_tourn_person_update') }}">My Account</a>
+    </li>
+    <li>
+      <a href="{{ path('cerad_tourn_person_plan_update') }}">My Plans</a>
+    </li>
+    <li>
+      <a href="{{ path('cerad_tourn_home') }}">My Info</a>
+    </li>
+    <li class="last">
+      <a href="{{ path('cerad_game__project__schedule_user__show', { '_project': _project }) }}">My Schedule</a>
+    </li>
+  </ul>

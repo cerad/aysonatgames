@@ -1,0 +1,31 @@
+{# Only gets called for ROLE_DEVELOPER   #}
+
+  <li class="has-sub">Schedules
+    <ul>
+      <li>
+        <a href="{{ path('cerad_game__project__schedule_game__show', { '_project': _project }) }}">Game Schedule</a>
+      </li>
+      <li>
+        <a href="{{ path('cerad_game__project__schedule_team__show', { '_project': _project }) }}">Team Schedules</a>
+      </li>
+      <li class="last">
+        <a href="{{ path('cerad_game__project__schedule_user__show', { '_project': _project }) }}">My Schedule</a>
+      </li>
+      <li class="last">
+        <a href="{{ path('cerad_game__project__schedule_referee__show', { '_project': _project }) }}">Referee Schedule</a>
+      </li>
+    </ul>
+  </li>
+  <li class="has-sub">Results
+    <ul>
+      <li>
+          <a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project }) }}">Pool Play</a>
+      </li>
+      <li>
+          <a href="{{ path('cerad_game__project__results_playoffs__show', { '_project': _project }) }}">Medal Round</a>
+      </li>
+      <li class="last">
+          <a href="{{ path('cerad_game__project__results_sportsmanship__show', { '_project': _project }) }}">Sportsmanship</a>
+      </li>
+    </ul>
+  </li>
