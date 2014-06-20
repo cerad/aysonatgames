@@ -1,8 +1,13 @@
 {% extends '@CeradGame/Layout.html.twig' %}
 
 {% block content %}
+
 {% include '@CeradGame/Project/Schedule/Referee/Show/ScheduleRefereeShowTwigForm.html.twig' %}
-{% include '@CeradGame/Project/Schedule/Referee/Show/ScheduleRefereeShowTwigList.html.twig' %}
+
+{% if is_granted('ROLE_USER') %}
+{% include '@CeradGame/Project/Schedule/Referee/Show/ScheduleRefereeShowTwigGames.html.twig' %}
+{% endif %}
+
 {% endblock %}
 {% block javascripts %}
   <script type="text/javascript">

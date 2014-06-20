@@ -1,0 +1,19 @@
+<table>
+{% for official in game.officials %}
+        
+{% set officialClass = 'text-left' %}
+
+{% if personKeys[official.personGuid] is defined %}
+  {% set officialClass = 'text-left my-slot' %}
+{% endif %}
+
+{% set stateClass = 'text-left assign-state-' ~ official.assignState %}
+
+<tr>
+  <td class="{{ stateClass }}"   >{{ official.assignState | slice(0,3) }}</td>
+  <td class="text-left"          >{{ official.role        | slice(0,3) }}</td>
+  <td class="{{ officialClass }}">{{ official.personNameFull }}</td>
+</tr>
+
+{% endfor %}{# official #}
+</table>
