@@ -1,0 +1,106 @@
+{% if is_granted('ROLE_USER') %}
+    <div id="layout-block">
+    <div class="schedule-games-list">
+    <table id="schedule" class="schedule" border="1">
+    <thead>
+        <tr><th colspan="20">Referee Schedule - Count: {{ games | length }}</th></tr>
+        <tr>
+            <th class="schedule-game" >Game</th>
+            <th class="schedule-dow"  >Day</th>
+            <th class="schedule-time" >Time</th>
+            <th class="schedule-field">Field</th>
+            <th class="schedule-group">Group</th>
+            <th class="schedule-blank">&nbsp;</th>
+            <th class="schedule-slot" >Slot</th>
+            <th class="schedule-teams">Home / Away</th>
+            <th class="schedule-referees">Referees</th>
+            <th class="schedule-referees">Certification</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for game in games %}
+        {% set level = game.levelKey %}
+        <tr id="ref-sched-{{game.num}}" class="game-status-{{game.status}}">
+            <td class="schedule-game">
+                {{ game.num }}{# Need to finish transfering to natgames #}
+{#                <br /><a href="{{ path('cerad_game__project__game__update__by_scorer', 
+                  { 
+                    '_project' : _project, 
+                        '_game': game.num,
+                         'back': app.request.requestUri ~ '#ref-sched-'
+                  })}}">Update</a><br />
+               {% if is_granted('ROLE_SCORE_ENTRY') %}
+                <a href="{{ path('cerad_game__project__game_report__update',     
+                   { 
+                      '_project': _project, 
+                         '_game': game.num,
+                          'back': app.request.requestUri ~ '#ref-sched-'
+                   }) }}">Report</a>
+                {% endif %}
+#}            </td>
+            <td class="schedule-dow" >{{ game.dtBeg.format('D'    ) }}</td>
+            <td class="schedule-time">{{ game.dtBeg.format('g:i A') }}</td>    
+            <td><a href="{{ cerad_tourn_venue_maplink(game.venueName) }}" target="_blank">{{ game.fieldName }}</a></td>
+            <td>{{ cerad_game_group(game) }}</td>
+            <td>&nbsp;</td>
+            <td><table>
+                {% for gameTeam in game.teams %}
+                    <tr><td>{{ gameTeam.groupSlot }}</td></tr>
+                {% endfor %}
+            </table></td>
+           <td><table>
+                {% for gameTeam in game.teams %}
+                    <tr><td class="text-left">{{ gameTeam.name }}</td></tr>
+                {% endfor %}
+            </table></td>
+            <td><table>
+{% for referee in game.officials %}
+<tr>
+  <td>
+    {% if cerad_referee_assigned(referee.personNameFull) %}
+    <a style="background-color: lightgreen;" href="{{ path('cerad_game__project__game_officials__assign_by_assignor',     
+       { 
+         '_project': _project, 
+            '_game': game.num,
+             'back': app.request.requestUri ~ '#ref-sched-'
+        }) }}">{{ referee.personNameFull }}</a>
+    {% else %}
+        {% if is_granted('ROLE_ASSIGNOR') %}
+          <a href="{{ path('cerad_game__project__game_officials__assign_by_assignor',     
+             { 
+               '_project': _project, 
+                  '_game': game.num,
+                   'back': app.request.requestUri ~ '#ref-sched-'
+              }) }}">{{ referee.role }}</a>
+        {% else %}
+          <a href="{{ path('cerad_game__project__game_official__assign_by_user', 
+             { 
+               '_project': _project, 
+                  '_game': game.num, 
+          '_gameOfficial': referee.slot,
+                   'back': app.request.requestUri ~ '#ref-sched-'
+             }) }}">{{ referee.role }}</a>
+        {% endif %}
+    {% endif %}
+  </td>
+</tr>
+  {% endfor %}
+</table></td>
+<td><table>
+{% for referee in game.officials %}
+    <tr>
+    {% if cerad_referee_assigned(referee.personNameFull) %}
+    {{ referee.personBadge }}
+    {% else %}
+     {{ '' }}
+    {% endif %}
+    </tr>
+  {% endfor %}    
+</table></td>            
+       </tr>
+        {% endfor %}{# games #}
+    </tbody>
+    </table>
+</div>
+</div>
+{% endif %}

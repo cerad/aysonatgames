@@ -1,0 +1,15 @@
+{% extends '@CeradGame/Layout.html.twig' %}
+
+{% block content %}
+{% include '@CeradGame/Project/Schedule/Assignor/Show/ScheduleAssignorShowTwigForm.html.twig' %}
+{% include '@CeradGame/Project/Schedule/Assignor/Show/ScheduleAssignorShowTwigList.html.twig' %}
+{% endblock %}
+{% block javascripts %}
+  <script type="text/javascript">
+$(document).ready(function()
+{
+    // checkbox all functionality
+    $('.cerad-checkbox-all').change(Cerad.checkboxAll);
+});
+  </script>
+{% endblock %}
