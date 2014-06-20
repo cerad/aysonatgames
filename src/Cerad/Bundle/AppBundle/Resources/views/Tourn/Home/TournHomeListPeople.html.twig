@@ -52,7 +52,8 @@
         {% endif %}
         </table></td>
         <td>
-          {% if not is_granted('ROLE_DEVELOPER') %}&nbsp;{% else %}
+          {# if true or not is_granted('ROLE_DEVELOPER') %}&nbsp;{% else #}
+            {% if true %}
             {% for personTeam in person.personTeams %}
               {{ personTeam.teamDesc }}<br />
             {% endfor %}
