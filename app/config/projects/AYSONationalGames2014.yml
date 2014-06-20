@@ -38,7 +38,7 @@ AYSONationalGames2014:
       dates:
         type:     checkbox
         label:    Days
-        default: ['2014-07-05']
+        default: ['2014-07-03']
         choices:
           'All'       : All
           '2014-07-02': Wed
@@ -59,7 +59,7 @@ AYSONationalGames2014:
       ages:
         type:    checkbox
         label:   Ages
-        default: [U12,U16]
+        default: [U10]
         choices:
           All: All
           VIP: VIP
