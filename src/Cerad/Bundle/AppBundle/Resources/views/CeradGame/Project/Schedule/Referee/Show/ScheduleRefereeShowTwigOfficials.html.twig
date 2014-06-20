@@ -12,15 +12,24 @@
 {% set officialRole = official.role           | slice(0,3) %}
 {% set officialName = official.personNameFull | slice(0,20) %}
 
-{% set userSignup = false %}
-{% if is_granted('UserSignup',{ 'official' : official, 'personKeys' : personKeys }) %}
-  {% set userSignup = true %}
+{% set assignable = false %}
+{% if is_granted('AssignableByUser',{ 'official' : official, 'personKeys' : personKeys }) %}
+  {% set assignable = true %}
 {% endif %}
         
 <tr>
   <td class="{{ stateClass }}"   >{{ cerad_game__assign_state_abbr(official.assignState) }}</td>
   
-  <td class="text-left"          >{{ officialRole }}</td>
+  <td class="text-left">
+    {% if not assignable %}{{ officialRole }}{% else %}
+      <a href="{{ path('cerad_game__project__game_official__assign_by_user', { 
+             '_project' : _project, 
+                '_game' : game.num, 
+        '_gameOfficial' : official.slot,
+                 'back' : app.request.requestUri ~ '#ref-sched-'
+      }) }}">{{ officialRole }}</a>
+    {% endif %}
+  </td>
   
   <td class="{{ officialClass }}">{{ officialName }}</td>
 </tr>

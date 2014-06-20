@@ -18,7 +18,6 @@
     </thead>
     <tbody>
         {% for game in games %}
-        {% set level = game.levelKey %}
         <tr id="ref-sched-{{game.num}}" class="game-status-{{game.status}}">
             <td class="schedule-game">{{ game.num }}</td>
             <td class="schedule-dow" >{{ game.dtBeg.format('D'    ) }}</td>
@@ -31,17 +30,12 @@
                     <tr><td>{{ gameTeam.groupSlot }}</td></tr>
                 {% endfor %}
             </table></td>
-            <td><table>
-              {% for gameTeam in game.teams %}
-                {% if teamKeys[gameTeam.teamKey] is not defined %}
-                  {% set gameTeamClass = 'text-left' %}
-                {% else %}
-                  {% set gameTeamClass = 'text-left my-team' %}
-                {% endif %}
-                <tr><td class="{{gameTeamClass}}">{{ gameTeam.teamName }}</td></tr>
-              {% endfor %}
-            </table></td>
-            <td>{% include '@CeradGame/Project/Schedule/User/Show/ScheduleUserShowTwigRefereesArt.html.twig' %}</td>
+      <td class="schedule-teams">
+        {% include '@CeradGame/Project/Schedule/Referee/Show/ScheduleRefereeShowTwigTeams.html.twig' %}
+      </td>
+      <td class="schedule-referees">
+        {% include '@CeradGame/Project/Schedule/Referee/Show/ScheduleRefereeShowTwigOfficials.html.twig' %}
+      </td>
        </tr>
        {% endfor %}{# games #}
     </tbody>

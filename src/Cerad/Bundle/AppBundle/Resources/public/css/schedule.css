@@ -2,14 +2,14 @@
  * 20 June 2014
  * Putting some schedule styles here for now
 */
-.my-team      { background-color: #CCFFFF}
-.my-slot      { background-color: #CCFFFF}
+.my-team      { background-color: lightgray;}
+.my-slot      { background-color: lightgray}
 .my-slot-crew { background-color: #CCFFFF}
 
 .game-official-state-Open      { }
-.game-official-state-Requested { background-color: lightyellow; }
+.game-official-state-Requested { background-color: lightsteelblue; }
 
-.game-official-state-Pending   { background-color: lightyellow; }
+.game-official-state-Pending   { background-color: lightsteelblue; }
 .game-official-state-Published {  }
 .game-official-state-Notified  {  }
 .game-official-state-Reviewing {  }
