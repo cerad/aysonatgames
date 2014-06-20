@@ -1,0 +1,20 @@
+/* ============================================
+ * 20 June 2014
+ * Putting some schedule styles here for now
+*/
+.my-team      { background-color: #CCFFFF}
+.my-slot      { background-color: #CCFFFF}
+.my-slot-crew { background-color: #CCFFFF}
+
+.game-official-state-Open      { }
+.game-official-state-Requested { background-color: lightyellow; }
+
+.game-official-state-Pending   { background-color: lightyellow; }
+.game-official-state-Published {  }
+.game-official-state-Notified  {  }
+.game-official-state-Reviewing {  }
+
+.game-official-state-Accepted  { background-color: lightgreen; }
+.game-official-state-Approved  { background-color: lightgreen; }
+.game-official-state-Declined  { background-color: gold; }
+.game-official-state-Turnback  { background-color: lightpink; }

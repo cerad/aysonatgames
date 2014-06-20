@@ -7,12 +7,22 @@
   {% set officialClass = 'text-left my-slot' %}
 {% endif %}
 
-{% set stateClass = 'text-left assign-state-' ~ official.assignState %}
+{% set stateClass = 'text-left game-official-state-' ~ official.assignState %}
 
+{% set officialRole = official.role           | slice(0,3) %}
+{% set officialName = official.personNameFull | slice(0,20) %}
+
+{% set userSignup = false %}
+{% if is_granted('UserSignup',{ 'official' : official, 'personKeys' : personKeys }) %}
+  {% set userSignup = true %}
+{% endif %}
+        
 <tr>
-  <td class="{{ stateClass }}"   >{{ official.assignState | slice(0,3) }}</td>
-  <td class="text-left"          >{{ official.role        | slice(0,3) }}</td>
-  <td class="{{ officialClass }}">{{ official.personNameFull }}</td>
+  <td class="{{ stateClass }}"   >{{ cerad_game__assign_state_abbr(official.assignState) }}</td>
+  
+  <td class="text-left"          >{{ officialRole }}</td>
+  
+  <td class="{{ officialClass }}">{{ officialName }}</td>
 </tr>
 
 {% endfor %}{# official #}

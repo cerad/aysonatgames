@@ -280,10 +280,3 @@ some_nowhitespace { nowhitespace: afterproperty; }
 
 	.cerad_common_form1 table td { padding: 0 }
 }
-/* ====================================================
- * 18 June 2014
- * Sneak a coule in here
- */
-.my-team      { background-color: #CCFFFF}
-.my-slot      { background-color: #CCFFFF}
-.my-slot-crew { background-color: #CCFFFF}

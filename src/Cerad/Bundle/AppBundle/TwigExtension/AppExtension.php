@@ -6,15 +6,19 @@ class AppExtension extends \Twig_Extension
 {
     protected $venues;
     protected $gameTransformer;
+    protected $assignStateAbbrs;
     
     public function getName()
     {
         return 'cerad_app_extension';
     }
-    public function __construct($venues,$gameTransformer)
+    public function __construct($venues,$gameTransformer,$assignWorkflow)
     {
         $this->venues = $venues;
+        
         $this->gameTransformer = $gameTransformer;
+        
+        $this->assignStateAbbrs = $assignWorkflow->getAssignStateAbbreviations();
     }
     public function getFunctions()
     {
@@ -22,6 +26,8 @@ class AppExtension extends \Twig_Extension
             'cerad_game_team_group' => new \Twig_Function_Method($this, 'gameTeamGroup'),
             'cerad_game_level'      => new \Twig_Function_Method($this, 'gameLevel'),
             'cerad_game_group'      => new \Twig_Function_Method($this, 'gameGroup'),
+            
+            'cerad_game__assign_state_abbr' => new \Twig_Function_Method($this, 'assignStateAbbr'),
             
             'cerad_tourn_venue_maplink' => new \Twig_Function_Method($this, 'venueMapLink'),
             
@@ -34,6 +40,10 @@ class AppExtension extends \Twig_Extension
             'cerad_games_group' => new \Twig_Function_Method($this,'gamesGroup'),
             'cerad_is_empty' => new \Twig_Function_Method($this,'IsEmpty')
         );
+    }
+    public function assignStateAbbr($state)
+    {
+        return $this->assignStateAbbrs[$state] ? $this->assignStateAbbrs[$state] : $state;
     }
     public function gameGroup($game)
     {

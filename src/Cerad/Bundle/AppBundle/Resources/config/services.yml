@@ -28,6 +28,7 @@ services:
         arguments:  
             - '%cerad_project_venues%'
             - '@cerad_game__transformer'
+            - '@cerad_game__project__game_official__assign_by_assignor__workflow'
         tags:
             - { name: twig.extension }
             
