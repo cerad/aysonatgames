@@ -3,7 +3,7 @@ namespace Cerad\Bundle\AppBundle\Controller\Persons;
 
 use Cerad\Bundle\TournAdminBundle\Controller\Persons\PersonsListController as ParentController;
 
-class UnverifiedPersonsListController extends ParentController
+class UnverifiedPersonsListController extends PersonsListController
 {
   public function filterPersons( array $persons )
   {
@@ -14,7 +14,7 @@ class UnverifiedPersonsListController extends ParentController
     foreach ( $persons as $person )
     {
       $personFed = $person->getFed($project->getFedRole());
-      if ( $personFed->getfedKeyVerified() == 'No'  )
+      if ( $personFed->getfedKeyVerified() != 'Yes'  )
       {
         $unapproved[] = $person;
       }
