@@ -6,35 +6,35 @@ security:
             id: cerad_user.user_encoder
 
     role_hierarchy:
-        ROLE_USER:           [ROLE_USER]
-        ROLE_STAFF:          [ROLE_USER, ROLE_STAFF]
-        ROLE_SCORE_ENTRY:    [ROLE_USER, ROLE_STAFF, ROLE_SCORE_ENTRY]
-        ROLE_SCORE_ADMIN:    [ROLE_USER, ROLE_STAFF, ROLE_SCORE_ENTRY, ROLE_SCORE_ADMIN]
-        ROLE_ASSIGNOR:       [ROLE_USER, ROLE_STAFF, ROLE_ASSIGNOR]
+        ROLE_USER:           []
+        ROLE_STAFF:          [ROLE_USER]
         
-        # TODO: Test if full heirachy is required
-        ROLE_ASSIGNOR_KAC:   [ROLE_USER, ROLE_STAFF, ROLE_ASSIGNOR, ROLE_ASSIGNOR_KAC]
-        ROLE_ASSIGNOR_CORE:  [ROLE_USER, ROLE_STAFF, ROLE_ASSIGNOR, ROLE_ASSIGNOR_CORE]
-        ROLE_ASSIGNOR_EXTRA: [ROLE_USER, ROLE_STAFF, ROLE_ASSIGNOR, ROLE_ASSIGNOR_EXTRA]
+        ROLE_SCORE_ENTRY:    [ROLE_USER, ROLE_STAFF]
+        ROLE_SCORE_ADMIN:    [ROLE_USER, ROLE_STAFF, ROLE_SCORE_ENTRY]
         
-        ROLE_ASSIGNOR_ADMIN: [ROLE_USER, ROLE_STAFF, ROLE_ASSIGNOR, ROLE_ASSIGNOR_ADMIN]
+        ROLE_ASSIGNOR:       [ROLE_STAFF]
+        ROLE_ASSIGNOR_KAC:   [ROLE_ASSIGNOR]
+        ROLE_ASSIGNOR_CORE:  [ROLE_ASSIGNOR]
+        ROLE_ASSIGNOR_EXTRA: [ROLE_ASSIGNOR]
         
-        ROLE_DEVELOPER:      [ROLE_USER, ROLE_DEVELOPER]
+        ROLE_ASSIGNOR_ADMIN: 
+          - ROLE_ASSIGNOR
+          - ROLE_ASSIGNOR_KAC
+          - ROLE_ASSIGNOR_CORE
+          - ROLE_ASSIGNOR_EXTRA
+        
+        ROLE_DEVELOPER: [ROLE_USER]
+        
         ROLE_ADMIN:       
-          - ROLE_USER
-          - ROLE_ASSIGNOR
+          - ROLE_STAFF
+          - ROLE_ASSIGNOR_ADMIN 
           - ROLE_SCORE_ADMIN
           - ROLE_DEVELOPER
-          - ROLE_STAFF
-          - ROLE_ADMIN
           - ROLE_ALLOWED_TO_SWITCH
+          
         ROLE_SUPER_ADMIN: 
-          - ROLE_USER
-          - ROLE_ASSIGNOR
-          - ROLE_SCORE_ADMIN
-          - ROLE_DEVELOPER
-          - ROLE_STAFF
           - ROLE_ADMIN
+          - ROLE_DEVELOPER
           - ROLE_ALLOWED_TO_SWITCH
 
     providers:
