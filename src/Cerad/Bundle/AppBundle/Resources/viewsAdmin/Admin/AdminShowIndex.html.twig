@@ -74,7 +74,7 @@
 {% if is_granted('ROLE_ASSIGNOR') %}
 <div class="admin">
   <ul><h2>Referee Assignments</h2>
-    <li><a href="{{ path('cerad_game__project__schedule_referee__show', { '_project': _project }) }}">View Referee Assignments</a></li>
+    <li><a href="{{ path('cerad_game__project__schedule_assignor__show', { '_project': _project }) }}">View Referee Assignments</a></li>
     <li>{#<a href="{{ path('cerad_tourn_unassigned_matches_list') }}">#}View Unassigned Matches</a></li>
     <li><a href="{{ path('cerad_game__project__schedule_referee__show', 
         { '_project': _project,'_format' : 'xls','program' : 'Core', 'all': 1 }) 
