@@ -1,71 +1,79 @@
 {# @CeradTourn/Tourn/Home/TournHomeListPeople.html.twig #}
-    <!--<tr><th colspan="4">People Associated With This Account</th></tr>-->
-<div class="account-person-list"
-    {% for personPerson in userPerson.personPersons %}
-    {% set person  = personPerson.child       %}
-    {% set name    = person.name              %}
-    {% set fed     = person.fed(project.fedRole) %}
-    {% set certRef = fed.certReferee          %}
-    {% set certSH  = fed.certSafeHaven        %}
-    {% set plan    = person.plan(project.id)  %}
-    <tr>
-        <td>
-            
-    <table class="account-person-list app_table" border="1">
-         <tr><th colspan="2">Account Information</th></tr>
-           <tr><td>Name:</td><td>{{ name.full }}</td></tr>
-            <tr><td>Relation:</td><td>{{ personPerson.role }}</td></tr>
-            {% if personPerson.isRolePrimary %}
-            <tr><td>Account:</td><td>
-              {#<a href="{{ path('cerad_tourn_account_update') }}">#}
-                    {{ user.username }}
-              {#</a>#}
-            <tr ><td style="text-align: center;" colspan="2"><a href="{{ path('cerad_tourn_person_person_update', { 'id': personPerson.id }) }}">Update your account</a></td></tr>
-           {% for authens in user.authens %}
-                <tr><td>Social:</td><td>{{ authens.source }}</td></tr>
-            {% endfor %}
-            {% endif %}
-        </table>
+{# <tr><th colspan="4">People Associated With This Account</th></tr> #}
+{# 21 June 2014 - Changed from one table with four columns to four tables #}
+<div class="account-person-list">
+    
+{% set person  = userPerson               %}
+{% set personPerson = person.personPersonPrimary %}
+{% set name    = person.name              %}
+{% set fed     = person.fed(project.fedRole) %}
+{% set certRef = fed.certReferee          %}
+{% set certSH  = fed.certSafeHaven        %}
+{% set plan    = person.plan(project.id)  %}
+
+<table class="account-person-list app_table" border="1">
+  <tr><th colspan="2">Account Information</th></tr>
+  <tr><td>Name:   </td><td>{{ name.full }}</td></tr>
+  <tr><td>Account:</td><td>{{ user.username }}
+  <tr><td style="text-align: center;" colspan="2">
+    <a href="{{ path('cerad_tourn_person_person_update', { 'id': personPerson.id }) }}">
+      Update your account
+    </a>
+  </td></tr>
+</table>
 
 <table  class="account-person-list app_table" border="1" >
-    <tr><th colspan="2">AYSO Information</th></tr>
-            <tr><td>AYSO ID:</td>   <td>{{ fed.fedKey | slice(5) }}</td></tr>
-            <tr><td>Vol Year:</td>  <td>{{ fed.memYear           }}</td></tr>
-            <tr><td>Safe Haven:</td><td>{{ certSH.badge          }}</td></tr>
-            <tr><td>Ref Badge:</td> <td>{{ certRef.badgeUser     }}</td></tr>
-            <tr><td>Region:</td>    <td>{{ fed.orgKey | cerad_org_sar }}</td></tr>
-        </table>
+  <tr><th colspan="2">AYSO Information</th></tr>
+  <tr><td>AYSO ID:</td>   <td>{{ fed.fedKey | slice(5) }}</td></tr>
+  <tr><td>Vol Year:</td>  <td>{{ fed.memYear           }}</td></tr>
+  <tr><td>Safe Haven:</td><td>{{ certSH.badge          }}</td></tr>
+  <tr><td>Ref Badge:</td> <td>{{ certRef.badgeUser     }}</td></tr>
+  <tr><td>Region:</td>    <td>{{ fed.orgKey | cerad_org_sar }}</td></tr>
+</table>
 
-        <table class="account-person-list app_table" border="1">
-<tr>        <th colspan="2">Tournament Plans</th>
-</tr>
-        {% if plan.id %}
-           <tr><td>Will Attend: </td><td>{{ plan.basic.attending   }}</td></tr>
-           <tr><td>Will Referee:</td><td>{{ plan.basic.refereeing  }}</td></tr>
-           <tr><td style="text-align: center;" colspan="2"><a href="{{ path('cerad_tourn_person_plan_update',{ id: person.id }) }}">Update your plans</td></tr>
-        {% else %}
-           <tr><td style="text-align: center;" colspan="2"><a href="{{ path('cerad_tourn_person_plan_update',{ id: person.id }) }}">Please set your plans</td></tr>
-        {% endif %}
-        </table>
+<table class="account-person-list app_table" border="1">
+  <tr><th colspan="2">Tournament Plans</th></tr>
+{% if plan.id %}
+  <tr><td>Will Attend: </td><td>{{ plan.basic.attending  }}</td></tr>
+  <tr><td>Will Referee:</td><td>{{ plan.basic.refereeing }}</td></tr>
+  <tr><td>Program:     </td><td>{{ plan.basic.venue      }}</td></tr>
+{%endif %}
+  <tr><td style="text-align: center;" colspan="2">
+    <a href="{{ path('cerad_tourn_person_plan_update',{ id: person.id }) }}">
+      Update your plans
+    </a>
+  </td></tr>
+</table>
 
-        <table class="account-person-list app_table" border="1">
-<tr><th colspan="2">My Teams</th></tr>
-          {# if true or not is_granted('ROLE_DEVELOPER') %}&nbsp;{% else #}
-            {% if true %}
-           {% for personTeam in person.personTeams %}
-         <tr><td style="text-align: center;" colspan="2">
-              {{ personTeam.teamDesc }}
-         </td></tr>
-            {% endfor %}
-        <tr>
-        <td style="text-align: center;" colspan="2" >      
-            <a href="{{ path('cerad_person__project__person_teams__show', 
-              { '_project' : _project, 
-                 '_person' : person.id,
-                   '_back' : app.request.requestUri
-              })}}">Add/Remove Teams</a>
-</td></tr>
-                {%endif %}
-        </table>
-    </tr>
+<table class="account-person-list app_table" border="1">
+  <tr><th colspan="2">My Teams</th></tr>
+{% for personTeam in person.personTeams %}
+  <tr><td style="text-align: center;" colspan="2">{{ personTeam.teamDesc }}</td></tr>
+{%endfor %}
+  <tr><td style="text-align: center;" colspan="2" >      
+    <a href="{{ path('cerad_person__project__person_teams__show', 
+      { '_project' : _project, 
+         '_person' : person.id,
+           '_back' : app.request.requestUri
+      })}}">Add/Remove Teams
+    </a>
+  </td></tr>
+</table>
+    
+<table class="account-person-list app_table" border="1">
+  <tr><th colspan="2">My Crew</th></tr>
+{% for personPerson in person.personPersons %}
+  <tr><td style="text-align: center;" colspan="2">
+    {{ personPerson.role }}: {{ personPerson.child.name.full }}
+  </td></tr>
 {% endfor %}
+  <tr><td style="text-align: center;" colspan="2" >      
+    <a href="{{ path('cerad_person__project__person_persons__show', 
+      { '_project' : _project, 
+         '_person' : person.id,
+           '_back' : app.request.requestUri
+      })}}">Add/Remove People
+    </a>
+  </td></tr>
+</table>
+</div>
