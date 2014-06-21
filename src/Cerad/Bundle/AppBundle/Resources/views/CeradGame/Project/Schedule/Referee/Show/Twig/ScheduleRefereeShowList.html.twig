@@ -88,13 +88,13 @@
 </table></td>
 <td><table>
 {% for referee in game.officials %}
-    <tr>
-    {% if cerad_referee_assigned(referee.personNameFull) %}
+<tr><td style="text-align: center">
+        {% if cerad_referee_assigned(referee.personNameFull) %}
     {{ referee.personBadge }}
     {% else %}
      {{ '' }}
     {% endif %}
-    </tr>
+    </td></tr>
   {% endfor %}    
 </table></td>            
        </tr>
