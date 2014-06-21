@@ -3,19 +3,19 @@
 {% block content %}
 
 {{ form_start(form) }}
-<table>
-<tr><th colspan="3">My Current Teams</th></tr>
-<tr><th>Relation<th>Name</th><th>Remove</th></tr>
+<table class="current-teams">
+<tr><th colspan="2">My Current Teams</th></tr>
+<tr>{#<th>Relation</th>#}<th>Name</th><th>Remove</th></tr>
 {% for personTeamForm in form.personTeams %}
 {% set personTeam = personTeamForm.vars.value['personTeam'] %}
 <tr>
-    <td>{{ personTeam.role     }}</td>
+{#    <td>{{ personTeam.role     }}</td>#}
     <td>{{ personTeam.levelKey | slice(10) }} {{ personTeam.teamDesc }}</td>
-    <td>{{ form_widget(personTeamForm.remove) }}</td>
+    <td style="text-align: center">{{ form_widget(personTeamForm.remove) }}</td>
 </tr>
 {% endfor %}
 <tr>
-    <td style="text-align: right; padding: 10px" colspan="3">{{ form_widget(form.remove) }}</td>
+    <td style="text-align: right; padding: 10px; border: none;" colspan="2">{{ form_widget(form.remove) }}</td>
 </tr>
 </table>
 <br />
@@ -29,8 +29,8 @@
 <tr>
     <td style="text-align: right; padding: 10px" colspan="2">
 {#        {{ form_widget(form.role) }}  #}
+        <a style="padding-right:20px" href="{{ _back }}">Done - Return to Home</a>
         {{ form_widget(form.add)  }}
-        <a href="{{ _back }}">Done - Return to Home</a>
     </td>
 </tr>
 </table>

@@ -20,7 +20,7 @@
               {#<a href="{{ path('cerad_tourn_account_update') }}">#}
                     {{ user.username }}
               {#</a>#}
-            <tr><td colspan="2"><a href="{{ path('cerad_tourn_person_person_update', { 'id': personPerson.id }) }}">Update your account</a></td></tr>
+            <tr ><td style="text-align: center;" colspan="2"><a href="{{ path('cerad_tourn_person_person_update', { 'id': personPerson.id }) }}">Update your account</a></td></tr>
            {% for authens in user.authens %}
                 <tr><td>Social:</td><td>{{ authens.source }}</td></tr>
             {% endfor %}
@@ -42,26 +42,30 @@
         {% if plan.id %}
            <tr><td>Will Attend: </td><td>{{ plan.basic.attending   }}</td></tr>
            <tr><td>Will Referee:</td><td>{{ plan.basic.refereeing  }}</td></tr>
-           <tr><td colspan="2"><a href="{{ path('cerad_tourn_person_plan_update',{ id: person.id }) }}">Update your plans</td></tr>
+           <tr><td style="text-align: center;" colspan="2"><a href="{{ path('cerad_tourn_person_plan_update',{ id: person.id }) }}">Update your plans</td></tr>
         {% else %}
-           <tr><td colspan="2"><a href="{{ path('cerad_tourn_person_plan_update',{ id: person.id }) }}">Please set your plans</td></tr>
+           <tr><td style="text-align: center;" colspan="2"><a href="{{ path('cerad_tourn_person_plan_update',{ id: person.id }) }}">Please set your plans</td></tr>
         {% endif %}
         </table>
 
         <table class="account-person-list app_table" border="1">
-<tr><th colspan="1">My Teams</th></tr>
-        <td>
+<tr><th colspan="2">My Teams</th></tr>
           {# if true or not is_granted('ROLE_DEVELOPER') %}&nbsp;{% else #}
             {% if true %}
-            {% for personTeam in person.personTeams %}
-              {{ personTeam.teamDesc }}<br />
+           {% for personTeam in person.personTeams %}
+         <tr><td style="text-align: center;" colspan="2">
+              {{ personTeam.teamDesc }}
+         </td></tr>
             {% endfor %}
+        <tr>
+        <td style="text-align: center;" colspan="2" >      
             <a href="{{ path('cerad_person__project__person_teams__show', 
               { '_project' : _project, 
                  '_person' : person.id,
                    '_back' : app.request.requestUri
               })}}">Add/Remove Teams</a>
-          {%endif %}
+</td></tr>
+                {%endif %}
         </table>
     </tr>
 {% endfor %}

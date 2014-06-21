@@ -198,7 +198,7 @@ table th, .row-hdr { padding: 0; overflow: hidden; width: 100px; height: 2.5em; 
 
 input[type="submit"] { padding: 5px 20px; font-size: inherit; }
 
-.account-person-list { width: 80%; margin-left: auto; margin-right: auto; }
+.account-person-list { width: 70%; line-height: 1.5em; margin-left: auto; margin-right: auto; }
 
 form#cerad_tourn_schedule_official_search, form#cerad_tourn_schedule_search { padding-top: 0; }
 
@@ -251,6 +251,9 @@ table#person-list table td { max-width: 100%; min-width: 45%; }
     .my_schedule th { width: 20%; line-height: 2em; }
 
     .my_schedule td { text-align: left; }
+
+.current-teams {width: 400px}
+		.current-teams td {text-align: center; border: solid 1px black}
 
 #export-link { padding: 10px; }
 
