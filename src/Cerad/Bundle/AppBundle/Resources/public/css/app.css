@@ -198,7 +198,7 @@ table th, .row-hdr { padding: 0; overflow: hidden; width: 100px; height: 2.5em; 
 
 input[type="submit"] { padding: 5px 20px; font-size: inherit; }
 
-.account-person-list { width: 99%; }
+.account-person-list { width: 80%; margin-left: auto; margin-right: auto; }
 
 form#cerad_tourn_schedule_official_search, form#cerad_tourn_schedule_search { padding-top: 0; }
 

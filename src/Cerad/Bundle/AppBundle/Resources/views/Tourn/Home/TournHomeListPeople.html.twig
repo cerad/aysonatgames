@@ -1,12 +1,6 @@
 {# @CeradTourn/Tourn/Home/TournHomeListPeople.html.twig #}
-<table class="account-person-list app_table" border="1">
     <!--<tr><th colspan="4">People Associated With This Account</th></tr>-->
-    <tr>
-        <th>Account Information</th>
-        <th>AYSO Information</th>
-        <th>Tournament Plans</th>
-        <th>My Teams</th>
-    </tr>
+<div class="account-person-list"
     {% for personPerson in userPerson.personPersons %}
     {% set person  = personPerson.child       %}
     {% set name    = person.name              %}
@@ -15,42 +9,47 @@
     {% set certSH  = fed.certSafeHaven        %}
     {% set plan    = person.plan(project.id)  %}
     <tr>
-        <td><table>
-            <tr><td>Name:</td><td>{{ name.full }}</td></tr>
+        <td>
+            
+    <table class="account-person-list app_table" border="1">
+         <tr><th colspan="2">Account Information</th></tr>
+           <tr><td>Name:</td><td>{{ name.full }}</td></tr>
             <tr><td>Relation:</td><td>{{ personPerson.role }}</td></tr>
             {% if personPerson.isRolePrimary %}
             <tr><td>Account:</td><td>
               {#<a href="{{ path('cerad_tourn_account_update') }}">#}
                     {{ user.username }}
               {#</a>#}
-            </td></tr>
-            <tr><td> </td></tr>
             <tr><td colspan="2"><a href="{{ path('cerad_tourn_person_person_update', { 'id': personPerson.id }) }}">Update your account</a></td></tr>
            {% for authens in user.authens %}
                 <tr><td>Social:</td><td>{{ authens.source }}</td></tr>
             {% endfor %}
             {% endif %}
-        </table></td>
-        <td><table>
+        </table>
+
+<table  class="account-person-list app_table" border="1" >
+    <tr><th colspan="2">AYSO Information</th></tr>
             <tr><td>AYSO ID:</td>   <td>{{ fed.fedKey | slice(5) }}</td></tr>
             <tr><td>Vol Year:</td>  <td>{{ fed.memYear           }}</td></tr>
             <tr><td>Safe Haven:</td><td>{{ certSH.badge          }}</td></tr>
             <tr><td>Ref Badge:</td> <td>{{ certRef.badgeUser     }}</td></tr>
             <tr><td>Region:</td>    <td>{{ fed.orgKey | cerad_org_sar }}</td></tr>
-        </table></td>
-        <td><table>
+        </table>
+
+        <table class="account-person-list app_table" border="1">
+<tr>        <th colspan="2">Tournament Plans</th>
+</tr>
         {% if plan.id %}
            <tr><td>Will Attend: </td><td>{{ plan.basic.attending   }}</td></tr>
            <tr><td>Will Referee:</td><td>{{ plan.basic.refereeing  }}</td></tr>
-            <tr><td> </td></tr>
-            <tr><td></td></tr>
            <tr><td colspan="2"><a href="{{ path('cerad_tourn_person_plan_update',{ id: person.id }) }}">Update your plans</td></tr>
         {% else %}
-            <tr><td> </td></tr>
-            <tr><td> </td></tr>
            <tr><td colspan="2"><a href="{{ path('cerad_tourn_person_plan_update',{ id: person.id }) }}">Please set your plans</td></tr>
         {% endif %}
-        </table></td>
+        </table>
+
+        <table class="account-person-list app_table" border="1">
+<tr><th colspan="1">My Teams</th></tr>
         <td>
           {# if true or not is_granted('ROLE_DEVELOPER') %}&nbsp;{% else #}
             {% if true %}
@@ -63,8 +62,6 @@
                    '_back' : app.request.requestUri
               })}}">Add/Remove Teams</a>
           {%endif %}
-        </td>
+        </table>
     </tr>
-    {% endfor %}
-</table>
-
+{% endfor %}
