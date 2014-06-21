@@ -1,0 +1,42 @@
+{% extends '@CeradPerson/Layout.html.twig' %}
+
+{% block content %}
+
+{{ form_start(form) }}
+<table>
+<tr><th colspan="3">My Current Teams</th></tr>
+<tr><th>Relation<th>Name</th><th>Remove</th></tr>
+{% for personTeamForm in form.personTeams %}
+{% set personTeam = personTeamForm.vars.value['personTeam'] %}
+<tr>
+    <td>{{ personTeam.role     }}</td>
+    <td>{{ personTeam.levelKey | slice(10) }} {{ personTeam.teamDesc }}</td>
+    <td>{{ form_widget(personTeamForm.remove) }}</td>
+</tr>
+{% endfor %}
+<tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>{{ form_widget(form.remove) }}</td>
+</tr>
+</table>
+<br />
+<table>
+<tr><th colspan="2">Add Additional Teams</th></tr>
+<tr><th>Core Teams</th><th>Extra Teams</th></tr>
+<tr>
+    <td>{{ form_widget(form.CoreTeams)  }}</td>
+    <td>{{ form_widget(form.ExtraTeams) }}</td>
+</tr>
+<tr>
+    <td style="display: none;" colspan="2">
+{#        {{ form_widget(form.role) }}  #}
+        {{ form_widget(form.add)  }}
+        <a href="{{ _back }}">Done - Return to Home</a>
+    </td>
+</tr>
+</table>
+<div style="display:none">{{ form_rest(form) }}</div>
+{{ form_end (form) }}
+
+{% endblock %}{# content #}

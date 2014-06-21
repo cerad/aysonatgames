@@ -8,9 +8,8 @@
         <td>{{ form_widget(form.gameOfficial.personNameFull) }}</td>
         <td>{{ form_widget(form.gameOfficial.assignState)    }}</td>
     </tr><tr>
-        <td>&nbsp;</td>
-        <td colspan="2">
-          <a href="{{ back }}{{ game.num }}">Back to Schedule</a>
+        <td style="text-align: right;" colspan="3">
+          <a href="{{ back }}{{ game.num }}">Return to Schedule</a>
           {{ form_widget(form.reset)  }}
           {{ form_widget(form.assign) }}
         </td>
@@ -19,7 +18,6 @@
 {{ form_rest (form) }}
 {{ form_end  (form) }}
 <br />
-<h2>Add help here.</h2>
-<strong>They need to know that you have to pull down and select "Request Assignment"</strong>
-<p>I might change that behavoiur later but that's the way it is for now.</p>
-{% endblock %}
+<br />
+{% include '@CeradGame/Project/GameOfficial/AssignByUser/AssignByUserTwigHelp.html.twig' %}
+{% endblock %}{# end block content #}
