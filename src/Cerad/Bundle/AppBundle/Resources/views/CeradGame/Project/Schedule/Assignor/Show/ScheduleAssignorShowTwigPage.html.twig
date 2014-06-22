@@ -2,7 +2,9 @@
 
 {% block content %}
 {% include '@CeradGame/Project/Schedule/Assignor/Show/ScheduleAssignorShowTwigForm.html.twig' %}
-{% include '@CeradGame/Project/Schedule/Assignor/Show/ScheduleAssignorShowTwigList.html.twig' %}
+{% if is_granted('ROLE_ASSIGNOR') %}
+  {% include '@CeradGame/Project/Schedule/Assignor/Show/ScheduleAssignorShowTwigGames.html.twig' %}
+{% endif %}
 {% endblock %}
 {% block javascripts %}
   <script type="text/javascript">

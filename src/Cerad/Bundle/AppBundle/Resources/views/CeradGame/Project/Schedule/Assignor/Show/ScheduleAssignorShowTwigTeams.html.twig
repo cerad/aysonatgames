@@ -1,0 +1,15 @@
+<table>
+{% for gameTeam in game.teams %}
+        
+{% set gameTeamClass = 'text-left' %}
+
+{% if teamKeys[gameTeam.teamKey] is defined %}
+  {# set gameTeamClass = 'text-left my-team' #}
+{% endif %}
+
+<tr>
+  <td class="{{ gameTeamClass }}">{{ gameTeam.teamName }}</td>
+</tr>
+
+{% endfor %}{# gameTeam #}
+</table>

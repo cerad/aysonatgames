@@ -1,0 +1,43 @@
+{# Only called by ROLE_ASSIGNOR #}
+<div id="layout-block">
+<div class="schedule-games-list">
+<table id="schedule" class="schedule" border="1">
+  <thead>
+    <tr><th colspan="20">Assignor Schedule - Count: {{ games | length }}</th></tr>
+    <tr>
+      <th class="schedule-game"    >Game</th>
+      <th class="schedule-dow"     >Day</th>
+      <th class="schedule-time"    >Time</th>
+      <th class="schedule-field"   >Field</th>
+      <th class="schedule-group"   >Group</th>
+      <th class="schedule-slot"    >Slot</th>
+      <th class="schedule-teams"   >Home / Away</th>
+      <th class="schedule-referees">Referees</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for game in games %}
+  {% set level = game.levelKey %}
+    <tr id="ass-sched-{{game.num}}" class="game-status-{{game.status}}">
+      <td class="schedule-game">{{ game.num }}</td>
+      <td class="schedule-dow" >{{ game.dtBeg.format('D'    ) }}</td>
+      <td class="schedule-time">{{ game.dtBeg.format('g:i A') }}</td>    
+      <td class="schedule-field">
+        <a href="{{ cerad_tourn_venue_maplink(game.venueName) }}" target="_blank">{{ game.fieldName }}</a>
+      </td>
+      <td class="schedule-group" style="padding: 0 15px">{{ cerad_game_group(game) }}</td>
+      <td class="schedule-slot"><table>
+        {% for gameTeam in game.teams %}
+          <tr><td>{{ gameTeam.groupSlot }}</td></tr>
+        {% endfor %}
+      </table></td>
+      <td class="schedule-teams">
+        {% include '@CeradGame/Project/Schedule/Assignor/Show/ScheduleAssignorShowTwigTeams.html.twig' %}
+      </td>
+      <td class="schedule-referees">
+        {% include '@CeradGame/Project/Schedule/Assignor/Show/ScheduleAssignorShowTwigOfficials.html.twig' %}
+      </td>
+  {% endfor %} {# games #}
+</table>
+</div>
+</div>
