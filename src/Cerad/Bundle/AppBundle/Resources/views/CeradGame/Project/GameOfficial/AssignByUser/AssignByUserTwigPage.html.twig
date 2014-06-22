@@ -4,9 +4,9 @@
 {{ form_start(form) }}
 <table>
     <tr>
-        <td>{{ form_widget(form.gameOfficial.role)           }}</td>
-        <td>{{ form_widget(form.gameOfficial.personNameFull) }}</td>
-        <td>{{ form_widget(form.gameOfficial.assignState)    }}</td>
+        <td>{{ form_widget(form.gameOfficial.role)        }}</td>
+        <td>{{ form_widget(form.gameOfficial.personGuid)  }}</td>
+        <td>{{ form_widget(form.gameOfficial.assignState) }}</td>
     </tr><tr>
         <td style="text-align: right;" colspan="3">
           <a href="{{ back }}{{ game.num }}">Return to Schedule</a>
