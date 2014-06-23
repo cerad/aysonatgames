@@ -18,3 +18,11 @@
 .game-official-state-Approved  { background-color: lightgreen; }
 .game-official-state-Declined  { background-color: gold; }
 .game-official-state-TurnBack  { background-color: lightpink; }
+
+/* =======================================
+ * SAR Conflicts
+ */
+.game-official-conflict-region  { background-color: red; }
+.game-official-conflict-area    { background-color: gold; }
+.game-official-conflict-section { }
+.game-official-conflict-none    { }

@@ -7,7 +7,8 @@
 {% set officialName  = official.personNameFull | slice(0,20) %}        
 {% set officialClass = 'text-left' %}
 
-{% set officialSAR = official.personOrgKey | cerad_org_sarx %}
+{% set officialSAR      = cerad_game__game_official__sar      (official) %}
+{% set officialSARClass = cerad_game__game_official__sar_class(official) %}
         
 {% set assignable = true %}
 {% if is_granted('AssignableByAssignor',{ 'official' : official}) %}
@@ -28,9 +29,9 @@
     {% endif %}
   </td>
   
-  <td class="{{ officialClass }}">{{ officialName   }}</td>
-  <td class="{{ officialClass }}">{{ official.personBadge }}</td>
-  <td class="{{ officialClass }}">{{ officialSAR }}</td>
+  <td class="{{ officialClass    }}">{{ officialName   }}</td>
+  <td class="{{ officialClass    }}">{{ official.personBadge }}</td>
+  <td class="{{ officialSARClass }}">{{ officialSAR }}</td>
 </tr>
 
 {% endfor %}{# official #}

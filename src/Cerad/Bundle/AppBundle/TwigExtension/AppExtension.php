@@ -39,6 +39,9 @@ class AppExtension extends \Twig_Extension
             
             'cerad_game__assign_state_abbr' => new \Twig_Function_Method($this, 'assignStateAbbr'),
             
+            'cerad_game__game_official__sar'       => new \Twig_Function_Method($this, 'gameOfficialSAR'),
+            'cerad_game__game_official__sar_class' => new \Twig_Function_Method($this, 'gameOfficialSARClass'),
+            
             'cerad_tourn_venue_maplink' => new \Twig_Function_Method($this, 'venueMapLink'),
             
             'cerad_level' => new \Twig_Function_Method($this, 'aliasLevel'),
@@ -191,22 +194,50 @@ class AppExtension extends \Twig_Extension
      * 
      * We really want to add sar to personProjectPlan with a project specific transformer
      */
-    public function sar($orgKey)
+    public function gameOfficialSAR($gameOfficial)
     {
-        return $this->orgKeyDataTransformer->transform($orgKey);
-        
-        $org = $this->orgRepo->find($orgKey);
-
-        if (!$org) return substr($orgKey,4);
-
-        $orgParentKey = $org->getParent(); // Really the parentKey
-        
-        $section = (int) substr($orgParentKey,5,2);
-        $area    =       substr($orgParentKey,7,1);
-        $region  = (int) substr($orgKey,5);
-        
-        return sprintf('%02u-%s-%04u',$section,$area,$region);
+        return $this->orgKeyDataTransformer->transform($gameOfficial->getPersonOrgKey());        
     }
-
+    // Super hack
+    public function gameOfficialSARClass($gameOfficial)
+    {
+        $areaConflict    = false;
+        $regionConflict  = false;
+        $sectionConflict = false;
+        
+        $gameOfficialSarParts = $this->orgKeyDataTransformer->transformToParts($gameOfficial->getPersonOrgKey());
+        if (!$gameOfficialSarParts) return;
+        
+        $game = $gameOfficial->getGame();
+        foreach($game->getTeams() as $gameTeam)
+        {
+          //$gameTeamSar = $gameTeam->getTeamOrgKey(); // Not implemented
+            
+            // Need to decode the team name
+            $gameTeamName = $gameTeam->getTeamName();
+            $gameTeamNameParts = explode(' ',$gameTeamName);
+            if (count($gameTeamNameParts) > 1)
+            {
+                $gameTeamSar = $gameTeamNameParts[1];
+                $gameTeamSarParts = explode('-',$gameTeamSar);
+                if (count($gameTeamSarParts) == 3)
+                {
+                    $section = (int) $gameTeamSarParts[0];
+                    $area    =       $gameTeamSarParts[1];
+                    $region  = (int) $gameTeamSarParts[2];
+                    
+                    if ($region  == $gameOfficialSarParts['region' ]) $regionConflict = true;
+                    if ($section == $gameOfficialSarParts['section']) {
+                        $sectionConflict = true;
+                        if ($area == $gameOfficialSarParts['area']) $areaConflict = true;
+                   }
+                }
+            }
+        } // foreach gameTeam
+        if ($regionConflict)  return 'game-official-conflict-region';
+        if ($areaConflict)    return 'game-official-conflict-area';
+        if ($sectionConflict) return 'game_official-conflict-section';
+                              return 'game_official-conflict-none';
+    }
  }
 ?>
