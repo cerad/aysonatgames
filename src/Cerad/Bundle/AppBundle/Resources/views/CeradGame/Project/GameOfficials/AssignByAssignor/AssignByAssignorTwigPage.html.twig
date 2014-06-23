@@ -1,0 +1,25 @@
+{% extends '@CeradGame/Layout.html.twig' %}
+
+{% block content %}
+
+<table class="assign">
+<tr><th colspan="2">Assignor Assigning</th></tr>
+<tr><th colspan="2">Game {{ game.num }} on {{ game.dtBeg.format('D d M H:i A')}} at {{ game.fieldName }}</th></tr>
+<tr><th colspan="2">{{ game.homeTeam.name }} -VS- {{ game.awayTeam.name }}</th></tr>
+
+{{ form_start(form) }}
+{% for slot in form.gameOfficials %}
+<tr><td>
+  {{ form_widget(slot.role) }}
+  <span style="display:none">{{ form_widget(slot.personNameFull) }}</span>
+  {{ form_widget(slot.personGuid) }}{{ form_widget(slot.assignState) }}
+</td></tr>
+{% endfor %}
+<tr><td style="height:2em; float:right; padding:10px">{{ form_widget(form.reset) }}{{ form_widget(form.assign) }}</td></tr>
+<tr><td style="height: 2em;float:right; padding:10px; margin: 10px 0"><a href="{{ back }}{{ game.num }}">Back to Schedule</a></td></tr>
+{{ form_rest(form) }}
+{{ form_end(form)  }}
+</table>
+<br />
+{% include '@CeradGame/Project/GameOfficials/AssignByAssignor/AssignByAssignorTwigHelp.html.twig' %}
+{% endblock %}
