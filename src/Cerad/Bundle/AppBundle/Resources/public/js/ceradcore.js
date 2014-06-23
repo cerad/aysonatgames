@@ -24,6 +24,10 @@ Cerad.alert = function(msg)
  * Now we get form[ages][]
  * Not sure if having elements with the same name is good.
  * Need to look at
+ * 
+ * 23 June 2014
+ * Checking the all box when the rest of the boxes are unchecked should have caused them to be checked
+ * Stupid error.  Still used attr when checking the boxes.
  */
 Cerad.checkboxAll = function(e)
 {   
@@ -33,10 +37,9 @@ Cerad.checkboxAll = function(e)
     
     var group = 'input[type=checkbox][name^="' + nameRoot + '"]';
     
-    // attr return undefined if not set, 'checked' if it is
     var checked = $(this).prop('checked') ? true : false;
         
-    $(group).attr('checked', checked);
+    $(group).prop('checked', checked);
 };
 /* ==================================
  * Used to have some date processing here
