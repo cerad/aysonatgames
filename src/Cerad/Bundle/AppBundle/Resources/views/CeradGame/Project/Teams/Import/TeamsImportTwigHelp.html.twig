@@ -1,0 +1,23 @@
+<h2>Managing Teams</h2>
+<div class="app_help" id="notes">
+    <strong>Notes on importing/updating teams</strong>:
+    <ul>
+    <li>Teams can be modified using this page.</li>
+    <li><strong>Important: </strong>You must use the same format worksheet as is exported. <strong>NO added columns or rows</strong>.</li>
+    <li>The <strong><em>only</em></strong> proper way to do this is to:</li>
+    <ol>
+      <li><a href="{{ path('cerad_game__project__teams__export', { '_project': _project }) }}">Export the teams</a></li>
+      <li>Update the team names, Soccerfest Points or team slots in the pools in this workbook</li>
+      <li>Save the Team workbook in Excel</li>
+      <li>Using the controls below:
+      <ul>
+    <li>Select the type of update ("Test run" or "Update database")</li>
+        <li>Select the Operation ("Update names & Soccerfest points" or "Update slots")</li>
+      <li>Select the worksheet by clicking the "Choose File" button.</li>
+      <li>Complete the import by clicking the "Import Team Changes" button.</li>
+      <li><a href="{{ path('cerad_game__project__results_poolplay__show', { '_project': _project }) }}">View Pool Standings</a> to verify your changes.</li>
+    </ul>
+      </li>
+    </ol>
+</div>
+<br>

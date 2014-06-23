@@ -119,6 +119,8 @@ form.app_form fieldset div textarea { clear: none; height: 10em; width: 45%; pad
 
     .app_help ul ul li { list-style-type: disc; padding-left: 0; margin-left: 30px; }
 
+    .app_help ul ol li { padding-left: 10px; }
+
 some_nowhitespace { nowhitespace: afterproperty; }
 
 /*
@@ -161,9 +163,9 @@ hr { width: 100%; margin: 15px auto 15px auto; clear: both; }
 
 #notes { display: inline-block; padding: 15px 10px 5px 10px; font-size: inherit; }
 
-    #notes ul li { list-style-type: disc; margin-left: 40px; line-height: 1.5em; }
+    #notes ul li { list-style-type: disc; margin-left: 40px;}
 
-    #notes ol li { list-style-type: decimal; margin-left: 80px; line-height: 1.5em; }
+    #notes ol li { list-style-type: decimal; margin-left: 80px; }
 
 table.data { table-layout: auto; }
 
@@ -185,7 +187,7 @@ table th, .row-hdr { padding: 0; overflow: hidden; width: 100px; height: 2.5em; 
 
 .schedule tr:nth-child(odd), .standings tr:nth-child(odd), .results tr:nth-child(odd), #person-list tr:nth-child(odd), .my_schedule tr:nth-child(odd) { background: #cce6ff; }
 
-.schedule td, .standings td, .results td, .scoring td { text-align: center; line-height: 1em; padding: 0 5px; vertical-align: middle; }
+.schedule td, .standings td, .results td, .scoring td { text-align: center; line-height: 1.2em; padding: 5px 5px; vertical-align: middle; }
 
 .tbl-title th
 .row-hdr { background: #004080; height: 2em; }

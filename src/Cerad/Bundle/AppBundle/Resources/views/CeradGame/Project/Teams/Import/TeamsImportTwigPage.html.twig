@@ -1,0 +1,27 @@
+{% extends '@CeradGame/Layout.html.twig' %}
+
+{% block content %}
+{% include '@CeradGame/Project/Teams/Import/TeamsImportTwigHelp.html.twig' %}
+<hr>
+<div class="import_controls">
+{{ form_start(form) }}
+{{ form_row(form.commit) }}
+{{ form_row(form.op) }}
+{{ form_row(form.attachment, {'label': ' '}) }}
+{{ form_row(form.import, {'label': ' Import Team Changes'}) }}
+{{ form_rest(form) }}
+{{ form_end(form)  }}
+</div>
+{% if results %}
+<hr>
+<div class="import_controls">
+    
+{% if results.commit %}
+  {% set commit = 'Database was updated.' %}
+{% else %}
+  {% set commit = 'Database was NOT updated.' %}
+{% endif %}
+<h4>Results: {{ results.basename }}, Total Teams: {{ results.total }}, {{ commit }}</h4>
+</div>
+{% endif %} {# results #}
+{% endblock %}
