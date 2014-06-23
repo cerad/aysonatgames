@@ -97,6 +97,14 @@ AYSONationalGames2014:
           TOA-PMS:  Parras Middle School, Redondo Beach
           TOA-RBHS: Redondo Beach High School, Redondo Beach
           TOA-WHS:  West High School, Torrance
+          
+      select:
+        type:   checkbox
+        label:  Matches
+        default: ~
+        choices:
+            Assigned: Assigned
+            Unassigned: Unassigned
     
     # ==================================================
     # Basic volunteer plan

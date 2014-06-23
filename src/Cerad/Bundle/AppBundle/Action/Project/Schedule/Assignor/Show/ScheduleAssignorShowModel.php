@@ -38,7 +38,35 @@ class ScheduleAssignorShowModel extends ScheduleShowModel
         $games = $this->gameRepo->findAllByGameIds($gameIds,true);
         
         // Filter games here
+        $matches = array();
         
-        return $games;
+        foreach ($games as $game){
+            $unassigned = false;
+            $assigned = false;
+           if (in_array('Unassigned', $this->criteria['select'])){              
+               foreach($game->getOfficials() as $official){
+                    $state = strtolower($official->getAssignState());
+                    if ($state == 'open'){
+                      $unassigned = true;  
+                    }
+                }
+            }
+            
+            if (in_array('Assigned', $this->criteria['select'])){
+                foreach($game->getOfficials() as $official){
+                    $state = strtolower($official->getAssignState());
+                    if ($state == 'accepted'){
+                      $assigned = true;  
+                    }
+                }
+            }
+            
+            if ($assigned or $unassigned){
+                $matches[] = $game;                
+            }
+        }
+     
+        return $matches;
+
     }
 }

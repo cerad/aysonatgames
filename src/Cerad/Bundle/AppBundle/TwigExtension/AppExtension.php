@@ -51,7 +51,8 @@ class AppExtension extends \Twig_Extension
             'cerad_pool_label' => new \Twig_Function_Method($this,'poolLabel'),
             'cerad_cap_gender' => new \Twig_Function_Method($this,'capGender'),
             'cerad_games_group' => new \Twig_Function_Method($this,'gamesGroup'),
-            'cerad_is_empty' => new \Twig_Function_Method($this,'IsEmpty')
+            'cerad_is_empty' => new \Twig_Function_Method($this,'IsEmpty'),
+            'cerad_official_SAR' => new \Twig_Function_Method($this,'officialSAR'),
         );
     }
     public function assignStateAbbr($state)
@@ -238,6 +239,18 @@ class AppExtension extends \Twig_Extension
         if ($areaConflict)    return 'game-official-conflict-area';
         if ($sectionConflict) return 'game_official-conflict-section';
                               return 'game_official-conflict-none';
+    }
+    
+    public function officialSAR($officialSAR)
+    {
+        if (!empty($officialSAR)){
+            $sar = explode('-', $officialSAR);
+            $r = $sar[1].$sar[2];
+        } else {
+            $r = $officialSAR;
+        }
+       
+        return $r;
     }
  }
 ?>

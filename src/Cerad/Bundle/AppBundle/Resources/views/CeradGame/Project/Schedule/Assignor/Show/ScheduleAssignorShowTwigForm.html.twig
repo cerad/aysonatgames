@@ -25,7 +25,7 @@
       <td>{% include '@CeradGame/Project/Schedule/Twig/ScheduleSearchCheckboxes.html.twig' %}</td>
     {% endif %}
       
-  </tr>
+  </tr>  
 {#
       <tr>
 
@@ -35,6 +35,13 @@
       {% endif %}
       </tr>
 #}
+
+  <tr>
+    {% if form.select is defined %}
+      {% set items = form.select %}
+      <td>{% include '@CeradGame/Project/Schedule/Twig/ScheduleSearchCheckboxes.html.twig' %}</td>
+    {% endif %}
+  </tr>
 </table>
 
 <div class="layout-block">
