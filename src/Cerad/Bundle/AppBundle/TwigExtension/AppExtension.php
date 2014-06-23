@@ -53,6 +53,7 @@ class AppExtension extends \Twig_Extension
             'cerad_games_group' => new \Twig_Function_Method($this,'gamesGroup'),
             'cerad_is_empty' => new \Twig_Function_Method($this,'IsEmpty'),
             'cerad_official_SAR' => new \Twig_Function_Method($this,'officialSAR'),
+            'cerad_official_bdg' => new \Twig_Function_Method($this,'officialBdg'),
         );
     }
     public function assignStateAbbr($state)
@@ -244,13 +245,17 @@ class AppExtension extends \Twig_Extension
     public function officialSAR($officialSAR)
     {
         if (!empty($officialSAR)){
-            $sar = explode('-', $officialSAR);
-            $r = $sar[1].$sar[2];
+            $r = str_replace('-', '', $officialSAR);
         } else {
             $r = $officialSAR;
         }
        
         return $r;
+    }
+    
+    public function officialBdg($officialBadge)
+    {
+        return substr($officialBadge,0,3);
     }
  }
 ?>
