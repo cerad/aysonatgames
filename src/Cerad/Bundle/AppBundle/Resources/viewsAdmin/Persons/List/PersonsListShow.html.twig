@@ -1,0 +1,66 @@
+{# @CeradTournAdmin/Persons/List/PersonsListShow.html.twig #}
+
+<tr>
+    <th>Account</th>
+    <th>Person</th>
+    <th>AYSO Information</th>
+    <th>Plans</th>
+</tr>
+</thead>
+<tbody>
+{% for person in persons  %}
+{% set name = person.name %}
+{% set user = cerad_tourn_get_user_for_person(person) %}
+{% set personFed     = person.fed(fedRole) %}
+{% set certReferee   = personFed.certReferee %}
+{% set certSafeHaven = personFed.certSafeHaven %}
+{% set plan          = person.plan(project.id) %}
+<tr id="person-{{person.id}}">
+    <td>
+        <p>Username: {{ user.username }}</p>
+        <p>Email: {{ user.email       }}</p>
+        <p>Account Name:{{ user.accountName }}</p>
+        {% for role in user.roles %}
+        <p>Role: {{ role }}</p>
+        {% endfor %}
+    </td>
+    <td><table class="person-info">
+        <tr><td>Name </td><td><a href="{{ path('cerad_tourn_admin_person_plan_update',{ 'person' : person.id }) }}">{{ name.full }}</a></td></tr>
+{#
+        <tr><td>First</td><td>{{ name.first   }}</td></tr>
+        <tr><td>Last </td><td>{{ name.last    }}</td></tr>
+#}
+        <tr><td>Email</td><td>{{ person.email }}</td></tr>
+        <tr><td>Phone</td><td>{{ person.phone | cerad_phone }}</td></tr>
+        <tr><td>Gender</td><td>{{ person.gender }}</td></tr>
+        <tr><td>Age</td><td>{{ person.age }}</td></tr>
+    </table></td>
+    <td>
+    <table border="1">
+        <tr><td>Person:</td><td>{{ name.full                        }}</td><td>{{ personFed.personVerified}}</td></tr>
+        <tr><td>Vol:   </td><td>{{ personFed.fedKey | slice(5)      }}</td><td>{{ personFed.fedKeyVerified}}</td></tr>
+        <tr><td>S/A/R: </td><td>{{ personFed.orgKey | cerad_org_sar }}</td><td>{{ personFed.orgKeyVerified}}</td></tr>
+        <tr><td>MY:</td>
+            <td><span class="aysov_mem_year-{{ personFed.memYear }}">{{ personFed.memYear }}</span></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr><td>SH:</td>
+            <td><span class="certSafeHaven_badge-{{ certSafeHaven.badge | default("na") }}">{{ certSafeHaven.badge }}</span></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr><td>REF:</td><td>{{ certReferee.badge }}</td><td>{{ certReferee.badgeVerified}}</td></tr>
+    </table>
+    </td>
+    <td>
+        <p>Will Attend:  {{ plan.willAttend  }}</p>
+        <p>Will Referee: {{ plan.willReferee }}</p>
+        <p>Program:      {{ plan.program     }}</p>
+        
+        <p>Avail (QF,SF,FM): {{ plan.availSatAfternoon ~ ',' ~ plan.availSunMorning ~ ',' ~ plan.availSunAfternoon }}</p>
+        
+        <p>Mentor (Will,Want): {{ plan.willMentor ~ ',' ~ plan.wantMentor }}</p>
+        
+        <p>Shirt Size: {{ plan.shirtSize }}</p>
+    </td>
+</tr>
+{% endfor %} {# persons #}

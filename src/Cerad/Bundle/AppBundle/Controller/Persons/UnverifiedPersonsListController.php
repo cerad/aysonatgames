@@ -1,7 +1,7 @@
 <?php
 namespace Cerad\Bundle\AppBundle\Controller\Persons;
 
-use Cerad\Bundle\TournAdminBundle\Controller\Persons\PersonsListController as ParentController;
+use Cerad\Bundle\AppBundle\Controller\Persons\PersonsListController as ParentController;
 
 class UnverifiedPersonsListController extends PersonsListController
 {
