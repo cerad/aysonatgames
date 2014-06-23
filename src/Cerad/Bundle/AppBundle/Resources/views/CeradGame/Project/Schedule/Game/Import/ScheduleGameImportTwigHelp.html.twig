@@ -1,0 +1,21 @@
+<h2>Managing Game Schedule</h2>
+<div id="notes">
+    <strong>Notes on Modifying Game Schedule</strong>:
+    <ul>
+    <li>Official assignments are created and modified using this page.</li>
+    <li><strong>Important: </strong>You must use the same format worksheet as is exported. <strong>NO added columns or rows</strong>.</li>
+    <li>If there are schedule update to be made, do this first before modifying the Official assignments</li>
+    <li>Schedules are imported from this page.</li>
+    <li>The <strong><em>only</em></strong> proper way to do this is to:</li>
+    <ol>
+      <li><a href="{{ path('cerad_game__project__schedule_referee__show', { '_project': _project }) }}">Export the schedule of officials</a></li>
+      <li>Update the last three columns with the names of the Referee, Assistant Referee 1, Assistant Referee 2</li>
+      <li>Save the modified schedule of officials</li>
+
+      <li>Using the controls below, select the modified worksheet by clicking the "Choose File" button.</li>
+      <li>Complete the import by clicking the "Import Referee Assignments" button.</li>
+      <li><a href="{{ path('cerad_game__project__schedule_referee__show', { '_project': _project }) }}">View Referee Schedule</a> to confirm the changes.</li>
+    </ol>
+    </ul>
+</div>
+<br>
