@@ -27,9 +27,14 @@
     <td>Relation</td>
     <td>{{ form_widget(form.role) }}</td>
 </tr>
+{#
 <tr>
     <td>Person's Full Name</td>
     <td>{{ form_widget(form.name) }}</td>
+</tr>#}
+<tr>
+    <td>AYSO ID(8 digits)</td>
+    <td>{{ form_widget(form.fedNum) }}</td>
 </tr>
 <tr>
     <td style="text-align: right; padding: 10px" colspan="2">
