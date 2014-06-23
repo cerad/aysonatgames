@@ -1,16 +1,13 @@
 <table>
 {% for official in game.officials %}
-        
-{% set officialClass = 'text-left' %}
-
-{% if personKeys[official.personGuid] is defined %}
-  {# set officialClass = 'text-left my-slot' #}
-{% endif %}
 
 {% set stateClass = 'text-left game-official-state-' ~ official.assignState %}
 
-{% set officialRole = official.role           | slice(0,3) %}
-{% set officialName = official.personNameFull | slice(0,20) %}
+{% set officialRole  = official.role           | slice(0,3) %}
+{% set officialName  = official.personNameFull | slice(0,20) %}        
+{% set officialClass = 'text-left' %}
+
+{% set officialSAR = official.personOrgKey | cerad_org_sarx %}
         
 {% set assignable = true %}
 {% if is_granted('AssignableByAssignor',{ 'official' : official}) %}
@@ -33,6 +30,7 @@
   
   <td class="{{ officialClass }}">{{ officialName   }}</td>
   <td class="{{ officialClass }}">{{ official.personBadge }}</td>
+  <td class="{{ officialClass }}">{{ officialSAR }}</td>
 </tr>
 
 {% endfor %}{# official #}

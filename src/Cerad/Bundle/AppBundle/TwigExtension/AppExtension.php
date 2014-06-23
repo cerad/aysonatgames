@@ -7,18 +7,28 @@ class AppExtension extends \Twig_Extension
     protected $venues;
     protected $gameTransformer;
     protected $assignStateAbbrs;
+    protected $orgKeyDataTransformer;
     
     public function getName()
     {
         return 'cerad_app_extension';
     }
-    public function __construct($venues,$gameTransformer,$assignWorkflow)
-    {
+    public function __construct($venues,$gameTransformer,$assignWorkflow,$orgKeyDataTransformer)
+    {   
         $this->venues = $venues;
         
         $this->gameTransformer = $gameTransformer;
         
         $this->assignStateAbbrs = $assignWorkflow->getAssignStateAbbreviations();
+        
+        $this->orgKeyDataTransformer = $orgKeyDataTransformer;
+        
+    }
+    public function getFilters()
+    {
+        return array(
+            'cerad_org_sarx' => new \Twig_Filter_Method($this, 'sar'),
+        );
     }
     public function getFunctions()
     {
@@ -173,5 +183,30 @@ class AppExtension extends \Twig_Extension
     {
         return empty($object);
     }
+    /* =====================================================
+     * 23 June 2014
+     * Section-Area-Region normalized
+     * 
+     * Called is sarx so it does interefere with sar in eith the TrounNumdle or the OrgBundle
+     * 
+     * We really want to add sar to personProjectPlan with a project specific transformer
+     */
+    public function sar($orgKey)
+    {
+        return $this->orgKeyDataTransformer->transform($orgKey);
+        
+        $org = $this->orgRepo->find($orgKey);
+
+        if (!$org) return substr($orgKey,4);
+
+        $orgParentKey = $org->getParent(); // Really the parentKey
+        
+        $section = (int) substr($orgParentKey,5,2);
+        $area    =       substr($orgParentKey,7,1);
+        $region  = (int) substr($orgKey,5);
+        
+        return sprintf('%02u-%s-%04u',$section,$area,$region);
+    }
+
  }
 ?>
