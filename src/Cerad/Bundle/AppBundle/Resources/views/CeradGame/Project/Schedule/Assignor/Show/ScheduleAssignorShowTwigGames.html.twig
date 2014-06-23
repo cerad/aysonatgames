@@ -16,9 +16,10 @@
     </tr>
   </thead>
   <tbody>
+  {% set gameIdPrefix = 'schedule-assignor-' %}
   {% for game in games %}
   {% set level = game.levelKey %}
-    <tr id="ass-sched-{{game.num}}" class="game-status-{{game.status}}">
+    <tr id="{{ gameIdPrefix ~ game.num}}" class="game-status-{{game.status}}">
       <td class="schedule-game">{{ game.num }}</td>
       <td class="schedule-dow" >{{ game.dtBeg.format('D'    ) }}</td>
       <td class="schedule-time">{{ game.dtBeg.format('g:i A') }}</td>    
