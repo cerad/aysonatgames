@@ -4,7 +4,7 @@
 
 <table>
 <tr><th colspan="2">Assignor Assigning</th></tr>
-<tr><th colspan="2">Game {{ game.num }} on {{ game.dtBeg.format('D d M H:i A')}} at {{ game.fieldName }}</th></tr>
+<tr><th colspan="2">Game {{ game.num }}, {{ game.levelKey | slice(5) }}, {{ game.dtBeg.format('D H:i A')}}, {{ game.fieldName }}</th></tr>
 <tr><th colspan="2">{{ game.homeTeam.name }} -VS- {{ game.awayTeam.name }}</th></tr>
 
 {{ form_start(form) }}

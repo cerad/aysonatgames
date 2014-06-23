@@ -4,7 +4,7 @@
 {{ form_start(form) }}
 <table style="min-width: 500px;">
   <tr><th colspan="3">Assign By User</th></tr>
-  <tr><th colspan="3">Game {{ game.num }} on {{ game.dtBeg.format('D d M H:i A')}} at {{ game.fieldName }}</th></tr>
+  <tr><th colspan="3">Game {{ game.num }}, {{ game.levelKey | slice(5) }}, {{ game.dtBeg.format('D H:i A')}}, {{ game.fieldName }}</th></tr>
   <tr><th colspan="3">{{ game.homeTeam.name }} -VS- {{ game.awayTeam.name }}</th></tr>
   <tr>
     <td>{{ form_widget(form.gameOfficial.role)        }}</td>
