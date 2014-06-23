@@ -1,9 +1,6 @@
 <li class="right">
   <a href="{{ path('cerad_tourn_welcome') }}">Login</a>
 </li>
-<li>Guest</li>
 {% if is_granted('ROLE_GUEST:viewMenu',project) %}
-<li>
-  <a href="{{ path('cerad_game__project__schedule_team__show', { '_project': _project }) }}">Schedule</a>
-</li>
+{# include '@CeradTourn/Tourn/TopMenu/TournTopMenuDeveloper.html.twig' #}
 {% endif %}
