@@ -2,18 +2,21 @@
 
 {% block content %}
 {{ form_start(form) }}
-<table>
-    <tr>
-        <td>{{ form_widget(form.gameOfficial.role)        }}</td>
-        <td>{{ form_widget(form.gameOfficial.personGuid)  }}</td>
-        <td>{{ form_widget(form.gameOfficial.assignState) }}</td>
-    </tr><tr>
-        <td style="text-align: right;" colspan="3">
-          <a href="{{ back }}{{ game.num }}">Return to Schedule</a>
+<table style="min-width: 500px;">
+  <tr><th colspan="3">Assign By User</th></tr>
+  <tr><th colspan="3">Game {{ game.num }} on {{ game.dtBeg.format('D d M H:i A')}} at {{ game.fieldName }}</th></tr>
+  <tr><th colspan="3">{{ game.homeTeam.name }} -VS- {{ game.awayTeam.name }}</th></tr>
+  <tr>
+    <td>{{ form_widget(form.gameOfficial.role)        }}</td>
+    <td>{{ form_widget(form.gameOfficial.personGuid)  }}</td>
+    <td>{{ form_widget(form.gameOfficial.assignState) }}</td>
+  </tr><tr>
+    <td style="text-align: right;" colspan="3">
+      <a href="{{ back }}{{ game.num }}">Return to Schedule</a>
           {{ form_widget(form.reset)  }}
           {{ form_widget(form.assign) }}
-        </td>
-    </tr>
+    </td>
+  </tr>
 </table>
 {{ form_rest (form) }}
 {{ form_end  (form) }}
