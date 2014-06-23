@@ -20,7 +20,13 @@ parameters:
     Cerad\Bundle\AppBundle\Action\GameOfficial\Tpl\GameOfficialPersonNameChoiceTpl
     
   cerad_person.aysov_referee_badge.form_type.class: 
-    Cerad\Bundle\AppBundle\FormType\AYSO\RefereeBadgeFormType  
+    Cerad\Bundle\AppBundle\FormType\AYSO\RefereeBadgeFormType
+    
+  cerad_game__project__schedule_assignor__show_model_factory__class:
+    Cerad\Bundle\AppBundle\Action\Project\Schedule\Assignor\Show\ScheduleAssignorShowModel
+    
+  cerad_game__project__schedule_assignor__show_form_factory__class:
+    Cerad\Bundle\AppBundle\Action\Project\Schedule\Assignor\Show\ScheduleAssignorShowFormFactory
     
 services:
     cerad_app.twig_extension:
