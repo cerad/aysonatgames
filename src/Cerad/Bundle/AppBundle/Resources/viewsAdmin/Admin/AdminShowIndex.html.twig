@@ -109,6 +109,10 @@
     <li><a href="{{ path('cerad_tourn_admin_person_feds_sync') }}">Sync eAYSO Information</a></li>
     <li><a href="#">Import AYSO Information</a></li>
 {% endif %}
+    <li><a href="{{ path('cerad_person__project__persons__show',
+        { '_project' : _project }) }}">
+        NEW: View Project Persons
+    </a></li>
 {% endif %}
   </ul>
 </div>
