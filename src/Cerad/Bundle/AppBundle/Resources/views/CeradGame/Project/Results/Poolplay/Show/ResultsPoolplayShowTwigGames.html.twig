@@ -21,7 +21,7 @@
 
   <tr id="results-poolplay-games-{{game.num}}" class="game-status-{{game.status}}">
 
-{% if is_granted('ROLE_SCORE_ENTRY') or 1 %}
+{% if is_granted('ROLE_SCORE_ENTRY') %}
     <td>
         <a href="{{ path('cerad_game__project__game_report__update', 
         { '_project': _project, 
