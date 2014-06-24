@@ -261,13 +261,17 @@ table#person-list table td { max-width: 100%; min-width: 45%; }
 
 .text-left { text-align: left!important }
 
-@media print { 
+.text-right { text-align: right!important }
+
+.dwide { min-width: 400px;}
+
+@media print {
 	.sf-toolbar, .sf-toolbar * { display: none }
 
 	.schedule-search { display: none }
 }
 
-@media (max-width: 600px) { 
+@media (max-width: 600px) {
 	td > table { display: block }
 
 	    td > table td { display: inline-block }
@@ -276,7 +280,7 @@ table#person-list table td { max-width: 100%; min-width: 45%; }
 some_nowhitespace { nowhitespace: afterproperty }
 /* All Mobile Portrait size smaller than 768 (devices and browsers) */
 
-@media only screen and (max-width: 767px) { 
+@media only screen and (max-width: 767px) {
 	table.schedule {
 	    margin-left: auto;
 	    margin-right: auto;
