@@ -10,7 +10,7 @@
 .game-official-state-Requested { background-color: lightsteelblue; }
 
 .game-official-state-Pending   { background-color: lightsteelblue; }
-.game-official-state-Published {  }
+.game-official-state-Published { background-color: lightyellow; }
 .game-official-state-Notified  {  }
 .game-official-state-Reviewing {  }
 
@@ -26,3 +26,10 @@
 .game-official-conflict-area    { background-color: gold; }
 .game-official-conflict-section { }
 .game-official-conflict-none    { }
+
+/* =======================================
+ * Assign role
+ */
+.game-official-assign-role-ROLE_USER         { }
+.game-official-assign-role-ROLE_ASSIGNOR     { }
+.game-official-assign-role-ROLE_ASSIGNOR_KAC { background-color: magenta; }
