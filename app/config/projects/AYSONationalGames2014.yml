@@ -77,7 +77,7 @@ AYSONationalGames2014:
         choices:
           All: All
           Core:  Core
-          Extra: Extra
+          #Extra: Extra
     
     #times: # Want this to be a select
     #  start: 0600
