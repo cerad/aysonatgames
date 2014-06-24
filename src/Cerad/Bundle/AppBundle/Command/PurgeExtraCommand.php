@@ -29,18 +29,21 @@ class PurgeExtraCommand extends ContainerAwareCommand
         $gameRepo = $this->getService('cerad_game__game_repository');
         $gameConn = $this->getService('doctrine.dbal.games_connection');
         
+        $projectKey = 'AYSONationalGames2014';
+        
+        $levelKeys = array(
+            'AYSO_VIP_Extra' ,
+            'AYSO_U10G_Extra','AYSO_U10B_Extra',
+            'AYSO_U12G_Extra','AYSO_U12B_Extra',
+            'AYSO_U14G_Extra','AYSO_U14B_Extra',
+            'AYSO_U16G_Extra','AYSO_U16B_Extra',
+            'AYSO_U19G_Extra','AYSO_U19B_Extra',
+        );
+ 
         $criteria = array(
-            'levelKeys' => array(
-                'AYSO_VIP_Extra' ,
-                'AYSO_U10G_Extra','AYSO_U10B_Extra',
-                'AYSO_U12G_Extra','AYSO_U12B_Extra',
-                'AYSO_U14G_Extra','AYSO_U14B_Extra',
-                'AYSO_U16G_Extra','AYSO_U16B_Extra',
-                'AYSO_U19G_Extra','AYSO_U19B_Extra',
-            ),
-            'projectKeys'   => array('AYSONationalGames2014'),
+            'levelKeys'     => $levelKeys,
+            'projectKeys'   => array($projectKey),
             'wantOfficials' => true,
-            
         );
         $games = $gameRepo->queryGameSchedule($criteria);
         
@@ -53,7 +56,16 @@ class PurgeExtraCommand extends ContainerAwareCommand
           //$gameRepo->remove($game);
             $this->removeGame($gameConn,$game);
         }
-      //$gameRepo->flush();
+        $gameRepo->flush();
+        
+        $teamRepo = $this->getService('cerad_game__team_repository');
+        $teams = $teamRepo->findAllByProjectLevels($projectKey,$levelKeys);
+        echo sprintf("Purge Team Count %d\n",count($teams));
+        foreach($teams as $team)
+        {
+            $teamRepo->remove($team);
+        }
+        $teamRepo->flush();
         
         return; if ($output);
     }
