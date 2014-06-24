@@ -1,0 +1,11 @@
+{{ form_start(form) }}
+<table>
+  <tr><th class="dwide">Project Person Search Form</th></tr>
+  <tr><td style="text-align: center;">
+    {{ form_widget(form.roles) }}
+  </td></tr>
+  <tr><td class="text-right">{{ form_widget(form.search) }}</td></tr>
+</table>
+<div style="display:none">{{ form_rest(form) }}</div>
+{{ form_end (form) }}
+
