@@ -39,6 +39,9 @@ class ScheduleAssignorShowModel extends ScheduleShowModel
         
         // Filter games here
         $matches = array();
+        if(empty($this->criteria['select'])){
+            $this->criteria['select'] = array();
+        }
         
         foreach ($games as $game){
             $unassigned = false;
