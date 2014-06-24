@@ -6,12 +6,12 @@ parameters:
       viewMenu:    false
       viewTeams:   true
       viewGames:   true
-      viewResults: true
+      viewResults: false
         
     ROLE_USER:
       viewTeams:   true
       viewGames:   true
-      viewResults: true
+      viewResults: false
       allowSignup:           true
       allowSignupMedalRound: false
         
