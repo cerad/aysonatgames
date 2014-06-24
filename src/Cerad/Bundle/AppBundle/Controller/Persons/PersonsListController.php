@@ -12,44 +12,44 @@ class PersonsListController extends MyBaseController
     {
         // Security
         if (!$this->hasRoleStaff()) { return $this->redirect('cerad_tourn_welcome'); }
-        
+
         $model = $this->createModel($request);
         if (isset($model['response'])) return $model['response'];
-        
+
         $project = $model['project'];
         $persons = $model['persons'];
-        
-        if ($_format == 'xls') 
+
+        if ($_format == 'xls')
         {
             $export = $this->get('cerad_tourn.officials.export_xls');
 
             $export->generate($project,$persons);
-            
-            $outFileName = 'Persons' . date('Ymd-Hi') . '.xls';
-        
+
+            $outFileName = $this->getOutFilename();
+
             $response = new Response();
             $response->setContent($export->getBuffer());
             $response->headers->set('Content-Type', 'application/vnd.ms-excel');
             $response->headers->set('Content-Disposition', "attachment; filename=\"$outFileName\"");
-            
+
             return $response;
-           
+
         }
         $tplData = array();
         $tplData['project'] = $project;
         $tplData['persons'] = $persons;
         $tplData['fedRole'] = $project->getFedRole();
-        
+
         $tplName = $request->get('_template');
-        return $this->render($tplName,$tplData);   
+        return $this->render($tplName,$tplData);
     }
     public function createModel(Request $request)
     {
         $project = $this->getProject();
-        
+
         $personRepo = $this->get('cerad_person.person_repository');
         $persons = $personRepo->query(array($project->getId()));
-        
+
         $model = array();
         $model['slug']    = $project->getSlug();
         $model['project'] = $project;
@@ -71,6 +71,6 @@ class PersonsListController extends MyBaseController
     {
       return 'Persons' . date('Ymd-Hi') . '.xls';
     }
-    
+
 }
 ?>

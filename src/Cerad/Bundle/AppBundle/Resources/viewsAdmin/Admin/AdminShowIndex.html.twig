@@ -1,4 +1,4 @@
-{# @Cerad/AppBundle/Resources/viewsAdmin/Admin/AdminShowIndex.html.twig  #} 
+{# @Cerad/AppBundle/Resources/viewsAdmin/Admin/AdminShowIndex.html.twig  #}
 {% extends '@CeradTourn/Layout.html.twig' %}
 {% set _project = 'natgames' %}
 
@@ -23,7 +23,7 @@
         }}">Export Core Sportsmanship Standings (Excel)</a></li>
       <li><a href="{{ path('cerad_game__project__results_poolplay__show',
         { '_project': _project, '_format':'xls', 'programs':'extra' })
-        }}">Export Extra Pool Play Results (Excel)</a></li>    
+        }}">Export Extra Pool Play Results (Excel)</a></li>
       <li><a href="{{ path('cerad_game__project__results_playoffs__show',
         { '_project': _project, '_format':'xls', 'programs':'extra' })
         }}">Export Extra Medal Round Results (Excel)</a></li>
@@ -38,15 +38,15 @@
   <ul><h2>Schedule Management</h2>
     <li><a href="{{ path('cerad_game__project__schedule_game__show', { '_project': _project }) }}">View Game Schedule</a></li>
     <li><a href="{{ path('cerad_game__project__schedule_team__show', { '_project': _project }) }}">View Team Schedule</a></li>
-    <li><a href="{{ path('cerad_game__project__schedule_game__show', 
-        { '_project': _project,'_format' : 'xls','program' : 'Core', 'all': 1 }) 
+    <li><a href="{{ path('cerad_game__project__schedule_game__show',
+        { '_project': _project,'_format' : 'xls','program' : 'Core', 'all': 1 })
         }}">Export Core Game Schedule (Excel)</a></li>
-    <li><a href="{{ path('cerad_game__project__schedule_game__show', 
-        { '_project': _project,'_format' : 'xls','program' : 'Extra','all': 1 }) 
+    <li><a href="{{ path('cerad_game__project__schedule_game__show',
+        { '_project': _project,'_format' : 'xls','program' : 'Extra','all': 1 })
         }}">Export Extra Game Schedule (Excel)
     </a></li>
 {% if is_granted('ROLE_SCORE_ADMIN')  %}
-    <li><a href="{{ path('cerad_game__project__schedule_game__import', 
+    <li><a href="{{ path('cerad_game__project__schedule_game__import',
         { '_project': _project }) }}">
         Import Game Schedule (Excel)
     </a></li>
@@ -59,7 +59,7 @@
     <li>{#<a href="{{ path('cerad_game__project__teams__show',   { '_project': _project }) }}">#}View Teams</a></li>
     <li><a href="{{ path('cerad_game__project__teams__export', { '_project': _project }) }}">Export Teams (Excel)</a></li>
 {% if is_granted('ROLE_SCORE_ADMIN')  %}
-    <li><a href="{{ path('cerad_game__project__teams__import', 
+    <li><a href="{{ path('cerad_game__project__teams__import',
         { '_project': _project }) }}">
         Import/Update/Link Teams (Excel)
     </a></li>
@@ -75,20 +75,20 @@
 <div class="admin">
   <ul><h2>Referee Assignments</h2>
     <li><a href="{{ path('cerad_game__project__schedule_assignor__show', { '_project': _project }) }}">View Referee Assignments</a></li>
-    <li><a href="{{ path('cerad_game__project__schedule_assignor__show', 
+    <li><a href="{{ path('cerad_game__project__schedule_assignor__show',
         { '_project': _project,
           '_format' : 'xls',
-          'program' : 'Core', 'all': 1 }) 
+          'program' : 'Core', 'all': 1 })
         }}">Export Core Referee Assignments (Excel)
     </a></li>
-    <li><a href="{{ path('cerad_game__project__schedule_assignor__show', 
+    <li><a href="{{ path('cerad_game__project__schedule_assignor__show',
         { '_project': _project,
           '_format' : 'xls',
-          'program' : 'Extra','all': 1 }) 
+          'program' : 'Extra','all': 1 })
         }}">Export Extra Referee Assignments (Excel)
     </a></li>
 {% if is_granted('ROLE_SUPER_ADMIN') %}
-    <li><a href="{{ path('cerad_game__project__game_officials__assign_by_import', 
+    <li><a href="{{ path('cerad_game__project__game_officials__assign_by_import',
         { '_project' : _project }) }}">
         Import Referee Assignments (Excel)
     </a></li>
@@ -104,7 +104,7 @@
     <li><a href="{{ path('cerad_tourn_admin_persons_list', { '_format' : 'xls' }) }}">Export Registered People (Excel)</a></li>
 {% if is_granted('ROLE_ADMIN') %}
     <li><a href="{{ path('cerad_tourn_admin_unverified_persons_list') }}">View Unverified Registered People</a></li>
-    <li><a href="{{ path('cerad_tourn_admin_persons_list', { '_format' : 'xls' }) }}">Export Unverified Registered People (Excel)</a></li>
+    <li><a href="{{ path('cerad_tourn_admin_unverified_persons_list', { '_format' : 'xls' }) }}">Export Unverified Registered People (Excel)</a></li>
 {% if is_granted('ROLE_SUPER_ADMIN') %}
     <li><a href="{{ path('cerad_tourn_admin_person_feds_sync') }}">Sync eAYSO Information</a></li>
     <li><a href="#">Import AYSO Information</a></li>
