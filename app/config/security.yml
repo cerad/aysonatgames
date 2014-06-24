@@ -29,7 +29,6 @@ security:
           - ROLE_STAFF
           - ROLE_ASSIGNOR_ADMIN 
           - ROLE_SCORE_ADMIN
-          - ROLE_DEVELOPER
           - ROLE_ALLOWED_TO_SWITCH
           
         ROLE_SUPER_ADMIN: 

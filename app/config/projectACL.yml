@@ -4,12 +4,12 @@ parameters:
       
     ROLE_GUEST:
       viewMenu:    false
-      viewTeams:   true
+      viewTeams:   false
       viewGames:   false
       viewResults: false
         
     ROLE_USER:
-      viewTeams:   true
+      viewTeams:   false
       viewGames:   false
       viewResults: false
       allowSignup:           false

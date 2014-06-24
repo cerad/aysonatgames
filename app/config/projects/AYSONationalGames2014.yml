@@ -101,7 +101,7 @@ AYSONationalGames2014:
       select:
         type:   checkbox
         label:  Matches
-        default: ~
+        default: [Assigned, Unassigned]
         choices:
             Assigned: Assigned
             Unassigned: Unassigned

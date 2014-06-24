@@ -18,3 +18,20 @@
       <a href="{{ path('cerad_game__project__schedule_user__show', { '_project': _project }) }}">My Schedule</a>
     </li>
   </ul>
+
+  <li class="has-sub">Referee Schedules
+    <ul>
+      <li>
+        <a href="{{ path('cerad_game__project__schedule_user__show', { '_project': _project }) }}">My Schedule</a>
+      </li>
+      <li>
+        <a href="{{ path('cerad_game__project__schedule_referee__show', { '_project': _project }) }}">Request Assignments</a>
+      </li>
+      {% if is_granted('ROLE_ASSIGNOR') %}
+      <li class="last">
+        <a href="{{ path('cerad_game__project__schedule_assignor__show', { '_project': _project }) }}">Assignor Schedule</a>
+      </li>
+      {% endif %}
+    </ul>
+  </li>
+
