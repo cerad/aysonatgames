@@ -4,15 +4,15 @@ parameters:
       
     ROLE_GUEST:
       viewMenu:    false
-      viewTeams:   false
-      viewGames:   false
-      viewResults: false
+      viewTeams:   true
+      viewGames:   true
+      viewResults: true
         
     ROLE_USER:
-      viewTeams:   false
-      viewGames:   false
-      viewResults: false
-      allowSignup:           false
+      viewTeams:   true
+      viewGames:   true
+      viewResults: true
+      allowSignup:           true
       allowSignupMedalRound: false
         
     ROLE_ASSIGNOR:
@@ -23,8 +23,8 @@ parameters:
         
     ROLE_STAFF:
       viewTeams:   true
-      viewGames:   false
-      viewResults: false
+      viewGames:   true
+      viewResults: true
         
     ROLE_DEVELOPER:
       viewTeams:   true
