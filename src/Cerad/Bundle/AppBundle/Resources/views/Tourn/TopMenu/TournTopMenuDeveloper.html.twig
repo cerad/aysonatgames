@@ -1,5 +1,7 @@
 {# Only gets called for ROLE_DEVELOPER   #}
 
+{% if is_granted('ROLE_SUPER_ADMIN',project) %}
+
   <li class="has-sub">Schedules
     <ul>
       <li>
@@ -23,3 +25,5 @@
       </li>
     </ul>
   </li>
+  
+{% endif %}
