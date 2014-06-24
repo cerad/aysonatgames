@@ -10,8 +10,8 @@
 {% set officialSAR      = cerad_game__game_official__sar      (official) %}
 {% set officialSARClass = cerad_game__game_official__sar_class(official) %}
         
-{% set assignable = true %}
-{% if is_granted('AssignableByAssignor',{ 'official' : official}) %}
+{% set assignable = false %}
+{% if is_granted('AssignableByAssignor',official) %}
   {% set assignable = true %}
 {% endif %}
         
