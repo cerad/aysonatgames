@@ -37,6 +37,8 @@ class ScheduleAssignorShowModel extends ScheduleShowModel
         
         $games = $this->gameRepo->findAllByGameIds($gameIds,true);
         
+        return $games;
+        
         // Filter games here
         $matches = array();
         if(empty($this->criteria['select'])){

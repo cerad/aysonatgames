@@ -16,6 +16,9 @@
 {% if is_granted('ROLE_GUEST',project) %}
 {% include '@CeradTourn/Tourn/TopMenu/TournTopMenuGuest.html.twig' %}
 {% endif %}
-
+        
+{% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+<li class="right">{{ app.user.accountName }} _exit</li>        
+{% endif %}
 </ul>
 </div>
