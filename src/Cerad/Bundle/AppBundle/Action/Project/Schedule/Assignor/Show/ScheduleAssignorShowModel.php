@@ -113,16 +113,26 @@ class ScheduleAssignorShowModel extends ScheduleShowModel
         $gamesx = array();
         foreach($games as $game)
         {
+            $added = false;
+            
             foreach($game->getOfficials() as $gameOfficial)
             {
                 $assignState = $gameOfficial->getAssignState();
-                if ($assignState == $filter) $gamesx[] = $game;
+                if ($assignState == $filter) 
+                {
+                    if (!$added) $gamesx[] = $game;
+                    $added = true;
+                }
                 else
                 {
                     switch($filter)
                     {
                         case 'Issues':
-                            if ($assignState != 'Accepted' || $assignState != 'Approved') $gamesx[] = $game;
+                            if ($assignState != 'Accepted' || $assignState != 'Approved') 
+                            {
+                                if (!$added) $gamesx[] = $game;
+                                $added = true;
+                            }
                             break;
                     }
                 }
