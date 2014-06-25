@@ -8,6 +8,18 @@ use Cerad\Bundle\CoreBundle\Action\ActionFormFactory;
 
 class ScheduleAssignorShowFormFactory extends ActionFormFactory
 {
+    protected function genAssignStateChoices()
+    {
+        return array(
+            'None'      => 'All Games',
+            'Issues'    => 'Games with issues',
+            'Open'      => 'Games with open slots',
+            'Pending'   => 'Games with pending slots',
+            'Published' => 'Games with published slots',
+            'Requested' => 'Games with requested slots',
+            'Turnback'  => 'Games with turnback slots',
+        );
+    }
     public function create(Request $request, $model)
     {   
         $actionUrl = $this->generateUrl(
@@ -36,6 +48,10 @@ class ScheduleAssignorShowFormFactory extends ActionFormFactory
                 'auto_initialize' => false,
             )));     
         }
+       $builder->add('filterByAssignState','choice',array(
+            'label'   => 'State',
+            'choices' => $this->genAssignStateChoices(),
+        ));
         $builder->add('search', 'submit', array(
             'label' => 'Search',
             'attr' => array('class' => 'submit'),
