@@ -101,10 +101,17 @@ AYSONationalGames2014:
       select:
         type:   checkbox
         label:  Matches
-        default: [Assigned, Unassigned]
+        default: [Open,Declined,TurnBack]
         choices:
-            Assigned: Assigned
-            Unassigned: Unassigned
+            All:        All
+            Open:       Open
+            Requested:  Req
+            Reviewing:  Rev
+            Pending:    Pend
+            Published:  Pub
+            Accepted:   Acc
+            Declined:   Dec
+            TurnBack:   TB
     
     # ==================================================
     # Basic volunteer plan

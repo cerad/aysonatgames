@@ -37,9 +37,11 @@
 #}
 
   <tr>
+    <td></td>
+    <td></td>
     {% if form.select is defined %}
       {% set items = form.select %}
-      <td>{% include '@CeradGame/Project/Schedule/Twig/ScheduleSearchCheckboxes.html.twig' %}</td>
+      <td colspan="2">{% include '@CeradGame/Project/Schedule/Twig/ScheduleSearchCheckboxes.html.twig' %}</td>
     {% endif %}
   </tr>
 </table>

@@ -44,32 +44,16 @@ class ScheduleAssignorShowModel extends ScheduleShowModel
         }
         
         foreach ($games as $game){
-            $unassigned = false;
-            $assigned = false;
-           if (in_array('Unassigned', $this->criteria['select'])){              
-               foreach($game->getOfficials() as $official){
-                    $state = strtolower($official->getAssignState());
-                    if ($state == 'open'){
-                      $unassigned = true;  
-                    }
-                }
-            }
-            
-            if (in_array('Assigned', $this->criteria['select'])){
-                foreach($game->getOfficials() as $official){
-                    $state = strtolower($official->getAssignState());
-                    if ($state == 'accepted'){
-                      $assigned = true;  
-                    }
-                }
-            }
-            
-            if ($assigned or $unassigned){
-                $matches[] = $game;                
-            }
-        }
-     
+            foreach($game->getOfficials() as $official){
+                 $state = $official->getAssignState();
+                 if (in_array($state,$this->criteria['select'])){
+                   $matches[] = $game;
+                   break;
+                 }
+             }
+         }
+      
         return $matches;
-
+  
     }
 }
