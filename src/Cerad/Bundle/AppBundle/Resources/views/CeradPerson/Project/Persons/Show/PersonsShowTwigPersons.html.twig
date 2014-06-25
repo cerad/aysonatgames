@@ -1,0 +1,7 @@
+<table>
+  <tr><th class="dwide" colspan="2">Project Persons: {{ projectPersons | length }}</th></tr>
+  <tr><th>Accounts</th><th>Persons</th></tr>
+  {% for projectPerson in projectPersons %}
+    {% include '@CeradPerson/Project/Persons/Show/PersonsShowTwigPerson.html.twig' %}
+  {% endfor %}
+</table>
