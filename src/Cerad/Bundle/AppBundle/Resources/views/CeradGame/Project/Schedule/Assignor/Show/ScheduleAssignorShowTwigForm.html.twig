@@ -9,7 +9,7 @@
       {% set items = form.dates %}
       <td>{% include '@CeradGame/Project/Schedule/Twig/ScheduleSearchCheckboxes.html.twig' %}</td>
     {% endif %}
-      
+
     {% if form.programs is defined %}
       {% set items = form.programs %}
       <td>{% include '@CeradGame/Project/Schedule/Twig/ScheduleSearchCheckboxes.html.twig' %}</td>
@@ -24,8 +24,8 @@
       {% set items = form.ages %}
       <td>{% include '@CeradGame/Project/Schedule/Twig/ScheduleSearchCheckboxes.html.twig' %}</td>
     {% endif %}
-      
-  </tr>  
+
+  </tr>
 {#
       <tr>
 
@@ -34,8 +34,6 @@
       <td colspan="4">{% include '@CeradTourn/Schedule/ScheduleSearchCheckboxes.html.twig' %}</td>
       {% endif %}
       </tr>
-#}
-  <tr><td colspan="4">{{ form_widget(form.filterByAssignState) }}</td></tr>
   <tr>
     <td></td>
     <td></td>
@@ -44,6 +42,15 @@
       <td colspan="2">{% include '@CeradGame/Project/Schedule/Twig/ScheduleSearchCheckboxes.html.twig' %}</td>
     {% endif %}
   </tr>
+#}
+
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="4">{{ form_widget(form.filterByAssignState) }}</td>
+  </tr>
+
 </table>
 
 <div class="layout-block">
@@ -58,4 +65,3 @@
 <div style="display:none">{{ form_rest(form) }}</div>
 {{ form_end (form) }}
 {% endif %}
-

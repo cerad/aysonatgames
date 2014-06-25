@@ -98,20 +98,20 @@ AYSONationalGames2014:
           TOA-RBHS: Redondo Beach High School, Redondo Beach
           TOA-WHS:  West High School, Torrance
           
-      select:
-        type:   checkbox
-        label:  Matches
-        default: [Open,Declined,TurnBack]
-        choices:
-            All:        All
-            Open:       Open
-            Requested:  Req
-            Reviewing:  Rev
-            Pending:    Pend
-            Published:  Pub
-            Accepted:   Acc
-            Declined:   Dec
-            TurnBack:   TB
+      #select:
+      #  type:   checkbox
+      #  label:  Matches
+      #  default: [Open,Declined,TurnBack]
+      #  choices:
+      #      All:        All
+      #      Open:       Open
+      #      Requested:  Req
+      #      Reviewing:  Rev
+      #      Pending:    Pend
+      #      Published:  Pub
+      #      Accepted:   Acc
+      #      Declined:   Dec
+      #      TurnBack:   TB
     
     # ==================================================
     # Basic volunteer plan
