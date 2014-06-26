@@ -160,7 +160,7 @@ hr { width: 100%; margin: 15px auto; clear: both; }
 
 #layout-topmenu { clear: both; width: 100%; }
 
-#layout-block { width: 90%; min-width: 650px; margin-left: auto; margin-right: auto; }
+#layout-block { min-width: 650px; margin-left: auto; margin-right: auto; }
 
 #notes { display: inline-block; padding: 15px 10px 5px; font-size: inherit; }
 
