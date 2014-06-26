@@ -10,7 +10,9 @@
 <div class="admin">
   <ul><h2>Match Reporting</h2>
     <li><a href="{{ path('cerad_game__project__game_report__update',
-      { '_project': _project,'_game':'11001' })
+      { '_project': _project,'_game':'11001' ,
+            'back': app.request.requestUri ~ '#'
+      })
       }}">Enter Match Results</a></li>
      <li><a href="{{ path('cerad_game__project__results_poolplay__show',
         { '_project': _project, '_format': 'xls', 'programs': 'core',})
