@@ -91,6 +91,7 @@ cerad_tourn_account_user_login:
 #                                                  /AccountUserLoginHelp.html.twig
 cerad_tourn_account_user_login_check:
     pattern:  /account-user/check
+    defaults: { _controller: CeradTournBundle:AccountUser/AccountUserLogin:login }
     
 cerad_tourn_account_user_logout:
     pattern:  /account-user/logout
