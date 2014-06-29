@@ -9,8 +9,8 @@
 
 {% set stateClass = 'text-left game-official-state-' ~ official.assignState %}
 
-{% set officialRole = official.role           | slice(0,3) %}
-{% set officialName = official.personNameFull | slice(0,20) %}
+{% set officialRole = official.role           | slice(0, 3) %}
+{% set officialName = official.personNameFull | slice(0,30) %}
 
 {% set assignable = false %}
 {% if is_granted('AssignableByUser',{ 'official' : official, 'personKeys' : personKeys }) %}
