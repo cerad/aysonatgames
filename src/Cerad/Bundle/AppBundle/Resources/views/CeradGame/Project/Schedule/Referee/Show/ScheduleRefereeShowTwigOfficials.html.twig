@@ -11,7 +11,10 @@
 
 {% set officialRole = official.role           | slice(0, 3) %}
 {% set officialName = official.personNameFull | slice(0,30) %}
-
+{% if not is_granted('ViewOfficialName',official) %}
+  {% set officialName = null %}
+{% endif %}
+        
 {% set assignable = false %}
 {% if is_granted('AssignableByUser',{ 'official' : official, 'personKeys' : personKeys }) %}
   {% set assignable = true %}
