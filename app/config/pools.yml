@@ -18,13 +18,15 @@ parameters:
         U19: [A,B,C,D]
     Extra:
       Boys:
-        U10: [A,B,C,D,E, G,H,I,J,K, M,N,O,P,Q]
+       #U10: [A,B,C,D,E, G,H,I,J,K, M,N,O,P,Q]
+        U10: [           G,H,I,J,K, M,N,O,P,Q]
         U12: [A,B,C,D,E,F]
         U14: [A,B,C,D]
         U16: []
         U19: []
       Girls:
-        U10: [A,B,C,D,E, G,H,I,J,K, M,N,O,P,Q]
+       #U10: [A,B,C,D,E, G,H,I,J,K, M,N,O,P,Q]
+        U10: [           G,H,I,J,K, M,N,O,P,Q]
         U12: [A,B,C,D,E,F]
         U14: [A,B,C,D,E]
         U16: []
