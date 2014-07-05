@@ -5,13 +5,15 @@ parameters:
   cerad_project_pools:
     Core:
       Boys:
-        U10: [A,B,C,D, E,F,G,H, I,J,K,L]
+       #U10: [A,B,C,D, E,F,G,H, I,J,K,L]
+        U10: [         E,F,G,H, I,J,K,L]
         U12: [A,B,C,D]
         U14: [A,B,C,D]
         U16: [A,B,C,D]
         U19: [A,B,C,D]
       Girls:
-        U10: [A,B,C,D, E,F,G,H, I,J,K,L]
+       #U10: [A,B,C,D, E,F,G,H, I,J,K,L]
+        U10: [         E,F,G,H, I,J,K,L]
         U12: [A,B,C,D]
         U14: [A,B,C,D]
         U16: [A,B,C,D]
