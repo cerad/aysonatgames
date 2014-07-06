@@ -6,14 +6,14 @@ parameters:
     Core:
       Boys:
        #U10: [A,B,C,D, E,F,G,H, I,J,K,L]
-        U10: [         E,F,G,H, I,J,K,L]
+        U10: [                  I,J,K,L]
         U12: [A,B,C,D]
         U14: [A,B,C,D]
         U16: [A,B,C,D]
         U19: [A,B,C,D]
       Girls:
        #U10: [A,B,C,D, E,F,G,H, I,J,K,L]
-        U10: [         E,F,G,H, I,J,K,L]
+        U10: [                  I,J,K,L]
         U12: [A,B,C,D]
         U14: [A,B,C,D]
         U16: [A,B,C,D]
@@ -21,16 +21,15 @@ parameters:
     Extra:
       Boys:
        #U10: [A,B,C,D,E, G,H,I,J,K, M,N,O,P,Q]
-        U10: [           G,H,I,J,K, M,N,O,P,Q]
+        U10: [                      M,N,O,P,Q]
         U12: [A,B,C,D,E,F]
         U14: [A,B,C,D]
         U16: []
         U19: []
       Girls:
        #U10: [A,B,C,D,E, G,H,I,J,K, M,N,O,P,Q]
-        U10: [           G,H,I,J,K, M,N,O,P,Q]
+        U10: [                      M,N,O,P,Q]
         U12: [A,B,C,D,E,F]
         U14: [A,B,C,D,E]
         U16: []
         U19: []
-        
