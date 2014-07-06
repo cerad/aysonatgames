@@ -1,17 +1,26 @@
 <table>
-{% for programName, programRoutes in routes %} 
+{% for programName, programRoutes in routes %}
   <tr><td class="row-hdr" style="border: 1px solid black;">{{ programName }}</td>
   {% for gender, genderUrls in programRoutes %}
     <td style="border: 1px solid black;">
-    {% for age, url in genderUrls %}      
+    {% for age, url in genderUrls %}
       {% if age != "U10" %}
-      <a href="{{ url }}">{{ age ~ cerad_cap_gender(gender)  }}</a>
-      {% endif %} 
+        {% if programName == 'Extra' %}
+          {% set age = age ~ cerad_cap_gender(gender) %}
+          {% if age == 'U16B' %}
+            <a href="http://zayso.org/natgames2014x/project/natgames/results-poolplay?level=AYSO_U16B_Extra">U16B</a>
+          {% elseif age == 'U16G' %}
+            <a href="http://zayso.org/natgames2014x/project/natgames/results-poolplay?level=AYSO_U16G_Extra">U16G</a>
+          {% else %}
+            <a href="{{ url }}">{{ age }}</a>
+          {% endif %}
+        {% else %}
+          <a href="{{ url }}">{{ age ~ cerad_cap_gender(gender) }}</a>
+        {% endif %}
+      {% endif %}
     {% endfor %} {# ages #}
    </td>
   {% endfor %} {# genders #}
   </tr>
 {% endfor %}{# programs #}
 </table>
-
-
