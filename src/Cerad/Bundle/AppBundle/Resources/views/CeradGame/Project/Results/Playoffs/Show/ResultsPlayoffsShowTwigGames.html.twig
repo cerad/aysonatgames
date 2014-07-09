@@ -41,7 +41,9 @@
 {%endif %}
   </td>
   {#<td>{{ game.status            }}</td> #}
-    <td>{{ game.report.status     }}</td>
+    {% set gameReportStatus = game.report.status %}
+    {% set gameReportStatus = 'Verified' %}
+    <td>{{ gameReportStatus }}</td>
     <td>{{ game.dtBeg.format('D') }} {{ game.dtBeg.format('g:i A') }}</td>
     <td><a href="{{ cerad_tourn_venue_maplink(game.venueName) }}" target="_blank">{{ game.fieldName         }}</a></td>
     <td>{{ cerad_game_group(game) }}</td>
