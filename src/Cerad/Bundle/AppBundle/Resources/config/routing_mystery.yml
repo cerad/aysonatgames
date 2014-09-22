@@ -1,0 +1,24 @@
+# ============================================
+# These are mystery routes generating error emails
+# 22 Spe 2014 
+# Started getting these after the server upgraded to nginx
+# I think they might be 2012 request bu have not tried tracking them down yet
+
+    
+cerad_app_mystery__schedule_public_results:
+    pattern:  /schedule/public/results
+    defaults:
+      _controller: FrameworkBundle:Redirect:urlRedirect
+      path: /welcome
+      
+cerad_app_mystery__schedule_public_team_list:
+    pattern:  /schedule/public/team/list
+    defaults:
+      _controller: FrameworkBundle:Redirect:urlRedirect
+      path: /welcome
+    
+cerad_app_mystery__schedule_public:
+    pattern:  /schedule/public
+    defaults:
+      _controller: FrameworkBundle:Redirect:urlRedirect
+      path: /welcome

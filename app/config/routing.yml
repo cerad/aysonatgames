@@ -21,3 +21,7 @@ cerad_person__routes:
 cerad_game__routes__mystery:
     resource: "@CeradGameBundle/Resources/config/routing_mystery.yml"
     prefix:   /
+    
+cerad_apps__routes__mystery:
+    resource: "@CeradAppBundle/Resources/config/routing_mystery.yml"
+    prefix:   /
